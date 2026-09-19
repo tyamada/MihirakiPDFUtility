@@ -1,0 +1,52 @@
+[
+  {
+    "url": "https://mupdf.com/downloads/archive/mupdf-1.28.2-source.tar.gz",
+    "filename": "mupdf-1.28.2-source.tar.gz",
+    "sha256": "44075a84e329db55b9bef5f342a70fd26d69e48ad1d33cb89d9664581c641156",
+    "upstream_sha256_verified": false,
+    "status": "upstream-source-downloaded-binary-correspondence-not-verified"
+  },
+  {
+    "package": "Pillow==12.3.0",
+    "status": "sdist-downloaded-native-sources-not-yet-verified",
+    "metadata_url": "https://pypi.org/pypi/Pillow/12.3.0/json",
+    "files": [
+      {
+        "filename": "pillow-12.3.0.tar.gz",
+        "url": "https://files.pythonhosted.org/packages/1c/3d/bb7fca845737cf9d7dbde16ed1843984665ff2e0a518f5db43e77ec540b9/pillow-12.3.0.tar.gz",
+        "sha256": "3b8182a766685eaa002637e28b4ec8d6b18819a0c71f579bf0dbaa5830297cce"
+      }
+    ]
+  },
+  {
+    "package": "PyMuPDF==1.28.2",
+    "status": "sdist-downloaded-native-sources-not-yet-verified",
+    "metadata_url": "https://pypi.org/pypi/PyMuPDF/1.28.2/json",
+    "files": [
+      {
+        "filename": "pymupdf-1.28.2.tar.gz",
+        "url": "https://files.pythonhosted.org/packages/a3/fb/b6761fa2d5266f2cdb24c3b91f4023070ab7848381417678e7a289a1d52a/pymupdf-1.28.2.tar.gz",
+        "sha256": "5e0be7908a715aa20333caddd73f1d6f01e4cd0c26e869fa2dd0b7f344da2249"
+      }
+    ]
+  },
+  {
+    "url": "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.11.2-src/pyside-setup-everywhere-src-6.11.2.tar.xz",
+    "filename": "pyside-setup-everywhere-src-6.11.2.tar.xz",
+    "sha256": "cba47efbaad1bedd529725cbc14e21f156c7a19366f07b3edfbb076ffd7afdf8",
+    "upstream_sha256_verified": true,
+    "status": "upstream-source-downloaded-binary-correspondence-not-verified"
+  },
+  {
+    "package": "PySide6==6.11.2",
+    "status": "upstream-source-required",
+    "metadata_url": "https://pypi.org/pypi/PySide6/6.11.2/json"
+  },
+  {
+    "url": "https://download.qt.io/official_releases/qt/6.11/6.11.2/single/qt-everywhere-src-6.11.2.tar.xz",
+    "filename": "qt-everywhere-src-6.11.2.tar.xz",
+    "sha256": "6dcfbca271d76a6502741a2c0dc6fc98ef7dd0b7b4cfd0abcebb285a86a26f33",
+    "upstream_sha256_verified": true,
+    "status": "upstream-source-downloaded-binary-correspondence-not-verified"
+  }
+]
