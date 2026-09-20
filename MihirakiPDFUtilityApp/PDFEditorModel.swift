@@ -205,7 +205,10 @@ final class PDFEditorModel {
             let adjustedSourceIndex = sourceIndex + offset
             guard let sourcePage = document.page(at: adjustedSourceIndex) else { continue }
 
-            let pageBounds = sourcePage.bounds(for: .cropBox)
+            let cropBounds = sourcePage.bounds(for: .cropBox)
+            let pageBounds = cropBounds.width > 0 && cropBounds.height > 0
+                ? cropBounds
+                : sourcePage.bounds(for: .mediaBox)
             guard pageBounds.width > 0, pageBounds.height > 0 else { continue }
             let renderer = UIGraphicsPDFRenderer(
                 bounds: CGRect(origin: .zero, size: pageBounds.size)

@@ -320,7 +320,7 @@ struct PDFEditorModelTests {
         #expect(model.isModified)
     }
 
-    @Test("Blank page insertion ignores a page with an empty crop box")
+    @Test("Blank page insertion falls back to the media box")
     @MainActor
     func insertBlankPageWithEmptyCropBox() throws {
         let url = try makePDF(sizes: [CGSize(width: 200, height: 300)])
@@ -333,8 +333,9 @@ struct PDFEditorModelTests {
 
         model.insertBlankPagesAfterSelection()
 
-        #expect(model.pages.count == 1)
-        #expect(!model.isModified)
+        #expect(model.pages.count == 2)
+        #expect(model.pages[1].page.bounds(for: .cropBox).size == CGSize(width: 200, height: 300))
+        #expect(model.isModified)
     }
 
     @Test("Deleting pages selects the nearest remaining page")
