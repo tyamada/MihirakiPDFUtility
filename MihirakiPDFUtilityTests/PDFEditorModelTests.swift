@@ -320,6 +320,23 @@ struct PDFEditorModelTests {
         #expect(model.isModified)
     }
 
+    @Test("Blank page insertion ignores a page with an empty crop box")
+    @MainActor
+    func insertBlankPageWithEmptyCropBox() throws {
+        let url = try makePDF(sizes: [CGSize(width: 200, height: 300)])
+        defer { try? FileManager.default.removeItem(at: url) }
+
+        let model = PDFEditorModel()
+        model.open(url)
+        model.pages[0].page.setBounds(.zero, for: .cropBox)
+        model.selection = [model.pages[0].id]
+
+        model.insertBlankPagesAfterSelection()
+
+        #expect(model.pages.count == 1)
+        #expect(!model.isModified)
+    }
+
     @Test("Deleting pages selects the nearest remaining page")
     @MainActor
     func deletePagesSelectsNearestPage() throws {
