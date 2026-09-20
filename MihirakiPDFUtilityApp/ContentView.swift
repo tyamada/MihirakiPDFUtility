@@ -155,8 +155,8 @@ struct ContentView: View {
             defaultFilename: model.displayName
         ) { result in
             switch result {
-            case .success:
-                model.didExport()
+            case .success(let url):
+                model.didExport(to: url)
                 if let pendingOpenURL {
                     openDocument(pendingOpenURL)
                     self.pendingOpenURL = nil

@@ -99,8 +99,13 @@ struct PDFEditorModelTests {
         _ = try model.exportDocument()
         #expect(model.isModified)
 
-        model.didExport()
+        let exportedURL = FileManager.default.temporaryDirectory
+            .appending(path: "Renamed Document")
+            .appendingPathExtension("pdf")
+        model.didExport(to: exportedURL)
         #expect(!model.isModified)
+        #expect(model.sourceURL == exportedURL)
+        #expect(model.displayName == "Renamed Document")
 
         model.rotateSelection(by: 90)
         #expect(model.isModified)
@@ -569,7 +574,7 @@ struct PDFEditorModelTests {
 
         model.setViewingPassword("secret")
         #expect(model.isModified)
-        model.didExport()
+        model.didExport(to: url)
 
         model.setViewingPassword("secret")
         #expect(!model.isModified)
@@ -620,7 +625,7 @@ struct PDFEditorModelTests {
             subject: "Sample Subject",
             keywords: "one, two"
         ))
-        model.didExport()
+        model.didExport(to: url)
 
         model.updateMetadata(PDFMetadata(
             title: "  Sample Title\n",

@@ -300,7 +300,8 @@ final class PDFEditorModel {
         return PDFExportDocument(data: data)
     }
 
-    func didExport() {
+    func didExport(to url: URL) {
+        sourceURL = url
         isModified = false
     }
 
