@@ -466,6 +466,39 @@ struct PDFEditorModelTests {
         #expect(!model.isModified)
     }
 
+    @Test("A multi-step editing workflow exports the expected pages")
+    @MainActor
+    func editingWorkflowExport() throws {
+        let url = try makePDF(sizes: [
+            CGSize(width: 100, height: 500),
+            CGSize(width: 200, height: 500),
+            CGSize(width: 300, height: 500)
+        ])
+        defer { try? FileManager.default.removeItem(at: url) }
+
+        let model = PDFEditorModel()
+        model.open(url)
+
+        model.selection = [model.pages[0].id]
+        model.rotateSelection(by: 90)
+        model.insertBlankPagesAfterSelection()
+        #expect(pageWidths(in: model) == [100, 100, 200, 300])
+
+        model.selection = [model.pages[2].id]
+        model.deleteSelection()
+        #expect(pageWidths(in: model) == [100, 100, 300])
+
+        model.selection = [model.pages[1].id]
+        model.moveSelectionLater()
+        #expect(pageWidths(in: model) == [100, 300, 100])
+
+        let exported = try model.exportDocument()
+        let reopened = try #require(PDFDocument(data: exported.data))
+        let exportedPages = (0..<reopened.pageCount).compactMap { reopened.page(at: $0) }
+        #expect(exportedPages.map { $0.bounds(for: .cropBox).width } == [100, 300, 100])
+        #expect(exportedPages.map(\.rotation) == [90, 0, 90])
+    }
+
     @Test("A password-protected PDF opens after the correct password")
     @MainActor
     func openPasswordProtectedPDF() throws {
