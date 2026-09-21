@@ -11,6 +11,26 @@
         }
       }
     },
+    "App Name" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "アプリ名"
+          }
+        }
+      }
+    },
+    "Application" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "アプリケーション"
+          }
+        }
+      }
+    },
     "Apply" : {
       "localizations" : {
         "ja" : {
@@ -27,6 +47,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "作成者"
+          }
+        }
+      }
+    },
+    "Build" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ビルド"
           }
         }
       }
@@ -57,6 +87,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "パスワードを確認"
+          }
+        }
+      }
+    },
+    "Copyright" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "著作権"
           }
         }
       }
@@ -107,6 +147,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "文書のプロパティ"
+          }
+        }
+      }
+    },
+    "Done" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "完了"
           }
         }
       }
@@ -248,6 +298,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "左から右"
+          }
+        }
+      }
+    },
+    "License" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ライセンス"
           }
         }
       }
@@ -798,6 +858,26 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "名称未設定"
+          }
+        }
+      }
+    },
+    "Version" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "バージョン"
+          }
+        }
+      }
+    },
+    "Version Information" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "バージョン情報"
           }
         }
       }

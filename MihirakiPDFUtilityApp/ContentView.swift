@@ -11,6 +11,7 @@ struct ContentView: View {
     @State private var isExportingSelection = false
     @State private var isConfirmingOpen = false
     @State private var isPresentingProperties = false
+    @State private var isPresentingVersionInformation = false
     @State private var isSettingPassword = false
     @State private var isRequestingPassword = false
     @State private var exportDocument: PDFExportDocument?
@@ -70,6 +71,10 @@ struct ContentView: View {
                             isPresentingProperties = true
                         }
                         .disabled(model.document == nil)
+
+                        Button("Version Information", systemImage: "info.circle") {
+                            isPresentingVersionInformation = true
+                        }
 
                         Button("Set Password", systemImage: "lock") {
                             isSettingPassword = true
@@ -286,6 +291,9 @@ struct ContentView: View {
                 model.updateViewerPreferences(viewerPreferences)
             }
         }
+        .sheet(isPresented: $isPresentingVersionInformation) {
+            AppVersionInformationView(info: AppVersionInfo())
+        }
         .onOpenURL { url in
             requestOpen(url)
         }
@@ -366,6 +374,36 @@ struct ContentView: View {
         guard cocoaError.domain != NSCocoaErrorDomain
                 || cocoaError.code != NSUserCancelledError else { return }
         model.errorMessage = error.localizedDescription
+    }
+}
+
+private struct AppVersionInformationView: View {
+    @Environment(\.dismiss) private var dismiss
+
+    let info: AppVersionInfo
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section("Application") {
+                    LabeledContent("App Name", value: info.appName)
+                    LabeledContent("Version", value: info.versionNumber)
+                    LabeledContent("Build", value: info.buildNumber)
+                    LabeledContent("Copyright", value: info.copyright)
+                }
+
+                Section("License") {
+                    Text(info.license)
+                        .textSelection(.enabled)
+                }
+            }
+            .navigationTitle("Version Information")
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Done") { dismiss() }
+                }
+            }
+        }
     }
 }
 

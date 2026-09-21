@@ -6,6 +6,37 @@ import UIKit
 
 @Suite("PDF editor model")
 struct PDFEditorModelTests {
+    @Test("App version information is read from bundle metadata")
+    func appVersionInformation() {
+        let info = AppVersionInfo(infoDictionary: [
+            "CFBundleDisplayName": "Test PDF App",
+            "CFBundleName": "Fallback Name",
+            "CFBundleShortVersionString": "1.2.3",
+            "CFBundleVersion": "45",
+            "NSHumanReadableCopyright": "Copyright © Test"
+        ])
+
+        #expect(info.appName == "Test PDF App")
+        #expect(info.versionNumber == "1.2.3")
+        #expect(info.buildNumber == "45")
+        #expect(info.copyright == "Copyright © Test")
+        #expect(info.license.contains("AGPL-3.0-only"))
+    }
+
+    @Test("App version information has safe fallbacks")
+    func appVersionInformationFallbacks() {
+        let info = AppVersionInfo(infoDictionary: [
+            "CFBundleName": "Fallback Name",
+            "CFBundleShortVersionString": " ",
+            "CFBundleVersion": 7
+        ])
+
+        #expect(info.appName == "Fallback Name")
+        #expect(info.versionNumber == "-")
+        #expect(info.buildNumber == "-")
+        #expect(info.copyright == "-")
+    }
+
     @Test("Editing without an open document is safely rejected")
     @MainActor
     func operationsWithoutDocument() throws {

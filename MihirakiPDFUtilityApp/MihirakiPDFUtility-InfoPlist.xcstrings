@@ -36,6 +36,18 @@
           }
         }
       }
+    },
+    "NSHumanReadableCopyright" : {
+      "comment" : "Copyright (human-readable)",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Copyright © 2026 tyamada"
+          }
+        }
+      }
     }
   },
   "version" : "1.3"
