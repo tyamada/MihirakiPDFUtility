@@ -221,7 +221,15 @@ final class PDFEditorModel {
         markModified()
     }
 
+    func insertBlankPagesBeforeSelection() {
+        insertBlankPages(relativeToSelectionBy: 0)
+    }
+
     func insertBlankPagesAfterSelection() {
+        insertBlankPages(relativeToSelectionBy: 1)
+    }
+
+    private func insertBlankPages(relativeToSelectionBy insertionOffset: Int) {
         guard let document else { return }
 
         let selectedIndexes = pages.indices.filter { selection.contains(pages[$0].id) }
@@ -246,7 +254,7 @@ final class PDFEditorModel {
             guard let blankPage = PDFDocument(data: data)?.page(at: 0) else { continue }
             blankPage.rotation = sourcePage.rotation
 
-            let insertionIndex = adjustedSourceIndex + 1
+            let insertionIndex = adjustedSourceIndex + insertionOffset
             document.insert(blankPage, at: insertionIndex)
             insertedIndexes.append(insertionIndex)
         }

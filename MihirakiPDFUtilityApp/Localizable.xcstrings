@@ -142,11 +142,32 @@
       }
     },
     "Insert Blank" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "空白ページを挿入"
+          }
+        }
+      }
+    },
+    "Insert Blank After" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "後に空白ページを挿入"
+          }
+        }
+      }
+    },
+    "Insert Blank Before" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "前に空白ページを挿入"
           }
         }
       }

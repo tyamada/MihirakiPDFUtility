@@ -132,7 +132,12 @@ struct ContentView: View {
                         }
                         .disabled(!model.canEdit)
 
-                        Button("Insert Blank", systemImage: "doc.badge.plus") {
+                        Button("Insert Blank Before", systemImage: "doc.badge.plus") {
+                            model.insertBlankPagesBeforeSelection()
+                        }
+                        .disabled(!model.canEdit)
+
+                        Button("Insert Blank After", systemImage: "doc.badge.plus") {
                             model.insertBlankPagesAfterSelection()
                         }
                         .disabled(!model.canEdit)

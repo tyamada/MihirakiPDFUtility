@@ -22,6 +22,7 @@ struct PDFEditorModelTests {
 
         model.rotateSelection(by: 90)
         model.duplicateSelection()
+        model.insertBlankPagesBeforeSelection()
         model.insertBlankPagesAfterSelection()
         model.deleteSelection()
         model.moveSelectionEarlier()
@@ -404,6 +405,33 @@ struct PDFEditorModelTests {
         #expect(model.selection == [model.pages[1].id, model.pages[4].id])
         #expect(model.pages[1].page.rotation == 90)
         #expect(model.pages[4].page.rotation == 270)
+        #expect(model.isModified)
+    }
+
+    @Test("Blank pages can be inserted before each selected page")
+    @MainActor
+    func insertBlankPagesBeforeSelection() throws {
+        let url = try makePDF(sizes: [
+            CGSize(width: 200, height: 300),
+            CGSize(width: 400, height: 250),
+            CGSize(width: 612, height: 792)
+        ])
+        defer { try? FileManager.default.removeItem(at: url) }
+
+        let model = PDFEditorModel()
+        model.open(url)
+        model.pages[0].page.rotation = 90
+        model.pages[2].page.rotation = 270
+        model.selection = [model.pages[0].id, model.pages[2].id]
+
+        model.insertBlankPagesBeforeSelection()
+
+        #expect(model.pages.count == 5)
+        #expect(model.selection == [model.pages[0].id, model.pages[3].id])
+        #expect(model.pages[0].page.bounds(for: .cropBox).size == model.pages[1].page.bounds(for: .cropBox).size)
+        #expect(model.pages[3].page.bounds(for: .cropBox).size == model.pages[4].page.bounds(for: .cropBox).size)
+        #expect(model.pages[0].page.rotation == 90)
+        #expect(model.pages[3].page.rotation == 270)
         #expect(model.isModified)
     }
 
