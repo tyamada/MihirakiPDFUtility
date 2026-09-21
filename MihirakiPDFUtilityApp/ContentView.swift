@@ -278,7 +278,7 @@ struct ContentView: View {
             PDFPropertiesView(
                 fileName: model.sourceURL?.lastPathComponent ?? model.displayName,
                 pageCount: model.pages.count,
-                pdfVersion: model.documentDetails.version,
+                pdfVersion: model.documentDetails.pdfVersion,
                 metadata: model.metadata,
                 viewerPreferences: model.documentDetails.viewerPreferences
             ) { metadata, viewerPreferences in
@@ -376,13 +376,13 @@ private struct PDFPropertiesView: View {
 
     let fileName: String
     let pageCount: Int
-    let pdfVersion: String
+    let pdfVersion: PDFVersion?
     let onSave: (PDFMetadata, PDFViewerPreferences) -> Void
 
     init(
         fileName: String,
         pageCount: Int,
-        pdfVersion: String,
+        pdfVersion: PDFVersion?,
         metadata: PDFMetadata,
         viewerPreferences: PDFViewerPreferences,
         onSave: @escaping (PDFMetadata, PDFViewerPreferences) -> Void
@@ -412,7 +412,7 @@ private struct PDFPropertiesView: View {
                 }
 
                 Section("Details") {
-                    LabeledContent("PDF Version", value: pdfVersion)
+                    LabeledContent("PDF Version", value: displayedPDFVersion)
 
                     Picker("Page Layout", selection: $viewerPreferences.pageLayout) {
                         ForEach(PDFPageLayout.allCases) { layout in
@@ -422,6 +422,11 @@ private struct PDFPropertiesView: View {
 
                     Toggle("Show Cover", isOn: displaysCover)
                         .disabled(!viewerPreferences.canDisplayCover)
+
+                    LabeledContent("Page Display") {
+                        Text(viewerPreferences.pageDisplayStyle.localizedDescription)
+                            .multilineTextAlignment(.trailing)
+                    }
 
                     Picker("Scroll Direction", selection: readingDirection) {
                         ForEach(PDFReadingDirection.allCases) { direction in
@@ -452,6 +457,15 @@ private struct PDFPropertiesView: View {
         )
     }
 
+    private var displayedPDFVersion: String {
+        guard viewerPreferences.pageLayout.requiresPDFVersion15,
+              let pdfVersion,
+              pdfVersion < PDFVersion(major: 1, minor: 5) else {
+            return pdfVersion?.displayName ?? "-"
+        }
+        return PDFVersion(major: 1, minor: 5).displayName
+    }
+
     private var readingDirection: Binding<PDFReadingDirection> {
         Binding(
             get: { viewerPreferences.readingDirection },
@@ -478,6 +492,25 @@ private extension PDFReadingDirection {
         switch self {
         case .leftToRight: "Left to Right"
         case .rightToLeft: "Right to Left"
+        }
+    }
+}
+
+private extension PDFPageDisplayStyle {
+    var localizedDescription: LocalizedStringResource {
+        switch self {
+        case .singlePage:
+            "Single Page Display"
+        case .singlePageContinuous:
+            "Single Page Display, Scrolling Enabled"
+        case .facingPagesContinuous:
+            "Facing Pages Display, Scrolling Enabled"
+        case .facingPagesCoverContinuous:
+            "Facing Pages Display, Show Cover, Scrolling Enabled"
+        case .facingPages:
+            "Facing Pages Display"
+        case .facingPagesCover:
+            "Facing Pages Display, Show Cover"
         }
     }
 }

@@ -151,6 +151,46 @@
         }
       }
     },
+    "Facing Pages Display" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "見開きページ表示"
+          }
+        }
+      }
+    },
+    "Facing Pages Display, Scrolling Enabled" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "見開きページ表示、スクロール有効"
+          }
+        }
+      }
+    },
+    "Facing Pages Display, Show Cover" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "見開きページ表示、表紙を表示"
+          }
+        }
+      }
+    },
+    "Facing Pages Display, Show Cover, Scrolling Enabled" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "見開きページ表示、表紙を表示、スクロール有効"
+          }
+        }
+      }
+    },
     "File Name" : {
       "localizations" : {
         "ja" : {
@@ -338,6 +378,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "ページ%lld"
+          }
+        }
+      }
+    },
+    "Page Display" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ページを表示"
           }
         }
       }
@@ -568,6 +618,26 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "単一ページ"
+          }
+        }
+      }
+    },
+    "Single Page Display" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "単一ページ表示"
+          }
+        }
+      }
+    },
+    "Single Page Display, Scrolling Enabled" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "単一ページ表示、スクロール有効"
           }
         }
       }

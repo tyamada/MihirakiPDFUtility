@@ -1008,14 +1008,14 @@ struct PDFEditorModelTests {
         ("L2R_TwoColumnRight.pdf", .leftToRight, .twoColumnRight, true),
         ("L2R_TwoPageLeft.pdf", .leftToRight, .twoPageLeft, false),
         ("L2R_TwoPageRight.pdf", .leftToRight, .twoPageRight, true),
-        ("R2L_Cover.pdf", .rightToLeft, .twoPageLeft, true),
-        ("R2L_NoCoer.pdf", .rightToLeft, .twoPageRight, false),
+        ("R2L_Cover.pdf", .rightToLeft, .twoPageRight, true),
+        ("R2L_NoCoer.pdf", .rightToLeft, .twoPageLeft, false),
         ("R2L_SinglePage.pdf", .rightToLeft, .singlePage, false),
         ("R2L_OneColumn.pdf", .rightToLeft, .oneColumn, false),
-        ("R2L_TwoColumnLeft.pdf", .rightToLeft, .twoColumnLeft, true),
-        ("R2L_TwoColumnRight.pdf", .rightToLeft, .twoColumnRight, false),
-        ("R2L_TwoPageLeft.pdf", .rightToLeft, .twoPageLeft, true),
-        ("R2L_TwoPageRight.pdf", .rightToLeft, .twoPageRight, false)
+        ("R2L_TwoColumnLeft.pdf", .rightToLeft, .twoColumnLeft, false),
+        ("R2L_TwoColumnRight.pdf", .rightToLeft, .twoColumnRight, true),
+        ("R2L_TwoPageLeft.pdf", .rightToLeft, .twoPageLeft, false),
+        ("R2L_TwoPageRight.pdf", .rightToLeft, .twoPageRight, true)
     ])
     @MainActor
     func readViewerProperties(
@@ -1040,6 +1040,54 @@ struct PDFEditorModelTests {
         #expect(model.documentDetails.viewerPreferences.displaysCover == displaysCover)
     }
 
+    @Test("Page layouts map to their live display descriptions", arguments: [
+        (PDFPageLayout.singlePage, PDFPageDisplayStyle.singlePage, false),
+        (.oneColumn, .singlePageContinuous, false),
+        (.twoColumnLeft, .facingPagesContinuous, false),
+        (.twoColumnRight, .facingPagesCoverContinuous, true),
+        (.twoPageLeft, .facingPages, false),
+        (.twoPageRight, .facingPagesCover, true)
+    ])
+    func pageDisplayStyle(
+        pageLayout: PDFPageLayout,
+        displayStyle: PDFPageDisplayStyle,
+        displaysCover: Bool
+    ) {
+        let preferences = PDFViewerPreferences(pageLayout: pageLayout)
+
+        #expect(preferences.pageDisplayStyle == displayStyle)
+        #expect(preferences.displaysCover == displaysCover)
+    }
+
+    @Test("Enabling a cover changes left layouts to their right variants", arguments: [
+        (PDFPageLayout.twoColumnLeft, PDFPageLayout.twoColumnRight),
+        (.twoPageLeft, .twoPageRight)
+    ])
+    func enablingCoverChangesPageLayout(
+        originalLayout: PDFPageLayout,
+        expectedLayout: PDFPageLayout
+    ) {
+        var preferences = PDFViewerPreferences(pageLayout: originalLayout)
+
+        preferences.setDisplaysCover(true)
+
+        #expect(preferences.pageLayout == expectedLayout)
+        #expect(preferences.displaysCover)
+    }
+
+    @Test("Changing reading direction does not change page layout or cover")
+    func changingReadingDirectionPreservesLayout() {
+        var preferences = PDFViewerPreferences(
+            pageLayout: .twoPageRight,
+            readingDirection: .leftToRight
+        )
+
+        preferences.setReadingDirection(.rightToLeft)
+
+        #expect(preferences.pageLayout == .twoPageRight)
+        #expect(preferences.displaysCover)
+    }
+
     @Test("Updated viewer properties survive export and reopen")
     @MainActor
     func updateViewerProperties() throws {
@@ -1062,7 +1110,7 @@ struct PDFEditorModelTests {
         let exported = try model.exportDocument()
         let reopenedDetails = PDFDocumentPropertiesReader.read(from: exported.data)
         #expect(reopenedDetails.viewerPreferences == preferences)
-        #expect(reopenedDetails.viewerPreferences.displaysCover)
+        #expect(!reopenedDetails.viewerPreferences.displaysCover)
         #expect(PDFDocument(data: exported.data)?.pageCount == 1)
     }
 

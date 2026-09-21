@@ -23,6 +23,15 @@ enum PDFReadingDirection: String, CaseIterable, Identifiable, Equatable, Sendabl
     var id: Self { self }
 }
 
+enum PDFPageDisplayStyle: Equatable, Sendable {
+    case singlePage
+    case singlePageContinuous
+    case facingPagesContinuous
+    case facingPagesCoverContinuous
+    case facingPages
+    case facingPagesCover
+}
+
 struct PDFViewerPreferences: Equatable, Sendable {
     var pageLayout: PDFPageLayout = .singlePage
     var readingDirection: PDFReadingDirection = .leftToRight
@@ -37,13 +46,23 @@ struct PDFViewerPreferences: Equatable, Sendable {
     }
 
     var displaysCover: Bool {
-        guard canDisplayCover else { return false }
-        switch (readingDirection, pageLayout) {
-        case (.leftToRight, .twoColumnRight), (.leftToRight, .twoPageRight),
-             (.rightToLeft, .twoColumnLeft), (.rightToLeft, .twoPageLeft):
-            return true
-        default:
-            return false
+        pageLayout == .twoColumnRight || pageLayout == .twoPageRight
+    }
+
+    var pageDisplayStyle: PDFPageDisplayStyle {
+        switch pageLayout {
+        case .singlePage:
+            .singlePage
+        case .oneColumn:
+            .singlePageContinuous
+        case .twoColumnLeft:
+            .facingPagesContinuous
+        case .twoColumnRight:
+            .facingPagesCoverContinuous
+        case .twoPageLeft:
+            .facingPages
+        case .twoPageRight:
+            .facingPagesCover
         }
     }
 
@@ -51,37 +70,16 @@ struct PDFViewerPreferences: Equatable, Sendable {
         guard canDisplayCover, displaysCover != self.displaysCover else { return }
         switch pageLayout {
         case .twoColumnLeft, .twoColumnRight:
-            pageLayout = sideLayout(
-                displaysCover: displaysCover,
-                left: .twoColumnLeft,
-                right: .twoColumnRight
-            )
+            pageLayout = displaysCover ? .twoColumnRight : .twoColumnLeft
         case .twoPageLeft, .twoPageRight:
-            pageLayout = sideLayout(
-                displaysCover: displaysCover,
-                left: .twoPageLeft,
-                right: .twoPageRight
-            )
+            pageLayout = displaysCover ? .twoPageRight : .twoPageLeft
         case .singlePage, .oneColumn:
             break
         }
     }
 
     mutating func setReadingDirection(_ direction: PDFReadingDirection) {
-        let preservedCoverSetting = displaysCover
         readingDirection = direction
-        setDisplaysCover(preservedCoverSetting)
-    }
-
-    private func sideLayout(
-        displaysCover: Bool,
-        left: PDFPageLayout,
-        right: PDFPageLayout
-    ) -> PDFPageLayout {
-        let coverIsOnRight = readingDirection == .leftToRight
-            ? displaysCover
-            : !displaysCover
-        return coverIsOnRight ? right : left
     }
 }
 
