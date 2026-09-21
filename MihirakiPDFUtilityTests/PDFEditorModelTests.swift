@@ -1066,6 +1066,66 @@ struct PDFEditorModelTests {
         #expect(PDFDocument(data: exported.data)?.pageCount == 1)
     }
 
+    @Test(
+        "Two-page layouts upgrade PDF 1.4 to PDF 1.5 on export",
+        arguments: [PDFPageLayout.twoPageLeft, .twoPageRight]
+    )
+    @MainActor
+    func twoPageLayoutUpgradesPDFVersion(pageLayout: PDFPageLayout) throws {
+        let url = try makeViewerPreferencesPDF(
+            fileName: "PDF14_\(pageLayout.rawValue).pdf",
+            direction: .leftToRight,
+            pageLayout: pageLayout,
+            version: "1.4"
+        )
+        defer { try? FileManager.default.removeItem(at: url.deletingLastPathComponent()) }
+
+        let model = PDFEditorModel()
+        #expect(model.open(url) == .opened)
+        #expect(model.documentDetails.version == "PDF 1.4")
+
+        let exported = try model.exportDocument()
+        #expect(PDFDocumentPropertiesReader.read(from: exported.data).version == "PDF 1.5")
+        #expect(PDFDocument(data: exported.data)?.pageCount == 1)
+    }
+
+    @Test("Selecting a two-page layout updates the displayed PDF version")
+    @MainActor
+    func selectingTwoPageLayoutUpdatesVersion() throws {
+        let url = try makeViewerPreferencesPDF(
+            fileName: "PDF14_SinglePage.pdf",
+            direction: .leftToRight,
+            pageLayout: .singlePage,
+            version: "1.4"
+        )
+        defer { try? FileManager.default.removeItem(at: url.deletingLastPathComponent()) }
+
+        let model = PDFEditorModel()
+        #expect(model.open(url) == .opened)
+        model.updateViewerPreferences(PDFViewerPreferences(pageLayout: .twoPageRight))
+
+        #expect(model.documentDetails.version == "PDF 1.5")
+        #expect(model.isModified)
+    }
+
+    @Test("Two-page layouts preserve PDF versions newer than 1.5")
+    @MainActor
+    func twoPageLayoutPreservesNewerVersion() throws {
+        let url = try makeViewerPreferencesPDF(
+            fileName: "PDF17_TwoPageLeft.pdf",
+            direction: .leftToRight,
+            pageLayout: .twoPageLeft,
+            version: "1.7"
+        )
+        defer { try? FileManager.default.removeItem(at: url.deletingLastPathComponent()) }
+
+        let model = PDFEditorModel()
+        #expect(model.open(url) == .opened)
+        let exported = try model.exportDocument()
+
+        #expect(PDFDocumentPropertiesReader.read(from: exported.data).version == "PDF 1.7")
+    }
+
     @MainActor
     private func pageWidths(in model: PDFEditorModel) -> [CGFloat] {
         model.pages.map { $0.page.bounds(for: .cropBox).width }
@@ -1094,7 +1154,8 @@ struct PDFEditorModelTests {
     private func makeViewerPreferencesPDF(
         fileName: String,
         direction: PDFReadingDirection,
-        pageLayout: PDFPageLayout
+        pageLayout: PDFPageLayout,
+        version: String = "1.7"
     ) throws -> URL {
         let objects = [
             "<< /Type /Catalog /Pages 2 0 R /PageLayout /\(pageLayout.rawValue) "
@@ -1103,7 +1164,7 @@ struct PDFEditorModelTests {
             "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 100 100] /Contents 4 0 R >>",
             "<< /Length 0 >>\nstream\n\nendstream"
         ]
-        var contents = "%PDF-1.7\n"
+        var contents = "%PDF-\(version)\n"
         var offsets = [Int]()
         for (index, object) in objects.enumerated() {
             offsets.append(contents.utf8.count)

@@ -10,6 +10,10 @@ enum PDFPageLayout: String, CaseIterable, Identifiable, Equatable, Sendable {
     case twoPageRight = "TwoPageRight"
 
     var id: Self { self }
+
+    var requiresPDFVersion15: Bool {
+        self == .twoPageLeft || self == .twoPageRight
+    }
 }
 
 enum PDFReadingDirection: String, CaseIterable, Identifiable, Equatable, Sendable {
@@ -81,9 +85,29 @@ struct PDFViewerPreferences: Equatable, Sendable {
     }
 }
 
+struct PDFVersion: Comparable, Equatable, Sendable {
+    let major: Int
+    let minor: Int
+
+    var displayName: String { "PDF \(major).\(minor)" }
+
+    static func < (left: Self, right: Self) -> Bool {
+        (left.major, left.minor) < (right.major, right.minor)
+    }
+}
+
 struct PDFDocumentDetails: Equatable, Sendable {
-    var version = "-"
+    var pdfVersion: PDFVersion? = nil
     var viewerPreferences = PDFViewerPreferences()
+
+    var version: String { pdfVersion?.displayName ?? "-" }
+
+    mutating func ensureCompatibleVersion() {
+        guard viewerPreferences.pageLayout.requiresPDFVersion15,
+              let pdfVersion,
+              pdfVersion < PDFVersion(major: 1, minor: 5) else { return }
+        self.pdfVersion = PDFVersion(major: 1, minor: 5)
+    }
 }
 
 enum PDFDocumentPropertiesReader {
@@ -98,7 +122,9 @@ enum PDFDocumentPropertiesReader {
         document.getVersion(majorVersion: &majorVersion, minorVersion: &minorVersion)
 
         guard let catalog = document.catalog else {
-            return PDFDocumentDetails(version: "PDF \(majorVersion).\(minorVersion)")
+            return PDFDocumentDetails(
+                pdfVersion: PDFVersion(major: Int(majorVersion), minor: Int(minorVersion))
+            )
         }
         let pageLayout = name(for: "PageLayout", in: catalog)
             .flatMap(PDFPageLayout.init(rawValue:)) ?? .singlePage
@@ -115,7 +141,7 @@ enum PDFDocumentPropertiesReader {
         }
 
         return PDFDocumentDetails(
-            version: "PDF \(majorVersion).\(minorVersion)",
+            pdfVersion: PDFVersion(major: Int(majorVersion), minor: Int(minorVersion)),
             viewerPreferences: PDFViewerPreferences(
                 pageLayout: pageLayout,
                 readingDirection: direction
@@ -139,8 +165,10 @@ enum PDFDocumentPropertiesWriter {
         _ preferences: PDFViewerPreferences,
         to data: Data
     ) -> Data {
-        guard var pdf = String(data: data, encoding: .isoLatin1),
-              let startXrefRange = pdf.range(
+        guard var pdf = String(data: data, encoding: .isoLatin1) else { return data }
+        upgradeVersionIfNeeded(in: &pdf, for: preferences.pageLayout)
+
+        guard let startXrefRange = pdf.range(
                 of: #"startxref\s+(\d+)\s+%%EOF\s*$"#,
                 options: .regularExpression
               ),
@@ -203,6 +231,25 @@ enum PDFDocumentPropertiesWriter {
         pdf += " /Prev \(previousXref) >>\nstartxref\n\(xrefOffset)\n%%EOF\n"
 
         return pdf.data(using: .isoLatin1) ?? data
+    }
+
+    private static func upgradeVersionIfNeeded(
+        in pdf: inout String,
+        for pageLayout: PDFPageLayout
+    ) {
+        guard pageLayout.requiresPDFVersion15,
+              let expression = try? NSRegularExpression(pattern: #"^%PDF-(\d+)\.(\d+)"#),
+              let match = expression.firstMatch(
+                in: pdf,
+                range: NSRange(pdf.startIndex..., in: pdf)
+              ),
+              let majorRange = Range(match.range(at: 1), in: pdf),
+              let minorRange = Range(match.range(at: 2), in: pdf),
+              let major = Int(pdf[majorRange]),
+              let minor = Int(pdf[minorRange]),
+              PDFVersion(major: major, minor: minor) < PDFVersion(major: 1, minor: 5),
+              let headerRange = Range(match.range(at: 0), in: pdf) else { return }
+        pdf.replaceSubrange(headerRange, with: "%PDF-1.5")
     }
 
     private static func byteCount(of value: String) -> Int {

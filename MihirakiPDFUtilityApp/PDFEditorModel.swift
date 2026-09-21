@@ -444,6 +444,7 @@ final class PDFEditorModel {
     func updateViewerPreferences(_ preferences: PDFViewerPreferences) {
         guard document != nil, preferences != documentDetails.viewerPreferences else { return }
         documentDetails.viewerPreferences = preferences
+        documentDetails.ensureCompatibleVersion()
         markModified()
     }
 
