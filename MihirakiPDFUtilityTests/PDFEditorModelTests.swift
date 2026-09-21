@@ -25,8 +25,10 @@ struct PDFEditorModelTests {
         model.insertBlankPagesBeforeSelection()
         model.insertBlankPagesAfterSelection()
         model.deleteSelection()
+        model.moveSelectionToBeginning()
         model.moveSelectionEarlier()
         model.moveSelectionLater()
+        model.moveSelectionToEnd()
         model.reverseSelectionOrder()
         model.setViewingPassword("secret")
 
@@ -40,6 +42,36 @@ struct PDFEditorModelTests {
         #expect(throws: PDFEditorError.self) {
             try model.exportSelectionDocument()
         }
+    }
+
+    @Test("Moving selected pages to either end preserves their relative order")
+    @MainActor
+    func moveSelectedPagesToEnds() throws {
+        let url = try makePDF(sizes: [
+            CGSize(width: 100, height: 500),
+            CGSize(width: 200, height: 500),
+            CGSize(width: 300, height: 500),
+            CGSize(width: 400, height: 500)
+        ])
+        defer { try? FileManager.default.removeItem(at: url) }
+
+        let model = PDFEditorModel()
+        model.open(url)
+        let selectedIDs = [model.pages[1].id, model.pages[3].id]
+        model.selection = Set(selectedIDs)
+
+        model.moveSelectionToBeginning()
+
+        #expect(pageWidths(in: model) == [200, 400, 100, 300])
+        #expect(model.pages.prefix(2).map(\.id) == selectedIDs)
+        #expect(model.selection == Set(selectedIDs))
+        #expect(model.isModified)
+
+        model.moveSelectionToEnd()
+
+        #expect(pageWidths(in: model) == [100, 300, 200, 400])
+        #expect(model.pages.suffix(2).map(\.id) == selectedIDs)
+        #expect(model.selection == Set(selectedIDs))
     }
 
     @Test("Reversing selected pages keeps unselected pages in place")

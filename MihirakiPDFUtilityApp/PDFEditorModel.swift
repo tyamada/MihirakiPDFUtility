@@ -298,6 +298,13 @@ final class PDFEditorModel {
         finishSelectionMoveIfNeeded(moved)
     }
 
+    func moveSelectionToBeginning() {
+        guard canMoveEarlier else { return }
+        pages = selectedItems + pages.filter { !selection.contains($0.id) }
+        rebuildDocumentFromPages()
+        markModified()
+    }
+
     func moveSelectionLater() {
         var moved = false
         for index in pages.indices.reversed() where index < pages.count - 1 {
@@ -307,6 +314,13 @@ final class PDFEditorModel {
             moved = true
         }
         finishSelectionMoveIfNeeded(moved)
+    }
+
+    func moveSelectionToEnd() {
+        guard canMoveLater else { return }
+        pages = pages.filter { !selection.contains($0.id) } + selectedItems
+        rebuildDocumentFromPages()
+        markModified()
     }
 
     func reverseSelectionOrder() {

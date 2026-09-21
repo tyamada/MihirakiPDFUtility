@@ -102,6 +102,11 @@ struct ContentView: View {
 
                         Divider()
 
+                        Button("Move to Beginning", systemImage: "arrow.up.to.line") {
+                            model.moveSelectionToBeginning()
+                        }
+                        .disabled(!model.canMoveEarlier)
+
                         Button("Move Earlier", systemImage: "arrow.up") {
                             model.moveSelectionEarlier()
                         }
@@ -109,6 +114,11 @@ struct ContentView: View {
 
                         Button("Move Later", systemImage: "arrow.down") {
                             model.moveSelectionLater()
+                        }
+                        .disabled(!model.canMoveLater)
+
+                        Button("Move to End", systemImage: "arrow.down.to.line") {
+                            model.moveSelectionToEnd()
                         }
                         .disabled(!model.canMoveLater)
 
