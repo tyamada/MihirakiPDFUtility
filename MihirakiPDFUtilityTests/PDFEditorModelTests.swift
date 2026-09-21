@@ -18,6 +18,7 @@ struct PDFEditorModelTests {
         #expect(!model.canDelete)
         #expect(!model.canMoveEarlier)
         #expect(!model.canMoveLater)
+        #expect(!model.canReverseSelection)
 
         model.rotateSelection(by: 90)
         model.duplicateSelection()
@@ -25,6 +26,7 @@ struct PDFEditorModelTests {
         model.deleteSelection()
         model.moveSelectionEarlier()
         model.moveSelectionLater()
+        model.reverseSelectionOrder()
         model.setViewingPassword("secret")
 
         #expect(!model.isModified)
@@ -37,6 +39,49 @@ struct PDFEditorModelTests {
         #expect(throws: PDFEditorError.self) {
             try model.exportSelectionDocument()
         }
+    }
+
+    @Test("Reversing selected pages keeps unselected pages in place")
+    @MainActor
+    func reverseSelectedPages() throws {
+        let url = try makePDF(sizes: [
+            CGSize(width: 100, height: 500),
+            CGSize(width: 200, height: 500),
+            CGSize(width: 300, height: 500),
+            CGSize(width: 400, height: 500)
+        ])
+        defer { try? FileManager.default.removeItem(at: url) }
+
+        let model = PDFEditorModel()
+        model.open(url)
+        model.selection = [model.pages[0].id, model.pages[2].id, model.pages[3].id]
+
+        #expect(model.canReverseSelection)
+        model.reverseSelectionOrder()
+
+        #expect(pageWidths(in: model) == [400, 200, 300, 100])
+        #expect(model.selection == [model.pages[0].id, model.pages[2].id, model.pages[3].id])
+        #expect(model.isModified)
+    }
+
+    @Test("Reversing fewer than two pages is not a modification")
+    @MainActor
+    func reverseSinglePage() throws {
+        let url = try makePDF(sizes: [
+            CGSize(width: 100, height: 500),
+            CGSize(width: 200, height: 500)
+        ])
+        defer { try? FileManager.default.removeItem(at: url) }
+
+        let model = PDFEditorModel()
+        model.open(url)
+        model.selection = [model.pages[0].id]
+
+        #expect(!model.canReverseSelection)
+        model.reverseSelectionOrder()
+
+        #expect(pageWidths(in: model) == [100, 200])
+        #expect(!model.isModified)
     }
 
     @Test("Exporting a selection includes only selected pages in document order")

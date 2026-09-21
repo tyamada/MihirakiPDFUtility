@@ -301,6 +301,16 @@
         }
       }
     },
+    "Reverse Selection" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "選択したページを逆順"
+          }
+        }
+      }
+    },
     "Rotate Left" : {
       "localizations" : {
         "ja" : {

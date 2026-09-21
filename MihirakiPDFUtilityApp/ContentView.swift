@@ -112,6 +112,11 @@ struct ContentView: View {
                         }
                         .disabled(!model.canMoveLater)
 
+                        Button("Reverse Selection", systemImage: "arrow.up.arrow.down") {
+                            model.reverseSelectionOrder()
+                        }
+                        .disabled(!model.canReverseSelection)
+
                         Button("Rotate Left", systemImage: "rotate.left") {
                             model.rotateSelection(by: -90)
                         }

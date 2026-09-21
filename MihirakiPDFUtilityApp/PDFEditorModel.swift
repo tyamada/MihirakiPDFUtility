@@ -89,6 +89,10 @@ final class PDFEditorModel {
         }
     }
 
+    var canReverseSelection: Bool {
+        selectedItems.count > 1
+    }
+
     @discardableResult
     func open(_ url: URL) -> PDFOpenResult {
         let hasAccess = url.startAccessingSecurityScopedResource()
@@ -295,6 +299,18 @@ final class PDFEditorModel {
             moved = true
         }
         finishSelectionMoveIfNeeded(moved)
+    }
+
+    func reverseSelectionOrder() {
+        let indexes = pages.indices.filter { selection.contains(pages[$0].id) }
+        guard indexes.count > 1 else { return }
+
+        let reversedItems = indexes.map { pages[$0] }.reversed()
+        for (index, item) in zip(indexes, reversedItems) {
+            pages[index] = item
+        }
+        rebuildDocumentFromPages()
+        markModified()
     }
 
     func movePages(fromOffsets offsets: IndexSet, toOffset destination: Int) {
