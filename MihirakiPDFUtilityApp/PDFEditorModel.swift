@@ -31,12 +31,14 @@ struct PDFMetadata: Equatable {
 @Observable
 final class PDFEditorModel {
     private var lockedDocument: PDFDocument?
+    private var lockedDocumentDetails: PDFDocumentDetails?
     private var pendingUnlockAction: PendingUnlockAction?
     private var exportPassword: String?
     private(set) var document: PDFDocument?
     private(set) var pages: [PDFPageItem] = []
     private(set) var sourceURL: URL?
     private(set) var isModified = false
+    private(set) var documentDetails = PDFDocumentDetails()
 
     var selection: Set<PDFPageItem.ID> = []
     var errorMessage: String?
@@ -107,8 +109,10 @@ final class PDFEditorModel {
             guard let loadedDocument = PDFDocument(data: data) else {
                 throw PDFEditorError.invalidDocument
             }
+            let loadedDetails = PDFDocumentPropertiesReader.read(from: data)
             if loadedDocument.isLocked {
                 lockedDocument = loadedDocument
+                lockedDocumentDetails = loadedDetails
                 pendingUnlockAction = .open(url)
                 errorMessage = nil
                 return .passwordRequired
@@ -117,7 +121,7 @@ final class PDFEditorModel {
                 throw PDFEditorError.emptyDocument
             }
 
-            adopt(loadedDocument, from: url)
+            adopt(loadedDocument, details: loadedDetails, from: url)
             return .opened
         } catch {
             errorMessage = error.localizedDescription
@@ -136,7 +140,11 @@ final class PDFEditorModel {
                 cancelPendingUnlock()
                 return false
             }
-            adopt(lockedDocument, from: url)
+            adopt(
+                lockedDocument,
+                details: lockedDocumentDetails ?? PDFDocumentDetails(),
+                from: url
+            )
             exportPassword = password
         case .append:
             do {
@@ -153,6 +161,7 @@ final class PDFEditorModel {
 
     func cancelPendingUnlock() {
         lockedDocument = nil
+        lockedDocumentDetails = nil
         pendingUnlockAction = nil
     }
 
@@ -389,7 +398,11 @@ final class PDFEditorModel {
         guard let data else {
             throw PDFEditorError.noDocument
         }
-        return PDFExportDocument(data: data)
+        let dataWithProperties = PDFDocumentPropertiesWriter.applying(
+            documentDetails.viewerPreferences,
+            to: data
+        )
+        return PDFExportDocument(data: dataWithProperties)
     }
 
     func didExport(to url: URL) {
@@ -428,6 +441,12 @@ final class PDFEditorModel {
         markModified()
     }
 
+    func updateViewerPreferences(_ preferences: PDFViewerPreferences) {
+        guard document != nil, preferences != documentDetails.viewerPreferences else { return }
+        documentDetails.viewerPreferences = preferences
+        markModified()
+    }
+
     func setViewingPassword(_ password: String?) {
         guard document != nil else { return }
         let newPassword = password?.isEmpty == false ? password : nil
@@ -455,8 +474,13 @@ final class PDFEditorModel {
         }
     }
 
-    private func adopt(_ loadedDocument: PDFDocument, from url: URL) {
+    private func adopt(
+        _ loadedDocument: PDFDocument,
+        details: PDFDocumentDetails,
+        from url: URL
+    ) {
         document = loadedDocument
+        documentDetails = details
         exportPassword = nil
         sourceURL = url
         selection.removeAll()

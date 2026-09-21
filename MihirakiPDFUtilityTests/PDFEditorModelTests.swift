@@ -999,6 +999,73 @@ struct PDFEditorModelTests {
         #expect(!model.isModified)
     }
 
+    @Test("PDF viewer properties are read from the supplied test-data matrix", arguments: [
+        ("L2R_Cover.pdf", PDFReadingDirection.leftToRight, PDFPageLayout.twoPageRight, true),
+        ("L2R_NoCoer.pdf", .leftToRight, .twoPageLeft, false),
+        ("L2R_SinglePage.pdf", .leftToRight, .singlePage, false),
+        ("L2R_OneColumn.pdf", .leftToRight, .oneColumn, false),
+        ("L2R_TwoColumnLeft.pdf", .leftToRight, .twoColumnLeft, false),
+        ("L2R_TwoColumnRight.pdf", .leftToRight, .twoColumnRight, true),
+        ("L2R_TwoPageLeft.pdf", .leftToRight, .twoPageLeft, false),
+        ("L2R_TwoPageRight.pdf", .leftToRight, .twoPageRight, true),
+        ("R2L_Cover.pdf", .rightToLeft, .twoPageLeft, true),
+        ("R2L_NoCoer.pdf", .rightToLeft, .twoPageRight, false),
+        ("R2L_SinglePage.pdf", .rightToLeft, .singlePage, false),
+        ("R2L_OneColumn.pdf", .rightToLeft, .oneColumn, false),
+        ("R2L_TwoColumnLeft.pdf", .rightToLeft, .twoColumnLeft, true),
+        ("R2L_TwoColumnRight.pdf", .rightToLeft, .twoColumnRight, false),
+        ("R2L_TwoPageLeft.pdf", .rightToLeft, .twoPageLeft, true),
+        ("R2L_TwoPageRight.pdf", .rightToLeft, .twoPageRight, false)
+    ])
+    @MainActor
+    func readViewerProperties(
+        fileName: String,
+        direction: PDFReadingDirection,
+        pageLayout: PDFPageLayout,
+        displaysCover: Bool
+    ) throws {
+        let url = try makeViewerPreferencesPDF(
+            fileName: fileName,
+            direction: direction,
+            pageLayout: pageLayout
+        )
+        defer { try? FileManager.default.removeItem(at: url.deletingLastPathComponent()) }
+
+        let model = PDFEditorModel()
+        #expect(model.open(url) == .opened)
+        #expect(model.sourceURL?.lastPathComponent == fileName)
+        #expect(model.documentDetails.version == "PDF 1.7")
+        #expect(model.documentDetails.viewerPreferences.readingDirection == direction)
+        #expect(model.documentDetails.viewerPreferences.pageLayout == pageLayout)
+        #expect(model.documentDetails.viewerPreferences.displaysCover == displaysCover)
+    }
+
+    @Test("Updated viewer properties survive export and reopen")
+    @MainActor
+    func updateViewerProperties() throws {
+        let url = try makeViewerPreferencesPDF(
+            fileName: "L2R_SinglePage.pdf",
+            direction: .leftToRight,
+            pageLayout: .singlePage
+        )
+        defer { try? FileManager.default.removeItem(at: url.deletingLastPathComponent()) }
+
+        let model = PDFEditorModel()
+        #expect(model.open(url) == .opened)
+        let preferences = PDFViewerPreferences(
+            pageLayout: .twoColumnLeft,
+            readingDirection: .rightToLeft
+        )
+        model.updateViewerPreferences(preferences)
+        #expect(model.isModified)
+
+        let exported = try model.exportDocument()
+        let reopenedDetails = PDFDocumentPropertiesReader.read(from: exported.data)
+        #expect(reopenedDetails.viewerPreferences == preferences)
+        #expect(reopenedDetails.viewerPreferences.displaysCover)
+        #expect(PDFDocument(data: exported.data)?.pageCount == 1)
+    }
+
     @MainActor
     private func pageWidths(in model: PDFEditorModel) -> [CGFloat] {
         model.pages.map { $0.page.bounds(for: .cropBox).width }
@@ -1021,6 +1088,41 @@ struct PDFEditorModelTests {
             .appendingPathExtension("pdf")
         let data = try #require(document.dataRepresentation())
         try data.write(to: url)
+        return url
+    }
+
+    private func makeViewerPreferencesPDF(
+        fileName: String,
+        direction: PDFReadingDirection,
+        pageLayout: PDFPageLayout
+    ) throws -> URL {
+        let objects = [
+            "<< /Type /Catalog /Pages 2 0 R /PageLayout /\(pageLayout.rawValue) "
+                + "/ViewerPreferences << /Direction /\(direction.rawValue) >> >>",
+            "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+            "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 100 100] /Contents 4 0 R >>",
+            "<< /Length 0 >>\nstream\n\nendstream"
+        ]
+        var contents = "%PDF-1.7\n"
+        var offsets = [Int]()
+        for (index, object) in objects.enumerated() {
+            offsets.append(contents.utf8.count)
+            contents += "\(index + 1) 0 obj\n\(object)\nendobj\n"
+        }
+        let crossReferenceOffset = contents.utf8.count
+        contents += "xref\n0 5\n0000000000 65535 f \n"
+        for offset in offsets {
+            contents += String(format: "%010d 00000 n \n", offset)
+        }
+        contents += "trailer\n<< /Size 5 /Root 1 0 R >>\n"
+        contents += "startxref\n\(crossReferenceOffset)\n%%EOF\n"
+
+        let directory = FileManager.default.temporaryDirectory
+            .appending(path: UUID().uuidString, directoryHint: .isDirectory)
+            .appending(path: "testdata", directoryHint: .isDirectory)
+        try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        let url = directory.appending(path: fileName)
+        try Data(contents.utf8).write(to: url)
         return url
     }
 

@@ -81,6 +81,16 @@
         }
       }
     },
+    "Details" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "詳細情報"
+          }
+        }
+      }
+    },
     "Document" : {
       "localizations" : {
         "ja" : {
@@ -141,6 +151,16 @@
         }
       }
     },
+    "File Name" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ファイル名"
+          }
+        }
+      }
+    },
     "Insert Blank" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -178,6 +198,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "キーワード（カンマ区切り）"
+          }
+        }
+      }
+    },
+    "Left to Right" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "左から右"
           }
         }
       }
@@ -242,6 +272,16 @@
         }
       }
     },
+    "One Column" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "1列"
+          }
+        }
+      }
+    },
     "Open" : {
       "localizations" : {
         "ja" : {
@@ -282,12 +322,32 @@
         }
       }
     },
+    "Overview" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "概要"
+          }
+        }
+      }
+    },
     "Page %lld" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "ページ%lld"
+          }
+        }
+      }
+    },
+    "Page Layout" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ページレイアウト"
           }
         }
       }
@@ -322,6 +382,16 @@
         }
       }
     },
+    "PDF Version" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDFのバージョン"
+          }
+        }
+      }
+    },
     "Properties" : {
       "localizations" : {
         "ja" : {
@@ -348,6 +418,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "選択したページを逆順"
+          }
+        }
+      }
+    },
+    "Right to Left" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "右から左"
           }
         }
       }
@@ -412,6 +492,16 @@
         }
       }
     },
+    "Scroll Direction" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "スクロール方向"
+          }
+        }
+      }
+    },
     "Select All" : {
       "localizations" : {
         "ja" : {
@@ -462,12 +552,32 @@
         }
       }
     },
+    "Show Cover" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "表紙を表示"
+          }
+        }
+      }
+    },
+    "Single Page" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "単一ページ"
+          }
+        }
+      }
+    },
     "Subject" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "件名"
+            "value" : "サブタイトル"
           }
         }
       }
@@ -548,6 +658,46 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "タイトル"
+          }
+        }
+      }
+    },
+    "Two Columns, Left" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "見開き連続（左始まり）"
+          }
+        }
+      }
+    },
+    "Two Columns, Right" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "見開き連続（右始まり）"
+          }
+        }
+      }
+    },
+    "Two Pages, Left" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "見開き（左始まり）"
+          }
+        }
+      }
+    },
+    "Two Pages, Right" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "見開き（右始まり）"
           }
         }
       }

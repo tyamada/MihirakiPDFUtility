@@ -275,8 +275,15 @@ struct ContentView: View {
             Text(model.errorMessage ?? "An unknown error occurred.")
         }
         .sheet(isPresented: $isPresentingProperties) {
-            PDFPropertiesView(pageCount: model.pages.count, metadata: model.metadata) { metadata in
+            PDFPropertiesView(
+                fileName: model.sourceURL?.lastPathComponent ?? model.displayName,
+                pageCount: model.pages.count,
+                pdfVersion: model.documentDetails.version,
+                metadata: model.metadata,
+                viewerPreferences: model.documentDetails.viewerPreferences
+            ) { metadata, viewerPreferences in
                 model.updateMetadata(metadata)
+                model.updateViewerPreferences(viewerPreferences)
             }
         }
         .onOpenURL { url in
@@ -365,27 +372,63 @@ struct ContentView: View {
 private struct PDFPropertiesView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var metadata: PDFMetadata
+    @State private var viewerPreferences: PDFViewerPreferences
 
+    let fileName: String
     let pageCount: Int
-    let onSave: (PDFMetadata) -> Void
+    let pdfVersion: String
+    let onSave: (PDFMetadata, PDFViewerPreferences) -> Void
 
-    init(pageCount: Int, metadata: PDFMetadata, onSave: @escaping (PDFMetadata) -> Void) {
+    init(
+        fileName: String,
+        pageCount: Int,
+        pdfVersion: String,
+        metadata: PDFMetadata,
+        viewerPreferences: PDFViewerPreferences,
+        onSave: @escaping (PDFMetadata, PDFViewerPreferences) -> Void
+    ) {
+        self.fileName = fileName
         self.pageCount = pageCount
+        self.pdfVersion = pdfVersion
         _metadata = State(initialValue: metadata)
+        _viewerPreferences = State(initialValue: viewerPreferences)
         self.onSave = onSave
     }
 
     var body: some View {
         NavigationStack {
             Form {
-                LabeledContent("Pages") {
-                    Text(pageCount, format: .number)
+                Section("Overview") {
+                    LabeledContent("File Name", value: fileName)
+
+                    LabeledContent("Pages") {
+                        Text(pageCount, format: .number)
+                    }
+
+                    TextField("Title", text: $metadata.title)
+                    TextField("Author", text: $metadata.author)
+                    TextField("Subject", text: $metadata.subject)
+                    TextField("Keywords, separated by commas", text: $metadata.keywords)
                 }
 
-                TextField("Title", text: $metadata.title)
-                TextField("Author", text: $metadata.author)
-                TextField("Subject", text: $metadata.subject)
-                TextField("Keywords, separated by commas", text: $metadata.keywords)
+                Section("Details") {
+                    LabeledContent("PDF Version", value: pdfVersion)
+
+                    Picker("Page Layout", selection: $viewerPreferences.pageLayout) {
+                        ForEach(PDFPageLayout.allCases) { layout in
+                            Text(layout.localizedName).tag(layout)
+                        }
+                    }
+
+                    Toggle("Show Cover", isOn: displaysCover)
+                        .disabled(!viewerPreferences.canDisplayCover)
+
+                    Picker("Scroll Direction", selection: readingDirection) {
+                        ForEach(PDFReadingDirection.allCases) { direction in
+                            Text(direction.localizedName).tag(direction)
+                        }
+                    }
+                }
             }
             .navigationTitle("Document Properties")
             .toolbar {
@@ -394,11 +437,47 @@ private struct PDFPropertiesView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Apply") {
-                        onSave(metadata)
+                        onSave(metadata, viewerPreferences)
                         dismiss()
                     }
                 }
             }
+        }
+    }
+
+    private var displaysCover: Binding<Bool> {
+        Binding(
+            get: { viewerPreferences.displaysCover },
+            set: { viewerPreferences.setDisplaysCover($0) }
+        )
+    }
+
+    private var readingDirection: Binding<PDFReadingDirection> {
+        Binding(
+            get: { viewerPreferences.readingDirection },
+            set: { viewerPreferences.setReadingDirection($0) }
+        )
+    }
+}
+
+private extension PDFPageLayout {
+    var localizedName: LocalizedStringResource {
+        switch self {
+        case .singlePage: "Single Page"
+        case .oneColumn: "One Column"
+        case .twoColumnLeft: "Two Columns, Left"
+        case .twoColumnRight: "Two Columns, Right"
+        case .twoPageLeft: "Two Pages, Left"
+        case .twoPageRight: "Two Pages, Right"
+        }
+    }
+}
+
+private extension PDFReadingDirection {
+    var localizedName: LocalizedStringResource {
+        switch self {
+        case .leftToRight: "Left to Right"
+        case .rightToLeft: "Right to Left"
         }
     }
 }
