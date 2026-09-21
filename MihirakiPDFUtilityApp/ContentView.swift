@@ -115,6 +115,11 @@ struct ContentView: View {
                         }
                         .disabled(!model.canEdit)
 
+                        Button("Duplicate", systemImage: "plus.square.on.square") {
+                            model.duplicateSelection()
+                        }
+                        .disabled(!model.canEdit)
+
                         Button("Insert Blank", systemImage: "doc.badge.plus") {
                             model.insertBlankPagesAfterSelection()
                         }

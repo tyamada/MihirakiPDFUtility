@@ -101,6 +101,16 @@
         }
       }
     },
+    "Duplicate" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "複製"
+          }
+        }
+      }
+    },
     "Edit Pages" : {
       "localizations" : {
         "ja" : {

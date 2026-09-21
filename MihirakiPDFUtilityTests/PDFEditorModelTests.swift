@@ -20,6 +20,7 @@ struct PDFEditorModelTests {
         #expect(!model.canMoveLater)
 
         model.rotateSelection(by: 90)
+        model.duplicateSelection()
         model.insertBlankPagesAfterSelection()
         model.deleteSelection()
         model.moveSelectionEarlier()
@@ -291,6 +292,31 @@ struct PDFEditorModelTests {
         #expect(!model.hasViewingPassword)
         #expect(!model.isModified)
         #expect(model.errorMessage == nil)
+    }
+
+    @Test("Duplicated pages follow their originals and become selected")
+    @MainActor
+    func duplicatePages() throws {
+        let url = try makePDF(sizes: [
+            CGSize(width: 200, height: 300),
+            CGSize(width: 400, height: 250),
+            CGSize(width: 612, height: 792)
+        ])
+        defer { try? FileManager.default.removeItem(at: url) }
+
+        let model = PDFEditorModel()
+        model.open(url)
+        model.pages[0].page.rotation = 90
+        model.pages[2].page.rotation = 270
+        model.selection = [model.pages[0].id, model.pages[2].id]
+
+        model.duplicateSelection()
+
+        #expect(pageWidths(in: model) == [200, 200, 400, 612, 612])
+        #expect(model.selection == [model.pages[1].id, model.pages[4].id])
+        #expect(model.pages[1].page.rotation == 90)
+        #expect(model.pages[4].page.rotation == 270)
+        #expect(model.isModified)
     }
 
     @Test("Blank pages match each selected page and become selected")

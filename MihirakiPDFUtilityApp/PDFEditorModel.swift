@@ -194,6 +194,29 @@ final class PDFEditorModel {
         markModified()
     }
 
+    func duplicateSelection() {
+        guard let document else { return }
+
+        let selectedIndexes = pages.indices.filter { selection.contains(pages[$0].id) }
+        guard !selectedIndexes.isEmpty else { return }
+
+        var duplicatedIndexes: [Int] = []
+        for (offset, sourceIndex) in selectedIndexes.enumerated() {
+            let adjustedSourceIndex = sourceIndex + offset
+            guard let sourcePage = document.page(at: adjustedSourceIndex),
+                  let duplicatedPage = sourcePage.copy() as? PDFPage else { continue }
+
+            let insertionIndex = adjustedSourceIndex + 1
+            document.insert(duplicatedPage, at: insertionIndex)
+            duplicatedIndexes.append(insertionIndex)
+        }
+
+        guard !duplicatedIndexes.isEmpty else { return }
+        reloadPages()
+        selection = Set(duplicatedIndexes.map { pages[$0].id })
+        markModified()
+    }
+
     func insertBlankPagesAfterSelection() {
         guard let document else { return }
 
