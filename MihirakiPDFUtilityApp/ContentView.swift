@@ -8,11 +8,13 @@ struct ContentView: View {
     @State private var isImporting = false
     @State private var isAppending = false
     @State private var isExporting = false
+    @State private var isExportingSelection = false
     @State private var isConfirmingOpen = false
     @State private var isPresentingProperties = false
     @State private var isSettingPassword = false
     @State private var isRequestingPassword = false
     @State private var exportDocument: PDFExportDocument?
+    @State private var selectionExportDocument: PDFExportDocument?
     @State private var pendingOpenURL: URL?
     @State private var password = ""
     @State private var passwordMessage: LocalizedStringResource = "Enter the password required to open this PDF."
@@ -93,6 +95,11 @@ struct ContentView: View {
                         }
                         .disabled(model.selection.isEmpty)
 
+                        Button("Save Selection", systemImage: "square.and.arrow.down") {
+                            prepareSelectionExport()
+                        }
+                        .disabled(!model.canEdit)
+
                         Divider()
 
                         Button("Move Earlier", systemImage: "arrow.up") {
@@ -171,6 +178,17 @@ struct ContentView: View {
                 pendingOpenURL = nil
             }
             exportDocument = nil
+        }
+        .fileExporter(
+            isPresented: $isExportingSelection,
+            document: selectionExportDocument,
+            contentType: .pdf,
+            defaultFilename: "\(model.displayName)-selection"
+        ) { result in
+            if case let .failure(error) = result {
+                presentFileErrorUnlessCancelled(error)
+            }
+            selectionExportDocument = nil
         }
         .confirmationDialog(
             "Unsaved Changes",
@@ -272,6 +290,15 @@ struct ContentView: View {
         do {
             exportDocument = try model.exportDocument()
             isExporting = true
+        } catch {
+            model.errorMessage = error.localizedDescription
+        }
+    }
+
+    private func prepareSelectionExport() {
+        do {
+            selectionExportDocument = try model.exportSelectionDocument()
+            isExportingSelection = true
         } catch {
             model.errorMessage = error.localizedDescription
         }

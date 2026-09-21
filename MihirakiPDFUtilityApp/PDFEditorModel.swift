@@ -310,16 +310,43 @@ final class PDFEditorModel {
     }
 
     func exportDocument() throws -> PDFExportDocument {
+        guard let document else {
+            throw PDFEditorError.noDocument
+        }
+        return try exportDocument(from: document)
+    }
+
+    func exportSelectionDocument() throws -> PDFExportDocument {
+        guard document != nil else {
+            throw PDFEditorError.noDocument
+        }
+        let items = selectedItems
+        guard !items.isEmpty else {
+            throw PDFEditorError.noSelection
+        }
+
+        let selectedDocument = PDFDocument()
+        selectedDocument.documentAttributes = document?.documentAttributes
+        for (index, item) in items.enumerated() {
+            guard let page = item.page.copy() as? PDFPage else {
+                throw PDFEditorError.invalidDocument
+            }
+            selectedDocument.insert(page, at: index)
+        }
+        return try exportDocument(from: selectedDocument)
+    }
+
+    private func exportDocument(from document: PDFDocument) throws -> PDFExportDocument {
         let data: Data?
         if let exportPassword {
-            data = document?.dataRepresentation(options: [
+            data = document.dataRepresentation(options: [
                 PDFDocumentWriteOption.userPasswordOption: exportPassword,
                 PDFDocumentWriteOption.ownerPasswordOption: exportPassword
             ])
-        } else if document?.isEncrypted == true {
+        } else if document.isEncrypted {
             data = unencryptedDocumentCopy()?.dataRepresentation()
         } else {
-            data = document?.dataRepresentation()
+            data = document.dataRepresentation()
         }
         guard let data else {
             throw PDFEditorError.noDocument
@@ -464,6 +491,7 @@ enum PDFEditorError: LocalizedError {
     case emptyDocument
     case invalidDocument
     case noDocument
+    case noSelection
     case passwordRequired
 
     var errorDescription: String? {
@@ -474,6 +502,8 @@ enum PDFEditorError: LocalizedError {
             String(localized: "The selected file is not a valid PDF document.")
         case .noDocument:
             String(localized: "There is no PDF document to save.")
+        case .noSelection:
+            String(localized: "Select at least one page to save.")
         case .passwordRequired:
             String(localized: "The PDF must be unlocked before its pages can be added.")
         }

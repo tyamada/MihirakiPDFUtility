@@ -34,6 +34,49 @@ struct PDFEditorModelTests {
         #expect(throws: PDFEditorError.self) {
             try model.exportDocument()
         }
+        #expect(throws: PDFEditorError.self) {
+            try model.exportSelectionDocument()
+        }
+    }
+
+    @Test("Exporting a selection includes only selected pages in document order")
+    @MainActor
+    func exportSelection() throws {
+        let url = try makePDF(sizes: [
+            CGSize(width: 100, height: 500),
+            CGSize(width: 200, height: 500),
+            CGSize(width: 300, height: 500)
+        ])
+        defer { try? FileManager.default.removeItem(at: url) }
+
+        let model = PDFEditorModel()
+        model.open(url)
+        model.selection = [model.pages[2].id, model.pages[0].id]
+
+        let exported = try model.exportSelectionDocument()
+        let reopened = try #require(PDFDocument(data: exported.data))
+        let widths = (0..<reopened.pageCount).compactMap {
+            reopened.page(at: $0)?.bounds(for: .cropBox).width
+        }
+
+        #expect(widths == [100, 300])
+        #expect(!model.isModified)
+        #expect(model.sourceURL == url)
+    }
+
+    @Test("Exporting without a page selection is rejected")
+    @MainActor
+    func exportEmptySelection() throws {
+        let url = try makePDF(sizes: [CGSize(width: 100, height: 500)])
+        defer { try? FileManager.default.removeItem(at: url) }
+
+        let model = PDFEditorModel()
+        model.open(url)
+
+        #expect(throws: PDFEditorError.self) {
+            try model.exportSelectionDocument()
+        }
+        #expect(!model.isModified)
     }
 
     @Test("Rotation is normalized to a positive full-circle value", arguments: [
