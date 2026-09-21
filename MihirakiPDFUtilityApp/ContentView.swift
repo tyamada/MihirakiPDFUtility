@@ -232,7 +232,7 @@ struct ContentView: View {
             Text(model.errorMessage ?? "An unknown error occurred.")
         }
         .sheet(isPresented: $isPresentingProperties) {
-            PDFPropertiesView(metadata: model.metadata) { metadata in
+            PDFPropertiesView(pageCount: model.pages.count, metadata: model.metadata) { metadata in
                 model.updateMetadata(metadata)
             }
         }
@@ -314,9 +314,11 @@ private struct PDFPropertiesView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var metadata: PDFMetadata
 
+    let pageCount: Int
     let onSave: (PDFMetadata) -> Void
 
-    init(metadata: PDFMetadata, onSave: @escaping (PDFMetadata) -> Void) {
+    init(pageCount: Int, metadata: PDFMetadata, onSave: @escaping (PDFMetadata) -> Void) {
+        self.pageCount = pageCount
         _metadata = State(initialValue: metadata)
         self.onSave = onSave
     }
@@ -324,6 +326,10 @@ private struct PDFPropertiesView: View {
     var body: some View {
         NavigationStack {
             Form {
+                LabeledContent("Pages") {
+                    Text(pageCount, format: .number)
+                }
+
                 TextField("Title", text: $metadata.title)
                 TextField("Author", text: $metadata.author)
                 TextField("Subject", text: $metadata.subject)

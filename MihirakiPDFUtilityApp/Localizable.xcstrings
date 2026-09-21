@@ -241,6 +241,16 @@
         }
       }
     },
+    "Pages" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ページ数"
+          }
+        }
+      }
+    },
     "Password" : {
       "localizations" : {
         "ja" : {
