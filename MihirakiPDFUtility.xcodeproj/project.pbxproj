@@ -146,6 +146,17 @@
 				en,
 				Base,
 				ja,
+				ko,
+				"zh-Hant",
+				de,
+				fr,
+				es,
+				pt,
+				"zh-Hans",
+				vi,
+				fil,
+				ne,
+				id,
 			);
 			mainGroup = A40000000000000000000001;
 			preferredProjectObjectVersion = 77;
