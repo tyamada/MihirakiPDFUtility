@@ -1,5 +1,7 @@
 # MihirakiPDFUtility
 
+[English](README_en.md) | 日本語
+
 MihirakiPDFUtilityは、PDFページの並べ替え、回転、挿入、削除などをローカル環境で行うAppleプラットフォーム向けアプリです。
 
 このリポジトリは、Takuma Yamadaが作成したFolimeldのコードと仕様を移植元として、新しいMITライセンスのアプリを開発するために作成されました。
@@ -16,8 +18,17 @@ MihirakiPDFUtilityは、PDFページの並べ替え、回転、挿入、削除�
 - パスワード保護PDFを開くためのパスワード入力
 - タイトル、作成者、件名、キーワードの文書プロパティ編集
 - 書き出すPDFへの閲覧パスワード設定・解除
-- String Catalogによる英語・日本語UI
+- String Catalogによる13言語UI
 - Filesアプリや共有シートからのPDF直接オープン
+- PDFの文書情報、表示方法、バージョン情報の確認と編集
+- 任意の消耗型アプリ内購入による開発者支援
+- GitHub Pages用のマーケティング、プライバシー、サポートページ
+
+## ウェブサイト
+
+- [マーケティングページ](https://tyamada.github.io/MihirakiPDFUtility/)
+- [プライバシーポリシー](https://tyamada.github.io/MihirakiPDFUtility/privacy.html)
+- [サポート](https://tyamada.github.io/MihirakiPDFUtility/support.html)
 
 ## 対応方針
 
