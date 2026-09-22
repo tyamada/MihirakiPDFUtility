@@ -4,6 +4,7 @@ import UniformTypeIdentifiers
 
 struct ContentView: View {
     @Bindable var model: PDFEditorModel
+    @State private var tipManager = TipManager()
 
     @State private var isImporting = false
     @State private var isAppending = false
@@ -12,6 +13,7 @@ struct ContentView: View {
     @State private var isConfirmingOpen = false
     @State private var isPresentingProperties = false
     @State private var isPresentingVersionInformation = false
+    @State private var isPresentingSupport = false
     @State private var isSettingPassword = false
     @State private var isRequestingPassword = false
     @State private var exportDocument: PDFExportDocument?
@@ -74,6 +76,10 @@ struct ContentView: View {
 
                         Button("Version Information", systemImage: "info.circle") {
                             isPresentingVersionInformation = true
+                        }
+
+                        Button("Support the Developer", systemImage: "heart") {
+                            isPresentingSupport = true
                         }
 
                         Button("Set Password", systemImage: "lock") {
@@ -293,6 +299,9 @@ struct ContentView: View {
         }
         .sheet(isPresented: $isPresentingVersionInformation) {
             AppVersionInformationView(info: AppVersionInfo())
+        }
+        .sheet(isPresented: $isPresentingSupport) {
+            TipSupportView(tipManager: tipManager)
         }
         .onOpenURL { url in
             requestOpen(url)

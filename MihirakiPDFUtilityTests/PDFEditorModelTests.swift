@@ -6,6 +6,19 @@ import UIKit
 
 @Suite("PDF editor model")
 struct PDFEditorModelTests {
+    @Test("Tip product identifiers match the StoreKit configuration")
+    @MainActor
+    func tipProductIdentifiers() {
+        #expect(TipManager.productIDs == ["tip_100", "tip_500", "tip_1000"])
+    }
+
+    @Test("Tip purchase outcomes compare by value")
+    @MainActor
+    func tipPurchaseOutcomes() {
+        #expect(TipManager.PurchaseOutcome.success == .success)
+        #expect(TipManager.PurchaseOutcome.pending != .cancelled)
+    }
+
     @Test("App version information is read from bundle metadata")
     func appVersionInformation() {
         let info = AppVersionInfo(infoDictionary: [
