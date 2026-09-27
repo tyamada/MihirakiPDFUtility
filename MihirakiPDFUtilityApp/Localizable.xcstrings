@@ -3127,6 +3127,12 @@
         }
       }
     },
+    "No Pages Selected" : {
+
+    },
+    "No PDF Open" : {
+
+    },
     "OK" : {
       "localizations" : {
         "de" : {
@@ -3430,6 +3436,9 @@
           }
         }
       }
+    },
+    "Open a PDF to view its pages." : {
+
     },
     "Open PDF" : {
       "localizations" : {
@@ -5255,7 +5264,13 @@
         }
       }
     },
+    "Select one or more pages in the sidebar to preview them." : {
+
+    },
     "Select pages to move, rotate, duplicate, or delete them." : {
+
+    },
+    "Selected PDF page preview" : {
 
     },
     "Set" : {

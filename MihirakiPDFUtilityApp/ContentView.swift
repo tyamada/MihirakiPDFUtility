@@ -30,6 +30,11 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             Group {
+#if os(macOS)
+                MacPDFWorkspace(model: model) {
+                    isImporting = true
+                }
+#else
                 if model.pages.isEmpty {
                     VStack(spacing: 16) {
                         Image(systemName: "doc.richtext")
@@ -60,10 +65,11 @@ struct ContentView: View {
                 } else {
                     pageList
                 }
+#endif
             }
             .navigationTitle(model.isModified ? "\(model.displayName) *" : model.displayName)
             .toolbar {
-                ToolbarItemGroup(placement: .topBarLeading) {
+                ToolbarItemGroup(placement: .navigation) {
                     Button("Save", systemImage: "square.and.arrow.down") {
                         prepareExport()
                     }
@@ -74,7 +80,7 @@ struct ContentView: View {
                     }
                 }
 
-                ToolbarItemGroup(placement: .topBarTrailing) {
+                ToolbarItemGroup(placement: .primaryAction) {
                     Menu("Edit Pages", systemImage: "ellipsis.circle") {
                         Button("Add PDF", systemImage: "doc.badge.plus") {
                             isAppending = true
@@ -326,6 +332,15 @@ struct ContentView: View {
     }
 
     private var pageList: some View {
+#if os(macOS)
+        pageListContent
+#else
+        pageListContent
+            .environment(\.editMode, .constant(.active))
+#endif
+    }
+
+    private var pageListContent: some View {
         List(selection: $model.selection) {
             ForEach(Array(model.pages.enumerated()), id: \.element.id) { index, item in
                 PDFPageRow(pageNumber: index + 1, page: item.page)
@@ -333,7 +348,6 @@ struct ContentView: View {
             }
             .onMove(perform: model.movePages)
         }
-        .environment(\.editMode, .constant(.active))
     }
 
     private var errorPresented: Binding<Bool> {
@@ -632,7 +646,7 @@ private struct PDFPageRow: View {
 
     var body: some View {
         HStack(spacing: 16) {
-            Image(uiImage: page.thumbnail(of: CGSize(width: 120, height: 160), for: .cropBox))
+            thumbnailImage
                 .resizable()
                 .scaledToFit()
                 .frame(width: 72, height: 96)
@@ -649,4 +663,144 @@ private struct PDFPageRow: View {
         .accessibilityElement(children: .combine)
         .accessibilityLabel("Page \(pageNumber)")
     }
+
+    private var thumbnailImage: Image {
+#if os(macOS)
+        Image(nsImage: page.thumbnail(of: CGSize(width: 120, height: 160), for: .cropBox))
+#else
+        Image(uiImage: page.thumbnail(of: CGSize(width: 120, height: 160), for: .cropBox))
+#endif
+    }
 }
+
+#if os(macOS)
+private struct MacPDFWorkspace: View {
+    @Bindable var model: PDFEditorModel
+    let openDocument: () -> Void
+
+    var body: some View {
+        HSplitView {
+            MacPDFSidebar(
+                pages: model.pages,
+                selection: $model.selection,
+                movePages: model.movePages,
+                openDocument: openDocument
+            )
+            .frame(minWidth: 220, idealWidth: 260, maxWidth: 340)
+
+            MacPDFPreview(
+                pages: model.pages,
+                selection: model.selection,
+                openDocument: openDocument
+            )
+            .frame(minWidth: 480, maxWidth: .infinity, maxHeight: .infinity)
+        }
+    }
+}
+
+private struct MacPDFSidebar: View {
+    let pages: [PDFPageItem]
+    @Binding var selection: Set<PDFPageItem.ID>
+    let movePages: (IndexSet, Int) -> Void
+    let openDocument: () -> Void
+
+    var body: some View {
+        VStack(spacing: 0) {
+            HStack {
+                Label("Pages", systemImage: "rectangle.stack")
+                    .font(.headline)
+                Spacer()
+                Text(pages.count, format: .number)
+                    .foregroundStyle(.secondary)
+                    .monospacedDigit()
+            }
+            .padding(.horizontal)
+            .padding(.vertical, 10)
+
+            Divider()
+
+            if pages.isEmpty {
+                ContentUnavailableView {
+                    Label("No PDF Open", systemImage: "doc.richtext")
+                } description: {
+                    Text("Open a PDF to view its pages.")
+                } actions: {
+                    Button("Open PDF", action: openDocument)
+                        .buttonStyle(.borderedProminent)
+                }
+            } else {
+                List(selection: $selection) {
+                    ForEach(Array(pages.enumerated()), id: \.element.id) { index, item in
+                        PDFPageRow(pageNumber: index + 1, page: item.page)
+                            .tag(item.id)
+                    }
+                    .onMove(perform: movePages)
+                }
+                .listStyle(.sidebar)
+            }
+        }
+        .background(.background)
+    }
+}
+
+private struct MacPDFPreview: View {
+    let pages: [PDFPageItem]
+    let selection: Set<PDFPageItem.ID>
+    let openDocument: () -> Void
+
+    private var selectedPages: [PDFPageItem] {
+        pages.filter { selection.contains($0.id) }
+    }
+
+    var body: some View {
+        if pages.isEmpty {
+            ContentUnavailableView {
+                Label("Open a PDF", systemImage: "doc.richtext")
+            } description: {
+                Text("Choose a PDF to arrange, rotate, or remove pages.")
+            } actions: {
+                Button("Open PDF", action: openDocument)
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
+            }
+        } else if selectedPages.isEmpty {
+            ContentUnavailableView(
+                "No Pages Selected",
+                systemImage: "rectangle.stack.badge.minus",
+                description: Text("Select one or more pages in the sidebar to preview them.")
+            )
+        } else {
+            ScrollView {
+                LazyVStack(spacing: 28) {
+                    ForEach(selectedPages) { item in
+                        MacPDFPreviewPage(page: item.page)
+                    }
+                }
+                .padding(32)
+                .frame(maxWidth: .infinity)
+            }
+            .background(Color(nsColor: .windowBackgroundColor))
+        }
+    }
+}
+
+private struct MacPDFPreviewPage: View {
+    let page: PDFPage
+
+    var body: some View {
+        Image(nsImage: page.thumbnail(of: previewSize, for: .cropBox))
+            .resizable()
+            .scaledToFit()
+            .frame(maxWidth: 760)
+            .background(.white)
+            .shadow(color: .black.opacity(0.2), radius: 10, y: 4)
+            .accessibilityLabel("Selected PDF page preview")
+    }
+
+    private var previewSize: CGSize {
+        let bounds = page.bounds(for: .cropBox)
+        let scale = min(2, 1400 / max(bounds.width, bounds.height))
+        return CGSize(width: bounds.width * scale, height: bounds.height * scale)
+    }
+}
+#endif

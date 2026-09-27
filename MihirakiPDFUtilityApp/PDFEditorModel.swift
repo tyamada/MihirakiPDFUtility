@@ -1,8 +1,8 @@
+import CoreGraphics
 import Foundation
 import Observation
 import PDFKit
 import SwiftUI
-import UIKit
 
 struct PDFPageItem: Identifiable {
     let id = UUID()
@@ -254,13 +254,16 @@ final class PDFEditorModel {
                 ? cropBounds
                 : sourcePage.bounds(for: .mediaBox)
             guard pageBounds.width > 0, pageBounds.height > 0 else { continue }
-            let renderer = UIGraphicsPDFRenderer(
-                bounds: CGRect(origin: .zero, size: pageBounds.size)
-            )
-            let data = renderer.pdfData { context in
-                context.beginPage()
+            let data = NSMutableData()
+            var mediaBox = CGRect(origin: .zero, size: pageBounds.size)
+            guard let consumer = CGDataConsumer(data: data as CFMutableData),
+                  let context = CGContext(consumer: consumer, mediaBox: &mediaBox, nil) else {
+                continue
             }
-            guard let blankPage = PDFDocument(data: data)?.page(at: 0) else { continue }
+            context.beginPDFPage(nil)
+            context.endPDFPage()
+            context.closePDF()
+            guard let blankPage = PDFDocument(data: data as Data)?.page(at: 0) else { continue }
             blankPage.rotation = sourcePage.rotation
 
             let insertionIndex = adjustedSourceIndex + insertionOffset

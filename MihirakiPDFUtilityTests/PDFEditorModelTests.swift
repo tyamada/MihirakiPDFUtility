@@ -1,7 +1,7 @@
+import CoreGraphics
 import Foundation
 import PDFKit
 import Testing
-import UIKit
 @testable import MihirakiPDFUtility
 
 @Suite("PDF editor model")
@@ -33,7 +33,7 @@ struct PDFEditorModelTests {
         #expect(info.versionNumber == "1.2.3")
         #expect(info.buildNumber == "45")
         #expect(info.copyright == "Copyright © Test")
-        #expect(info.license.contains("AGPL-3.0-only"))
+        #expect(info.license == "MIT License")
     }
 
     @Test("App version information has safe fallbacks")
@@ -1226,12 +1226,17 @@ struct PDFEditorModelTests {
     private func makePDF(sizes: [CGSize]) throws -> URL {
         let document = PDFDocument()
         for (index, size) in sizes.enumerated() {
-            let renderer = UIGraphicsImageRenderer(size: size)
-            let image = renderer.image { context in
-                UIColor.white.setFill()
-                context.fill(CGRect(origin: .zero, size: size))
-            }
-            let page = try #require(PDFPage(image: image))
+            let pageData = NSMutableData()
+            let consumer = try #require(CGDataConsumer(data: pageData as CFMutableData))
+            var mediaBox = CGRect(origin: .zero, size: size)
+            let context = try #require(CGContext(consumer: consumer, mediaBox: &mediaBox, nil))
+            context.beginPDFPage(nil)
+            context.setFillColor(gray: 1, alpha: 1)
+            context.fill(mediaBox)
+            context.endPDFPage()
+            context.closePDF()
+            let pageDocument = try #require(PDFDocument(data: pageData as Data))
+            let page = try #require(pageDocument.page(at: 0)?.copy() as? PDFPage)
             document.insert(page, at: index)
         }
 
