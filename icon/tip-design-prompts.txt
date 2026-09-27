@@ -1,0 +1,10 @@
+Tool: built-in image_gen. All deliverables resized to 1024 x 1024 PNG.
+
+Bronze base prompt:
+Create a finished in-app purchase tip icon, 1024x1024 PNG, opaque background. A large circular BRONZE support token centered on warm ivory full-bleed square background, generous 10% margins. Inside the token is a charming wholesome romantic-comedy manga portrait of a schoolgirl wearing a neat navy blazer, white collared shirt and burgundy ribbon tie, chest-up fully clothed, short dark brown bob haircut with a small star hairpin, big expressive brown eyes, gentle grateful smile and slight blush. Clean polished anime linework, cel shading, simple uncluttered composition, tasteful soft metallic highlights. Token thick bronze rim with simple symmetrical engraved dashes. The girl stays entirely within the inner circular medallion. A small bronze plaque integrated into the bottom rim displays exactly '100' in large clear dark type. No other text, no currency sign, no watermark. Cohesive collectible support badge, not a physical scene or mockup. One icon only. Small heart near shoulder expresses thanks. All elements legible at small size.
+
+Silver reference edit: Preserve the bronze character identity, clothing, composition and badge layout. Change metal to silver and plaque text to 500. Cheerful open smile with one eye winking and two tiny pink hearts. Opaque ivory background.
+
+Gold reference edit: Preserve the silver character identity, clothing, composition and badge layout. Change metal to gold and plaque text to 1,000. Joyful smile with both eyes closed, three tiny pink hearts and golden sparkles. Opaque ivory background.
+
+Gold finishing edit: Preserve the gold icon and change only the exterior background to opaque warm ivory #fffcf2.
