@@ -7,6 +7,7 @@ struct ContentView: View {
     @State private var tipManager = TipManager()
 
     @State private var isImporting = false
+    @State private var isImportingFromEmptyState = false
     @State private var isAppending = false
     @State private var isExporting = false
     @State private var isExportingSelection = false
@@ -29,22 +30,32 @@ struct ContentView: View {
         NavigationStack {
             Group {
                 if model.pages.isEmpty {
-                    ContentUnavailableView {
-                        Label {
-                            Text("Open a PDF")
-                        } icon: {
-                            Image(systemName: "doc.richtext")
-                        }
-                        .accessibilityElement(children: .ignore)
-                        .accessibilityLabel("Open a PDF")
-                    } description: {
+                    VStack(spacing: 16) {
+                        Image(systemName: "doc.richtext")
+                            .font(.largeTitle)
+                            .foregroundStyle(.secondary)
+                            .accessibilityHidden(true)
+
+                        Text("Open a PDF")
+                            .font(.title3.weight(.semibold))
+
                         Text("Choose a PDF to arrange, rotate, or remove pages.")
-                    } actions: {
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+
                         Button("Open PDF") {
-                            isImporting = true
+                            presentEmptyStateImporter()
                         }
                         .buttonStyle(.borderedProminent)
+                        .fileImporter(
+                            isPresented: $isImportingFromEmptyState,
+                            allowedContentTypes: [.pdf]
+                        ) { result in
+                            handleOpenImport(result)
+                        }
                     }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding()
                 } else {
                     pageList
                 }
@@ -174,11 +185,7 @@ struct ContentView: View {
             }
         }
         .fileImporter(isPresented: $isImporting, allowedContentTypes: [.pdf]) { result in
-            if case let .success(url) = result {
-                requestOpen(url)
-            } else if case let .failure(error) = result {
-                presentFileErrorUnlessCancelled(error)
-            }
+            handleOpenImport(result)
         }
         .fileImporter(isPresented: $isAppending, allowedContentTypes: [.pdf]) { result in
             if case let .success(url) = result {
@@ -356,6 +363,22 @@ struct ContentView: View {
 
         pendingOpenURL = url
         isConfirmingOpen = true
+    }
+
+    private func handleOpenImport(_ result: Result<URL, Error>) {
+        switch result {
+        case .success(let url):
+            requestOpen(url)
+        case .failure(let error):
+            presentFileErrorUnlessCancelled(error)
+        }
+    }
+
+    private func presentEmptyStateImporter() {
+        Task { @MainActor in
+            await Task.yield()
+            isImportingFromEmptyState = true
+        }
     }
 
     private func openPendingDocument() {
