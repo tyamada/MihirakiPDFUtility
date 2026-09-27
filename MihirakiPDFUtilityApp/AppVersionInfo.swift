@@ -31,7 +31,7 @@ struct AppVersionInfo: Equatable, Sendable {
             for: "NSHumanReadableCopyright",
             in: infoDictionary
         ) ?? "-"
-        license = "GNU Affero General Public License v3.0 only (AGPL-3.0-only)"
+        license = "MIT License"
     }
 
     private static func nonemptyString(

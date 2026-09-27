@@ -77,6 +77,9 @@
         }
       }
     },
+    "Add another PDF from the Edit Pages menu." : {
+
+    },
     "Add PDF" : {
       "localizations" : {
         "de" : {
@@ -1369,6 +1372,9 @@
         }
       }
     },
+    "Documents" : {
+
+    },
     "Done" : {
       "localizations" : {
         "de" : {
@@ -2128,6 +2134,9 @@
           }
         }
       }
+    },
+    "Help" : {
+
     },
     "Insert Blank" : {
       "extractionState" : "stale",
@@ -5246,6 +5255,9 @@
         }
       }
     },
+    "Select pages to move, rotate, duplicate, or delete them." : {
+
+    },
     "Set" : {
       "localizations" : {
         "de" : {
@@ -5321,6 +5333,9 @@
           }
         }
       }
+    },
+    "Set or remove the PDF viewing password." : {
+
     },
     "Set Password" : {
       "localizations" : {
@@ -5473,6 +5488,9 @@
           }
         }
       }
+    },
+    "Settings" : {
+
     },
     "Show Cover" : {
       "localizations" : {
@@ -7678,6 +7696,12 @@
         }
       }
     },
+    "Use Document to open a PDF." : {
+
+    },
+    "Use Save to export the edited PDF." : {
+
+    },
     "Version" : {
       "localizations" : {
         "de" : {
@@ -7829,6 +7853,9 @@
           }
         }
       }
+    },
+    "View properties and change PDF metadata." : {
+
     },
     "Your support helps keep the app updated. You can use all features without making a purchase." : {
       "localizations" : {

@@ -14,6 +14,7 @@ struct ContentView: View {
     @State private var isConfirmingOpen = false
     @State private var isPresentingProperties = false
     @State private var isPresentingVersionInformation = false
+    @State private var isPresentingHelp = false
     @State private var isPresentingSupport = false
     @State private var isSettingPassword = false
     @State private var isRequestingPassword = false
@@ -68,11 +69,13 @@ struct ContentView: View {
                     }
                     .disabled(model.document == nil)
 
-                    Menu("Document", systemImage: "folder") {
-                        Button("Open", systemImage: "folder") {
-                            isImporting = true
-                        }
+                    Button("Document", systemImage: "folder") {
+                        isImporting = true
+                    }
+                }
 
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    Menu("Edit Pages", systemImage: "ellipsis.circle") {
                         Button("Add PDF", systemImage: "doc.badge.plus") {
                             isAppending = true
                         }
@@ -80,33 +83,6 @@ struct ContentView: View {
 
                         Divider()
 
-                        Button("Properties", systemImage: "info.circle") {
-                            isPresentingProperties = true
-                        }
-                        .disabled(model.document == nil)
-
-                        Button("Version Information", systemImage: "info.circle") {
-                            isPresentingVersionInformation = true
-                        }
-
-                        Button("Support the Developer", systemImage: "heart") {
-                            isPresentingSupport = true
-                        }
-
-                        Button("Set Password", systemImage: "lock") {
-                            isSettingPassword = true
-                        }
-                        .disabled(model.document == nil)
-
-                        Button("Remove Password", systemImage: "lock.open") {
-                            model.setViewingPassword(nil)
-                        }
-                        .disabled(!model.hasViewingPassword)
-                    }
-                }
-
-                ToolbarItem(placement: .topBarTrailing) {
-                    Menu("Edit Pages", systemImage: "ellipsis.circle") {
                         Button("Select All", systemImage: "checkmark.circle") {
                             model.selectAllPages()
                         }
@@ -180,6 +156,37 @@ struct ContentView: View {
                             model.deleteSelection()
                         }
                         .disabled(!model.canDelete)
+                    }
+
+                    Menu("Settings", systemImage: "gearshape") {
+                        Button("Properties", systemImage: "doc.text.magnifyingglass") {
+                            isPresentingProperties = true
+                        }
+                        .disabled(model.document == nil)
+
+                        Button("Set Password", systemImage: "lock") {
+                            isSettingPassword = true
+                        }
+                        .disabled(model.document == nil)
+
+                        Button("Remove Password", systemImage: "lock.open") {
+                            model.setViewingPassword(nil)
+                        }
+                        .disabled(!model.hasViewingPassword)
+
+                        Divider()
+
+                        Button("Version Information", systemImage: "info.circle") {
+                            isPresentingVersionInformation = true
+                        }
+
+                        Button("Help", systemImage: "questionmark.circle") {
+                            isPresentingHelp = true
+                        }
+
+                        Button("Support the Developer", systemImage: "heart") {
+                            isPresentingSupport = true
+                        }
                     }
                 }
             }
@@ -307,6 +314,9 @@ struct ContentView: View {
         .sheet(isPresented: $isPresentingVersionInformation) {
             AppVersionInformationView(info: AppVersionInfo())
         }
+        .sheet(isPresented: $isPresentingHelp) {
+            HelpView()
+        }
         .sheet(isPresented: $isPresentingSupport) {
             TipSupportView(tipManager: tipManager)
         }
@@ -406,6 +416,37 @@ struct ContentView: View {
         guard cocoaError.domain != NSCocoaErrorDomain
                 || cocoaError.code != NSUserCancelledError else { return }
         model.errorMessage = error.localizedDescription
+    }
+}
+
+private struct HelpView: View {
+    @Environment(\.dismiss) private var dismiss
+
+    var body: some View {
+        NavigationStack {
+            List {
+                Section("Documents") {
+                    Label("Use Document to open a PDF.", systemImage: "folder")
+                    Label("Use Save to export the edited PDF.", systemImage: "square.and.arrow.down")
+                }
+
+                Section("Edit Pages") {
+                    Label("Add another PDF from the Edit Pages menu.", systemImage: "doc.badge.plus")
+                    Label("Select pages to move, rotate, duplicate, or delete them.", systemImage: "rectangle.stack")
+                }
+
+                Section("Settings") {
+                    Label("View properties and change PDF metadata.", systemImage: "doc.text.magnifyingglass")
+                    Label("Set or remove the PDF viewing password.", systemImage: "lock")
+                }
+            }
+            .navigationTitle("Help")
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Done") { dismiss() }
+                }
+            }
+        }
     }
 }
 
