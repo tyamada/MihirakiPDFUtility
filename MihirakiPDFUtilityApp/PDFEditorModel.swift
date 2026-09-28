@@ -20,6 +20,14 @@ private enum PendingUnlockAction {
     case append
 }
 
+private struct PDFEditorSnapshot {
+    let data: Data
+    let selectedIndexes: [Int]
+    let documentDetails: PDFDocumentDetails
+    let exportPassword: String?
+    let isModified: Bool
+}
+
 struct PDFMetadata: Equatable {
     var title = ""
     var author = ""
@@ -34,6 +42,8 @@ final class PDFEditorModel {
     private var lockedDocumentDetails: PDFDocumentDetails?
     private var pendingUnlockAction: PendingUnlockAction?
     private var exportPassword: String?
+    private var undoSnapshots: [PDFEditorSnapshot] = []
+    private var redoSnapshots: [PDFEditorSnapshot] = []
     private(set) var document: PDFDocument?
     private(set) var pages: [PDFPageItem] = []
     private(set) var sourceURL: URL?
@@ -93,6 +103,28 @@ final class PDFEditorModel {
 
     var canReverseSelection: Bool {
         selectedItems.count > 1
+    }
+
+    var canUndo: Bool {
+        !undoSnapshots.isEmpty
+    }
+
+    var canRedo: Bool {
+        !redoSnapshots.isEmpty
+    }
+
+    func undo() {
+        guard let currentSnapshot = captureSnapshot(),
+              let snapshot = undoSnapshots.popLast() else { return }
+        redoSnapshots.append(currentSnapshot)
+        restore(snapshot)
+    }
+
+    func redo() {
+        guard let currentSnapshot = captureSnapshot(),
+              let snapshot = redoSnapshots.popLast() else { return }
+        undoSnapshots.append(currentSnapshot)
+        restore(snapshot)
     }
 
     @discardableResult
@@ -201,6 +233,7 @@ final class PDFEditorModel {
     func rotateSelection(by degrees: Int) {
         let items = selectedItems
         guard !items.isEmpty, Self.normalizedRotation(degrees) != 0 else { return }
+        recordUndoState()
         for item in items {
             item.page.rotation = Self.normalizedRotation(item.page.rotation + degrees)
         }
@@ -212,6 +245,7 @@ final class PDFEditorModel {
 
         let selectedIndexes = pages.indices.filter { selection.contains(pages[$0].id) }
         guard !selectedIndexes.isEmpty else { return }
+        recordUndoState()
 
         var duplicatedIndexes: [Int] = []
         for (offset, sourceIndex) in selectedIndexes.enumerated() {
@@ -243,6 +277,7 @@ final class PDFEditorModel {
 
         let selectedIndexes = pages.indices.filter { selection.contains(pages[$0].id) }
         guard !selectedIndexes.isEmpty else { return }
+        recordUndoState()
 
         var insertedIndexes: [Int] = []
         for (offset, sourceIndex) in selectedIndexes.enumerated() {
@@ -279,6 +314,7 @@ final class PDFEditorModel {
 
     func deleteSelection() {
         guard canDelete, let document else { return }
+        recordUndoState()
 
         let indexes = pages.indices.filter { selection.contains(pages[$0].id) }
         guard let firstDeletedIndex = indexes.first else { return }
@@ -300,6 +336,8 @@ final class PDFEditorModel {
     }
 
     func moveSelectionEarlier() {
+        guard canMoveEarlier else { return }
+        recordUndoState()
         var moved = false
         for index in pages.indices where index > 0 {
             guard selection.contains(pages[index].id),
@@ -312,12 +350,15 @@ final class PDFEditorModel {
 
     func moveSelectionToBeginning() {
         guard canMoveEarlier else { return }
+        recordUndoState()
         pages = selectedItems + pages.filter { !selection.contains($0.id) }
         rebuildDocumentFromPages()
         markModified()
     }
 
     func moveSelectionLater() {
+        guard canMoveLater else { return }
+        recordUndoState()
         var moved = false
         for index in pages.indices.reversed() where index < pages.count - 1 {
             guard selection.contains(pages[index].id),
@@ -330,6 +371,7 @@ final class PDFEditorModel {
 
     func moveSelectionToEnd() {
         guard canMoveLater else { return }
+        recordUndoState()
         pages = pages.filter { !selection.contains($0.id) } + selectedItems
         rebuildDocumentFromPages()
         markModified()
@@ -338,6 +380,7 @@ final class PDFEditorModel {
     func reverseSelectionOrder() {
         let indexes = pages.indices.filter { selection.contains(pages[$0].id) }
         guard indexes.count > 1 else { return }
+        recordUndoState()
 
         let reversedItems = indexes.map { pages[$0] }.reversed()
         for (index, item) in zip(indexes, reversedItems) {
@@ -352,8 +395,12 @@ final class PDFEditorModel {
               offsets.allSatisfy(pages.indices.contains),
               (0...pages.count).contains(destination) else { return }
         let originalOrder = pages.map(\.id)
+        let snapshot = captureSnapshot()
         pages.move(fromOffsets: offsets, toOffset: destination)
         guard pages.map(\.id) != originalOrder else { return }
+        if let snapshot {
+            recordUndo(snapshot)
+        }
 
         rebuildDocumentFromPages()
         markModified()
@@ -426,6 +473,7 @@ final class PDFEditorModel {
                 .joined(separator: ", ")
         )
         guard normalizedMetadata != self.metadata else { return }
+        recordUndoState()
 
         var attributes = document.documentAttributes ?? [:]
         setMetadataValue(normalizedMetadata.title, for: .titleAttribute, in: &attributes)
@@ -446,6 +494,7 @@ final class PDFEditorModel {
 
     func updateViewerPreferences(_ preferences: PDFViewerPreferences) {
         guard document != nil, preferences != documentDetails.viewerPreferences else { return }
+        recordUndoState()
         documentDetails.viewerPreferences = preferences
         documentDetails.ensureCompatibleVersion()
         markModified()
@@ -455,6 +504,7 @@ final class PDFEditorModel {
         guard document != nil else { return }
         let newPassword = password?.isEmpty == false ? password : nil
         guard newPassword != exportPassword else { return }
+        recordUndoState()
         exportPassword = newPassword
         markModified()
     }
@@ -490,12 +540,15 @@ final class PDFEditorModel {
         selection.removeAll()
         isModified = false
         errorMessage = nil
+        undoSnapshots.removeAll()
+        redoSnapshots.removeAll()
         reloadPages()
     }
 
     private func appendPages(from appendedDocument: PDFDocument) throws {
         guard let document else { throw PDFEditorError.noDocument }
         guard appendedDocument.pageCount > 0 else { throw PDFEditorError.emptyDocument }
+        recordUndoState()
 
         for index in 0..<appendedDocument.pageCount {
             if let page = appendedDocument.page(at: index) {
@@ -506,6 +559,45 @@ final class PDFEditorModel {
         reloadPages()
         errorMessage = nil
         markModified()
+    }
+
+    private func captureSnapshot() -> PDFEditorSnapshot? {
+        guard document != nil,
+              let data = unencryptedDocumentCopy()?.dataRepresentation() else { return nil }
+        let selectedIndexes = pages.indices.filter { selection.contains(pages[$0].id) }
+        return PDFEditorSnapshot(
+            data: data,
+            selectedIndexes: selectedIndexes,
+            documentDetails: documentDetails,
+            exportPassword: exportPassword,
+            isModified: isModified
+        )
+    }
+
+    private func recordUndoState() {
+        guard let snapshot = captureSnapshot() else { return }
+        recordUndo(snapshot)
+    }
+
+    private func recordUndo(_ snapshot: PDFEditorSnapshot) {
+        undoSnapshots.append(snapshot)
+        if undoSnapshots.count > 50 {
+            undoSnapshots.removeFirst()
+        }
+        redoSnapshots.removeAll()
+    }
+
+    private func restore(_ snapshot: PDFEditorSnapshot) {
+        guard let restoredDocument = PDFDocument(data: snapshot.data) else { return }
+        document = restoredDocument
+        documentDetails = snapshot.documentDetails
+        exportPassword = snapshot.exportPassword
+        isModified = snapshot.isModified
+        errorMessage = nil
+        reloadPages()
+        selection = Set(snapshot.selectedIndexes.compactMap { index in
+            pages.indices.contains(index) ? pages[index].id : nil
+        })
     }
 
     private func markModified() {

@@ -88,6 +88,41 @@ struct PDFEditorModelTests {
         }
     }
 
+    @Test("Undo and redo restore document content and selection")
+    @MainActor
+    func undoAndRedo() throws {
+        let url = try makePDF(sizes: [
+            CGSize(width: 100, height: 500),
+            CGSize(width: 200, height: 500),
+            CGSize(width: 300, height: 500)
+        ])
+        defer { try? FileManager.default.removeItem(at: url) }
+
+        let model = PDFEditorModel()
+        model.open(url)
+        model.selection = [model.pages[1].id]
+
+        model.moveSelectionEarlier()
+
+        #expect(pageWidths(in: model) == [200, 100, 300])
+        #expect(model.canUndo)
+        #expect(!model.canRedo)
+
+        model.undo()
+
+        #expect(pageWidths(in: model) == [100, 200, 300])
+        #expect(model.selection == [model.pages[1].id])
+        #expect(!model.isModified)
+        #expect(model.canRedo)
+
+        model.redo()
+
+        #expect(pageWidths(in: model) == [200, 100, 300])
+        #expect(model.selection == [model.pages[0].id])
+        #expect(model.isModified)
+        #expect(model.canUndo)
+    }
+
     @Test("Moving selected pages to either end preserves their relative order")
     @MainActor
     func moveSelectedPagesToEnds() throws {

@@ -1451,6 +1451,9 @@
         }
       }
     },
+    "Double-tap twice to open a full-screen preview." : {
+
+    },
     "Duplicate" : {
       "localizations" : {
         "de" : {
@@ -2367,6 +2370,26 @@
         }
       }
     },
+    "Insert PDF" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDFを挿入"
+          }
+        }
+      }
+    },
+    "Insert Same-Size Blank Page After" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "同じサイズの空白ページを直後に挿入"
+          }
+        }
+      }
+    },
     "Keywords, separated by commas" : {
       "localizations" : {
         "de" : {
@@ -2670,6 +2693,9 @@
           }
         }
       }
+    },
+    "List" : {
+
     },
     "Medium Support" : {
       "localizations" : {
@@ -4124,6 +4150,9 @@
         }
       }
     },
+    "PDF Preview" : {
+
+    },
     "PDF Version" : {
       "localizations" : {
         "de" : {
@@ -4348,6 +4377,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "購買待處理"
+          }
+        }
+      }
+    },
+    "Redo" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "やり直す"
           }
         }
       }
@@ -6951,6 +6990,9 @@
         }
       }
     },
+    "Thumbnails" : {
+
+    },
     "Title" : {
       "localizations" : {
         "de" : {
@@ -7559,6 +7601,16 @@
         }
       }
     },
+    "Undo" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "元に戻す"
+          }
+        }
+      }
+    },
     "Unsaved Changes" : {
       "localizations" : {
         "de" : {
@@ -7868,6 +7920,9 @@
           }
         }
       }
+    },
+    "View" : {
+
     },
     "View properties and change PDF metadata." : {
 

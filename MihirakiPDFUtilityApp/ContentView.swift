@@ -2,9 +2,147 @@ import PDFKit
 import SwiftUI
 import UniformTypeIdentifiers
 
+#if os(iOS)
+import UIKit
+#endif
+
+private struct WrappingHStack: Layout {
+    let horizontalSpacing: CGFloat
+    let verticalSpacing: CGFloat
+
+    func sizeThatFits(
+        proposal: ProposedViewSize,
+        subviews: Subviews,
+        cache: inout ()
+    ) -> CGSize {
+        let result = layoutSubviews(subviews, availableWidth: proposal.width ?? .infinity)
+        return CGSize(
+            width: proposal.width ?? result.width,
+            height: result.height
+        )
+    }
+
+    func placeSubviews(
+        in bounds: CGRect,
+        proposal: ProposedViewSize,
+        subviews: Subviews,
+        cache: inout ()
+    ) {
+        let result = layoutSubviews(subviews, availableWidth: bounds.width)
+        for (index, position) in result.positions.enumerated() {
+            subviews[index].place(
+                at: CGPoint(x: bounds.minX + position.x, y: bounds.minY + position.y),
+                anchor: .topLeading,
+                proposal: .unspecified
+            )
+        }
+    }
+
+    private func layoutSubviews(
+        _ subviews: Subviews,
+        availableWidth: CGFloat
+    ) -> (positions: [CGPoint], width: CGFloat, height: CGFloat) {
+        var positions: [CGPoint] = []
+        var currentX: CGFloat = 0
+        var currentY: CGFloat = 0
+        var rowHeight: CGFloat = 0
+        var usedWidth: CGFloat = 0
+
+        for subview in subviews {
+            let size = subview.sizeThatFits(.unspecified)
+            if currentX > 0, currentX + size.width > availableWidth {
+                currentX = 0
+                currentY += rowHeight + verticalSpacing
+                rowHeight = 0
+            }
+
+            positions.append(CGPoint(x: currentX, y: currentY))
+            usedWidth = max(usedWidth, currentX + size.width)
+            currentX += size.width + horizontalSpacing
+            rowHeight = max(rowHeight, size.height)
+        }
+
+        return (
+            positions,
+            usedWidth,
+            subviews.isEmpty ? 0 : currentY + rowHeight
+        )
+    }
+}
+
+private enum ThumbnailAction: CaseIterable, Identifiable {
+    case open
+    case save
+    case undo
+    case redo
+    case insertPDF
+    case insertBlankPage
+    case delete
+    case moveEarlier
+    case moveLater
+    case rotateLeft
+    case rotateRight
+
+    var id: Self { self }
+
+    var title: LocalizedStringResource {
+        switch self {
+        case .open: "Open"
+        case .save: "Save"
+        case .undo: "Undo"
+        case .redo: "Redo"
+        case .insertPDF: "Insert PDF"
+        case .insertBlankPage: "Insert Same-Size Blank Page After"
+        case .delete: "Delete"
+        case .moveEarlier: "Move Earlier"
+        case .moveLater: "Move Later"
+        case .rotateLeft: "Rotate Left"
+        case .rotateRight: "Rotate Right"
+        }
+    }
+
+    var systemImage: String {
+        switch self {
+        case .open: "folder"
+        case .save: "square.and.arrow.down"
+        case .undo: "arrow.uturn.backward"
+        case .redo: "arrow.uturn.forward"
+        case .insertPDF, .insertBlankPage: "doc.badge.plus"
+        case .delete: "trash"
+        case .moveEarlier: "arrow.left"
+        case .moveLater: "arrow.right"
+        case .rotateLeft: "rotate.left"
+        case .rotateRight: "rotate.right"
+        }
+    }
+}
+
+private enum MainViewMode: String, CaseIterable, Identifiable {
+    case list
+    case thumbnails
+
+    var id: Self { self }
+
+    var title: LocalizedStringResource {
+        switch self {
+        case .list: "List"
+        case .thumbnails: "Thumbnails"
+        }
+    }
+
+    var systemImage: String {
+        switch self {
+        case .list: "list.bullet"
+        case .thumbnails: "square.grid.2x2"
+        }
+    }
+}
+
 struct ContentView: View {
     @Bindable var model: PDFEditorModel
     @State private var tipManager = TipManager()
+    @State private var viewMode: MainViewMode
+    @State private var previewedPageID: PDFPageItem.ID?
 
     @State private var isImporting = false
     @State private var isImportingFromEmptyState = false
@@ -27,15 +165,20 @@ struct ContentView: View {
     @State private var confirmedPassword = ""
     @State private var newPasswordMessage: LocalizedStringResource = "Enter the new viewing password twice."
 
+    init(model: PDFEditorModel) {
+        self.model = model
+#if os(macOS)
+        _viewMode = State(initialValue: .thumbnails)
+#else
+        _viewMode = State(initialValue: UIDevice.current.userInterfaceIdiom == .pad ? .thumbnails : .list)
+#endif
+    }
+
     var body: some View {
         NavigationStack {
-            Group {
-#if os(macOS)
-                MacPDFWorkspace(model: model) {
-                    isImporting = true
-                }
-#else
-                if model.pages.isEmpty {
+            GeometryReader { geometry in
+                Group {
+                    if model.pages.isEmpty {
                     VStack(spacing: 16) {
                         Image(systemName: "doc.richtext")
                             .font(.largeTitle)
@@ -63,9 +206,16 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .padding()
                 } else {
-                    pageList
+                    switch viewMode {
+                    case .list:
+                        pageList
+                    case .thumbnails:
+                        thumbnailWorkspace
+                    }
+                    }
                 }
-#endif
+                .frame(width: geometry.size.width, height: geometry.size.height)
+                .id(geometry.size)
             }
             .navigationTitle(model.isModified ? "\(model.displayName) *" : model.displayName)
             .toolbar {
@@ -81,6 +231,14 @@ struct ContentView: View {
                 }
 
                 ToolbarItemGroup(placement: .primaryAction) {
+                    Picker("View", selection: $viewMode) {
+                        ForEach(MainViewMode.allCases) { mode in
+                            Label(mode.title, systemImage: mode.systemImage)
+                                .tag(mode)
+                        }
+                    }
+                    .pickerStyle(.menu)
+
                     Menu("Edit Pages", systemImage: "ellipsis.circle") {
                         Button("Add PDF", systemImage: "doc.badge.plus") {
                             isAppending = true
@@ -326,6 +484,16 @@ struct ContentView: View {
         .sheet(isPresented: $isPresentingSupport) {
             TipSupportView(tipManager: tipManager)
         }
+#if os(macOS)
+        .sheet(item: previewedPage) { item in
+            PDFPagePreview(page: item.page)
+                .frame(minWidth: 720, minHeight: 720)
+        }
+#else
+        .fullScreenCover(item: previewedPage) { item in
+            PDFPagePreview(page: item.page)
+        }
+#endif
         .onOpenURL { url in
             requestOpen(url)
         }
@@ -347,6 +515,125 @@ struct ContentView: View {
                     .tag(item.id)
             }
             .onMove(perform: model.movePages)
+        }
+    }
+
+    private var thumbnailWorkspace: some View {
+        VStack(spacing: 0) {
+            thumbnailControls
+            Divider()
+
+            ScrollView {
+                LazyVGrid(
+                    columns: [GridItem(.adaptive(minimum: 140, maximum: 220), spacing: 20)],
+                    spacing: 24
+                ) {
+                    ForEach(Array(model.pages.enumerated()), id: \.element.id) { index, item in
+                        PDFPageThumbnail(
+                            pageNumber: index + 1,
+                            page: item.page,
+                            isSelected: model.selection.contains(item.id)
+                        )
+                        .contentShape(.rect)
+                        .onTapGesture(count: 2) {
+                            previewedPageID = item.id
+                        }
+                        .onTapGesture {
+                            toggleSelection(of: item.id)
+                        }
+                    }
+                }
+                .padding()
+            }
+        }
+    }
+
+    private var thumbnailControls: some View {
+        WrappingHStack(horizontalSpacing: 8, verticalSpacing: 8) {
+            ForEach(ThumbnailAction.allCases) { action in
+                thumbnailActionButton(action)
+                    .fixedSize(horizontal: true, vertical: false)
+            }
+        }
+        .buttonStyle(.bordered)
+        .labelStyle(.titleAndIcon)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal)
+        .padding(.vertical, 10)
+    }
+
+    private func thumbnailActionButton(_ action: ThumbnailAction) -> some View {
+        Button {
+            perform(action)
+        } label: {
+            Label(action.title, systemImage: action.systemImage)
+        }
+        .disabled(!isEnabled(action))
+    }
+
+    private func perform(_ action: ThumbnailAction) {
+        switch action {
+        case .open:
+            isImporting = true
+        case .save:
+            prepareExport()
+        case .undo:
+            model.undo()
+        case .redo:
+            model.redo()
+        case .insertPDF:
+            isAppending = true
+        case .insertBlankPage:
+            model.insertBlankPagesAfterSelection()
+        case .delete:
+            model.deleteSelection()
+        case .moveEarlier:
+            model.moveSelectionEarlier()
+        case .moveLater:
+            model.moveSelectionLater()
+        case .rotateLeft:
+            model.rotateSelection(by: -90)
+        case .rotateRight:
+            model.rotateSelection(by: 90)
+        }
+    }
+
+    private func isEnabled(_ action: ThumbnailAction) -> Bool {
+        switch action {
+        case .open:
+            true
+        case .save, .insertPDF:
+            model.document != nil
+        case .undo:
+            model.canUndo
+        case .redo:
+            model.canRedo
+        case .insertBlankPage, .rotateLeft, .rotateRight:
+            model.canEdit
+        case .delete:
+            model.canDelete
+        case .moveEarlier:
+            model.canMoveEarlier
+        case .moveLater:
+            model.canMoveLater
+        }
+    }
+
+    private var previewedPage: Binding<PDFPageItem?> {
+        Binding(
+            get: {
+                guard let previewedPageID else { return nil }
+                return model.pages.first { $0.id == previewedPageID }
+            },
+            set: { previewedPageID = $0?.id }
+        )
+    }
+
+    private func toggleSelection(of id: PDFPageItem.ID) {
+        if model.selection.contains(id) {
+            model.selection.remove(id)
+        } else {
+            model.selection.insert(id)
         }
     }
 
@@ -637,6 +924,88 @@ private extension PDFPageDisplayStyle {
         case .facingPagesCover:
             "Facing Pages Display, Show Cover"
         }
+    }
+}
+
+private struct PDFPageThumbnail: View {
+    let pageNumber: Int
+    let page: PDFPage
+    let isSelected: Bool
+
+    var body: some View {
+        VStack(spacing: 8) {
+            thumbnailImage
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth: .infinity)
+                .aspectRatio(0.72, contentMode: .fit)
+                .background(.white)
+                .overlay {
+                    RoundedRectangle(cornerRadius: 6)
+                        .stroke(
+                            isSelected ? Color.accentColor : Color.secondary.opacity(0.25),
+                            lineWidth: isSelected ? 4 : 1
+                        )
+                }
+                .clipShape(.rect(cornerRadius: 6))
+                .shadow(color: .black.opacity(0.16), radius: 4, y: 2)
+
+            Text("Page \(pageNumber)")
+                .font(.callout.weight(isSelected ? .semibold : .regular))
+                .foregroundStyle(isSelected ? Color.accentColor : Color.primary)
+        }
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("Page \(pageNumber)")
+        .accessibilityAddTraits(isSelected ? [.isSelected] : [])
+        .accessibilityHint("Double-tap twice to open a full-screen preview.")
+    }
+
+    private var thumbnailImage: Image {
+#if os(macOS)
+        Image(nsImage: page.thumbnail(of: CGSize(width: 360, height: 500), for: .cropBox))
+#else
+        Image(uiImage: page.thumbnail(of: CGSize(width: 360, height: 500), for: .cropBox))
+#endif
+    }
+}
+
+private struct PDFPagePreview: View {
+    @Environment(\.dismiss) private var dismiss
+
+    let page: PDFPage
+
+    var body: some View {
+        NavigationStack {
+            ScrollView([.horizontal, .vertical]) {
+                previewImage
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: 1200)
+                    .background(.white)
+                    .shadow(color: .black.opacity(0.2), radius: 12, y: 4)
+                    .padding(24)
+            }
+            .background(.regularMaterial)
+            .navigationTitle("PDF Preview")
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Done") {
+                        dismiss()
+                    }
+                }
+            }
+        }
+    }
+
+    private var previewImage: Image {
+        let bounds = page.bounds(for: .cropBox)
+        let scale = min(3, 1800 / max(bounds.width, bounds.height))
+        let size = CGSize(width: bounds.width * scale, height: bounds.height * scale)
+#if os(macOS)
+        return Image(nsImage: page.thumbnail(of: size, for: .cropBox))
+#else
+        return Image(uiImage: page.thumbnail(of: size, for: .cropBox))
+#endif
     }
 }
 
