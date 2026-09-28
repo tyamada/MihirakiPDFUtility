@@ -697,6 +697,58 @@ struct PDFEditorModelTests {
         #expect(exportedWidths == [100, 400, 200, 300])
     }
 
+    @Test("Dragging a selected thumbnail moves the entire selection")
+    @MainActor
+    func dragSelectedThumbnails() throws {
+        let url = try makePDF(sizes: [
+            CGSize(width: 100, height: 500),
+            CGSize(width: 200, height: 500),
+            CGSize(width: 300, height: 500),
+            CGSize(width: 400, height: 500)
+        ])
+        defer { try? FileManager.default.removeItem(at: url) }
+
+        let model = PDFEditorModel()
+        model.open(url)
+        let selectedIDs = Set([model.pages[1].id, model.pages[3].id])
+        model.selection = selectedIDs
+
+        model.movePages(
+            withIDs: [model.pages[1].id],
+            before: model.pages[0].id
+        )
+
+        #expect(pageWidths(in: model) == [200, 400, 100, 300])
+        #expect(model.selection == selectedIDs)
+        #expect(model.canUndo)
+
+        model.undo()
+
+        #expect(pageWidths(in: model) == [100, 200, 300, 400])
+        #expect(model.selection == [model.pages[1].id, model.pages[3].id])
+    }
+
+    @Test("Dragging an unselected thumbnail moves only that page")
+    @MainActor
+    func dragUnselectedThumbnail() throws {
+        let url = try makePDF(sizes: [
+            CGSize(width: 100, height: 500),
+            CGSize(width: 200, height: 500),
+            CGSize(width: 300, height: 500)
+        ])
+        defer { try? FileManager.default.removeItem(at: url) }
+
+        let model = PDFEditorModel()
+        model.open(url)
+        let selectedID = model.pages[0].id
+        model.selection = [selectedID]
+
+        model.movePages(withIDs: [model.pages[1].id], before: nil)
+
+        #expect(pageWidths(in: model) == [100, 300, 200])
+        #expect(model.selection == [selectedID])
+    }
+
     @Test("Dragging a page to the same position is not a modification")
     @MainActor
     func noOpPageDrag() throws {

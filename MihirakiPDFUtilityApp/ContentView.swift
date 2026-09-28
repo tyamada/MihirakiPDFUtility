@@ -70,6 +70,23 @@ private struct WrappingHStack: Layout {
     }
 }
 
+private struct ThumbnailPageDropDelegate: DropDelegate {
+    let destinationID: PDFPageItem.ID?
+    @Binding var draggedPageID: PDFPageItem.ID?
+    let move: ([PDFPageItem.ID], PDFPageItem.ID?) -> Void
+
+    func dropUpdated(info: DropInfo) -> DropProposal? {
+        DropProposal(operation: .move)
+    }
+
+    func performDrop(info: DropInfo) -> Bool {
+        guard let draggedPageID else { return false }
+        move([draggedPageID], destinationID)
+        self.draggedPageID = nil
+        return true
+    }
+}
+
 private enum ThumbnailAction: CaseIterable, Identifiable {
     case open
     case save
@@ -143,6 +160,7 @@ struct ContentView: View {
     @State private var tipManager = TipManager()
     @State private var viewMode: MainViewMode
     @State private var previewedPageID: PDFPageItem.ID?
+    @State private var draggedPageID: PDFPageItem.ID?
 
     @State private var isImporting = false
     @State private var isImportingFromEmptyState = false
@@ -524,27 +542,88 @@ struct ContentView: View {
             Divider()
 
             ScrollView {
-                LazyVGrid(
-                    columns: [GridItem(.adaptive(minimum: 140, maximum: 220), spacing: 20)],
-                    spacing: 24
-                ) {
-                    ForEach(Array(model.pages.enumerated()), id: \.element.id) { index, item in
-                        PDFPageThumbnail(
-                            pageNumber: index + 1,
-                            page: item.page,
-                            isSelected: model.selection.contains(item.id)
-                        )
-                        .contentShape(.rect)
-                        .onTapGesture(count: 2) {
-                            previewedPageID = item.id
-                        }
-                        .onTapGesture {
-                            toggleSelection(of: item.id)
-                        }
-                    }
+                if #available(iOS 27, macOS 27, *) {
+                    reorderableThumbnailGrid
+                } else {
+                    legacyReorderableThumbnailGrid
                 }
-                .padding()
             }
+        }
+    }
+
+    @available(iOS 27, macOS 27, *)
+    private var reorderableThumbnailGrid: some View {
+        LazyVGrid(
+            columns: [GridItem(.adaptive(minimum: 140, maximum: 220), spacing: 20)],
+            spacing: 24
+        ) {
+            ForEach(Array(model.pages.enumerated()), id: \.element.id) { index, item in
+                thumbnailPage(index: index, item: item)
+            }
+            .reorderable()
+        }
+        .reorderContainer(for: PDFPageItem.self) { difference in
+            let destinationID: PDFPageItem.ID?
+            switch difference.destination.position {
+            case .before(let id):
+                destinationID = id
+            case .end:
+                destinationID = nil
+            }
+            model.movePages(withIDs: difference.sources, before: destinationID)
+        }
+        .padding()
+    }
+
+    private var legacyReorderableThumbnailGrid: some View {
+        LazyVGrid(
+            columns: [GridItem(.adaptive(minimum: 140, maximum: 220), spacing: 20)],
+            spacing: 24
+        ) {
+            ForEach(Array(model.pages.enumerated()), id: \.element.id) { index, item in
+                thumbnailPage(index: index, item: item)
+                    .onDrag {
+                        draggedPageID = item.id
+                        return NSItemProvider(object: item.id.uuidString as NSString)
+                    }
+                    .onDrop(
+                        of: [.text],
+                        delegate: ThumbnailPageDropDelegate(
+                            destinationID: item.id,
+                            draggedPageID: $draggedPageID,
+                            move: model.movePages
+                        )
+                    )
+            }
+
+            Color.clear
+                .frame(height: 44)
+                .gridCellColumns(8)
+                .onDrop(
+                    of: [.text],
+                    delegate: ThumbnailPageDropDelegate(
+                        destinationID: nil,
+                        draggedPageID: $draggedPageID,
+                        move: model.movePages
+                    )
+                )
+                .accessibilityHidden(true)
+        }
+        .padding()
+    }
+
+    private func thumbnailPage(index: Int, item: PDFPageItem) -> some View {
+        PDFPageThumbnail(
+            pageNumber: index + 1,
+            page: item.page,
+            isSelected: model.selection.contains(item.id)
+        )
+        .contentShape(.rect)
+        .onTapGesture(count: 2) {
+            previewedPageID = item.id
+        }
+        .onTapGesture {
+            toggleSelection(of: item.id)
         }
     }
 

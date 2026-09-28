@@ -406,6 +406,34 @@ final class PDFEditorModel {
         markModified()
     }
 
+    func movePages(
+        withIDs draggedIDs: [PDFPageItem.ID],
+        before destinationID: PDFPageItem.ID?
+    ) {
+        var movingIDs = Set(draggedIDs)
+        guard !movingIDs.isEmpty else { return }
+
+        if !selection.isDisjoint(with: movingIDs) {
+            movingIDs.formUnion(selection)
+        }
+        guard destinationID.map({ !movingIDs.contains($0) }) ?? true else { return }
+
+        let movedItems = pages.filter { movingIDs.contains($0.id) }
+        guard !movedItems.isEmpty else { return }
+
+        var remainingItems = pages.filter { !movingIDs.contains($0.id) }
+        let insertionIndex = destinationID
+            .flatMap { id in remainingItems.firstIndex { $0.id == id } }
+            ?? remainingItems.endIndex
+        remainingItems.insert(contentsOf: movedItems, at: insertionIndex)
+
+        guard remainingItems.map(\.id) != pages.map(\.id) else { return }
+        recordUndoState()
+        pages = remainingItems
+        rebuildDocumentFromPages()
+        markModified()
+    }
+
     func exportDocument() throws -> PDFExportDocument {
         guard let document else {
             throw PDFEditorError.noDocument
