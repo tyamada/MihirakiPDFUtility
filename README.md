@@ -20,7 +20,7 @@ This repository was created to develop a new app based on code and specification
 - Set or remove a viewing password on exported PDFs
 - Open PDFs from Files and the system share sheet
 - User interface localized in 13 languages
-- Optional consumable In-App Purchases to support development
+- Optional non-consumable In-App Purchases for permanent Bronze, Silver, and Gold supporter icons
 - Marketing, privacy and support pages for GitHub Pages
 
 ## Website
@@ -31,7 +31,7 @@ This repository was created to develop a new app based on code and specification
 
 ## Development
 
-Open `MihirakiPDFUtility.xcodeproj` in Xcode and select the `MihirakiPDFUtility` scheme. The current deployment target is iOS 18.0 and the app supports iPhone and iPad.
+Open `MihirakiPDFUtility.xcodeproj` in Xcode and select the `MihirakiPDFUtility` scheme. The current deployment targets are iOS 18.0 and macOS 15.0, and the app supports iPhone, iPad, and Mac.
 
 ## Migration policy
 
