@@ -5,6 +5,30 @@ import SwiftUI
 @MainActor
 @Observable
 final class TipManager {
+    enum SupporterIcon: String, CaseIterable, Identifiable {
+        case bronze = "supporter_icon_bronze_ut"
+        case silver = "supporter_icon_silver_ut"
+        case gold = "supporter_icon_gold_ut"
+
+        var id: String { rawValue }
+
+        var displayName: LocalizedStringResource {
+            switch self {
+            case .bronze: "Bronze Tip"
+            case .silver: "Silver Tip"
+            case .gold: "Gold Tip"
+            }
+        }
+
+        var assetName: String {
+            switch self {
+            case .bronze: "TipBronze"
+            case .silver: "TipSilver"
+            case .gold: "TipGold"
+            }
+        }
+    }
+
     enum PurchaseOutcome: Equatable {
         case success
         case pending
@@ -18,11 +42,7 @@ final class TipManager {
         case failed(String)
     }
 
-    static let productIDs = [
-        "supporter_icon_bronze_ut",
-        "supporter_icon_silver_ut",
-        "supporter_icon_gold_ut"
-    ]
+    static let productIDs = SupporterIcon.allCases.map(\.id)
 
     private(set) var products: [Product] = []
     private(set) var purchasedProductIDs: Set<String> = []
@@ -124,7 +144,11 @@ final class TipManager {
         purchasedProductIDs.contains(product.id)
     }
 
-    private func refreshPurchasedProducts() async {
+    var purchasedSupporterIcons: [SupporterIcon] {
+        SupporterIcon.allCases.filter { purchasedProductIDs.contains($0.id) }
+    }
+
+    func refreshPurchasedProducts() async {
         var purchasedIDs: Set<String> = []
 
         for await verification in Transaction.currentEntitlements {

@@ -14,6 +14,9 @@ struct PDFEditorModelTests {
             "supporter_icon_silver_ut",
             "supporter_icon_gold_ut"
         ])
+        #expect(TipManager.SupporterIcon.bronze.assetName == "TipBronze")
+        #expect(TipManager.SupporterIcon.silver.assetName == "TipSilver")
+        #expect(TipManager.SupporterIcon.gold.assetName == "TipGold")
     }
 
     @Test("Tip purchase outcomes compare by value")

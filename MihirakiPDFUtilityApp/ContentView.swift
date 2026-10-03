@@ -366,7 +366,7 @@ struct ContentView: View {
                             isPresentingHelp = true
                         }
 
-                        Button("Support the Developer", systemImage: "heart") {
+                        Button("Supporter Icons", systemImage: "heart") {
                             isPresentingSupport = true
                         }
                     }
@@ -494,7 +494,7 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $isPresentingVersionInformation) {
-            AppVersionInformationView(info: AppVersionInfo())
+            AppVersionInformationView(info: AppVersionInfo(), tipManager: tipManager)
         }
         .sheet(isPresented: $isPresentingHelp) {
             HelpView()
@@ -819,6 +819,25 @@ private struct HelpView: View {
                     Label("View properties and change PDF metadata.", systemImage: "doc.text.magnifyingglass")
                     Label("Set or remove the PDF viewing password.", systemImage: "lock")
                 }
+
+                Section("Supporter Icons") {
+                    Label(
+                        "Bronze, Silver, and Gold supporter icons are optional non-consumable purchases.",
+                        systemImage: "heart"
+                    )
+                    Label(
+                        "Each supporter icon is purchased once and remains available permanently.",
+                        systemImage: "checkmark.seal"
+                    )
+                    Label(
+                        "Use Restore Purchases on the Supporter Icons screen to restore previously purchased icons.",
+                        systemImage: "arrow.clockwise"
+                    )
+                    Label(
+                        "All PDF editing features are available without a purchase.",
+                        systemImage: "doc.richtext"
+                    )
+                }
             }
             .navigationTitle("Help")
             .toolbar {
@@ -834,6 +853,7 @@ private struct AppVersionInformationView: View {
     @Environment(\.dismiss) private var dismiss
 
     let info: AppVersionInfo
+    let tipManager: TipManager
 
     var body: some View {
         NavigationStack {
@@ -845,12 +865,31 @@ private struct AppVersionInformationView: View {
                     LabeledContent("Copyright", value: info.copyright)
                 }
 
+                if !tipManager.purchasedSupporterIcons.isEmpty {
+                    Section("Supporter Icons") {
+                        ForEach(tipManager.purchasedSupporterIcons) { supporterIcon in
+                            Label {
+                                Text(supporterIcon.displayName)
+                            } icon: {
+                                Image(supporterIcon.assetName)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 36, height: 36)
+                                    .clipShape(.rect(cornerRadius: 8))
+                            }
+                        }
+                    }
+                }
+
                 Section("License") {
                     Text(info.license)
                         .textSelection(.enabled)
                 }
             }
             .navigationTitle("Version Information")
+            .task {
+                await tipManager.refreshPurchasedProducts()
+            }
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }

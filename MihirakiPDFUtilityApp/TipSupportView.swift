@@ -17,9 +17,9 @@ struct TipSupportView: View {
                 Section {
                     productContent
                 } header: {
-                    Text("Support the Developer")
+                    Text("Supporter Icons")
                 } footer: {
-                    Text("Your support helps keep the app updated. You can use all features without making a purchase.")
+                    Text("Supporter icons are optional, one-time purchases. All PDF editing features remain available without a purchase.")
                 }
 
                 Section {
@@ -36,7 +36,7 @@ struct TipSupportView: View {
                     }
                 }
             }
-            .navigationTitle("Support")
+            .navigationTitle("Supporter Icons")
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }
@@ -47,10 +47,10 @@ struct TipSupportView: View {
                     await tipManager.loadProducts()
                 }
             }
-            .alert("Thank You for Your Support!", isPresented: $isShowingThankYou) {
+            .alert("Thank You!", isPresented: $isShowingThankYou) {
                 Button("OK", role: .cancel) {}
             } message: {
-                Text("Thank you for your support.")
+                Text("Your supporter icon is now available.")
             }
             .alert("Purchase Pending", isPresented: $isShowingPendingMessage) {
                 Button("OK", role: .cancel) {}
@@ -96,7 +96,7 @@ struct TipSupportView: View {
                     purchase(product)
                 } label: {
                     HStack(spacing: 12) {
-                        Image(tipIconName(for: product.id))
+                        Image(supporterIcon(for: product.id)?.assetName ?? "TipBronze")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 44, height: 44)
@@ -130,13 +130,8 @@ struct TipSupportView: View {
         }
     }
 
-    private func tipIconName(for productID: String) -> String {
-        switch productID {
-        case "supporter_icon_bronze_ut": "TipBronze"
-        case "supporter_icon_silver_ut": "TipSilver"
-        case "supporter_icon_gold_ut": "TipGold"
-        default: "TipBronze"
-        }
+    private func supporterIcon(for productID: String) -> TipManager.SupporterIcon? {
+        TipManager.SupporterIcon(rawValue: productID)
     }
 
     private func purchase(_ product: Product) {
@@ -161,7 +156,7 @@ struct TipSupportView: View {
         Task {
             switch await tipManager.restorePurchases() {
             case .restored:
-                restoreMessage = String(localized: "Your purchases have been restored.")
+                restoreMessage = String(localized: "Your supporter icons have been restored.")
             case .noPurchases:
                 restoreMessage = String(localized: "No purchases were found to restore.")
             case let .failed(message):

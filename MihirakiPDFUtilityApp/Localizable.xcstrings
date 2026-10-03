@@ -157,6 +157,82 @@
         }
       }
     },
+    "All PDF editing features are available without a purchase." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Alle PDF-Bearbeitungsfunktionen sind ohne Kauf verfügbar."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Todas las funciones de edición de PDF están disponibles sin realizar ninguna compra."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Magagamit ang lahat ng feature sa pag-edit ng PDF nang hindi bumibili."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Toutes les fonctionnalités d’édition de PDF sont disponibles sans achat."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Semua fitur pengeditan PDF tersedia tanpa pembelian."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDF編集機能は購入しなくてもすべて利用できます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "구입하지 않아도 모든 PDF 편집 기능을 사용할 수 있습니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "खरिद नगरी पनि PDF सम्पादनका सबै सुविधाहरू उपलब्ध छन्।"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Todas as funcionalidades de edição de PDF estão disponíveis sem efetuar uma compra."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tất cả các tính năng chỉnh sửa PDF đều có thể sử dụng mà không cần mua."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "无需购买即可使用所有PDF编辑功能。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "無需購買即可使用所有PDF編輯功能。"
+          }
+        }
+      }
+    },
     "App Name" : {
       "localizations" : {
         "de" : {
@@ -457,6 +533,158 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "作者"
+          }
+        }
+      }
+    },
+    "Bronze Tip" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bronze-Unterstützung"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Propina de bronce"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bronze na Tip"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pourboire bronze"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tip Perunggu"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ブロンズチップ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "브론즈 팁"
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "कांस्य टिप"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gorjeta de bronze"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ủng hộ Đồng"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "青铜打赏"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "青銅贊助"
+          }
+        }
+      }
+    },
+    "Bronze, Silver, and Gold supporter icons are optional non-consumable purchases." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Supporter-Icons in Bronze, Silber und Gold sind optionale, nicht verbrauchbare Käufe."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Los iconos de apoyo de bronce, plata y oro son compras opcionales no consumibles."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Opsyonal at hindi nauubos na mga binibili ang Bronze, Silver, at Gold na icon ng supporter."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Les icônes de soutien Bronze, Argent et Or sont des achats non consommables facultatifs."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ikon pendukung Perunggu, Perak, dan Emas merupakan pembelian opsional yang tidak habis pakai."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ブロンズ、シルバー、ゴールドのサポーターアイコンは、任意で購入できる非消耗型の商品です。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "브론즈, 실버 및 골드 서포터 아이콘은 선택적으로 구입할 수 있는 비소모성 항목입니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "कांस्य, रजत र स्वर्ण समर्थक आइकनहरू वैकल्पिक गैर-उपभोग्य खरिदहरू हुन्।"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Os ícones de apoio de bronze, prata e ouro são compras opcionais não consumíveis."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Các biểu tượng ủng hộ Đồng, Bạc và Vàng là những giao dịch mua không tiêu hao tùy chọn."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "青铜、白银和黄金支持者图标是可选的非消耗型购买项目。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "青銅、白銀與黃金支持者圖示是選購的非消耗型購買項目。"
           }
         }
       }
@@ -1531,6 +1759,82 @@
         }
       }
     },
+    "Each supporter icon is purchased once and remains available permanently." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Jedes Supporter-Icon wird einmalig gekauft und bleibt dauerhaft verfügbar."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Cada icono de apoyo se compra una sola vez y queda disponible permanentemente."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Isang beses lang bibilhin ang bawat icon ng supporter at permanente na itong magagamit."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Chaque icône de soutien s’achète une seule fois et reste disponible définitivement."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Setiap ikon pendukung cukup dibeli sekali dan akan tersedia secara permanen."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "各サポーターアイコンは一度購入すると、永続的に利用できます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "각 서포터 아이콘은 한 번만 구입하면 영구적으로 사용할 수 있습니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "प्रत्येक समर्थक आइकन एक पटक खरिद गरेपछि सधैँ उपलब्ध रहन्छ।"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Cada ícone de apoio é comprado uma única vez e fica disponível permanentemente."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mỗi biểu tượng ủng hộ chỉ cần mua một lần và sẽ luôn có sẵn."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "每个支持者图标只需购买一次，即可永久使用。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "每個支持者圖示只需購買一次，即可永久使用。"
+          }
+        }
+      }
+    },
     "Edit Pages" : {
       "localizations" : {
         "de" : {
@@ -2135,6 +2439,82 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "檔案名稱"
+          }
+        }
+      }
+    },
+    "Gold Tip" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gold-Unterstützung"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Propina de oro"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gold na Tip"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pourboire or"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tip Emas"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ゴールドチップ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "골드 팁"
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "स्वर्ण टिप"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gorjeta de ouro"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ủng hộ Vàng"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "黄金打赏"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "黃金贊助"
           }
         }
       }
@@ -5928,6 +6308,82 @@
         }
       }
     },
+    "Silver Tip" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Silber-Unterstützung"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Propina de plata"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Silver na Tip"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pourboire argent"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tip Perak"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "シルバーチップ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "실버 팁"
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "रजत टिप"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gorjeta de prata"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ủng hộ Bạc"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "白银打赏"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "白銀贊助"
+          }
+        }
+      }
+    },
     "Single Page" : {
       "localizations" : {
         "de" : {
@@ -6310,6 +6766,7 @@
       }
     },
     "Support" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -6386,6 +6843,7 @@
       }
     },
     "Support the Developer" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -6461,7 +6919,160 @@
         }
       }
     },
+    "Supporter Icons" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Supporter-Icons"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Iconos de apoyo"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mga Icon ng Supporter"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Icônes de soutien"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ikon Pendukung"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サポーターアイコン"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "서포터 아이콘"
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "समर्थक आइकनहरू"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ícones de apoio"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Biểu tượng ủng hộ"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "支持者图标"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "支持者圖示"
+          }
+        }
+      }
+    },
+    "Supporter icons are optional, one-time purchases. All PDF editing features remain available without a purchase." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Supporter-Icons sind optionale, einmalige Käufe. Alle PDF-Bearbeitungsfunktionen bleiben ohne Kauf verfügbar."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Los iconos de apoyo son compras opcionales de pago único. Todas las funciones de edición de PDF siguen disponibles sin realizar ninguna compra."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Opsyonal at isang beses lang binibili ang mga icon ng supporter. Magagamit pa rin ang lahat ng feature sa pag-edit ng PDF nang hindi bumibili."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Les icônes de soutien sont des achats uniques et facultatifs. Toutes les fonctionnalités d’édition de PDF restent disponibles sans achat."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ikon pendukung merupakan pembelian satu kali yang bersifat opsional. Semua fitur pengeditan PDF tetap tersedia tanpa pembelian."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サポーターアイコンは任意で購入できる買い切り商品です。PDF編集機能は購入しなくてもすべて利用できます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "서포터 아이콘은 선택적으로 한 번만 구입하는 항목입니다. 구입하지 않아도 모든 PDF 편집 기능을 계속 사용할 수 있습니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "समर्थक आइकनहरू वैकल्पिक, एक पटकका खरिदहरू हुन्। खरिद नगरी पनि PDF सम्पादनका सबै सुविधाहरू उपलब्ध रहन्छन्।"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Os ícones de apoio são compras opcionais e únicas. Todas as funcionalidades de edição de PDF continuam disponíveis sem efetuar uma compra."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Biểu tượng ủng hộ là giao dịch mua một lần, không bắt buộc. Tất cả các tính năng chỉnh sửa PDF vẫn có thể sử dụng mà không cần mua."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "支持者图标是可选的一次性购买项目。无需购买也可使用所有PDF编辑功能。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "支持者圖示為選購的一次性購買項目。無需購買即可繼續使用所有PDF編輯功能。"
+          }
+        }
+      }
+    },
     "Thank You for Your Support!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -6538,6 +7149,7 @@
       }
     },
     "Thank you for your support." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -6609,6 +7221,82 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "感謝你的支持。"
+          }
+        }
+      }
+    },
+    "Thank You!" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Vielen Dank!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gracias"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Salamat!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Merci !"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Terima Kasih!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ありがとうございます!"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "감사합니다!"
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "धन्यवाद!"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Agradecemos!"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Cảm ơn bạn!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "谢谢！"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "感謝你！"
           }
         }
       }
@@ -8073,6 +8761,82 @@
     "Use Document to open a PDF." : {
 
     },
+    "Use Restore Purchases on the Supporter Icons screen to restore previously purchased icons." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Verwende „Käufe wiederherstellen“ im Bildschirm „Supporter-Icons“, um bereits gekaufte Icons wiederherzustellen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Usa “Restaurar compras” en la pantalla “Iconos de apoyo” para restaurar los iconos que hayas comprado anteriormente."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gamitin ang Ibalik ang mga binili sa screen na Mga Icon ng Supporter para maibalik ang mga icon na dati nang binili."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Utilisez « Restaurer les achats » sur l’écran « Icônes de soutien » pour restaurer les icônes achetées précédemment."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gunakan Pulihkan Pembelian di layar Ikon Pendukung untuk memulihkan ikon yang telah dibeli sebelumnya."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "購入済みのアイコンは、サポーターアイコン画面の“購入を復元”から復元できます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "이전에 구입한 아이콘을 복원하려면 ‘서포터 아이콘’ 화면에서 ‘구입 항목 복원’을 사용하세요."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "पहिले खरिद गरिएका आइकनहरू पुनर्स्थापना गर्न समर्थक आइकनहरू स्क्रिनमा रहेको “खरिदहरू पुनर्स्थापना गर्नुहोस्” प्रयोग गर्नुहोस्।"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Utilize “Restaurar compras” no ecrã “Ícones de apoio” para restaurar os ícones comprados anteriormente."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sử dụng “Khôi phục giao dịch mua” trên màn hình “Biểu tượng ủng hộ” để khôi phục các biểu tượng đã mua trước đó."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "在“支持者图标”屏幕上使用“恢复购买项目”，即可恢复之前购买的图标。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "若要回復先前購買的圖示，請在「支持者圖示」畫面使用「回復購買項目」。"
+          }
+        }
+      }
+    },
     "Use Save to export the edited PDF." : {
 
     },
@@ -8235,6 +8999,7 @@
 
     },
     "Your purchases have been restored." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -8311,6 +9076,7 @@
       }
     },
     "Your support helps keep the app updated. You can use all features without making a purchase." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -8382,6 +9148,158 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "你的支持有助於持續更新App。無需購買即可使用所有功能。"
+          }
+        }
+      }
+    },
+    "Your supporter icon is now available." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Dein Supporter-Icon ist jetzt verfügbar."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "El icono de apoyo ya está disponible."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Magagamit na ang iyong icon ng supporter."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Votre icône de soutien est maintenant disponible."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ikon pendukung Anda kini tersedia."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サポーターアイコンが利用可能になりました。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "이제 서포터 아이콘을 사용할 수 있습니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "तपाईंको समर्थक आइकन अब उपलब्ध छ।"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "O ícone de apoio está agora disponível."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Biểu tượng ủng hộ của bạn hiện đã có sẵn."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "你的支持者图标现已可用。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "你的支持者圖示現在已可使用。"
+          }
+        }
+      }
+    },
+    "Your supporter icons have been restored." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Deine Supporter-Icons wurden wiederhergestellt."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Se han restaurado los iconos de apoyo."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Naibalik na ang mga icon ng supporter mo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Vos icônes de soutien ont été restaurées."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ikon pendukung Anda telah dipulihkan."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "購入済みのサポーターアイコンを復元しました。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "구입한 서포터 아이콘이 복원되었습니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "तपाईंका समर्थक आइकनहरू पुनर्स्थापना गरिएका छन्।"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Os ícones de apoio foram restaurados."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Các biểu tượng ủng hộ của bạn đã được khôi phục."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "已恢复你的支持者图标。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "已回復你的支持者圖示。"
           }
         }
       }
