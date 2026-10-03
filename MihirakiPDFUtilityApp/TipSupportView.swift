@@ -9,6 +9,7 @@ struct TipSupportView: View {
     @State private var purchasingProductID: String?
     @State private var isShowingThankYou = false
     @State private var isShowingPendingMessage = false
+    @State private var restoreMessage: String?
 
     var body: some View {
         NavigationStack {
@@ -19,6 +20,20 @@ struct TipSupportView: View {
                     Text("Support the Developer")
                 } footer: {
                     Text("Your support helps keep the app updated. You can use all features without making a purchase.")
+                }
+
+                Section {
+                    Button("Restore Purchases") {
+                        restorePurchases()
+                    }
+                    .disabled(tipManager.isRestoring || purchasingProductID != nil)
+                } footer: {
+                    if tipManager.isRestoring {
+                        HStack(spacing: 8) {
+                            ProgressView()
+                            Text("Restoring purchases…")
+                        }
+                    }
                 }
             }
             .navigationTitle("Support")
@@ -41,6 +56,17 @@ struct TipSupportView: View {
                 Button("OK", role: .cancel) {}
             } message: {
                 Text("The purchase is waiting for approval.")
+            }
+            .alert(
+                "Restore Purchases",
+                isPresented: Binding(
+                    get: { restoreMessage != nil },
+                    set: { if !$0 { restoreMessage = nil } }
+                )
+            ) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text(restoreMessage ?? "")
             }
         }
     }
@@ -70,22 +96,27 @@ struct TipSupportView: View {
                     purchase(product)
                 } label: {
                     HStack(spacing: 12) {
-                        Image(systemName: "heart.circle.fill")
-                            .font(.title2)
-                            .foregroundStyle(.pink)
+                        Image(tipIconName(for: product.id))
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 44, height: 44)
+                            .clipShape(.rect(cornerRadius: 10))
                             .accessibilityHidden(true)
 
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(displayName(for: product.id))
+                            Text(product.displayName)
                                 .font(.headline)
-                            Text("A one-time consumable purchase")
+                            Text(product.description)
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
 
                         Spacer()
 
-                        if purchasingProductID == product.id {
+                        if tipManager.isPurchased(product) {
+                            Label("Purchased", systemImage: "checkmark.circle.fill")
+                                .foregroundStyle(.secondary)
+                        } else if purchasingProductID == product.id {
                             ProgressView()
                         } else {
                             Text(product.displayPrice)
@@ -93,18 +124,18 @@ struct TipSupportView: View {
                         }
                     }
                 }
-                .disabled(purchasingProductID != nil)
+                .disabled(purchasingProductID != nil || tipManager.isPurchased(product))
                 .accessibilityIdentifier("tipProductButton_\(product.id)")
             }
         }
     }
 
-    private func displayName(for productID: String) -> LocalizedStringResource {
+    private func tipIconName(for productID: String) -> String {
         switch productID {
-        case "tip_100": "Small Support"
-        case "tip_500": "Medium Support"
-        case "tip_1000": "Large Support"
-        default: "Support"
+        case "supporter_icon_bronze_ut": "TipBronze"
+        case "supporter_icon_silver_ut": "TipSilver"
+        case "supporter_icon_gold_ut": "TipGold"
+        default: "TipBronze"
         }
     }
 
@@ -122,6 +153,19 @@ struct TipSupportView: View {
                 isShowingPendingMessage = true
             case .cancelled, .failed:
                 break
+            }
+        }
+    }
+
+    private func restorePurchases() {
+        Task {
+            switch await tipManager.restorePurchases() {
+            case .restored:
+                restoreMessage = String(localized: "Your purchases have been restored.")
+            case .noPurchases:
+                restoreMessage = String(localized: "No purchases were found to restore.")
+            case let .failed(message):
+                restoreMessage = message
             }
         }
     }

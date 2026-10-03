@@ -9,7 +9,11 @@ struct PDFEditorModelTests {
     @Test("Tip product identifiers match the StoreKit configuration")
     @MainActor
     func tipProductIdentifiers() {
-        #expect(TipManager.productIDs == ["tip_100", "tip_500", "tip_1000"])
+        #expect(TipManager.productIDs == [
+            "supporter_icon_bronze_ut",
+            "supporter_icon_silver_ut",
+            "supporter_icon_gold_ut"
+        ])
     }
 
     @Test("Tip purchase outcomes compare by value")
@@ -17,6 +21,8 @@ struct PDFEditorModelTests {
     func tipPurchaseOutcomes() {
         #expect(TipManager.PurchaseOutcome.success == .success)
         #expect(TipManager.PurchaseOutcome.pending != .cancelled)
+        #expect(TipManager.RestoreOutcome.restored == .restored)
+        #expect(TipManager.RestoreOutcome.noPurchases != .restored)
     }
 
     @Test("App version information is read from bundle metadata")

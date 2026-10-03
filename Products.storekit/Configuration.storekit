@@ -20,13 +20,13 @@
       "internalID" : "14F53C71",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "Tip 100 Yen",
+          "description" : "You can use the \"Bronze\" supporter icon permanently.",
+          "displayName" : "Bronze Tip",
           "locale" : "en_US"
         },
         {
-          "description" : "",
-          "displayName" : "投げ銭 100円",
+          "description" : "サポーターアイコン「ブロンズ」を永続的に利用できます。",
+          "displayName" : "ブロンズチップ",
           "locale" : "ja"
         },
         {
@@ -60,10 +60,10 @@
           "locale" : "es_MX"
         }
       ],
-      "productID" : "tip_100",
+      "productID" : "supporter_icon_bronze_ut",
       "promotionalImageID" : "E9451F87",
-      "referenceName" : "tip_100",
-      "type" : "Consumable"
+      "referenceName" : "supporter_icon_bronze_ut",
+      "type" : "NonConsumable"
     },
     {
       "displayPrice" : "500",
@@ -71,13 +71,13 @@
       "internalID" : "F906B8E3",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "Tip 500 Yen",
+          "description" : "You can use the \"Silver\" supporter icon permanently.",
+          "displayName" : "Silver Tip",
           "locale" : "en_US"
         },
         {
-          "description" : "",
-          "displayName" : "投げ銭 500円",
+          "description" : "サポーターアイコン「シルバー」を永続的に利用できます。",
+          "displayName" : "シルバーチップ",
           "locale" : "ja"
         },
         {
@@ -111,10 +111,10 @@
           "locale" : "es_MX"
         }
       ],
-      "productID" : "tip_500",
+      "productID" : "supporter_icon_silver_ut",
       "promotionalImageID" : "E50232B0",
-      "referenceName" : "tip_500",
-      "type" : "Consumable"
+      "referenceName" : "supporter_icon_silver_ut",
+      "type" : "NonConsumable"
     },
     {
       "displayPrice" : "1000",
@@ -122,13 +122,13 @@
       "internalID" : "3A999B47",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "Tip 1000 Yen",
+          "description" : "You can use the \"Gold\" supporter icon permanently.",
+          "displayName" : "Gold Tip",
           "locale" : "en_US"
         },
         {
-          "description" : "",
-          "displayName" : "投げ銭 1000円",
+          "description" : "サポーターアイコン「ゴールド」を永続的に利用できます。",
+          "displayName" : "ゴールドチップ",
           "locale" : "ja"
         },
         {
@@ -162,10 +162,10 @@
           "locale" : "es_MX"
         }
       ],
-      "productID" : "tip_1000",
+      "productID" : "supporter_icon_gold_ut",
       "promotionalImageID" : "431B2251",
-      "referenceName" : "tip_1000",
-      "type" : "Consumable"
+      "referenceName" : "supporter_icon_gold_ut",
+      "type" : "NonConsumable"
     }
   ],
   "settings" : {
