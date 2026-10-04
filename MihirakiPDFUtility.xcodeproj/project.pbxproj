@@ -6,6 +6,34 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		ECC62BA13072923C00AA575D /* tameshibu_episode1_en.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B9A3072923C00AA575D /* tameshibu_episode1_en.pdf */; };
+		ECC62BA23072923C00AA575D /* TestLightNovel_password.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B9F3072923C00AA575D /* TestLightNovel_password.pdf */; };
+		ECC62BA33072923C00AA575D /* L2R_TwoPageRight.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B8E3072923C00AA575D /* L2R_TwoPageRight.pdf */; };
+		ECC62BA43072923C00AA575D /* L2R_TwoColumnLeft.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B8B3072923C00AA575D /* L2R_TwoColumnLeft.pdf */; };
+		ECC62BA53072923C00AA575D /* tameshibu_episode2_ja.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B9D3072923C00AA575D /* tameshibu_episode2_ja.pdf */; };
+		ECC62BA63072923C00AA575D /* tameshibu_episode1_ja.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B9B3072923C00AA575D /* tameshibu_episode1_ja.pdf */; };
+		ECC62BA73072923C00AA575D /* load_test_1100_pages.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B8F3072923C00AA575D /* load_test_1100_pages.pdf */; };
+		ECC62BA83072923C00AA575D /* L2R_NoCover.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B883072923C00AA575D /* L2R_NoCover.pdf */; };
+		ECC62BA93072923C00AA575D /* R2L_NoCover.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B913072923C00AA575D /* R2L_NoCover.pdf */; };
+		ECC62BAA3072923C00AA575D /* L2R_OneColumn.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B893072923C00AA575D /* L2R_OneColumn.pdf */; };
+		ECC62BAB3072923C00AA575D /* TestLightNovel.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B9E3072923C00AA575D /* TestLightNovel.pdf */; };
+		ECC62BAC3072923C00AA575D /* tameshibu_episode2_en.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B9C3072923C00AA575D /* tameshibu_episode2_en.pdf */; };
+		ECC62BAD3072923C00AA575D /* R2L_TwoColumnRight.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B953072923C00AA575D /* R2L_TwoColumnRight.pdf */; };
+		ECC62BAE3072923C00AA575D /* R2L_OneColumn.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B923072923C00AA575D /* R2L_OneColumn.pdf */; };
+		ECC62BAF3072923C00AA575D /* R2L_TwoPageRight.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B973072923C00AA575D /* R2L_TwoPageRight.pdf */; };
+		ECC62BB03072923C00AA575D /* SEASIDE_LIVING_sample.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B983072923C00AA575D /* SEASIDE_LIVING_sample.pdf */; };
+		ECC62BB13072923C00AA575D /* L2R_Single.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B8A3072923C00AA575D /* L2R_Single.pdf */; };
+		ECC62BB23072923C00AA575D /* L2R_TwoColumnRight.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B8C3072923C00AA575D /* L2R_TwoColumnRight.pdf */; };
+		ECC62BB33072923C00AA575D /* R2L_TwoPageLeft.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B963072923C00AA575D /* R2L_TwoPageLeft.pdf */; };
+		ECC62BB43072923C00AA575D /* SEASIDE_LIVING_sample_EN.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B993072923C00AA575D /* SEASIDE_LIVING_sample_EN.pdf */; };
+		ECC62BB53072923C00AA575D /* R2L_TwoColumnLeft.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B943072923C00AA575D /* R2L_TwoColumnLeft.pdf */; };
+		ECC62BB63072923C00AA575D /* L2R_TwoPageLeft.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B8D3072923C00AA575D /* L2R_TwoPageLeft.pdf */; };
+		ECC62BB73072923C00AA575D /* L2R_Cover.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B873072923C00AA575D /* L2R_Cover.pdf */; };
+		ECC62BB83072923C00AA575D /* R2L_Single.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B933072923C00AA575D /* R2L_Single.pdf */; };
+		ECC62BB93072923C00AA575D /* R2L_Cover.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ECC62B903072923C00AA575D /* R2L_Cover.pdf */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A80000000000000000000002 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -20,6 +48,31 @@
 		A10000000000000000000001 /* MihirakiPDFUtility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MihirakiPDFUtility.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A10000000000000000000002 /* MihirakiPDFUtilityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MihirakiPDFUtilityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC85801B305DD2A80099FD72 /* MihirakiPDFUtility-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MihirakiPDFUtility-Info.plist"; sourceTree = "<group>"; };
+		ECC62B873072923C00AA575D /* L2R_Cover.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = L2R_Cover.pdf; sourceTree = "<group>"; };
+		ECC62B883072923C00AA575D /* L2R_NoCover.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = L2R_NoCover.pdf; sourceTree = "<group>"; };
+		ECC62B893072923C00AA575D /* L2R_OneColumn.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = L2R_OneColumn.pdf; sourceTree = "<group>"; };
+		ECC62B8A3072923C00AA575D /* L2R_Single.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = L2R_Single.pdf; sourceTree = "<group>"; };
+		ECC62B8B3072923C00AA575D /* L2R_TwoColumnLeft.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = L2R_TwoColumnLeft.pdf; sourceTree = "<group>"; };
+		ECC62B8C3072923C00AA575D /* L2R_TwoColumnRight.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = L2R_TwoColumnRight.pdf; sourceTree = "<group>"; };
+		ECC62B8D3072923C00AA575D /* L2R_TwoPageLeft.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = L2R_TwoPageLeft.pdf; sourceTree = "<group>"; };
+		ECC62B8E3072923C00AA575D /* L2R_TwoPageRight.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = L2R_TwoPageRight.pdf; sourceTree = "<group>"; };
+		ECC62B8F3072923C00AA575D /* load_test_1100_pages.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = load_test_1100_pages.pdf; sourceTree = "<group>"; };
+		ECC62B903072923C00AA575D /* R2L_Cover.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = R2L_Cover.pdf; sourceTree = "<group>"; };
+		ECC62B913072923C00AA575D /* R2L_NoCover.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = R2L_NoCover.pdf; sourceTree = "<group>"; };
+		ECC62B923072923C00AA575D /* R2L_OneColumn.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = R2L_OneColumn.pdf; sourceTree = "<group>"; };
+		ECC62B933072923C00AA575D /* R2L_Single.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = R2L_Single.pdf; sourceTree = "<group>"; };
+		ECC62B943072923C00AA575D /* R2L_TwoColumnLeft.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = R2L_TwoColumnLeft.pdf; sourceTree = "<group>"; };
+		ECC62B953072923C00AA575D /* R2L_TwoColumnRight.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = R2L_TwoColumnRight.pdf; sourceTree = "<group>"; };
+		ECC62B963072923C00AA575D /* R2L_TwoPageLeft.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = R2L_TwoPageLeft.pdf; sourceTree = "<group>"; };
+		ECC62B973072923C00AA575D /* R2L_TwoPageRight.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = R2L_TwoPageRight.pdf; sourceTree = "<group>"; };
+		ECC62B983072923C00AA575D /* SEASIDE_LIVING_sample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = SEASIDE_LIVING_sample.pdf; sourceTree = "<group>"; };
+		ECC62B993072923C00AA575D /* SEASIDE_LIVING_sample_EN.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = SEASIDE_LIVING_sample_EN.pdf; sourceTree = "<group>"; };
+		ECC62B9A3072923C00AA575D /* tameshibu_episode1_en.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = tameshibu_episode1_en.pdf; sourceTree = "<group>"; };
+		ECC62B9B3072923C00AA575D /* tameshibu_episode1_ja.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = tameshibu_episode1_ja.pdf; sourceTree = "<group>"; };
+		ECC62B9C3072923C00AA575D /* tameshibu_episode2_en.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = tameshibu_episode2_en.pdf; sourceTree = "<group>"; };
+		ECC62B9D3072923C00AA575D /* tameshibu_episode2_ja.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = tameshibu_episode2_ja.pdf; sourceTree = "<group>"; };
+		ECC62B9E3072923C00AA575D /* TestLightNovel.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = TestLightNovel.pdf; sourceTree = "<group>"; };
+		ECC62B9F3072923C00AA575D /* TestLightNovel_password.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = TestLightNovel_password.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -59,6 +112,7 @@
 				EC85801B305DD2A80099FD72 /* MihirakiPDFUtility-Info.plist */,
 				A20000000000000000000001 /* MihirakiPDFUtilityApp */,
 				A20000000000000000000002 /* MihirakiPDFUtilityTests */,
+				ECC62BA03072923C00AA575D /* testdata */,
 				A40000000000000000000002 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +124,38 @@
 				A10000000000000000000002 /* MihirakiPDFUtilityTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		ECC62BA03072923C00AA575D /* testdata */ = {
+			isa = PBXGroup;
+			children = (
+				ECC62B873072923C00AA575D /* L2R_Cover.pdf */,
+				ECC62B883072923C00AA575D /* L2R_NoCover.pdf */,
+				ECC62B893072923C00AA575D /* L2R_OneColumn.pdf */,
+				ECC62B8A3072923C00AA575D /* L2R_Single.pdf */,
+				ECC62B8B3072923C00AA575D /* L2R_TwoColumnLeft.pdf */,
+				ECC62B8C3072923C00AA575D /* L2R_TwoColumnRight.pdf */,
+				ECC62B8D3072923C00AA575D /* L2R_TwoPageLeft.pdf */,
+				ECC62B8E3072923C00AA575D /* L2R_TwoPageRight.pdf */,
+				ECC62B8F3072923C00AA575D /* load_test_1100_pages.pdf */,
+				ECC62B903072923C00AA575D /* R2L_Cover.pdf */,
+				ECC62B913072923C00AA575D /* R2L_NoCover.pdf */,
+				ECC62B923072923C00AA575D /* R2L_OneColumn.pdf */,
+				ECC62B933072923C00AA575D /* R2L_Single.pdf */,
+				ECC62B943072923C00AA575D /* R2L_TwoColumnLeft.pdf */,
+				ECC62B953072923C00AA575D /* R2L_TwoColumnRight.pdf */,
+				ECC62B963072923C00AA575D /* R2L_TwoPageLeft.pdf */,
+				ECC62B973072923C00AA575D /* R2L_TwoPageRight.pdf */,
+				ECC62B983072923C00AA575D /* SEASIDE_LIVING_sample.pdf */,
+				ECC62B993072923C00AA575D /* SEASIDE_LIVING_sample_EN.pdf */,
+				ECC62B9A3072923C00AA575D /* tameshibu_episode1_en.pdf */,
+				ECC62B9B3072923C00AA575D /* tameshibu_episode1_ja.pdf */,
+				ECC62B9C3072923C00AA575D /* tameshibu_episode2_en.pdf */,
+				ECC62B9D3072923C00AA575D /* tameshibu_episode2_ja.pdf */,
+				ECC62B9E3072923C00AA575D /* TestLightNovel.pdf */,
+				ECC62B9F3072923C00AA575D /* TestLightNovel_password.pdf */,
+			);
+			path = testdata;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +261,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC62BA13072923C00AA575D /* tameshibu_episode1_en.pdf in Resources */,
+				ECC62BA23072923C00AA575D /* TestLightNovel_password.pdf in Resources */,
+				ECC62BA33072923C00AA575D /* L2R_TwoPageRight.pdf in Resources */,
+				ECC62BA43072923C00AA575D /* L2R_TwoColumnLeft.pdf in Resources */,
+				ECC62BA53072923C00AA575D /* tameshibu_episode2_ja.pdf in Resources */,
+				ECC62BA63072923C00AA575D /* tameshibu_episode1_ja.pdf in Resources */,
+				ECC62BA73072923C00AA575D /* load_test_1100_pages.pdf in Resources */,
+				ECC62BA83072923C00AA575D /* L2R_NoCover.pdf in Resources */,
+				ECC62BA93072923C00AA575D /* R2L_NoCover.pdf in Resources */,
+				ECC62BAA3072923C00AA575D /* L2R_OneColumn.pdf in Resources */,
+				ECC62BAB3072923C00AA575D /* TestLightNovel.pdf in Resources */,
+				ECC62BAC3072923C00AA575D /* tameshibu_episode2_en.pdf in Resources */,
+				ECC62BAD3072923C00AA575D /* R2L_TwoColumnRight.pdf in Resources */,
+				ECC62BAE3072923C00AA575D /* R2L_OneColumn.pdf in Resources */,
+				ECC62BAF3072923C00AA575D /* R2L_TwoPageRight.pdf in Resources */,
+				ECC62BB03072923C00AA575D /* SEASIDE_LIVING_sample.pdf in Resources */,
+				ECC62BB13072923C00AA575D /* L2R_Single.pdf in Resources */,
+				ECC62BB23072923C00AA575D /* L2R_TwoColumnRight.pdf in Resources */,
+				ECC62BB33072923C00AA575D /* R2L_TwoPageLeft.pdf in Resources */,
+				ECC62BB43072923C00AA575D /* SEASIDE_LIVING_sample_EN.pdf in Resources */,
+				ECC62BB53072923C00AA575D /* R2L_TwoColumnLeft.pdf in Resources */,
+				ECC62BB63072923C00AA575D /* L2R_TwoPageLeft.pdf in Resources */,
+				ECC62BB73072923C00AA575D /* L2R_Cover.pdf in Resources */,
+				ECC62BB83072923C00AA575D /* R2L_Single.pdf in Resources */,
+				ECC62BB93072923C00AA575D /* R2L_Cover.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
