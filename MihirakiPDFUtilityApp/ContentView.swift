@@ -249,6 +249,21 @@ struct ContentView: View {
                 }
 
                 ToolbarItemGroup(placement: .primaryAction) {
+                    Button("Properties", systemImage: "doc.text.magnifyingglass") {
+                        isPresentingProperties = true
+                    }
+                    .disabled(model.document == nil)
+
+                    Button("Right Binding", systemImage: "book.closed") {
+                        applyRightBinding(pageLayout: .twoPageLeft)
+                    }
+                    .disabled(model.document == nil)
+
+                    Button("Right Binding with Cover", systemImage: "book.closed.fill") {
+                        applyRightBinding(pageLayout: .twoPageRight)
+                    }
+                    .disabled(model.document == nil)
+
                     Picker("View", selection: $viewMode) {
                         ForEach(MainViewMode.allCases) { mode in
                             Label(mode.title, systemImage: mode.systemImage)
@@ -725,6 +740,13 @@ struct ContentView: View {
                 }
             }
         )
+    }
+
+    private func applyRightBinding(pageLayout: PDFPageLayout) {
+        var preferences = model.documentDetails.viewerPreferences
+        preferences.pageLayout = pageLayout
+        preferences.setReadingDirection(.rightToLeft)
+        model.updateViewerPreferences(preferences)
     }
 
     private func prepareExport() {
