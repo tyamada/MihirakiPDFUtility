@@ -29,6 +29,17 @@ This repository was created to develop a new app based on code and specification
 - [Privacy Policy](https://tyamada.github.io/MihirakiPDFUtility/privacy.html)
 - [Support](https://tyamada.github.io/MihirakiPDFUtility/support.html)
 
+## Sample PDFs
+
+- [ためし部 第１話 ひと息マップ (Japanese)](docs/pdf/tameshibu_episode1_ja.pdf)
+- [ためし部 第２話 机、ひろがる。 (Japanese)](docs/pdf/tameshibu_episode2_ja.pdf)
+- [THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP (English)](docs/pdf/tameshibu_episode1_en.pdf)
+- [THE TRY-IT CLUB EPISODE 2 ROOM TO GROW (English)](docs/pdf/tameshibu_episode2_en.pdf)
+- [해봄부 제1화 한숨 돌림 지도 (Korean)](docs/pdf/tameshibu_episode1_ko.pdf)
+- [해봄부제2화 책상이 넓어지다 (Korean)](docs/pdf/tameshibu_episode2_ko.pdf)
+- [试试社 第1话 歇口气地图 (Chinese (Simplified))](docs/pdf/tameshibu_episode1_zh_cn.pdf)
+- [试试社 第2话 桌子变大了 (Chinese (Simplified))](docs/pdf/tameshibu_episode2_zh_cn.pdf)
+
 ## Development
 
 Open `MihirakiPDFUtility.xcodeproj` in Xcode and select the `MihirakiPDFUtility` scheme. The current deployment targets are iOS 18.0 and macOS 15.0, and the app supports iPhone, iPad, and Mac.

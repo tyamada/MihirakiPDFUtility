@@ -30,6 +30,17 @@ MihirakiPDFUtilityは、PDFページの並べ替え、回転、挿入、削除�
 - [プライバシーポリシー](https://tyamada.github.io/MihirakiPDFUtility/privacy_ja.html)
 - [サポート](https://tyamada.github.io/MihirakiPDFUtility/support_ja.html)
 
+## サンプルPDF
+
+- [ためし部 第１話 ひと息マップ (Japanese)](docs/pdf/tameshibu_episode1_ja.pdf)
+- [ためし部 第２話 机、ひろがる。 (Japanese)](docs/pdf/tameshibu_episode2_ja.pdf)
+- [THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP (English)](docs/pdf/tameshibu_episode1_en.pdf)
+- [THE TRY-IT CLUB EPISODE 2 ROOM TO GROW (English)](docs/pdf/tameshibu_episode2_en.pdf)
+- [해봄부 제1화 한숨 돌림 지도 (Korean)](docs/pdf/tameshibu_episode1_ko.pdf)
+- [해봄부제2화 책상이 넓어지다 (Korean)](docs/pdf/tameshibu_episode2_ko.pdf)
+- [试试社 第1话 歇口气地图 (Chinese (Simplified))](docs/pdf/tameshibu_episode1_zh_cn.pdf)
+- [试试社 第2话 桌子变大了 (Chinese (Simplified))](docs/pdf/tameshibu_episode2_zh_cn.pdf)
+
 ## 対応方針
 
 最初にiOS版を開発し、その後iPadOSとmacOSへ展開します。Linux版とWindows版は作成しません。
