@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "5,000,000 integer operations (checksum: %llu)" : {
+
+    },
     "A one-time consumable purchase" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1066,6 +1069,12 @@
         }
       }
     },
+    "Copied" : {
+
+    },
+    "Copy Results" : {
+
+    },
     "Copyright" : {
       "localizations" : {
         "de" : {
@@ -1294,6 +1303,12 @@
         }
       }
     },
+    "CPU Calculation" : {
+
+    },
+    "Created and scanned 16 MB of data (checksum: %llu)" : {
+
+    },
     "Delete" : {
       "localizations" : {
         "de" : {
@@ -1521,6 +1536,12 @@
           }
         }
       }
+    },
+    "Device" : {
+
+    },
+    "Diagnostics" : {
+
     },
     "Document" : {
       "localizations" : {
@@ -2662,6 +2683,16 @@
         }
       }
     },
+    "Generated, loaded, and exported %lld pages (%@)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Generated, loaded, and exported %1$lld pages (%2$@)"
+          }
+        }
+      }
+    },
     "Gold Tip" : {
       "localizations" : {
         "de" : {
@@ -3499,6 +3530,15 @@
         }
       }
     },
+    "Measures a fixed set of integer calculations." : {
+
+    },
+    "Measures creation and scanning of a 16 MB data buffer." : {
+
+    },
+    "Measures generation, loading, and export of a 100-page PDF." : {
+
+    },
     "Medium Support" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -3575,6 +3615,9 @@
           }
         }
       }
+    },
+    "Memory Processing" : {
+
     },
     "Move Earlier" : {
       "localizations" : {
@@ -4716,6 +4759,9 @@
         }
       }
     },
+    "OS" : {
+
+    },
     "Overview" : {
       "localizations" : {
         "de" : {
@@ -5400,6 +5446,12 @@
         }
       }
     },
+    "PDF Workflow" : {
+
+    },
+    "Performance Test" : {
+
+    },
     "Properties" : {
       "localizations" : {
         "de" : {
@@ -6008,6 +6060,9 @@
         }
       }
     },
+    "Results" : {
+
+    },
     "Reverse Selection" : {
       "localizations" : {
         "de" : {
@@ -6317,6 +6372,15 @@
           }
         }
       }
+    },
+    "Run Performance Test" : {
+
+    },
+    "Run Tests" : {
+
+    },
+    "Running Tests…" : {
+
     },
     "Save" : {
       "localizations" : {
@@ -8296,6 +8360,18 @@
           }
         }
       }
+    },
+    "Test Date" : {
+
+    },
+    "Test Environment" : {
+
+    },
+    "Tests" : {
+
+    },
+    "Tests run only on this device. Results are never sent externally." : {
+
     },
     "Thank You for Your Support!" : {
       "extractionState" : "stale",

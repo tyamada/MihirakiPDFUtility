@@ -903,6 +903,14 @@ private struct AppVersionInformationView: View {
                     }
                 }
 
+                Section("Diagnostics") {
+                    NavigationLink {
+                        PerformanceTestView()
+                    } label: {
+                        Label("Run Performance Test", systemImage: "gauge.with.dots.needle.50percent")
+                    }
+                }
+
                 Section("License") {
                     Text(info.license)
                         .textSelection(.enabled)
