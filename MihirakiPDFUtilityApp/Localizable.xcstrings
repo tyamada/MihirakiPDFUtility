@@ -3548,6 +3548,82 @@
     "Logs do not include file names, file contents, document metadata, or passwords. Records older than 14 days are deleted automatically." : {
 
     },
+    "Logs stay on this device, exclude personal information and PDF contents, and are deleted after 14 days." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Die Protokolle verbleiben auf diesem Gerät, enthalten weder persönliche Daten noch PDF-Inhalte und werden nach 14 Tagen gelöscht."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Los registros permanecen en este dispositivo, no incluyen información personal ni contenido de archivos PDF y se eliminan después de 14 días."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Nananatili sa device na ito ang mga log, hindi kasama ang personal na impormasyon at nilalaman ng PDF, at binubura pagkalipas ng 14 na araw."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Les journaux restent sur cet appareil, ne contiennent aucun renseignement personnel ni contenu PDF et sont supprimés après 14 jours."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Log tetap berada di perangkat ini, tidak menyertakan informasi pribadi atau isi PDF, dan dihapus setelah 14 hari."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ログはこのデバイス内に保持され、個人情報やPDFの内容は含まれません。また、14日後に削除されます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "로그는 이 기기에만 저장되며 개인정보와 PDF 내용은 포함하지 않고 14일 후 삭제됩니다."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "लगहरू यस उपकरणमै रहन्छन्, तिनमा व्यक्तिगत जानकारी र PDF का सामग्री समावेश हुँदैनन्, र १४ दिनपछि मेटाइन्छन्।"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Os registos permanecem neste dispositivo, não incluem informações pessoais nem conteúdo de ficheiros PDF e são eliminados após 14 dias."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Nhật ký được lưu trên thiết bị này, không chứa thông tin cá nhân hoặc nội dung PDF và sẽ bị xóa sau 14 ngày."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "日志仅保留在此设备上，不包含个人信息或PDF内容，并会在14天后删除。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "記錄只保留在此裝置上，不包含個人資料或PDF內容，並會在14天後刪除。"
+          }
+        }
+      }
+    },
     "Logs stay on this device. This app has no feature that sends logs externally." : {
 
     },
@@ -4703,6 +4779,82 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "開啟PDF"
+          }
+        }
+      }
+    },
+    "Open Version Information to run an on-device performance test." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Öffne „Versionsinformationen“, um einen Leistungstest auf dem Gerät auszuführen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Abre Información de la versión para ejecutar una prueba de rendimiento en el dispositivo."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Buksan ang Impormasyon ng bersyon para magpatakbo ng performance test sa device."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ouvrez « Informations sur la version » pour exécuter un test de performances sur l’appareil."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Buka Informasi Versi untuk menjalankan uji kinerja di perangkat."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "バージョン情報を開くと、デバイス上でパフォーマンステストを実行できます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "‘버전 정보’를 열어 기기에서 성능 테스트를 실행하세요."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "उपकरणमै कार्यसम्पादन परीक्षण चलाउन संस्करण जानकारी खोल्नुहोस्।"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Abra Informações da versão para executar um teste de desempenho no dispositivo."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hãy mở Thông tin phiên bản để chạy kiểm tra hiệu năng trên thiết bị."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "打开“版本信息”，即可在设备上运行性能测试。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開啟「版本資訊」，即可在裝置上執行效能測試。"
           }
         }
       }
@@ -10678,6 +10830,82 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "顯示"
+          }
+        }
+      }
+    },
+    "View and copy diagnostic logs when reporting a problem." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Zeige beim Melden eines Problems die Diagnoseprotokolle an und kopiere sie."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Consulta y copia los registros de diagnóstico cuando informes de un problema."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tingnan at kopyahin ang mga diagnostic log kapag nag-uulat ng problema."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Consultez et copiez les journaux de diagnostic lorsque vous signalez un problème."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Lihat dan salin log diagnostik saat melaporkan masalah."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "問題を報告するときは、診断ログを表示してコピーできます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "문제를 신고할 때 진단 로그를 확인하고 복사하세요."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "समस्या रिपोर्ट गर्दा निदान लग हेर्नुहोस् र प्रतिलिपि गर्नुहोस्।"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Consulte e copie os registos de diagnóstico ao comunicar um problema."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Xem và sao chép nhật ký chẩn đoán khi báo cáo sự cố."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "报告问题时，请查看并复制诊断日志。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "回報問題時，請檢視並拷貝診斷記錄。"
           }
         }
       }

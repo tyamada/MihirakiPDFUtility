@@ -842,6 +842,21 @@ private struct HelpView: View {
                     Label("Set or remove the PDF viewing password.", systemImage: "lock")
                 }
 
+                Section("Diagnostics") {
+                    Label(
+                        "Open Version Information to run an on-device performance test.",
+                        systemImage: "gauge.with.dots.needle.50percent"
+                    )
+                    Label(
+                        "View and copy diagnostic logs when reporting a problem.",
+                        systemImage: "doc.text.magnifyingglass"
+                    )
+                    Label(
+                        "Logs stay on this device, exclude personal information and PDF contents, and are deleted after 14 days.",
+                        systemImage: "hand.raised"
+                    )
+                }
+
                 Section("Supporter Icons") {
                     Label(
                         "Bronze, Silver, and Gold supporter icons are optional non-consumable purchases.",

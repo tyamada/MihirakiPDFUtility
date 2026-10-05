@@ -19,6 +19,8 @@ This repository was created to develop a new app based on code and specification
 - Configure PDF page layout, cover display and reading direction
 - Set or remove a viewing password on exported PDFs
 - Open PDFs from Files and the system share sheet
+- Run an on-device CPU, memory and PDF workflow performance test from Version Information
+- Keep privacy-preserving diagnostic logs on the device, view or copy them for troubleshooting, and automatically delete records after 14 days
 - User interface localized in 13 languages
 - Optional non-consumable In-App Purchases for permanent Bronze, Silver, and Gold supporter icons
 - Marketing, privacy and support pages for GitHub Pages
