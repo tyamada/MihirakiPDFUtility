@@ -83,6 +83,53 @@ struct PDFViewerPreferences: Equatable, Sendable {
     }
 }
 
+struct PDFSpreadRow: Equatable, Sendable {
+    let leftPageIndex: Int?
+    let rightPageIndex: Int?
+}
+
+enum PDFSpreadLayout {
+    static func rows(
+        pageCount: Int,
+        preferences: PDFViewerPreferences
+    ) -> [PDFSpreadRow] {
+        guard pageCount > 0 else { return [] }
+
+        var rows: [PDFSpreadRow] = []
+        var nextPageIndex = 0
+
+        if preferences.displaysCover {
+            rows.append(PDFSpreadRow(leftPageIndex: nil, rightPageIndex: 0))
+            nextPageIndex = 1
+        }
+
+        while nextPageIndex < pageCount {
+            let firstPageIndex = nextPageIndex
+            let secondPageIndex = nextPageIndex + 1 < pageCount ? nextPageIndex + 1 : nil
+
+            if preferences.readingDirection == .rightToLeft {
+                rows.append(
+                    PDFSpreadRow(
+                        leftPageIndex: secondPageIndex,
+                        rightPageIndex: firstPageIndex
+                    )
+                )
+            } else {
+                rows.append(
+                    PDFSpreadRow(
+                        leftPageIndex: firstPageIndex,
+                        rightPageIndex: secondPageIndex
+                    )
+                )
+            }
+
+            nextPageIndex += 2
+        }
+
+        return rows
+    }
+}
+
 struct PDFVersion: Comparable, Equatable, Sendable {
     let major: Int
     let minor: Int

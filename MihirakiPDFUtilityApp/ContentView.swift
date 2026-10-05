@@ -87,6 +87,17 @@ private struct ThumbnailPageDropDelegate: DropDelegate {
     }
 }
 
+private struct SpreadDisplayPage {
+    let index: Int
+    let item: PDFPageItem
+}
+
+private struct SpreadDisplayRow: Identifiable {
+    let id: PDFPageItem.ID
+    let leftPage: SpreadDisplayPage?
+    let rightPage: SpreadDisplayPage?
+}
+
 private enum ThumbnailAction: CaseIterable, Identifiable {
     case open
     case save
@@ -137,6 +148,7 @@ private enum ThumbnailAction: CaseIterable, Identifiable {
 private enum MainViewMode: String, CaseIterable, Identifiable {
     case list
     case thumbnails
+    case spread
 
     var id: Self { self }
 
@@ -144,6 +156,7 @@ private enum MainViewMode: String, CaseIterable, Identifiable {
         switch self {
         case .list: "List"
         case .thumbnails: "Thumbnails"
+        case .spread: "Spread View"
         }
     }
 
@@ -151,6 +164,7 @@ private enum MainViewMode: String, CaseIterable, Identifiable {
         switch self {
         case .list: "list.bullet"
         case .thumbnails: "square.grid.2x2"
+        case .spread: "rectangle.split.2x1"
         }
     }
 }
@@ -229,6 +243,8 @@ struct ContentView: View {
                         pageList
                     case .thumbnails:
                         thumbnailWorkspace
+                    case .spread:
+                        spreadWorkspace
                     }
                     }
                 }
@@ -563,6 +579,80 @@ struct ContentView: View {
                     legacyReorderableThumbnailGrid
                 }
             }
+        }
+    }
+
+    private var spreadWorkspace: some View {
+        VStack(spacing: 0) {
+            thumbnailControls
+            Divider()
+
+            ScrollView {
+                LazyVStack(spacing: 24) {
+                    ForEach(spreadRows) { row in
+                        HStack(alignment: .top, spacing: 20) {
+                            spreadPage(row.leftPage)
+                            spreadPage(row.rightPage)
+                        }
+                    }
+
+                    Color.clear
+                        .frame(height: 44)
+                        .onDrop(
+                            of: [.text],
+                            delegate: ThumbnailPageDropDelegate(
+                                destinationID: nil,
+                                draggedPageID: $draggedPageID,
+                                move: model.movePages
+                            )
+                        )
+                        .accessibilityHidden(true)
+                }
+                .frame(maxWidth: 460)
+                .padding()
+                .frame(maxWidth: .infinity)
+            }
+        }
+    }
+
+    private var spreadRows: [SpreadDisplayRow] {
+        PDFSpreadLayout.rows(
+            pageCount: model.pages.count,
+            preferences: model.documentDetails.viewerPreferences
+        ).compactMap { row in
+            let leftPage = row.leftPageIndex.map { index in
+                SpreadDisplayPage(index: index, item: model.pages[index])
+            }
+            let rightPage = row.rightPageIndex.map { index in
+                SpreadDisplayPage(index: index, item: model.pages[index])
+            }
+            guard let id = leftPage?.item.id ?? rightPage?.item.id else { return nil }
+            return SpreadDisplayRow(id: id, leftPage: leftPage, rightPage: rightPage)
+        }
+    }
+
+    @ViewBuilder
+    private func spreadPage(_ page: SpreadDisplayPage?) -> some View {
+        if let page {
+            thumbnailPage(index: page.index, item: page.item)
+                .onDrag {
+                    draggedPageID = page.item.id
+                    return NSItemProvider(object: page.item.id.uuidString as NSString)
+                }
+                .onDrop(
+                    of: [.text],
+                    delegate: ThumbnailPageDropDelegate(
+                        destinationID: page.item.id,
+                        draggedPageID: $draggedPageID,
+                        move: model.movePages
+                    )
+                )
+                .frame(maxWidth: .infinity)
+        } else {
+            Color.clear
+                .aspectRatio(0.72, contentMode: .fit)
+                .frame(maxWidth: .infinity)
+                .accessibilityHidden(true)
         }
     }
 

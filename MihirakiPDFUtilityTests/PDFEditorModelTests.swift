@@ -1139,6 +1139,64 @@ struct PDFEditorModelTests {
         #expect(!model.isModified)
     }
 
+    @Test("Spread layout places left-to-right pages in ascending pairs")
+    func leftToRightSpreadLayout() {
+        let rows = PDFSpreadLayout.rows(
+            pageCount: 5,
+            preferences: PDFViewerPreferences(readingDirection: .leftToRight)
+        )
+
+        #expect(rows == [
+            PDFSpreadRow(leftPageIndex: 0, rightPageIndex: 1),
+            PDFSpreadRow(leftPageIndex: 2, rightPageIndex: 3),
+            PDFSpreadRow(leftPageIndex: 4, rightPageIndex: nil)
+        ])
+    }
+
+    @Test("Spread layout places the larger page number on the left for right-to-left documents")
+    func rightToLeftSpreadLayout() {
+        let rows = PDFSpreadLayout.rows(
+            pageCount: 5,
+            preferences: PDFViewerPreferences(readingDirection: .rightToLeft)
+        )
+
+        #expect(rows == [
+            PDFSpreadRow(leftPageIndex: 1, rightPageIndex: 0),
+            PDFSpreadRow(leftPageIndex: 3, rightPageIndex: 2),
+            PDFSpreadRow(leftPageIndex: nil, rightPageIndex: 4)
+        ])
+    }
+
+    @Test(
+        "Right page layouts display page one by itself",
+        arguments: [PDFPageLayout.twoColumnRight, .twoPageRight]
+    )
+    func spreadLayoutWithCover(pageLayout: PDFPageLayout) {
+        let rows = PDFSpreadLayout.rows(
+            pageCount: 5,
+            preferences: PDFViewerPreferences(
+                pageLayout: pageLayout,
+                readingDirection: .rightToLeft
+            )
+        )
+
+        #expect(rows == [
+            PDFSpreadRow(leftPageIndex: nil, rightPageIndex: 0),
+            PDFSpreadRow(leftPageIndex: 2, rightPageIndex: 1),
+            PDFSpreadRow(leftPageIndex: 4, rightPageIndex: 3)
+        ])
+    }
+
+    @Test("Spread layout handles empty and single-page documents")
+    func emptyAndSinglePageSpreadLayout() {
+        let preferences = PDFViewerPreferences(readingDirection: .leftToRight)
+
+        #expect(PDFSpreadLayout.rows(pageCount: 0, preferences: preferences).isEmpty)
+        #expect(PDFSpreadLayout.rows(pageCount: 1, preferences: preferences) == [
+            PDFSpreadRow(leftPageIndex: 0, rightPageIndex: nil)
+        ])
+    }
+
     @Test("PDF viewer properties are read from the supplied test-data matrix", arguments: [
         ("L2R_Cover.pdf", PDFReadingDirection.leftToRight, PDFPageLayout.twoPageRight, true),
         ("L2R_NoCoer.pdf", .leftToRight, .twoPageLeft, false),
