@@ -905,6 +905,12 @@ private struct AppVersionInformationView: View {
 
                 Section("Diagnostics") {
                     NavigationLink {
+                        DiagnosticLogView()
+                    } label: {
+                        Label("View Diagnostic Logs", systemImage: "doc.text.magnifyingglass")
+                    }
+
+                    NavigationLink {
                         PerformanceTestView()
                     } label: {
                         Label("Run Performance Test", systemImage: "gauge.with.dots.needle.50percent")

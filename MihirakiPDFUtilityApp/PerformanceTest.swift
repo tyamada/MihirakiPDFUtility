@@ -55,6 +55,8 @@ struct PerformanceTestReport: Sendable {
 enum PerformanceTestRunner {
     @MainActor
     static func run() async -> PerformanceTestReport {
+        let clock = ContinuousClock()
+        let start = clock.now
         let device = currentDeviceInformation()
 
         let measurements = await Task.detached(priority: .userInitiated) {
@@ -65,7 +67,7 @@ enum PerformanceTestRunner {
             ]
         }.value
 
-        return PerformanceTestReport(
+        let report = PerformanceTestReport(
             date: Date(),
             deviceName: device.name,
             operatingSystem: device.operatingSystem,
@@ -73,6 +75,12 @@ enum PerformanceTestRunner {
             physicalMemory: ProcessInfo.processInfo.physicalMemory,
             measurements: measurements
         )
+        await DiagnosticLogStore.shared.record(
+            .performanceTestCompleted,
+            category: .performance,
+            duration: start.duration(to: clock.now)
+        )
+        return report
     }
 
     private static func measureCPU() -> PerformanceTestMeasurement {

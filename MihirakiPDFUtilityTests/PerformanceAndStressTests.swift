@@ -141,6 +141,57 @@ struct PerformanceAndStressTests {
         #expect(model.errorMessage != nil)
     }
 
+    @Test("Diagnostic logs delete records older than 14 days")
+    func diagnosticLogRetention() async throws {
+        let directory = FileManager.default.temporaryDirectory
+            .appending(path: UUID().uuidString, directoryHint: .isDirectory)
+        defer { try? FileManager.default.removeItem(at: directory) }
+
+        let store = DiagnosticLogStore(baseDirectory: directory)
+        let now = Date()
+        let expiredDate = now.addingTimeInterval(-DiagnosticLogStore.retentionInterval - 1)
+
+        await store.record(
+            .documentOpened,
+            category: .document,
+            pageCount: 99,
+            now: expiredDate
+        )
+        await store.record(
+            .documentExported,
+            category: .document,
+            pageCount: 12,
+            now: now
+        )
+
+        let records = await store.records(now: now)
+        #expect(records.count == 1)
+        #expect(records.first?.event == .documentExported)
+        #expect(records.first?.pageCount == 12)
+    }
+
+    @Test("Diagnostic logs detect an unclosed previous session without storing private text")
+    func diagnosticLogUnexpectedSessionAndPrivacy() async throws {
+        let directory = FileManager.default.temporaryDirectory
+            .appending(path: UUID().uuidString, directoryHint: .isDirectory)
+        defer { try? FileManager.default.removeItem(at: directory) }
+
+        let firstStore = DiagnosticLogStore(baseDirectory: directory)
+        await firstStore.startSession()
+
+        let relaunchedStore = DiagnosticLogStore(baseDirectory: directory)
+        await relaunchedStore.startSession()
+
+        let records = await relaunchedStore.records()
+        let exportedText = await relaunchedStore.exportedText()
+
+        #expect(records.contains { $0.event == .previousSessionEndedUnexpectedly })
+        #expect(exportedText.contains("no file names"))
+        #expect(exportedText.contains("not sent externally"))
+        #expect(!exportedText.contains("password="))
+        #expect(!exportedText.contains("path="))
+    }
+
     private func largePDFURL() -> URL? {
         let testsDirectory = URL(fileURLWithPath: #filePath).deletingLastPathComponent()
         let url = testsDirectory

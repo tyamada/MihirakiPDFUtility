@@ -118,6 +118,7 @@ final class PDFEditorModel {
               let snapshot = undoSnapshots.popLast() else { return }
         redoSnapshots.append(currentSnapshot)
         restore(snapshot)
+        log(.undo, category: .editing, pageCount: pages.count, selectionCount: selection.count)
     }
 
     func redo() {
@@ -125,10 +126,13 @@ final class PDFEditorModel {
               let snapshot = redoSnapshots.popLast() else { return }
         undoSnapshots.append(currentSnapshot)
         restore(snapshot)
+        log(.redo, category: .editing, pageCount: pages.count, selectionCount: selection.count)
     }
 
     @discardableResult
     func open(_ url: URL) -> PDFOpenResult {
+        let clock = ContinuousClock()
+        let start = clock.now
         let hasAccess = url.startAccessingSecurityScopedResource()
         defer {
             if hasAccess {
@@ -147,6 +151,12 @@ final class PDFEditorModel {
                 lockedDocumentDetails = loadedDetails
                 pendingUnlockAction = .open(url)
                 errorMessage = nil
+                log(
+                    .documentNeedsPassword,
+                    category: .document,
+                    outcome: .info,
+                    duration: start.duration(to: clock.now)
+                )
                 return .passwordRequired
             }
             guard loadedDocument.pageCount > 0 else {
@@ -154,9 +164,21 @@ final class PDFEditorModel {
             }
 
             adopt(loadedDocument, details: loadedDetails, from: url)
+            log(
+                .documentOpened,
+                category: .document,
+                duration: start.duration(to: clock.now),
+                pageCount: loadedDocument.pageCount
+            )
             return .opened
         } catch {
             errorMessage = error.localizedDescription
+            log(
+                .documentOpenFailed,
+                category: .document,
+                outcome: .failure,
+                duration: start.duration(to: clock.now)
+            )
             return .failed
         }
     }
@@ -199,8 +221,11 @@ final class PDFEditorModel {
 
     @discardableResult
     func append(_ url: URL) -> PDFOpenResult {
+        let clock = ContinuousClock()
+        let start = clock.now
         guard document != nil else {
             errorMessage = PDFEditorError.noDocument.localizedDescription
+            log(.documentAppendFailed, category: .document, outcome: .failure)
             return .failed
         }
 
@@ -220,12 +245,30 @@ final class PDFEditorModel {
                 lockedDocument = appendedDocument
                 pendingUnlockAction = .append
                 errorMessage = nil
+                log(
+                    .documentNeedsPassword,
+                    category: .document,
+                    outcome: .info,
+                    duration: start.duration(to: clock.now)
+                )
                 return .passwordRequired
             }
             try appendPages(from: appendedDocument)
+            log(
+                .documentAppended,
+                category: .document,
+                duration: start.duration(to: clock.now),
+                pageCount: appendedDocument.pageCount
+            )
             return .opened
         } catch {
             errorMessage = error.localizedDescription
+            log(
+                .documentAppendFailed,
+                category: .document,
+                outcome: .failure,
+                duration: start.duration(to: clock.now)
+            )
             return .failed
         }
     }
@@ -238,6 +281,7 @@ final class PDFEditorModel {
             item.page.rotation = Self.normalizedRotation(item.page.rotation + degrees)
         }
         markModified()
+        log(.pagesRotated, category: .editing, pageCount: pages.count, selectionCount: items.count)
     }
 
     func duplicateSelection() {
@@ -262,6 +306,7 @@ final class PDFEditorModel {
         reloadPages()
         selection = Set(duplicatedIndexes.map { pages[$0].id })
         markModified()
+        log(.pagesDuplicated, category: .editing, pageCount: pages.count, selectionCount: duplicatedIndexes.count)
     }
 
     func insertBlankPagesBeforeSelection() {
@@ -310,6 +355,7 @@ final class PDFEditorModel {
         reloadPages()
         selection = Set(insertedIndexes.map { pages[$0].id })
         markModified()
+        log(.pagesInserted, category: .editing, pageCount: pages.count, selectionCount: insertedIndexes.count)
     }
 
     func deleteSelection() {
@@ -325,6 +371,7 @@ final class PDFEditorModel {
         let nearestIndex = min(firstDeletedIndex, pages.count - 1)
         selection = [pages[nearestIndex].id]
         markModified()
+        log(.pagesDeleted, category: .editing, pageCount: pages.count, selectionCount: indexes.count)
     }
 
     func selectAllPages() {
@@ -435,30 +482,71 @@ final class PDFEditorModel {
     }
 
     func exportDocument() throws -> PDFExportDocument {
-        guard let document else {
-            throw PDFEditorError.noDocument
+        let clock = ContinuousClock()
+        let start = clock.now
+
+        do {
+            guard let document else {
+                throw PDFEditorError.noDocument
+            }
+            let exported = try exportDocument(from: document)
+            log(
+                .documentExported,
+                category: .document,
+                duration: start.duration(to: clock.now),
+                pageCount: document.pageCount
+            )
+            return exported
+        } catch {
+            log(
+                .documentExportFailed,
+                category: .document,
+                outcome: .failure,
+                duration: start.duration(to: clock.now)
+            )
+            throw error
         }
-        return try exportDocument(from: document)
     }
 
     func exportSelectionDocument() throws -> PDFExportDocument {
-        guard document != nil else {
-            throw PDFEditorError.noDocument
-        }
-        let items = selectedItems
-        guard !items.isEmpty else {
-            throw PDFEditorError.noSelection
-        }
+        let clock = ContinuousClock()
+        let start = clock.now
 
-        let selectedDocument = PDFDocument()
-        selectedDocument.documentAttributes = document?.documentAttributes
-        for (index, item) in items.enumerated() {
-            guard let page = item.page.copy() as? PDFPage else {
-                throw PDFEditorError.invalidDocument
+        do {
+            guard document != nil else {
+                throw PDFEditorError.noDocument
             }
-            selectedDocument.insert(page, at: index)
+            let items = selectedItems
+            guard !items.isEmpty else {
+                throw PDFEditorError.noSelection
+            }
+
+            let selectedDocument = PDFDocument()
+            selectedDocument.documentAttributes = document?.documentAttributes
+            for (index, item) in items.enumerated() {
+                guard let page = item.page.copy() as? PDFPage else {
+                    throw PDFEditorError.invalidDocument
+                }
+                selectedDocument.insert(page, at: index)
+            }
+            let exported = try exportDocument(from: selectedDocument)
+            log(
+                .documentExported,
+                category: .document,
+                duration: start.duration(to: clock.now),
+                pageCount: selectedDocument.pageCount,
+                selectionCount: items.count
+            )
+            return exported
+        } catch {
+            log(
+                .documentExportFailed,
+                category: .document,
+                outcome: .failure,
+                duration: start.duration(to: clock.now)
+            )
+            throw error
         }
-        return try exportDocument(from: selectedDocument)
     }
 
     private func exportDocument(from document: PDFDocument) throws -> PDFExportDocument {
@@ -633,10 +721,31 @@ final class PDFEditorModel {
         isModified = true
     }
 
+    private func log(
+        _ event: DiagnosticLogEvent,
+        category: DiagnosticLogCategory,
+        outcome: DiagnosticLogOutcome = .success,
+        duration: Duration? = nil,
+        pageCount: Int? = nil,
+        selectionCount: Int? = nil
+    ) {
+        Task {
+            await DiagnosticLogStore.shared.record(
+                event,
+                category: category,
+                outcome: outcome,
+                duration: duration,
+                pageCount: pageCount,
+                selectionCount: selectionCount
+            )
+        }
+    }
+
     private func finishSelectionMoveIfNeeded(_ moved: Bool) {
         guard moved else { return }
         rebuildDocumentFromPages()
         markModified()
+        log(.pagesMoved, category: .editing, pageCount: pages.count, selectionCount: selection.count)
     }
 
     private func rebuildDocumentFromPages() {

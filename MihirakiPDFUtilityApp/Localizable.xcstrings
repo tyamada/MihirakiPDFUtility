@@ -81,6 +81,9 @@
         }
       }
     },
+    "Actions" : {
+
+    },
     "Add another PDF from the Edit Pages menu." : {
       "localizations" : {
         "de" : {
@@ -1072,6 +1075,9 @@
     "Copied" : {
 
     },
+    "Copy Logs" : {
+
+    },
     "Copy Results" : {
 
     },
@@ -1538,6 +1544,12 @@
       }
     },
     "Device" : {
+
+    },
+    "Diagnostic events will appear here as you use the app." : {
+
+    },
+    "Diagnostic Logs" : {
 
     },
     "Diagnostics" : {
@@ -3530,6 +3542,15 @@
         }
       }
     },
+    "Logs" : {
+
+    },
+    "Logs do not include file names, file contents, document metadata, or passwords. Records older than 14 days are deleted automatically." : {
+
+    },
+    "Logs stay on this device. This app has no feature that sends logs externally." : {
+
+    },
     "Measures a fixed set of integer calculations." : {
 
     },
@@ -3998,6 +4019,9 @@
           }
         }
       }
+    },
+    "No Logs" : {
+
     },
     "No Pages Selected" : {
       "localizations" : {
@@ -5831,6 +5855,9 @@
           }
         }
       }
+    },
+    "Refresh" : {
+
     },
     "Remove Password" : {
       "localizations" : {
@@ -10654,6 +10681,9 @@
           }
         }
       }
+    },
+    "View Diagnostic Logs" : {
+
     },
     "View properties and change PDF metadata." : {
       "localizations" : {
