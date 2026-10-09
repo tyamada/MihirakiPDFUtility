@@ -110,6 +110,9 @@ private enum ThumbnailAction: CaseIterable, Identifiable {
     case moveLater
     case rotateLeft
     case rotateRight
+    case properties
+    case rightBinding
+    case rightBindingWithCover
 
     var id: Self { self }
 
@@ -126,6 +129,9 @@ private enum ThumbnailAction: CaseIterable, Identifiable {
         case .moveLater: "Move Later"
         case .rotateLeft: "Rotate Left"
         case .rotateRight: "Rotate Right"
+        case .properties: "Properties"
+        case .rightBinding: "Right Binding"
+        case .rightBindingWithCover: "Right Binding with Cover"
         }
     }
 
@@ -141,6 +147,9 @@ private enum ThumbnailAction: CaseIterable, Identifiable {
         case .moveLater: "arrow.right"
         case .rotateLeft: "rotate.left"
         case .rotateRight: "rotate.right"
+        case .properties: "doc.text.magnifyingglass"
+        case .rightBinding: "book.closed"
+        case .rightBindingWithCover: "book.closed.fill"
         }
     }
 }
@@ -265,21 +274,6 @@ struct ContentView: View {
                 }
 
                 ToolbarItemGroup(placement: .primaryAction) {
-                    Button("Properties", systemImage: "doc.text.magnifyingglass") {
-                        isPresentingProperties = true
-                    }
-                    .disabled(model.document == nil)
-
-                    Button("Right Binding", systemImage: "book.closed") {
-                        applyRightBinding(pageLayout: .twoPageLeft)
-                    }
-                    .disabled(model.document == nil)
-
-                    Button("Right Binding with Cover", systemImage: "book.closed.fill") {
-                        applyRightBinding(pageLayout: .twoPageRight)
-                    }
-                    .disabled(model.document == nil)
-
                     Picker("View", selection: $viewMode) {
                         ForEach(MainViewMode.allCases) { mode in
                             Label(mode.title, systemImage: mode.systemImage)
@@ -779,6 +773,12 @@ struct ContentView: View {
             model.rotateSelection(by: -90)
         case .rotateRight:
             model.rotateSelection(by: 90)
+        case .properties:
+            isPresentingProperties = true
+        case .rightBinding:
+            applyRightBinding(pageLayout: .twoPageLeft)
+        case .rightBindingWithCover:
+            applyRightBinding(pageLayout: .twoPageRight)
         }
     }
 
@@ -786,7 +786,7 @@ struct ContentView: View {
         switch action {
         case .open:
             true
-        case .save, .insertPDF:
+        case .save, .insertPDF, .properties, .rightBinding, .rightBindingWithCover:
             model.document != nil
         case .undo:
             model.canUndo
