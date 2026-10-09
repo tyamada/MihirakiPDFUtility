@@ -33,14 +33,30 @@ This repository was created to develop a new app based on code and specification
 
 ## Sample PDFs
 
-- [ためし部 第１話 ひと息マップ (Japanese)](docs/pdf/tameshibu_episode1_ja.pdf)
-- [ためし部 第２話 机、ひろがる。 (Japanese)](docs/pdf/tameshibu_episode2_ja.pdf)
-- [THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP (English)](docs/pdf/tameshibu_episode1_en.pdf)
-- [THE TRY-IT CLUB EPISODE 2 ROOM TO GROW (English)](docs/pdf/tameshibu_episode2_en.pdf)
-- [해봄부 제1화 한숨 돌림 지도 (Korean)](docs/pdf/tameshibu_episode1_ko.pdf)
-- [해봄부제2화 책상이 넓어지다 (Korean)](docs/pdf/tameshibu_episode2_ko.pdf)
-- [试试社 第1话 歇口气地图 (Chinese (Simplified))](docs/pdf/tameshibu_episode1_zh_cn.pdf)
-- [试试社 第2话 桌子变大了 (Chinese (Simplified))](docs/pdf/tameshibu_episode2_zh_cn.pdf)
+- [ためし部 第1話 ひと息マップ — こまいろ日和 (Japanese)](docs/pdf/tameshibu_episode1_2_ja.pdf)
+- [ためし部 第2話 机、ひろがる。 — こまいろ日和 (Japanese)](docs/pdf/tameshibu_episode2_2_ja.pdf)
+- [THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP — Komairo Hiyori (English)](docs/pdf/tameshibu_episode1_2_en.pdf)
+- [THE TRY-IT CLUB EPISODE 2 ROOM TO GROW — Komairo Hiyori (English)](docs/pdf/tameshibu_episode2_2_en.pdf)
+- [해봄부 제1화 한숨 돌림 지도 — 코마이로 히요리 (Korean)](docs/pdf/tameshibu_episode1_2_ko.pdf)
+- [해봄부 제2화 책상이 넓어지다 — 코마이로 히요리 (Korean)](docs/pdf/tameshibu_episode2_2_ko.pdf)
+- [试试社 第1话 歇口气地图 — 小真彩日和 (Chinese (Simplified))](docs/pdf/tameshibu_episode1_2_zh_cn.pdf)
+- [试试社 第2话 桌子变大了 — 小真彩日和 (Chinese (Simplified))](docs/pdf/tameshibu_episode2_2_zh_cn.pdf)
+- [試試社 第1話 — 小舞樓日和 (Chinese (Traditional))](docs/pdf/tameshibu_episode1_2_zh_tw.pdf)
+- [試試社 第2話 — 小舞樓日和 (Chinese (Traditional))](docs/pdf/tameshibu_episode2_2_zh_tw.pdf)
+- [DER PROBIERCLUB FOLGE 1 — Komairo Hiyori (German)](docs/pdf/tameshibu_episode1_2_de.pdf)
+- [DER PROBIERCLUB FOLGE 2 — Komairo Hiyori (German)](docs/pdf/tameshibu_episode2_2_de.pdf)
+- [LE CLUB DES ESSAIS EPISODE 1 — Komairo Hiyori (French)](docs/pdf/tameshibu_episode1_2_fr.pdf)
+- [LE CLUB DES ESSAIS EPISODE 2 — Komairo Hiyori (French)](docs/pdf/tameshibu_episode2_2_fr.pdf)
+
+### “Tameshibu” Episodes 1 and 2
+
+© 2026 Komairo Hiyori
+
+The portions of this work for which the publisher holds the copyright or other rights subject to licensing are made available under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+
+When reusing this work, please provide the title of the work, the author’s name “Komairo Hiyori,” the original source where the work was published, and a link to the license. If you have made any changes, you must indicate that you have done so.
+
+Generative AI was used to create and translate the text and images in this work. Materials whose rights belong to third parties, such as fonts, are subject to their respective licenses. This notice does not restrict the use of any part of the work that is not protected by copyright or other rights.
 
 ## Development
 
