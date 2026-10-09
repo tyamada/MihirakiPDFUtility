@@ -34,14 +34,22 @@ MihirakiPDFUtilityは、PDFページの並べ替え、回転、挿入、削除�
 
 ## サンプルPDF
 
-- [ためし部 第１話 ひと息マップ (Japanese)](docs/pdf/tameshibu_episode1_ja.pdf)
-- [ためし部 第２話 机、ひろがる。 (Japanese)](docs/pdf/tameshibu_episode2_ja.pdf)
-- [THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP (English)](docs/pdf/tameshibu_episode1_en.pdf)
-- [THE TRY-IT CLUB EPISODE 2 ROOM TO GROW (English)](docs/pdf/tameshibu_episode2_en.pdf)
-- [해봄부 제1화 한숨 돌림 지도 (Korean)](docs/pdf/tameshibu_episode1_ko.pdf)
-- [해봄부제2화 책상이 넓어지다 (Korean)](docs/pdf/tameshibu_episode2_ko.pdf)
-- [试试社 第1话 歇口气地图 (Chinese (Simplified))](docs/pdf/tameshibu_episode1_zh_cn.pdf)
-- [试试社 第2话 桌子变大了 (Chinese (Simplified))](docs/pdf/tameshibu_episode2_zh_cn.pdf)
+- [ためし部 第1話 ひと息マップ — こまいろ日和 (Japanese)](docs/pdf/tameshibu_episode1_2_ja.pdf)
+- [ためし部 第2話 机、ひろがる。 — こまいろ日和 (Japanese)](docs/pdf/tameshibu_episode2_2_ja.pdf)
+- [THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP — Komairo Hiyori (English)](docs/pdf/tameshibu_episode1_2_en.pdf)
+- [THE TRY-IT CLUB EPISODE 2 ROOM TO GROW — Komairo Hiyori (English)](docs/pdf/tameshibu_episode2_2_en.pdf)
+- [해봄부 제1화 한숨 돌림 지도 — 코마이로 히요리 (Korean)](docs/pdf/tameshibu_episode1_2_ko.pdf)
+- [해봄부 제2화 책상이 넓어지다 — 코마이로 히요리 (Korean)](docs/pdf/tameshibu_episode2_2_ko.pdf)
+- [试试社 第1话 歇口气地图 — 小真彩日和 (Chinese (Simplified))](docs/pdf/tameshibu_episode1_2_zh_cn.pdf)
+- [试试社 第2话 桌子变大了 — 小真彩日和 (Chinese (Simplified))](docs/pdf/tameshibu_episode2_2_zh_cn.pdf)
+- [試試社 第1話 — 小舞樓日和（中国語・繁体字）](docs/pdf/tameshibu_episode1_2_zh_tw.pdf)
+- [試試社 第2話 — 小舞樓日和（中国語・繁体字）](docs/pdf/tameshibu_episode2_2_zh_tw.pdf)
+- [DER PROBIERCLUB FOLGE 1 — Komairo Hiyori（ドイツ語）](docs/pdf/tameshibu_episode1_2_de.pdf)
+- [DER PROBIERCLUB FOLGE 2 — Komairo Hiyori（ドイツ語）](docs/pdf/tameshibu_episode2_2_de.pdf)
+- [LE CLUB DES ESSAIS EPISODE 1 — Komairo Hiyori（フランス語）](docs/pdf/tameshibu_episode1_2_fr.pdf)
+- [LE CLUB DES ESSAIS EPISODE 2 — Komairo Hiyori（フランス語）](docs/pdf/tameshibu_episode2_2_fr.pdf)
+
+サンプルPDFは[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)の下で提供されています。再利用時の表示事項と生成AI利用の説明を含む[ライセンスおよび著作権表示の詳細](docs/sample-pdf-license.html#ja)もご確認ください。
 
 ## 対応方針
 
