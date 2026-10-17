@@ -540,6 +540,16 @@
         }
       }
     },
+    "Ascending" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "昇順"
+          }
+        }
+      }
+    },
     "Author" : {
       "localizations" : {
         "de" : {
@@ -1072,6 +1082,22 @@
         }
       }
     },
+    "Converting images: %lld / %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Converting images: %1$lld / %2$lld"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "画像を変換中: %1$lld / %2$lld"
+          }
+        }
+      }
+    },
     "Copied" : {
 
     },
@@ -1315,6 +1341,16 @@
     "Created and scanned 16 MB of data (checksum: %llu)" : {
 
     },
+    "Creation Date" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "作成日時"
+          }
+        }
+      }
+    },
     "Delete" : {
       "localizations" : {
         "de" : {
@@ -1387,6 +1423,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "刪除"
+          }
+        }
+      }
+    },
+    "Descending" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "降順"
           }
         }
       }
@@ -2857,6 +2903,82 @@
         }
       }
     },
+    "Images directly inside this folder will become PDF pages in the order below." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "このフォルダ直下の画像を、以下の順序でPDFのページに変換します。"
+          }
+        }
+      }
+    },
+    "Images: %lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "Image: %lld"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "Images: %lld"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "Images: %lld"
+                }
+              }
+            }
+          }
+        },
+        "ja" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "画像: %lld枚"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "画像: %lld枚"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Import as PDF" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDFとして読み込む"
+          }
+        }
+      }
+    },
+    "Import Images" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "画像の読み込み"
+          }
+        }
+      }
+    },
     "Insert Blank After" : {
       "localizations" : {
         "de" : {
@@ -3719,6 +3841,16 @@
     "Memory Processing" : {
 
     },
+    "Modification Date" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "更新日時"
+          }
+        }
+      }
+    },
     "Move Earlier" : {
       "localizations" : {
         "de" : {
@@ -4023,6 +4155,16 @@
         }
       }
     },
+    "Name" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "名前"
+          }
+        }
+      }
+    },
     "New Password" : {
       "localizations" : {
         "de" : {
@@ -4095,6 +4237,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "新密碼"
+          }
+        }
+      }
+    },
+    "No Images" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "画像がありません"
           }
         }
       }
@@ -4326,6 +4478,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "找不到可回復的購買項目。"
+          }
+        }
+      }
+    },
+    "No supported images were found in this folder." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "このフォルダには対応する画像ファイルがありません。"
           }
         }
       }
@@ -4710,6 +4872,16 @@
         }
       }
     },
+    "Open Image Folder" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "画像フォルダを開く"
+          }
+        }
+      }
+    },
     "Open PDF" : {
       "localizations" : {
         "de" : {
@@ -4934,6 +5106,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "不儲存並開啟"
+          }
+        }
+      }
+    },
+    "Order" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "並び順"
           }
         }
       }
@@ -5931,6 +6113,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "無法回復購買項目。"
+          }
+        }
+      }
+    },
+    "Reading Folder…" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "フォルダを読み込み中…"
           }
         }
       }
@@ -8161,6 +8353,16 @@
         }
       }
     },
+    "Sort By" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "並び替え項目"
+          }
+        }
+      }
+    },
     "Spread View" : {
       "localizations" : {
         "de" : {
@@ -10153,6 +10355,16 @@
         }
       }
     },
+    "Unable to create a PDF from these images." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "画像からPDFを作成できません。"
+          }
+        }
+      }
+    },
     "Unable to Load Support Options" : {
       "localizations" : {
         "de" : {
@@ -10229,6 +10441,16 @@
         }
       }
     },
+    "Unable to read image: %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "画像を読み込めません: %@"
+          }
+        }
+      }
+    },
     "Undo" : {
       "localizations" : {
         "de" : {
@@ -10301,6 +10523,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "還原"
+          }
+        }
+      }
+    },
+    "Unknown" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "不明"
           }
         }
       }

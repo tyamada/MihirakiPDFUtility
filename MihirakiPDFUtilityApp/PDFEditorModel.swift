@@ -47,6 +47,7 @@ final class PDFEditorModel {
     private(set) var document: PDFDocument?
     private(set) var pages: [PDFPageItem] = []
     private(set) var sourceURL: URL?
+    private var importedDisplayName: String?
     private(set) var isModified = false
     private(set) var documentDetails = PDFDocumentDetails()
 
@@ -54,7 +55,7 @@ final class PDFEditorModel {
     var errorMessage: String?
 
     var displayName: String {
-        sourceURL?.deletingPathExtension().lastPathComponent ?? String(localized: "Untitled")
+        sourceURL?.deletingPathExtension().lastPathComponent ?? importedDisplayName ?? String(localized: "Untitled")
     }
 
     var metadata: PDFMetadata {
@@ -644,11 +645,22 @@ final class PDFEditorModel {
         }
     }
 
+    func openImagePDF(_ data: Data, name: String) throws {
+        guard let document = PDFDocument(data: data), document.pageCount > 0 else {
+            throw ImageImportError.conversionFailed
+        }
+        cancelPendingUnlock()
+        adopt(document, details: PDFDocumentDetails(), from: nil)
+        importedDisplayName = name
+        isModified = true
+    }
+
     private func adopt(
         _ loadedDocument: PDFDocument,
         details: PDFDocumentDetails,
-        from url: URL
+        from url: URL?
     ) {
+        importedDisplayName = nil
         document = loadedDocument
         documentDetails = details
         exportPassword = nil

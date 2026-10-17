@@ -178,6 +178,11 @@ private enum MainViewMode: String, CaseIterable, Identifiable {
     }
 }
 
+private enum PendingDocument {
+    case pdf(URL)
+    case images(ImportedImagePDF)
+}
+
 struct ContentView: View {
     @Bindable var model: PDFEditorModel
     @State private var tipManager = TipManager()
@@ -199,7 +204,10 @@ struct ContentView: View {
     @State private var isRequestingPassword = false
     @State private var exportDocument: PDFExportDocument?
     @State private var selectionExportDocument: PDFExportDocument?
-    @State private var pendingOpenURL: URL?
+    @State private var pendingDocument: PendingDocument?
+    @State private var isImportingImageFolder = false
+    @State private var imageFolder: ImageImportFolder?
+    @State private var importedImagePDF: ImportedImagePDF?
     @State private var password = ""
     @State private var passwordMessage: LocalizedStringResource = "Enter the password required to open this PDF."
     @State private var newPassword = ""
@@ -232,6 +240,11 @@ struct ContentView: View {
                         Text("Choose a PDF to arrange, rotate, or remove pages.")
                             .foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)
+
+                        Button("Open Image Folder") {
+                            isImportingImageFolder = true
+                        }
+                        .buttonStyle(.bordered)
 
                         Button("Open PDF") {
                             presentEmptyStateImporter()
@@ -268,8 +281,13 @@ struct ContentView: View {
                     }
                     .disabled(model.document == nil)
 
-                    Button("Document", systemImage: "folder") {
-                        isImporting = true
+                    Menu("Document", systemImage: "folder") {
+                        Button("Open PDF") {
+                            isImporting = true
+                        }
+                        Button("Open Image Folder", systemImage: "photo.on.rectangle") {
+                            isImportingImageFolder = true
+                        }
                     }
                 }
 
@@ -401,6 +419,20 @@ struct ContentView: View {
         .fileImporter(isPresented: $isImporting, allowedContentTypes: [.pdf]) { result in
             handleOpenImport(result)
         }
+        .fileImporter(isPresented: $isImportingImageFolder, allowedContentTypes: [.folder]) { result in
+            switch result {
+            case .success(let url):
+                imageFolder = ImageImportFolder(url: url)
+            case .failure(let error):
+                presentFileErrorUnlessCancelled(error)
+            }
+        }
+        .sheet(item: $imageFolder, onDismiss: finishImageImport) { folder in
+            ImageImportView(folder: folder.url) { result in
+                importedImagePDF = result
+                imageFolder = nil
+            }
+        }
         .fileImporter(isPresented: $isAppending, allowedContentTypes: [.pdf]) { result in
             if case let .success(url) = result {
                 if case .passwordRequired = model.append(url) {
@@ -415,20 +447,20 @@ struct ContentView: View {
         .fileExporter(
             isPresented: $isExporting,
             document: exportDocument,
-            contentType: .pdf,
+            contentTypes: [.pdf],
             defaultFilename: model.displayName
         ) { result in
             switch result {
             case .success(let url):
                 model.didExport(to: url)
-                if let pendingOpenURL {
-                    openDocument(pendingOpenURL)
-                    self.pendingOpenURL = nil
-                }
+                openPendingDocument()
             case .failure(let error):
                 presentFileErrorUnlessCancelled(error)
-                pendingOpenURL = nil
+                pendingDocument = nil
             }
+            exportDocument = nil
+        } onCancellation: {
+            pendingDocument = nil
             exportDocument = nil
         }
         .fileExporter(
@@ -454,7 +486,7 @@ struct ContentView: View {
                 openPendingDocument()
             }
             Button("Cancel", role: .cancel) {
-                pendingOpenURL = nil
+                pendingDocument = nil
             }
         } message: {
             Text("Save your changes before opening another PDF?")
@@ -844,6 +876,7 @@ struct ContentView: View {
             exportDocument = try model.exportDocument()
             isExporting = true
         } catch {
+            pendingDocument = nil
             model.errorMessage = error.localizedDescription
         }
     }
@@ -858,13 +891,22 @@ struct ContentView: View {
     }
 
     private func requestOpen(_ url: URL) {
-        guard model.isModified else {
-            openDocument(url)
-            return
-        }
+        requestOpen(.pdf(url))
+    }
 
-        pendingOpenURL = url
-        isConfirmingOpen = true
+    private func requestOpen(_ document: PendingDocument) {
+        pendingDocument = document
+        if model.isModified {
+            isConfirmingOpen = true
+        } else {
+            openPendingDocument()
+        }
+    }
+
+    private func finishImageImport() {
+        guard let importedImagePDF else { return }
+        self.importedImagePDF = nil
+        requestOpen(.images(importedImagePDF))
     }
 
     private func handleOpenImport(_ result: Result<URL, Error>) {
@@ -884,9 +926,18 @@ struct ContentView: View {
     }
 
     private func openPendingDocument() {
-        guard let pendingOpenURL else { return }
-        openDocument(pendingOpenURL)
-        self.pendingOpenURL = nil
+        guard let pendingDocument else { return }
+        self.pendingDocument = nil
+        switch pendingDocument {
+        case .pdf(let url):
+            openDocument(url)
+        case .images(let result):
+            do {
+                try model.openImagePDF(result.data, name: result.name)
+            } catch {
+                model.errorMessage = error.localizedDescription
+            }
+        }
     }
 
     private func openDocument(_ url: URL) {
