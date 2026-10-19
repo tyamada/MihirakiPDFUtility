@@ -236,6 +236,26 @@
         }
       }
     },
+    "Agree and Open" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "同意して開く"
+          }
+        }
+      }
+    },
+    "All" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "すべて"
+          }
+        }
+      }
+    },
     "All PDF editing features are available without a purchase." : {
       "localizations" : {
         "de" : {
@@ -308,6 +328,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "無需購買即可使用所有PDF編輯功能。"
+          }
+        }
+      }
+    },
+    "An unknown error occurred." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "不明なエラーが発生しました。"
           }
         }
       }
@@ -778,6 +808,16 @@
         }
       }
     },
+    "Browse Sample PDFs" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サンプルPDFを見る"
+          }
+        }
+      }
+    },
     "Build" : {
       "localizations" : {
         "de" : {
@@ -930,6 +970,26 @@
         }
       }
     },
+    "Catalog provided by %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "カタログ提供: %@"
+          }
+        }
+      }
+    },
+    "CC BY 4.0 License" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "CC BY 4.0ライセンス"
+          }
+        }
+      }
+    },
     "Choose a PDF to arrange, rotate, or remove pages." : {
       "localizations" : {
         "de" : {
@@ -1002,6 +1062,26 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "選擇PDF以排列、旋轉或移除頁面。"
+          }
+        }
+      }
+    },
+    "Clearly indicate whether you made any changes." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "変更を加えた場合は、その旨を明示してください。"
+          }
+        }
+      }
+    },
+    "Close" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "閉じる"
           }
         }
       }
@@ -1351,6 +1431,16 @@
         }
       }
     },
+    "Credit the work title and the author, Komairo Hiyori." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "作品名と作者名（Komairo Hiyori）をクレジット表記してください。"
+          }
+        }
+      }
+    },
     "Delete" : {
       "localizations" : {
         "de" : {
@@ -1423,6 +1513,36 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "刪除"
+          }
+        }
+      }
+    },
+    "Delete %@ from this device?" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@をこのデバイスから削除しますか?"
+          }
+        }
+      }
+    },
+    "Delete Sample PDF?" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サンプルPDFを削除しますか?"
+          }
+        }
+      }
+    },
+    "Deleting…" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "削除中…"
           }
         }
       }
@@ -1600,6 +1720,16 @@
     },
     "Diagnostics" : {
 
+    },
+    "Do not imply that the author endorses you or your use." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "作者が利用者またはその利用を支持しているかのような表示をしないでください。"
+          }
+        }
+      }
     },
     "Document" : {
       "localizations" : {
@@ -1977,6 +2107,46 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "連續輕點兩下兩次，即可開啟全螢幕預覽。"
+          }
+        }
+      }
+    },
+    "Download" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ダウンロード"
+          }
+        }
+      }
+    },
+    "Download Using Mobile Data?" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "モバイルデータ通信を使ってダウンロードしますか?"
+          }
+        }
+      }
+    },
+    "Downloaded" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ダウンロード済み"
+          }
+        }
+      }
+    },
+    "Downloading…" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ダウンロード中…"
           }
         }
       }
@@ -2979,6 +3149,16 @@
         }
       }
     },
+    "Include the original source and a link to the license." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "原典とライセンスへのリンクを記載してください。"
+          }
+        }
+      }
+    },
     "Insert Blank After" : {
       "localizations" : {
         "de" : {
@@ -3355,6 +3535,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "關鍵字，以逗號分隔"
+          }
+        }
+      }
+    },
+    "Language" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "言語"
           }
         }
       }
@@ -4958,6 +5148,16 @@
         }
       }
     },
+    "Open the original source" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "原典を開く"
+          }
+        }
+      }
+    },
     "Open Version Information to run an on-device performance test." : {
       "localizations" : {
         "de" : {
@@ -5106,6 +5306,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "不儲存並開啟"
+          }
+        }
+      }
+    },
+    "Opening a sample displays its CC BY 4.0 license information first." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サンプルを開く前に、CC BY 4.0ライセンス情報が表示されます。"
           }
         }
       }
@@ -6117,6 +6327,16 @@
         }
       }
     },
+    "Read the full %@ license" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ライセンスの全文を読む"
+          }
+        }
+      }
+    },
     "Reading Folder…" : {
       "localizations" : {
         "ja" : {
@@ -6755,6 +6975,16 @@
     },
     "Running Tests…" : {
 
+    },
+    "Sample PDFs" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サンプルPDF"
+          }
+        }
+      }
     },
     "Save" : {
       "localizations" : {
@@ -9063,6 +9293,36 @@
         }
       }
     },
+    "The downloaded file is not a valid PDF." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ダウンロードしたファイルは有効なPDFではありません。"
+          }
+        }
+      }
+    },
+    "The downloaded file size is invalid." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ダウンロードしたファイルのサイズが無効です。"
+          }
+        }
+      }
+    },
+    "The downloaded PDF failed its integrity check." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ダウンロードしたPDFの整合性チェックに失敗しました。"
+          }
+        }
+      }
+    },
     "The password cannot be empty." : {
       "localizations" : {
         "de" : {
@@ -9519,6 +9779,56 @@
         }
       }
     },
+    "The sample PDF could not be deleted." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サンプルPDFを削除できませんでした。"
+          }
+        }
+      }
+    },
+    "The sample PDF could not be downloaded from the server." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サーバからサンプルPDFをダウンロードできませんでした。"
+          }
+        }
+      }
+    },
+    "The sample PDF could not be downloaded." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サンプルPDFをダウンロードできませんでした。"
+          }
+        }
+      }
+    },
+    "The sample PDF download URL is invalid." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サンプルPDFのダウンロードURLが無効です。"
+          }
+        }
+      }
+    },
+    "The sample PDF list could not be loaded." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "サンプルPDFのリストを読み込めませんでした。"
+          }
+        }
+      }
+    },
     "The selected file is not a valid PDF document." : {
       "localizations" : {
         "de" : {
@@ -9743,6 +10053,36 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "沒有可儲存的PDF文件。"
+          }
+        }
+      }
+    },
+    "Third-party materials, including fonts, may have separate license terms. The license does not replace permissions that may be required for privacy, publicity, moral, or other rights." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "フォントを含む第三者の素材には、別のライセンス条件が適用される場合があります。このライセンスは、プライバシー権、パブリシティ権、著作者人格権、その他の権利について必要となる許諾に代わるものではありません。"
+          }
+        }
+      }
+    },
+    "This PDF is %@. Downloading it will use mobile data." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "このPDFのサイズは%@です。ダウンロードにはモバイルデータ通信を使用します。"
+          }
+        }
+      }
+    },
+    "This sample is provided under the Creative Commons Attribution 4.0 International license (CC BY 4.0). You may share and adapt it, including for commercial purposes." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "このサンプルは、クリエイティブ・コモンズ 表示 4.0 国際ライセンス（CC BY 4.0）の下で提供されています。商用目的を含め、共有および改変できます。"
           }
         }
       }
@@ -11296,6 +11636,16 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "檢視屬性並更改PDF中繼資料。"
+          }
+        }
+      }
+    },
+    "When reusing this work" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "この作品を再利用する場合"
           }
         }
       }

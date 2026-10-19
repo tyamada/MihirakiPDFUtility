@@ -200,6 +200,8 @@ struct ContentView: View {
     @State private var isPresentingVersionInformation = false
     @State private var isPresentingHelp = false
     @State private var isPresentingSupport = false
+    @State private var isPresentingSamplePDFs = false
+    @State private var downloadedSampleURL: URL?
     @State private var isSettingPassword = false
     @State private var isRequestingPassword = false
     @State private var exportDocument: PDFExportDocument?
@@ -246,6 +248,11 @@ struct ContentView: View {
                         }
                         .buttonStyle(.bordered)
 
+                        Button("Browse Sample PDFs") {
+                            isPresentingSamplePDFs = true
+                        }
+                        .buttonStyle(.bordered)
+
                         Button("Open PDF") {
                             presentEmptyStateImporter()
                         }
@@ -284,6 +291,9 @@ struct ContentView: View {
                     Menu("Document", systemImage: "folder") {
                         Button("Open PDF") {
                             isImporting = true
+                        }
+                        Button("Browse Sample PDFs", systemImage: "arrow.down.doc") {
+                            isPresentingSamplePDFs = true
                         }
                         Button("Open Image Folder", systemImage: "photo.on.rectangle") {
                             isImportingImageFolder = true
@@ -537,6 +547,21 @@ struct ContentView: View {
             }
         } message: {
             Text(model.errorMessage ?? "An unknown error occurred.")
+        }
+        .sheet(isPresented: $isPresentingSamplePDFs, onDismiss: finishSamplePDFSelection) {
+            NavigationStack {
+                SamplePDFListView(openDocumentURL: model.sourceURL) { url in
+                    downloadedSampleURL = url
+                    isPresentingSamplePDFs = false
+                }
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Close") {
+                            isPresentingSamplePDFs = false
+                        }
+                    }
+                }
+            }
         }
         .sheet(isPresented: $isPresentingProperties) {
             PDFPropertiesView(
@@ -907,6 +932,12 @@ struct ContentView: View {
         guard let importedImagePDF else { return }
         self.importedImagePDF = nil
         requestOpen(.images(importedImagePDF))
+    }
+
+    private func finishSamplePDFSelection() {
+        guard let downloadedSampleURL else { return }
+        self.downloadedSampleURL = nil
+        requestOpen(downloadedSampleURL)
     }
 
     private func handleOpenImport(_ result: Result<URL, Error>) {

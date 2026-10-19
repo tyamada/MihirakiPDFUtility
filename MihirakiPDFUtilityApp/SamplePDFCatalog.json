@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "license": {
+    "identifier": "CC-BY-4.0",
+    "name": "Creative Commons Attribution 4.0 International",
+    "creator": "Takuma Yamada",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "samples": [
+    {
+      "id": "tameshibu-episode1-en",
+      "title": "THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP",
+      "languageCode": "en",
+      "fileName": "tameshibu_episode1_2_en.pdf",
+      "downloadURL": "https://tyamada.github.io/MihirakiPDFViewer/sample/tameshibu_episode1_2_en.pdf",
+      "byteSize": 24108800,
+      "sha256": "253cf2ddec73886519de047f24bf7de4ab1aa6ec1b2498aaa798ee8930ea1c7b"
+    },
+    {
+      "id": "tameshibu-episode2-en",
+      "title": "THE TRY-IT CLUB EPISODE 2 ROOM TO GROW",
+      "languageCode": "en",
+      "fileName": "tameshibu_episode2_2_en.pdf",
+      "downloadURL": "https://tyamada.github.io/MihirakiPDFViewer/sample/tameshibu_episode2_2_en.pdf",
+      "byteSize": 24975916,
+      "sha256": "7c4959f8e2a1da779a948c5da7d383426b03db4dd73876f0f52bbf0a9fd6553a"
+    },
+    {
+      "id": "tameshibu-episode1-ja",
+      "title": "ためし部 第１話 ひと息マップ",
+      "languageCode": "ja",
+      "fileName": "tameshibu_episode1_2_ja.pdf",
+      "downloadURL": "https://tyamada.github.io/MihirakiPDFViewer/sample/tameshibu_episode1_2_ja.pdf",
+      "byteSize": 24217661,
+      "sha256": "b84e714206e569318e31ee6255595649decdc57563933fb6d6453d96570de85a"
+    },
+    {
+      "id": "tameshibu-episode2-ja",
+      "title": "ためし部 第２話 机、ひろがる。",
+      "languageCode": "ja",
+      "fileName": "tameshibu_episode2_2_ja.pdf",
+      "downloadURL": "https://tyamada.github.io/MihirakiPDFViewer/sample/tameshibu_episode2_2_ja.pdf",
+      "byteSize": 25039091,
+      "sha256": "758fc91d87acb3de9e1fd006f5cc4decf51a0d0c5136b736f4d598b963c0cf2d"
+    },
+    {
+      "id": "tameshibu-episode1-ko",
+      "title": "해봄부 제1화 한숨 돌림 지도",
+      "languageCode": "ko",
+      "fileName": "tameshibu_episode1_2_ko.pdf",
+      "downloadURL": "https://tyamada.github.io/MihirakiPDFViewer/sample/tameshibu_episode1_2_ko.pdf",
+      "byteSize": 24105557,
+      "sha256": "fd2dfda658ae68d02f099f6315d255df163a5cb3251a5ba220e0086ae05c118d"
+    },
+    {
+      "id": "tameshibu-episode2-ko",
+      "title": "해봄부 제2화 책상이 넓어지다",
+      "languageCode": "ko",
+      "fileName": "tameshibu_episode2_2_ko.pdf",
+      "downloadURL": "https://tyamada.github.io/MihirakiPDFViewer/sample/tameshibu_episode2_2_ko.pdf",
+      "byteSize": 24976048,
+      "sha256": "f21bfe8f1cf9e8e242a719ace06119cea3934e73800f4989d217a9373b41f55f"
+    },
+    {
+      "id": "tameshibu-episode1-zh-cn",
+      "title": "试试社 第1话 歇口气地图",
+      "languageCode": "zh-Hans",
+      "fileName": "tameshibu_episode1_2_zh_cn.pdf",
+      "downloadURL": "https://tyamada.github.io/MihirakiPDFViewer/sample/tameshibu_episode1_2_zh_cn.pdf",
+      "byteSize": 24176113,
+      "sha256": "29ae2a200730a50dc58d310de5f71e75af9c378b5c2fa21b56d431637cbf2049"
+    },
+    {
+      "id": "tameshibu-episode2-zh-cn",
+      "title": "试试社 第2话 桌子变大了",
+      "languageCode": "zh-Hans",
+      "fileName": "tameshibu_episode2_2_zh_cn.pdf",
+      "downloadURL": "https://tyamada.github.io/MihirakiPDFViewer/sample/tameshibu_episode2_2_zh_cn.pdf",
+      "byteSize": 25042963,
+      "sha256": "499870a2919840bb1758b85bcdfbe311a50c92fc47c4778c7966b080f875ca44"
+    },
+    {
+      "id": "tameshibu-episode1-zh-tw",
+      "title": "試試社 第1話",
+      "languageCode": "zh-Hant",
+      "fileName": "tameshibu_episode1_2_zh_tw.pdf",
+      "downloadURL": "https://tyamada.github.io/MihirakiPDFViewer/sample/tameshibu_episode1_2_zh_tw.pdf",
+      "byteSize": 24191145,
+      "sha256": "a88ad6bf76a8aec1935b66317a20647f8a06d6af9fb2b420769536489626090b"
+    },
+    {
+      "id": "tameshibu-episode2-zh-tw",
+      "title": "試試社 第2話",
+      "languageCode": "zh-Hant",
+      "fileName": "tameshibu_episode2_2_zh_tw.pdf",
+      "downloadURL": "https://tyamada.github.io/MihirakiPDFViewer/sample/tameshibu_episode2_2_zh_tw.pdf",
+      "byteSize": 25062567,
+      "sha256": "5a9e3d12a0f6b287e72916e21cfac22cdb24de534e1d1c73cdcc37413fdca8ad"
+    },
+    {
+      "id": "tameshibu-episode1-de",
+      "title": "DER PROBIERCLUB FOLGE 1",
+      "languageCode": "de",
+      "fileName": "tameshibu_episode1_2_de.pdf",
+      "downloadURL": "https://tyamada.github.io/MihirakiPDFViewer/sample/tameshibu_episode1_2_de.pdf",
+      "byteSize": 24107143,
+      "sha256": "dbe809662c2a54177591f336045a1d3d824ecdca03c25080e20503dd9ef25acd"
+    },
+    {
+      "id": "tameshibu-episode2-de",
+      "title": "DER PROBIERCLUB FOLGE 2",
+      "languageCode": "de",
+      "fileName": "tameshibu_episode2_2_de.pdf",
+      "downloadURL": "https://tyamada.github.io/MihirakiPDFViewer/sample/tameshibu_episode2_2_de.pdf",
+      "byteSize": 24972620,
+      "sha256": "91e4e4c63e4326f383c765174294c7f9a7bdb345676032b02f7177cbe0a10adb"
+    },
+    {
+      "id": "tameshibu-episode1-fr",
+      "title": "LE CLUB DES ESSAIS EPISODE 1",
+      "languageCode": "fr",
+      "fileName": "tameshibu_episode1_2_fr.pdf",
+      "downloadURL": "https://tyamada.github.io/MihirakiPDFViewer/sample/tameshibu_episode1_2_fr.pdf",
+      "byteSize": 24111899,
+      "sha256": "3c6a90fac7c3742ab569729fe66c990af2aeb4096567f24cfb82de483f2e86fc"
+    },
+    {
+      "id": "tameshibu-episode2-fr",
+      "title": "LE CLUB DES ESSAIS EPISODE 2",
+      "languageCode": "fr",
+      "fileName": "tameshibu_episode2_2_fr.pdf",
+      "downloadURL": "https://tyamada.github.io/MihirakiPDFViewer/sample/tameshibu_episode2_2_fr.pdf",
+      "byteSize": 24975808,
+      "sha256": "371be77134686329c0812c0d2333fbff322e4c0d0f86ea8c1743808bed00a305"
+    }
+  ]
+}
