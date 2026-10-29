@@ -34,20 +34,27 @@ MihirakiPDFUtilityは、PDFページの並べ替え、回転、挿入、削除�
 
 ## サンプルPDF
 
-- [ためし部 第1話 ひと息マップ — こまいろ日和 (Japanese)](docs/pdf/tameshibu_episode1_2_ja.pdf)
-- [ためし部 第2話 机、ひろがる。 — こまいろ日和 (Japanese)](docs/pdf/tameshibu_episode2_2_ja.pdf)
-- [THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP — Komairo Hiyori (English)](docs/pdf/tameshibu_episode1_2_en.pdf)
-- [THE TRY-IT CLUB EPISODE 2 ROOM TO GROW — Komairo Hiyori (English)](docs/pdf/tameshibu_episode2_2_en.pdf)
-- [해봄부 제1화 한숨 돌림 지도 — 코마이로 히요리 (Korean)](docs/pdf/tameshibu_episode1_2_ko.pdf)
-- [해봄부 제2화 책상이 넓어지다 — 코마이로 히요리 (Korean)](docs/pdf/tameshibu_episode2_2_ko.pdf)
-- [试试社 第1话 歇口气地图 — 小真彩日和 (Chinese (Simplified))](docs/pdf/tameshibu_episode1_2_zh_cn.pdf)
-- [试试社 第2话 桌子变大了 — 小真彩日和 (Chinese (Simplified))](docs/pdf/tameshibu_episode2_2_zh_cn.pdf)
-- [試試社 第1話 — 小舞樓日和（中国語・繁体字）](docs/pdf/tameshibu_episode1_2_zh_tw.pdf)
-- [試試社 第2話 — 小舞樓日和（中国語・繁体字）](docs/pdf/tameshibu_episode2_2_zh_tw.pdf)
-- [DER PROBIERCLUB FOLGE 1 — Komairo Hiyori（ドイツ語）](docs/pdf/tameshibu_episode1_2_de.pdf)
-- [DER PROBIERCLUB FOLGE 2 — Komairo Hiyori（ドイツ語）](docs/pdf/tameshibu_episode2_2_de.pdf)
-- [LE CLUB DES ESSAIS EPISODE 1 — Komairo Hiyori（フランス語）](docs/pdf/tameshibu_episode1_2_fr.pdf)
-- [LE CLUB DES ESSAIS EPISODE 2 — Komairo Hiyori（フランス語）](docs/pdf/tameshibu_episode2_2_fr.pdf)
+作者「こまいろ日和」の正式なローマ字表記は **Komairo Hiyori** です。サンプルPDFマンガは `docs/sample/`（GitHub Pagesでは `sample/`）に配置しています。第1話・第2話は7言語、第3話は日本語・英語・韓国語・簡体字中国語・繁体字中国語で提供しています。
+
+- [ためし部 第1話 ひと息マップ — こまいろ日和 (Japanese)](docs/sample/tameshibu_episode1_2_ja.pdf)
+- [ためし部 第2話 机、ひろがる。 — こまいろ日和 (Japanese)](docs/sample/tameshibu_episode2_2_ja.pdf)
+- [ためし部 第3話 出張、ためし部！ — こまいろ日和 (Japanese)](docs/sample/tameshibu_episode3_ja.pdf)
+- [THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP — Komairo Hiyori (English)](docs/sample/tameshibu_episode1_2_en.pdf)
+- [THE TRY-IT CLUB EPISODE 2 ROOM TO GROW — Komairo Hiyori (English)](docs/sample/tameshibu_episode2_2_en.pdf)
+- [THE TRY-IT CLUB EPISODE 3 OUT AND ABOUT — Komairo Hiyori (English)](docs/sample/tameshibu_episode3_en.pdf)
+- [해봄부 제1화 한숨 돌림 지도 — 코마이로 히요리 (Korean)](docs/sample/tameshibu_episode1_2_ko.pdf)
+- [해봄부 제2화 책상이 넓어지다 — 코마이로 히요리 (Korean)](docs/sample/tameshibu_episode2_2_ko.pdf)
+- [해봄부 제3화 해봄부, 출장! — 코마이로 히요리 (Korean)](docs/sample/tameshibu_episode3_ko.pdf)
+- [试试社 第1话 歇口气地图 — 小真彩日和 (Chinese (Simplified))](docs/sample/tameshibu_episode1_2_zh_cn.pdf)
+- [试试社 第2话 桌子变大了 — 小真彩日和 (Chinese (Simplified))](docs/sample/tameshibu_episode2_2_zh_cn.pdf)
+- [试试社 第3话 试试社，出差啦！ — 小真彩日和 (Chinese (Simplified))](docs/sample/tameshibu_episode3_zh_cn.pdf)
+- [試試社 第1話 — 小舞樓日和（中国語・繁体字）](docs/sample/tameshibu_episode1_2_zh_tw.pdf)
+- [試試社 第2話 — 小舞樓日和（中国語・繁体字）](docs/sample/tameshibu_episode2_2_zh_tw.pdf)
+- [試試社 第3話 試試社，出差啦！ — 小舞樓日和 (Chinese (Traditional))](docs/sample/tameshibu_episode3_zh_tw.pdf)
+- [DER PROBIERCLUB FOLGE 1 — Komairo Hiyori（ドイツ語）](docs/sample/tameshibu_episode1_2_de.pdf)
+- [DER PROBIERCLUB FOLGE 2 — Komairo Hiyori（ドイツ語）](docs/sample/tameshibu_episode2_2_de.pdf)
+- [LE CLUB DES ESSAIS EPISODE 1 — Komairo Hiyori（フランス語）](docs/sample/tameshibu_episode1_2_fr.pdf)
+- [LE CLUB DES ESSAIS EPISODE 2 — Komairo Hiyori（フランス語）](docs/sample/tameshibu_episode2_2_fr.pdf)
 
 サンプルPDFは[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)の下で提供されています。再利用時の表示事項と生成AI利用の説明を含む[ライセンスおよび著作権表示の詳細](docs/sample-pdf-license.html#ja)もご確認ください。
 
