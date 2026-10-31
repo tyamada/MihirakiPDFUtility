@@ -33,7 +33,7 @@ This repository was created to develop a new app based on code and specification
 
 ## Sample PDFs
 
-The author’s official romanized name is **Komairo Hiyori**. Sample manga PDFs are published in `docs/sample/` (the `sample/` directory on GitHub Pages). Episodes 1 and 2 are available in seven languages; Episode 3 is available in Japanese, English, Korean, Simplified Chinese, and Traditional Chinese.
+The author’s official romanized name is **Komairo Hiyori**. Sample manga PDFs are published in `docs/sample/` (the `sample/` directory on GitHub Pages). Episodes 1–3 are each available in 14 languages (42 PDFs total).
 
 - [ためし部 第1話 ひと息マップ — こまいろ日和 (Japanese)](docs/sample/tameshibu_episode1_2_ja.pdf)
 - [ためし部 第2話 机、ひろがる。 — こまいろ日和 (Japanese)](docs/sample/tameshibu_episode2_2_ja.pdf)
@@ -52,8 +52,31 @@ The author’s official romanized name is **Komairo Hiyori**. Sample manga PDFs 
 - [試試社 第3話 試試社，出差啦！ — 小舞樓日和 (Chinese (Traditional))](docs/sample/tameshibu_episode3_zh_tw.pdf)
 - [DER PROBIERCLUB FOLGE 1 — Komairo Hiyori (German)](docs/sample/tameshibu_episode1_2_de.pdf)
 - [DER PROBIERCLUB FOLGE 2 — Komairo Hiyori (German)](docs/sample/tameshibu_episode2_2_de.pdf)
+- [Der Probierclub - Folge 3: Unterwegs — Komairo Hiyori (German)](docs/sample/tameshibu_episode3_de.pdf)
 - [LE CLUB DES ESSAIS EPISODE 1 — Komairo Hiyori (French)](docs/sample/tameshibu_episode1_2_fr.pdf)
 - [LE CLUB DES ESSAIS EPISODE 2 — Komairo Hiyori (French)](docs/sample/tameshibu_episode2_2_fr.pdf)
+- [Le Club des essais - Épisode 3 : Le club en sortie — Komairo Hiyori (French)](docs/sample/tameshibu_episode3_fr.pdf)
+- [EL CLUB DE LOS EXPERIMENTOS - EPISODIO 1 / MAPA DE DESCANSOS — Komairo Hiyori (Spanish)](docs/sample/tameshibu_episode1_es.pdf)
+- [EL CLUB DE LOS EXPERIMENTOS - EPISODIO 2 / LA MESA CRECE — Komairo Hiyori (Spanish)](docs/sample/tameshibu_episode2_es.pdf)
+- [EL CLUB DE LOS EXPERIMENTOS - EPISODIO 3 / DE SALIDA — Komairo Hiyori (Spanish)](docs/sample/tameshibu_episode3_es.pdf)
+- [O CLUBE DAS EXPERIÊNCIAS - EPISÓDIO 1 / MAPA DO DESCANSO — Komairo Hiyori (Portuguese)](docs/sample/tameshibu_episode1_pt.pdf)
+- [O CLUBE DAS EXPERIÊNCIAS - EPISÓDIO 2 / A MESA CRESCE — Komairo Hiyori (Portuguese)](docs/sample/tameshibu_episode2_pt.pdf)
+- [O CLUBE DAS EXPERIÊNCIAS - EPISÓDIO 3 / O CLUBE VAI À BIBLIOTECA — Komairo Hiyori (Portuguese)](docs/sample/tameshibu_episode3_pt.pdf)
+- [IL CLUB DEGLI ESPERIMENTI - EPISODIO 1 / LA MAPPA DELLE PAUSE — Komairo Hiyori (Italian)](docs/sample/tameshibu_episode1_it.pdf)
+- [IL CLUB DEGLI ESPERIMENTI - EPISODIO 2 / IL TAVOLO SI ALLARGA — Komairo Hiyori (Italian)](docs/sample/tameshibu_episode2_it.pdf)
+- [IL CLUB DEGLI ESPERIMENTI - EPISODIO 3 / IL CLUB IN TRASFERTA — Komairo Hiyori (Italian)](docs/sample/tameshibu_episode3_it.pdf)
+- [CÂU LẠC BỘ THỬ NGHIỆM - TẬP 1 / BẢN ĐỒ CHỖ NGHỈ — Komairo Hiyori (Vietnamese)](docs/sample/tameshibu_episode1_vi.pdf)
+- [CÂU LẠC BỘ THỬ NGHIỆM - TẬP 2 / CHIẾC BÀN RỘNG HƠN — Komairo Hiyori (Vietnamese)](docs/sample/tameshibu_episode2_vi.pdf)
+- [CÂU LẠC BỘ THỬ NGHIỆM - TẬP 3 / CÂU LẠC BỘ ĐI CÔNG TÁC — Komairo Hiyori (Vietnamese)](docs/sample/tameshibu_episode3_vi.pdf)
+- [CLUB NG MGA PAGSUBOK - KABANATA 1 / MAPA NG PAHINGAHAN — Komairo Hiyori (Filipino / Tagalog)](docs/sample/tameshibu_episode1_tl.pdf)
+- [CLUB NG MGA PAGSUBOK - KABANATA 2 / LUMUWANG ANG MESA — Komairo Hiyori (Filipino / Tagalog)](docs/sample/tameshibu_episode2_tl.pdf)
+- [CLUB NG MGA PAGSUBOK - KABANATA 3 / LUMABAS ANG CLUB — Komairo Hiyori (Filipino / Tagalog)](docs/sample/tameshibu_episode3_tl.pdf)
+- [प्रयोग क्लब - भाग 1 / आरामको नक्सा — Komairo Hiyori (Nepali)](docs/sample/tameshibu_episode1_ne.pdf)
+- [प्रयोग क्लब - भाग 2 / टेबुल फराकिलो भयो — Komairo Hiyori (Nepali)](docs/sample/tameshibu_episode2_ne.pdf)
+- [प्रयोग क्लब - भाग 3 / क्लबको पहिलो भ्रमण — Komairo Hiyori (Nepali)](docs/sample/tameshibu_episode3_ne.pdf)
+- [KLUB COBA-COBA - EPISODE 1 / PETA TEMPAT ISTIRAHAT — Komairo Hiyori (Indonesian)](docs/sample/tameshibu_episode1_id.pdf)
+- [KLUB COBA-COBA - EPISODE 2 / MEJANYA MAKIN LUAS — Komairo Hiyori (Indonesian)](docs/sample/tameshibu_episode2_id.pdf)
+- [KLUB COBA-COBA - EPISODE 3 / KLUB JALAN-JALAN — Komairo Hiyori (Indonesian)](docs/sample/tameshibu_episode3_id.pdf)
 
 The sample PDFs are provided under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). See the [license and attribution details](docs/sample-pdf-license.html#en), including reuse requirements and the generative AI disclosure.
 
