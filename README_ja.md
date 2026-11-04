@@ -94,7 +94,34 @@ MihirakiPDFUtilityは、PDFページの並べ替え、回転、挿入、削除�
 
 ## 開発環境
 
-`MihirakiPDFUtility.xcodeproj` をXcodeで開き、`MihirakiPDFUtility` スキームを選択します。現在のDeployment TargetはiOS 18.0で、iPhoneとiPadを対象にしています。
+このアプリは開発途中です。診断機能などの未コミット実装があり、公開mainと手元の作業版は同一とは限りません。資料にある実装状況と、動作確認済みの範囲を区別してください。
+
+- macOSとXcode、iOS 18.0以降のシミュレータが必要です。今回の確認環境はXcode 27.1です。
+- Xcodeの初回起動と追加コンポーネントの導入を済ませ、`xcode-select -p`がXcodeのDeveloperディレクトリを示すことを確認します。
+- 外部SwiftパッケージやCocoaPodsは不要です。資料検査スクリプトにはPython 3を使用します。
+- プロジェクトにはmacOS 15.0の設定もありますが、Mac対応の完成度・画面操作の検証はiOS/iPadOSと別に管理します。
+
+```bash
+git clone https://github.com/tyamada/MihirakiPDFUtility.git
+cd MihirakiPDFUtility
+xcodebuild -list -project MihirakiPDFUtility.xcodeproj
+xcodebuild build -project MihirakiPDFUtility.xcodeproj -scheme MihirakiPDFUtility \
+  -destination 'generic/platform=iOS Simulator' \
+  -derivedDataPath build/DerivedData CODE_SIGNING_ALLOWED=NO
+xcrun simctl list devices available
+# Replace SIMULATOR_UUID with the UUID of an available iOS 18+ device.
+xcodebuild test -project MihirakiPDFUtility.xcodeproj -scheme MihirakiPDFUtility \
+  -destination 'platform=iOS Simulator,id=SIMULATOR_UUID' \
+  -parallel-testing-enabled NO -derivedDataPath build/DerivedData CODE_SIGNING_ALLOWED=NO
+python3 scripts/check_repository.py
+python3 -m unittest discover -s scripts -p 'test_check_repository.py'
+```
+
+Xcodeでは`MihirakiPDFUtility.xcodeproj`を開き、同名の共有スキームとシミュレータを選んでRunします。シミュレータは作者の証明書や秘密鍵なしでビルドできます。実機にインストールする場合はSigning & Capabilitiesで自分のTeamと使用可能なBundle Identifierを設定します。鍵・プロビジョニングプロファイルはGitへ登録しません。
+
+`testdata/`にある開発機だけのPDFは、通常ビルドや自動回帰テストに不要です。1,100ページの回帰テストは小さな合成PDFを生成して実行し、終了時に削除します。これは画像の多い既存PDFでの性能保証とは異なります。公開mainで古い`testdata/`同梱設定によりビルドが失敗する場合、この修正を含むリビジョンを使用してください。アセットカタログ・Info.plist・追加したSwiftファイル・Privacy Manifest・共有スキームを合わせてコミットする必要があります。
+
+App Store署名・配布や実購入は別工程です。`Products.storekit/Configuration.storekit`は開発用の製品定義であり、配布用の認証情報ではありません。診断ログの14日保持期限は読み書き・起動時に整理され、アプリ停止中のタイマー削除ではありません。
 
 ## ライセンス
 

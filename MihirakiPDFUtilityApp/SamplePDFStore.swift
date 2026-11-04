@@ -106,6 +106,8 @@ final class SamplePDFStore {
             )
             request.allowsCellularAccess = allowsCellular
             let (temporaryURL, response) = try await session.download(for: request)
+            // Failed validation must not leave a temporary download behind.
+            defer { try? fileManager.removeItem(at: temporaryURL) }
 
             guard let httpResponse = response as? HTTPURLResponse,
                   (200...299).contains(httpResponse.statusCode) else {
