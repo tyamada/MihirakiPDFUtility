@@ -17,3 +17,28 @@ xcuserdata/
 # Keep per-user Xcode state out even though the project is explicitly included.
 MihirakiPDFUtility.xcodeproj/**/xcuserdata/
 MihirakiPDFUtility.xcodeproj/**/UserInterfaceState.xcuserstate
+
+# Local build products, diagnostics, and Python caches
+*DerivedData/
+build/
+.artifacts/
+*.xcresult/
+*.xcarchive/
+*.ipa
+*.dSYM/
+*.dSYM.zip
+__pycache__/
+*.py[cod]
+
+# Local signing and service credentials
+*.p8
+*.p12
+*.key
+*.mobileprovision
+.env
+.env.*
+!.env.example
+client_secret*.json
+service-account*.json
+credentials.json
+token.json

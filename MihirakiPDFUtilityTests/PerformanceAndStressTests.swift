@@ -20,10 +20,11 @@ struct PerformanceAndStressTests {
         #expect(report.text.contains("not sent externally"))
     }
 
-    @Test("A 1,100-page PDF loads and exports within the regression limit")
+    @Test("A synthetic 1,100-page PDF loads and exports within the regression limit")
     @MainActor
     func largePDFPerformance() throws {
-        let sourceURL = try #require(largePDFURL())
+        let sourceURL = try makePDF(pageCount: 1_100)
+        defer { try? FileManager.default.removeItem(at: sourceURL) }
         let model = PDFEditorModel()
         let clock = ContinuousClock()
 
@@ -190,14 +191,6 @@ struct PerformanceAndStressTests {
         #expect(exportedText.contains("not sent externally"))
         #expect(!exportedText.contains("password="))
         #expect(!exportedText.contains("path="))
-    }
-
-    private func largePDFURL() -> URL? {
-        let testsDirectory = URL(fileURLWithPath: #filePath).deletingLastPathComponent()
-        let url = testsDirectory
-            .deletingLastPathComponent()
-            .appending(path: "testdata/load_test_1100_pages.pdf")
-        return FileManager.default.fileExists(atPath: url.path) ? url : nil
     }
 
     private func makePDF(pageCount: Int) throws -> URL {
