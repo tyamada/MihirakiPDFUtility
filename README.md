@@ -8,10 +8,15 @@ This repository was created to develop a new app based on code and specification
 
 ## Current status
 
-- SwiftUI project for iOS and iPadOS with a Swift Testing target
-- Open and export PDFs
-- Add pages from another PDF
-- Reorder, duplicate, rotate and remove selected pages
+- SwiftUI project for iOS and iPadOS with a Swift Testing target (191 automated unit tests)
+- Open and export PDFs with undo/redo support
+- Add pages from another PDF or import images directly as PDF pages
+- Split double-page spread pages vertically (left/right) or horizontally (top/bottom)
+- Crop margins evenly around selected pages (0–40% clamp with boundary protection)
+- Full-screen interactive preview with 1–5x pinch zoom, double-tap toggle, pan, swipe navigation, and Right-to-Left (RTL) reading order
+- Reorder, duplicate, rotate (in 90° increments) and remove selected pages
+- Invert selection to quickly switch between selected and unselected pages
+- Customizable thumbnail sizes (Small, Medium, Large) and button display styles (Icon + Text, Icon Only, Text Only)
 - Insert blank pages before or after a selection
 - Export selected pages as a separate PDF
 - Open password-protected PDFs
@@ -21,7 +26,8 @@ This repository was created to develop a new app based on code and specification
 - Open PDFs from Files and the system share sheet
 - Run an on-device CPU, memory and PDF workflow performance test from Version Information
 - Keep privacy-preserving diagnostic logs on the device, view or copy them for troubleshooting, and automatically delete records after 14 days
-- User interface localized in 13 languages
+- User interface localized in 14 languages (Japanese, English, Korean, Simplified Chinese, Traditional Chinese, German, French, Spanish, Portuguese, Italian, Vietnamese, Filipino, Nepali, Indonesian)
+- Sample manga catalog v2 (51 volumes across 17 locales) and official YouTube Shorts video guides
 - Optional non-consumable In-App Purchases for permanent Bronze, Silver, and Gold supporter icons
 - Marketing, privacy and support pages for GitHub Pages
 
@@ -33,7 +39,7 @@ This repository was created to develop a new app based on code and specification
 
 ## Sample PDFs
 
-The author’s official romanized name is **Komairo Hiyori**. Sample manga PDFs are published in `docs/sample/` (the `sample/` directory on GitHub Pages). Episodes 1–3 are each available in 14 languages (42 PDFs total).
+The author’s official romanized name is **Komairo Hiyori**. Sample manga PDFs are published in `docs/sample/` (the `sample/` directory on GitHub Pages). Episodes 1–3 are available across 17 locales (51 PDFs total).
 
 - [ためし部 第1話 ひと息マップ — こまいろ日和 (Japanese)](docs/sample/tameshibu_episode1_2_ja.pdf)
 - [ためし部 第2話 机、ひろがる。 — こまいろ日和 (Japanese)](docs/sample/tameshibu_episode2_2_ja.pdf)
