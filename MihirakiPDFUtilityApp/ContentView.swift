@@ -40,6 +40,7 @@ private enum PendingDocument {
 struct ContentView: View {
     @Bindable var model: PDFEditorModel
     @State private var tipManager = TipManager()
+    @State private var badgeManager = CommemorativeBadgeManager()
     @State private var viewMode: MainViewMode
 #if os(iOS)
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
@@ -495,7 +496,7 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $isPresentingVersionInformation) {
-            AppVersionInformationView(info: AppVersionInfo(), tipManager: tipManager)
+            AppVersionInformationView(info: AppVersionInfo(), tipManager: tipManager, badgeManager: badgeManager)
         }
         .sheet(isPresented: $isPresentingHelp) {
             HelpView()
@@ -523,6 +524,28 @@ struct ContentView: View {
 #endif
         .onOpenURL { url in
             requestOpen(url)
+        }
+        .overlay(alignment: .top) {
+            if let badge = badgeManager.newlyClaimedBadge {
+                CommemorativeBadgeToastView(badge: badge) {
+                    withAnimation(.easeInOut(duration: 0.25)) {
+                        badgeManager.dismissNewlyClaimedToast()
+                    }
+                }
+                .transition(.move(edge: .top).combined(with: .opacity))
+                .padding(.top, 8)
+                .task(id: badge.id) {
+                    try? await Task.sleep(for: .seconds(4))
+                    withAnimation(.easeInOut(duration: 0.25)) {
+                        badgeManager.dismissNewlyClaimedToast()
+                    }
+                }
+            }
+        }
+        .task {
+            withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                badgeManager.checkAndClaimEligibleBadges()
+            }
         }
     }
 
@@ -1036,6 +1059,7 @@ private struct AppVersionInformationView: View {
 
     let info: AppVersionInfo
     let tipManager: TipManager
+    let badgeManager: CommemorativeBadgeManager
 
     var body: some View {
         NavigationStack {
@@ -1045,6 +1069,28 @@ private struct AppVersionInformationView: View {
                     LabeledContent("Version", value: info.versionNumber)
                     LabeledContent("Build", value: info.buildNumber)
                     LabeledContent("Copyright", value: info.copyright)
+                }
+
+                if !badgeManager.claimedBadges.isEmpty {
+                    Section("Commemorative Badges") {
+                        ForEach(badgeManager.claimedBadges) { badge in
+                            Label {
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text(badge.name)
+                                        .font(.body)
+                                    Text(badge.subtitle)
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
+                            } icon: {
+                                Image(badge.assetName)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 36, height: 36)
+                                    .clipShape(.rect(cornerRadius: 8))
+                            }
+                        }
+                    }
                 }
 
                 if !tipManager.purchasedSupporterIcons.isEmpty {
