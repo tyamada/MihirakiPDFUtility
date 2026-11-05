@@ -1102,6 +1102,20 @@ private struct HelpView: View {
                 Section("Edit Pages") {
                     Label("Add another PDF from the Edit Pages menu.", systemImage: "doc.badge.plus")
                     Label("Select pages to move, rotate, duplicate, or delete them.", systemImage: "rectangle.stack")
+                    Label("Invert selection to quickly switch selected pages.", systemImage: "arrow.left.arrow.right.circle")
+                    Label("Split spread pages into separate single pages.", systemImage: "arrow.left.and.right.square")
+                    Label("Crop margins evenly around selected pages.", systemImage: "crop")
+                }
+
+                Section("Preview & Viewing") {
+                    Label("Tap a page to open the full-screen preview.", systemImage: "magnifyingglass")
+                    Label("Pinch or double-tap to zoom from 1x up to 5x.", systemImage: "plus.magnifyingglass")
+                    Label("Swipe left or right to browse through pages.", systemImage: "hand.draw")
+                    Label("Switch between grid and spread layouts.", systemImage: "book")
+                }
+
+                Section("Options") {
+                    Label("Customize thumbnail size (S, M, L) and button display style in Settings > Options.", systemImage: "slider.horizontal.3")
                 }
 
                 Section("Settings") {

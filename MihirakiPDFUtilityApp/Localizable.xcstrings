@@ -17790,6 +17790,96 @@
           }
         }
       }
+    },
+    "Invert selection to quickly switch selected pages.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選択状態を反転して素早くページを切り替えます。"
+          }
+        }
+      }
+    },
+    "Split spread pages into separate single pages.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "見開きページを左右または上下の単一ページに分割します。"
+          }
+        }
+      }
+    },
+    "Crop margins evenly around selected pages.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選択したページの四辺の余白を均等にトリミングします。"
+          }
+        }
+      }
+    },
+    "Preview & Viewing": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プレビューと表示"
+          }
+        }
+      }
+    },
+    "Tap a page to open the full-screen preview.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ページをタップして全画面プレビューを開きます。"
+          }
+        }
+      }
+    },
+    "Pinch or double-tap to zoom from 1x up to 5x.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ピンチまたはダブルタップで1〜5倍に拡大縮小します。"
+          }
+        }
+      }
+    },
+    "Swipe left or right to browse through pages.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "左右にスワイプしてページをめくります。"
+          }
+        }
+      }
+    },
+    "Switch between grid and spread layouts.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "グリッド表示と見開き表示を切り替えます。"
+          }
+        }
+      }
+    },
+    "Customize thumbnail size (S, M, L) and button display style in Settings > Options.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "設定 > オプションから、サムネイルサイズ（S/M/L）やボタン表示スタイルをカスタマイズできます。"
+          }
+        }
+      }
     }
   },
   "version": "1.3"
