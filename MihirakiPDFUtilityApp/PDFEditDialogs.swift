@@ -19,6 +19,7 @@ struct PDFSplitDialog: View {
                         Text("Top / Bottom (Horizontal cut)").tag(SplitDirection.horizontal)
                     }
                     .pickerStyle(.inline)
+                    .accessibilityLabel("Split Direction")
                 }
             }
             .navigationTitle("Split Pages")
@@ -37,7 +38,7 @@ struct PDFSplitDialog: View {
                 }
             }
         }
-        .presentationDetents([.medium])
+        .presentationDetents([.medium, .large])
     }
 }
 
@@ -63,12 +64,15 @@ struct PDFCropDialog: View {
                                 .font(.headline)
                                 .monospacedDigit()
                         }
+                        .accessibilityElement(children: .combine)
 
                         Slider(
                             value: $marginPercent,
                             in: 0...40,
                             step: 5
                         )
+                        .accessibilityLabel("Trim Margin")
+                        .accessibilityValue("\(Int(marginPercent))%")
                     }
                     .padding(.vertical, 4)
                 }
@@ -89,6 +93,6 @@ struct PDFCropDialog: View {
                 }
             }
         }
-        .presentationDetents([.medium])
+        .presentationDetents([.medium, .large])
     }
 }

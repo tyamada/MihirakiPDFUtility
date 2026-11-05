@@ -33,7 +33,7 @@ struct PDFPagePreviewView: View {
     }
 
     private var currentScale: CGFloat {
-        max(1.0, min(5.0, scale * gestureScale))
+        PDFPreviewNavigation.clampedScale(scale * gestureScale)
     }
 
     private var currentOffset: CGSize {
@@ -66,6 +66,23 @@ struct PDFPagePreviewView: View {
                                 }
                             }
                         }
+                        .accessibilityElement(children: .ignore)
+                        .accessibilityLabel(String(localized: "Page \(currentIndex + 1) of \(pages.count)"))
+                        .accessibilityValue(String(format: String(localized: "Zoom %.1fx"), currentScale))
+                        .accessibilityHint(String(localized: "Double-tap to zoom. Swipe left or right to change pages."))
+                        .accessibilityAdjustableAction { direction in
+                            switch direction {
+                            case .increment:
+                                scale = min(5.0, scale + 0.5)
+                            case .decrement:
+                                scale = max(1.0, scale - 0.5)
+                                if scale <= 1.0 {
+                                    offset = .zero
+                                }
+                            @unknown default:
+                                break
+                            }
+                        }
                 } else {
                     ContentUnavailableView(
                         "No Page Selected",
@@ -91,6 +108,7 @@ struct PDFPagePreviewView: View {
                         Image(systemName: "xmark")
                             .foregroundColor(.white)
                     }
+                    .accessibilityLabel("Close")
                 }
 
                 ToolbarItemGroup(placement: .primaryAction) {
@@ -103,6 +121,7 @@ struct PDFPagePreviewView: View {
                         } label: {
                             Label("Reset Zoom", systemImage: "arrow.down.right.and.arrow.up.left")
                         }
+                        .accessibilityLabel("Reset Zoom")
                     }
                 }
             }
@@ -140,6 +159,7 @@ struct PDFPagePreviewView: View {
                     .background(Color.black.opacity(0.6))
                     .clipShape(Circle())
             }
+            .accessibilityLabel("Previous Page")
             .disabled(!canGoToPreviousPage)
             .opacity(canGoToPreviousPage ? 1.0 : 0.3)
 
@@ -150,6 +170,7 @@ struct PDFPagePreviewView: View {
                 .padding(.vertical, 8)
                 .background(Color.black.opacity(0.6))
                 .clipShape(Capsule())
+                .accessibilityLabel(String(localized: "Page \(currentIndex + 1) of \(pages.count)"))
 
             Button {
                 goToNextPage()
@@ -161,6 +182,7 @@ struct PDFPagePreviewView: View {
                     .background(Color.black.opacity(0.6))
                     .clipShape(Circle())
             }
+            .accessibilityLabel("Next Page")
             .disabled(!canGoToNextPage)
             .opacity(canGoToNextPage ? 1.0 : 0.3)
         }
@@ -195,7 +217,7 @@ struct PDFPagePreviewView: View {
                 state = current
             }
             .onEnded { finalScale in
-                let newScale = max(1.0, min(5.0, scale * finalScale))
+                let newScale = PDFPreviewNavigation.clampedScale(scale * finalScale)
                 scale = newScale
                 if scale <= 1.0 {
                     offset = .zero
