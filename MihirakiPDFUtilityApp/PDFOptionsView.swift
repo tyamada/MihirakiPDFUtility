@@ -45,6 +45,7 @@ struct PDFOptionsView: View {
 
     @AppStorage("thumbnailSize") private var thumbnailSize: ThumbnailSize = .m
     @AppStorage("buttonDisplayType") private var buttonDisplayType: ButtonDisplayType = .iconAndText
+    @State private var iconManager = AppIconManager.shared
 
     var body: some View {
         NavigationStack {
@@ -66,6 +67,44 @@ struct PDFOptionsView: View {
                     }
                     .pickerStyle(.segmented)
                 }
+
+#if os(iOS)
+                if iconManager.supportsAlternateIcons {
+                    Section(header: Text("App Icon")) {
+                        ForEach(AppIconOption.allCases) { option in
+                            Button {
+                                Task {
+                                    await iconManager.selectIcon(option)
+                                }
+                            } label: {
+                                HStack(spacing: 12) {
+                                    Image(option.previewAssetName)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 44, height: 44)
+                                        .clipShape(.rect(cornerRadius: 10))
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color.primary.opacity(0.12), lineWidth: 1)
+                                        )
+
+                                    Text(option.displayName)
+                                        .foregroundStyle(.primary)
+
+                                    Spacer()
+
+                                    if iconManager.currentIcon == option {
+                                        Image(systemName: "checkmark")
+                                            .foregroundStyle(Color.accentColor)
+                                            .fontWeight(.semibold)
+                                    }
+                                }
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                }
+#endif
             }
             .navigationTitle("Options")
             .toolbar {
