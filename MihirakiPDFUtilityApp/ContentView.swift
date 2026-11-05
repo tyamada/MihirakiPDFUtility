@@ -8,7 +8,8 @@ import UIKit
 
 // Extracted auxiliary view types (WrappingHStack, ThumbnailAction, etc.) to PDFPageViews.swift
 
-private enum MainViewMode: String, CaseIterable, Identifiable {
+enum MainViewMode: String, CaseIterable, Identifiable {
+    case auto
     case list
     case thumbnails
     case spread
@@ -17,6 +18,7 @@ private enum MainViewMode: String, CaseIterable, Identifiable {
 
     var title: LocalizedStringResource {
         switch self {
+        case .auto: "Auto"
         case .list: "List"
         case .thumbnails: "Thumbnails"
         case .spread: "Spread View"
@@ -25,9 +27,48 @@ private enum MainViewMode: String, CaseIterable, Identifiable {
 
     var systemImage: String {
         switch self {
+        case .auto: "sparkles"
         case .list: "list.bullet"
         case .thumbnails: "square.grid.2x2"
         case .spread: "rectangle.split.2x1"
+        }
+    }
+
+    @MainActor
+    func resolved(for size: CGSize, isPadOrMac: Bool? = nil, isDuoOpened: Bool? = nil) -> MainViewMode {
+        switch self {
+        case .auto:
+            let padOrMac: Bool
+            if let isPadOrMac {
+                padOrMac = isPadOrMac
+            } else {
+                #if os(macOS)
+                padOrMac = true
+                #else
+                padOrMac = UIDevice.current.userInterfaceIdiom == .pad || UIDevice.current.userInterfaceIdiom == .mac
+                #endif
+            }
+            if padOrMac {
+                return .thumbnails
+            } else {
+                // iPhone Duo: デバイスを開いた時はサムネイルに変更
+                if isDuoOpened == true {
+                    return .thumbnails
+                }
+                // iPhone or iPhone Duo (閉じた状態):
+                // 縦長ならばリスト、横長ならばサムネイル
+                if size.width > 0 && size.height > 0 {
+                    return size.height > size.width ? .list : .thumbnails
+                } else {
+                    return .list
+                }
+            }
+        case .list:
+            return .list
+        case .thumbnails:
+            return .thumbnails
+        case .spread:
+            return .spread
         }
     }
 }
@@ -39,13 +80,12 @@ private enum PendingDocument {
 
 struct ContentView: View {
     @Bindable var model: PDFEditorModel
-    @State private var tipManager = TipManager()
-    @State private var badgeManager = CommemorativeBadgeManager()
-    @State private var viewMode: MainViewMode
 #if os(iOS)
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    @State private var hasInitializedViewMode = false
 #endif
+    @State private var tipManager = TipManager()
+    @State private var badgeManager = CommemorativeBadgeManager()
+    @State private var viewMode: MainViewMode = .auto
     @State private var previewedPageID: PDFPageItem.ID?
     @State private var draggedPageID: PDFPageItem.ID?
 
@@ -60,7 +100,7 @@ struct ContentView: View {
     @State private var isPresentingDiagnostics = false
     @State private var isPresentingOptions = false
     @AppStorage("thumbnailSize") private var thumbnailSize: ThumbnailSize = .m
-    @AppStorage("buttonDisplayType") private var buttonDisplayType: ButtonDisplayType = .iconAndText
+    @AppStorage("buttonDisplayType") private var buttonDisplayType: ButtonDisplayType = .iconOnly
     @State private var isPresentingSplitDialog = false
     @State private var isPresentingCropDialog = false
     @State private var isPresentingHelp = false
@@ -83,11 +123,7 @@ struct ContentView: View {
 
     init(model: PDFEditorModel) {
         self.model = model
-#if os(macOS)
-        _viewMode = State(initialValue: .thumbnails)
-#else
-        _viewMode = State(initialValue: .list)
-#endif
+        _viewMode = State(initialValue: .auto)
     }
 
     var body: some View {
@@ -132,7 +168,14 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .padding()
                 } else {
-                    switch viewMode {
+#if os(iOS)
+                    let isDuoOpened = horizontalSizeClass == .regular || geometry.size.width >= 600
+#else
+                    let isDuoOpened = false
+#endif
+                    switch viewMode.resolved(for: geometry.size, isDuoOpened: isDuoOpened) {
+                    case .auto:
+                        thumbnailWorkspace
                     case .list:
                         pageList
                     case .thumbnails:
@@ -144,14 +187,6 @@ struct ContentView: View {
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
             }
-#if os(iOS)
-            .onAppear {
-                guard !hasInitializedViewMode else { return }
-                // Choose the initial mode once; resizing must preserve the user's selection.
-                viewMode = horizontalSizeClass == .regular ? .thumbnails : .list
-                hasInitializedViewMode = true
-            }
-#endif
             .navigationTitle(model.isModified ? "\(model.displayName) *" : model.displayName)
             .toolbar {
                 ToolbarItemGroup(placement: .navigation) {

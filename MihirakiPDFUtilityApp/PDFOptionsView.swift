@@ -44,7 +44,7 @@ struct PDFOptionsView: View {
     @Environment(\.dismiss) private var dismiss
 
     @AppStorage("thumbnailSize") private var thumbnailSize: ThumbnailSize = .m
-    @AppStorage("buttonDisplayType") private var buttonDisplayType: ButtonDisplayType = .iconAndText
+    @AppStorage("buttonDisplayType") private var buttonDisplayType: ButtonDisplayType = .iconOnly
     @State private var iconManager = AppIconManager.shared
 
     var body: some View {

@@ -27,8 +27,14 @@ struct SamplePDFListView: View {
             isOpen: isOpen(_:),
             isDownloadEnabled: store.isNetworkPathKnown,
             downloadAction: requestDownload(_:),
-            openAction: { licenseCandidate = $0 },
-            deleteAction: { deletionCandidate = $0 }
+            openAction: { sample in
+                guard licenseCandidate == nil, deletionCandidate == nil, cellularDownload == nil else { return }
+                licenseCandidate = sample
+            },
+            deleteAction: { sample in
+                guard licenseCandidate == nil, deletionCandidate == nil, cellularDownload == nil else { return }
+                deletionCandidate = sample
+            }
         )
         .navigationTitle("Sample PDFs")
         .task {
@@ -50,6 +56,7 @@ struct SamplePDFListView: View {
                 sourceURL: sample.downloadURL,
                 license: store.catalog?.license
             ) {
+                licenseCandidate = nil
                 openDocument(store.localURL(for: sample))
             }
         }
@@ -123,6 +130,7 @@ struct SamplePDFListView: View {
     }
 
     private func requestDownload(_ sample: SamplePDF) {
+        guard licenseCandidate == nil, deletionCandidate == nil, cellularDownload == nil else { return }
         if store.isUsingCellular {
             cellularDownload = sample
         } else {
@@ -283,15 +291,18 @@ private struct SamplePDFRowAction: View {
                 Spacer()
 
                 Button("Open", action: openAction)
+                    .buttonStyle(.bordered)
                     .disabled(isOpen)
 
                 Button("Delete", role: .destructive, action: deleteAction)
+                    .buttonStyle(.bordered)
                     .disabled(isOpen)
             case .deleting:
                 ProgressView()
                 Text("Deleting…")
             }
         }
+        .buttonStyle(.borderless)
     }
 }
 
@@ -310,6 +321,19 @@ private struct SamplePDFLicenseDialog: View {
                     SamplePDFLicenseSummary(sampleTitle: sampleTitle)
                     SamplePDFAttributionRequirements(sourceURL: sourceURL, license: license)
                     SamplePDFLicenseNotice()
+
+                    Button {
+                        dismiss()
+                        openAction()
+                    } label: {
+                        Text("Agree and Open")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 8)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
+                    .padding(.top, 12)
                 }
                 .padding()
                 .frame(maxWidth: 620, alignment: .leading)
@@ -320,12 +344,6 @@ private struct SamplePDFLicenseDialog: View {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
                         dismiss()
-                    }
-                }
-
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Agree and Open") {
-                        openAction()
                     }
                 }
             }

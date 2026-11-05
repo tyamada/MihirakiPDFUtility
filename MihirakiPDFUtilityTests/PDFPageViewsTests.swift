@@ -92,4 +92,57 @@ struct PDFPageViewsTests {
         )
         #expect(ignored == nil)
     }
+
+    @Test("MainViewMode all cases, identifiers, and symbols")
+    func mainViewModeCases() {
+        #expect(MainViewMode.allCases.count == 4)
+        #expect(MainViewMode.allCases.contains(.auto))
+        #expect(MainViewMode.allCases.contains(.list))
+        #expect(MainViewMode.allCases.contains(.thumbnails))
+        #expect(MainViewMode.allCases.contains(.spread))
+        for mode in MainViewMode.allCases {
+            #expect(mode.id == mode)
+            #expect(!mode.systemImage.isEmpty)
+        }
+    }
+
+    @Test("MainViewMode resolution for Mac and iPad always selects thumbnails")
+    @MainActor
+    func mainViewModeResolvedPadOrMac() {
+        let portrait = CGSize(width: 400, height: 800)
+        let landscape = CGSize(width: 800, height: 400)
+
+        #expect(MainViewMode.auto.resolved(for: portrait, isPadOrMac: true) == .thumbnails)
+        #expect(MainViewMode.auto.resolved(for: landscape, isPadOrMac: true) == .thumbnails)
+    }
+
+    @Test("MainViewMode resolution for iPhone and iPhone Duo adapts by orientation and size")
+    @MainActor
+    func mainViewModeResolvedPhoneAndDuo() {
+        let portrait = CGSize(width: 393, height: 852)
+        let landscape = CGSize(width: 852, height: 393)
+        let square = CGSize(width: 600, height: 600)
+        let unmeasured = CGSize.zero
+
+        // Vertical / portrait -> list
+        #expect(MainViewMode.auto.resolved(for: portrait, isPadOrMac: false) == .list)
+        // Horizontal / landscape -> thumbnails
+        #expect(MainViewMode.auto.resolved(for: landscape, isPadOrMac: false) == .thumbnails)
+        // Square / width >= height -> thumbnails
+        #expect(MainViewMode.auto.resolved(for: square, isPadOrMac: false) == .thumbnails)
+        // Zero size fallback -> list
+        #expect(MainViewMode.auto.resolved(for: unmeasured, isPadOrMac: false) == .list)
+    }
+
+    @Test("Explicit MainViewMode selection is preserved regardless of size or device")
+    @MainActor
+    func mainViewModeExplicitPreserved() {
+        let portrait = CGSize(width: 393, height: 852)
+        let landscape = CGSize(width: 852, height: 393)
+
+        #expect(MainViewMode.list.resolved(for: landscape, isPadOrMac: true) == .list)
+        #expect(MainViewMode.list.resolved(for: landscape, isPadOrMac: false) == .list)
+        #expect(MainViewMode.thumbnails.resolved(for: portrait, isPadOrMac: false) == .thumbnails)
+        #expect(MainViewMode.spread.resolved(for: portrait, isPadOrMac: false) == .spread)
+    }
 }
