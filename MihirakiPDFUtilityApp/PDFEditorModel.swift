@@ -38,6 +38,12 @@ struct PDFMetadata: Equatable {
 @MainActor
 @Observable
 final class PDFEditorModel {
+    private let recordsDiagnostics: Bool
+
+    init(recordsDiagnostics: Bool = true) {
+        self.recordsDiagnostics = recordsDiagnostics
+    }
+
     private var lockedDocument: PDFDocument?
     private var lockedDocumentDetails: PDFDocumentDetails?
     private var pendingUnlockAction: PendingUnlockAction?
@@ -47,6 +53,7 @@ final class PDFEditorModel {
     private(set) var document: PDFDocument?
     private(set) var pages: [PDFPageItem] = []
     private(set) var sourceURL: URL?
+    private var importedDisplayName: String?
     private(set) var isModified = false
     private(set) var documentDetails = PDFDocumentDetails()
 
@@ -54,7 +61,7 @@ final class PDFEditorModel {
     var errorMessage: String?
 
     var displayName: String {
-        sourceURL?.deletingPathExtension().lastPathComponent ?? String(localized: "Untitled")
+        sourceURL?.deletingPathExtension().lastPathComponent ?? importedDisplayName ?? String(localized: "Untitled")
     }
 
     var metadata: PDFMetadata {
@@ -358,6 +365,50 @@ final class PDFEditorModel {
         log(.pagesInserted, category: .editing, pageCount: pages.count, selectionCount: insertedIndexes.count)
     }
 
+    func splitSelection(direction: SplitDirection = .vertical) {
+        guard let document else { return }
+        let selectedIndexes = pages.indices.filter { selection.contains(pages[$0].id) }
+        guard !selectedIndexes.isEmpty else { return }
+
+        recordUndoState()
+
+        let isRTL = documentDetails.viewerPreferences.readingDirection == .rightToLeft
+
+        // Process in reverse index order so replacements do not alter earlier indexes
+        for sourceIndex in selectedIndexes.reversed() {
+            guard let page = document.page(at: sourceIndex),
+                  let (page1, page2) = PDFPageGeometry.split(page: page, direction: direction, isRTL: isRTL) else {
+                continue
+            }
+
+            document.removePage(at: sourceIndex)
+            document.insert(page2, at: sourceIndex)
+            document.insert(page1, at: sourceIndex)
+        }
+
+        reloadPages()
+        selection.removeAll()
+        markModified()
+        log(.pagesSplit, category: .editing, pageCount: pages.count, selectionCount: selectedIndexes.count)
+    }
+
+    func cropSelection(margin: CGFloat) {
+        guard let document else { return }
+        let selectedIndexes = pages.indices.filter { selection.contains(pages[$0].id) }
+        guard !selectedIndexes.isEmpty else { return }
+
+        recordUndoState()
+
+        for index in selectedIndexes {
+            guard let page = document.page(at: index) else { continue }
+            PDFPageGeometry.applyCrop(margin: margin, to: page)
+        }
+
+        reloadPages()
+        markModified()
+        log(.pagesCropped, category: .editing, pageCount: pages.count, selectionCount: selectedIndexes.count)
+    }
+
     func deleteSelection() {
         guard canDelete, let document else { return }
         recordUndoState()
@@ -380,6 +431,11 @@ final class PDFEditorModel {
 
     func clearSelection() {
         selection.removeAll()
+    }
+
+    func invertSelection() {
+        let allIDs = Set(pages.map(\.id))
+        selection = allIDs.subtracting(selection)
     }
 
     func moveSelectionEarlier() {
@@ -644,11 +700,22 @@ final class PDFEditorModel {
         }
     }
 
+    func openImagePDF(_ data: Data, name: String) throws {
+        guard let document = PDFDocument(data: data), document.pageCount > 0 else {
+            throw ImageImportError.conversionFailed
+        }
+        cancelPendingUnlock()
+        adopt(document, details: PDFDocumentDetails(), from: nil)
+        importedDisplayName = name
+        isModified = true
+    }
+
     private func adopt(
         _ loadedDocument: PDFDocument,
         details: PDFDocumentDetails,
-        from url: URL
+        from url: URL?
     ) {
+        importedDisplayName = nil
         document = loadedDocument
         documentDetails = details
         exportPassword = nil
@@ -729,6 +796,7 @@ final class PDFEditorModel {
         pageCount: Int? = nil,
         selectionCount: Int? = nil
     ) {
+        guard recordsDiagnostics else { return }
         Task {
             await DiagnosticLogStore.shared.record(
                 event,

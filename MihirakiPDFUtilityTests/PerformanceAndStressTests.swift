@@ -17,7 +17,7 @@ struct PerformanceAndStressTests {
         #expect(report.text.contains("Test Date:"))
         #expect(report.text.contains("Device:"))
         #expect(report.text.contains("OS:"))
-        #expect(report.text.contains("not sent externally"))
+        #expect(report.text.contains("not sent automatically"))
     }
 
     @Test("A synthetic 1,100-page PDF loads and exports within the regression limit")

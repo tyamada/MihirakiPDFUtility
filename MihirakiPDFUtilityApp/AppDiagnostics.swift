@@ -31,11 +31,14 @@ enum DiagnosticLogEvent: String, Codable, Sendable {
     case pagesInserted
     case pagesDeleted
     case pagesMoved
+    case pagesSplit
+    case pagesCropped
     case undo
     case redo
     case metadataUpdated
     case viewerPreferencesUpdated
     case passwordProtectionUpdated
+    case diagnosticCleanupFailed
     case performanceTestCompleted
 }
 

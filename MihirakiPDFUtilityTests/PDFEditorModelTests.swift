@@ -1114,6 +1114,27 @@ struct PDFEditorModelTests {
         #expect(model.canSelectAll)
     }
 
+    @Test("Selection can be inverted")
+    @MainActor
+    func invertSelection() throws {
+        let url = try makePDF(sizes: [
+            CGSize(width: 100, height: 200),
+            CGSize(width: 200, height: 300),
+            CGSize(width: 300, height: 400)
+        ])
+        defer { try? FileManager.default.removeItem(at: url) }
+
+        let model = PDFEditorModel()
+        model.open(url)
+
+        model.selection = [model.pages[0].id]
+        model.invertSelection()
+        #expect(model.selection == Set([model.pages[1].id, model.pages[2].id]))
+
+        model.invertSelection()
+        #expect(model.selection == Set([model.pages[0].id]))
+    }
+
     @Test("Stale selection identifiers do not enable page editing")
     @MainActor
     func staleSelection() throws {
