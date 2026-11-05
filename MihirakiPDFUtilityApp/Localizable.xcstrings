@@ -7747,79 +7747,91 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Episode 1 First"
+            "value": "Episode 1 zuerst"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Episode 1 First"
+            "value": "Episodio 1 primero"
           }
         },
         "fil": {
           "stringUnit": {
             "state": "translated",
-            "value": "Episode 1 First"
+            "value": "Episode 1 muna"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Episode 1 First"
+            "value": "Épisode 1 en premier"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Episode 1 First"
+            "value": "Episode 1 dulu"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Episode 1 First"
+            "value": "Episodio 1 per primo"
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Episode 1 First"
+            "value": "第1話から"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Episode 1 First"
+            "value": "1화부터"
           }
         },
         "ne": {
           "stringUnit": {
             "state": "translated",
-            "value": "Episode 1 First"
+            "value": "भाग १ पहिले"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Episode 1 First"
+            "value": "Episódio 1 primeiro"
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Episode 1 First"
+            "value": "Tập 1 trước"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Episode 1 First"
+            "value": "从第1话开始"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Episode 1 First"
+            "value": "從第1話開始"
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "從第1話開始"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Episódio 1 primeiro"
           }
         }
       }
@@ -10913,79 +10925,91 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Latest Episode First"
+            "value": "Neueste Episode zuerst"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Latest Episode First"
+            "value": "Episodio más reciente primero"
           }
         },
         "fil": {
           "stringUnit": {
             "state": "translated",
-            "value": "Latest Episode First"
+            "value": "Pinakabagong episode muna"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Latest Episode First"
+            "value": "Épisode le plus récent en premier"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Latest Episode First"
+            "value": "Episode terbaru dulu"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Latest Episode First"
+            "value": "Episodio più recente per primo"
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Latest Episode First"
+            "value": "最新話から"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Latest Episode First"
+            "value": "최신화부터"
           }
         },
         "ne": {
           "stringUnit": {
             "state": "translated",
-            "value": "Latest Episode First"
+            "value": "सबैभन्दा पछिल्लो भाग पहिले"
           }
         },
         "pt": {
           "stringUnit": {
             "state": "translated",
-            "value": "Latest Episode First"
+            "value": "Episódio mais recente primeiro"
           }
         },
         "vi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Latest Episode First"
+            "value": "Tập mới nhất trước"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Latest Episode First"
+            "value": "从最新话开始"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "Latest Episode First"
+            "value": "從最新話開始"
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "從最新話開始"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Episódio mais recente primeiro"
           }
         }
       }

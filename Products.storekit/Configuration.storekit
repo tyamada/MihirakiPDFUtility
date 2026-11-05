@@ -1,192 +1,186 @@
 {
-  "appPolicies" : {
-    "eula" : "",
-    "policies" : [
+  "appPolicies": {
+    "eula": "",
+    "policies": [
       {
-        "locale" : "en_US",
-        "policyText" : "",
-        "policyURL" : ""
+        "locale": "en_US",
+        "policyText": "",
+        "policyURL": ""
       }
     ]
   },
-  "identifier" : "422C34CE",
-  "nonRenewingSubscriptions" : [
-
-  ],
-  "products" : [
+  "identifier": "422C34CE",
+  "nonRenewingSubscriptions": [],
+  "products": [
     {
-      "displayPrice" : "100",
-      "familyShareable" : false,
-      "internalID" : "14F53C71",
-      "localizations" : [
+      "displayPrice": "200",
+      "familyShareable": false,
+      "internalID": "14F53C71",
+      "localizations": [
         {
-          "description" : "You can use the \"Bronze\" supporter icon permanently.",
-          "displayName" : "Bronze Tip",
-          "locale" : "en_US"
+          "description": "You can use the \"Bronze\" supporter icon permanently.",
+          "displayName": "Bronze Tip",
+          "locale": "en_US"
         },
         {
-          "description" : "サポーターアイコン「ブロンズ」を永続的に利用できます。",
-          "displayName" : "ブロンズチップ",
-          "locale" : "ja"
+          "description": "サポーターアイコン「ブロンズ」を永続的に利用できます。",
+          "displayName": "ブロンズチップ",
+          "locale": "ja"
         },
         {
-          "description" : "",
-          "displayName" : "던전 100엔",
-          "locale" : "ko"
+          "description": "\"브론즈\" 서포터 아이콘을 영구적으로 이용할 수 있습니다.",
+          "displayName": "브론즈 팁",
+          "locale": "ko"
         },
         {
-          "description" : "",
-          "displayName" : "小费：100日元",
-          "locale" : "zh_Hans"
+          "description": "可以永久使用“铜牌”支持者图标。",
+          "displayName": "铜牌小费",
+          "locale": "zh_Hans"
         },
         {
-          "description" : "",
-          "displayName" : "Tipp: 100 Yen",
-          "locale" : "de"
+          "description": "Sie können das Unterstützer-Symbol „Bronze“ dauerhaft nutzen.",
+          "displayName": "Bronze-Tipp",
+          "locale": "de"
         },
         {
-          "description" : "",
-          "displayName" : "Pourboire : 100 yens",
-          "locale" : "fr"
+          "description": "Vous pouvez utiliser l’icône de supporter « Bronze » de façon permanente.",
+          "displayName": "Pourboire Bronze",
+          "locale": "fr"
         },
         {
-          "description" : "",
-          "displayName" : "Dica: 100 ienes",
-          "locale" : "pt_BR"
+          "description": "Você pode usar o ícone de apoiador \"Bronze\" permanentemente.",
+          "displayName": "Gorjeta Bronze",
+          "locale": "pt_BR"
         },
         {
-          "description" : "",
-          "displayName" : "Propina: 100 yenes",
-          "locale" : "es_MX"
+          "description": "Puedes usar el icono de seguidor «Bronce» de forma permanente.",
+          "displayName": "Propina Bronce",
+          "locale": "es_MX"
         }
       ],
-      "productID" : "supporter_icon_bronze_ut",
-      "promotionalImageID" : "E9451F87",
-      "referenceName" : "supporter_icon_bronze_ut",
-      "type" : "NonConsumable"
+      "productID": "supporter_icon_bronze_ut",
+      "promotionalImageID": "E9451F87",
+      "referenceName": "supporter_icon_bronze_ut",
+      "type": "NonConsumable"
     },
     {
-      "displayPrice" : "500",
-      "familyShareable" : false,
-      "internalID" : "F906B8E3",
-      "localizations" : [
+      "displayPrice": "500",
+      "familyShareable": false,
+      "internalID": "F906B8E3",
+      "localizations": [
         {
-          "description" : "You can use the \"Silver\" supporter icon permanently.",
-          "displayName" : "Silver Tip",
-          "locale" : "en_US"
+          "description": "You can use the \"Silver\" supporter icon permanently.",
+          "displayName": "Silver Tip",
+          "locale": "en_US"
         },
         {
-          "description" : "サポーターアイコン「シルバー」を永続的に利用できます。",
-          "displayName" : "シルバーチップ",
-          "locale" : "ja"
+          "description": "サポーターアイコン「シルバー」を永続的に利用できます。",
+          "displayName": "シルバーチップ",
+          "locale": "ja"
         },
         {
-          "description" : "",
-          "displayName" : "던전 500엔",
-          "locale" : "ko"
+          "description": "\"실버\" 서포터 아이콘을 영구적으로 이용할 수 있습니다.",
+          "displayName": "실버 팁",
+          "locale": "ko"
         },
         {
-          "description" : "",
-          "displayName" : "小费：500日元",
-          "locale" : "zh_Hans"
+          "description": "可以永久使用“银牌”支持者图标。",
+          "displayName": "银牌小费",
+          "locale": "zh_Hans"
         },
         {
-          "description" : "",
-          "displayName" : "Tipp: 500 Yen",
-          "locale" : "de"
+          "description": "Sie können das Unterstützer-Symbol „Silber“ dauerhaft nutzen.",
+          "displayName": "Silber-Tipp",
+          "locale": "de"
         },
         {
-          "description" : "",
-          "displayName" : "Pourboire : 500 yens",
-          "locale" : "fr"
+          "description": "Vous pouvez utiliser l’icône de supporter « Argent » de façon permanente.",
+          "displayName": "Pourboire Argent",
+          "locale": "fr"
         },
         {
-          "description" : "",
-          "displayName" : "Dica: 500 ienes",
-          "locale" : "pt_BR"
+          "description": "Você pode usar o ícone de apoiador \"Prata\" permanentemente.",
+          "displayName": "Gorjeta Prata",
+          "locale": "pt_BR"
         },
         {
-          "description" : "",
-          "displayName" : "Propina: 500 yenes",
-          "locale" : "es_MX"
+          "description": "Puedes usar el icono de seguidor «Plata» de forma permanente.",
+          "displayName": "Propina Plata",
+          "locale": "es_MX"
         }
       ],
-      "productID" : "supporter_icon_silver_ut",
-      "promotionalImageID" : "E50232B0",
-      "referenceName" : "supporter_icon_silver_ut",
-      "type" : "NonConsumable"
+      "productID": "supporter_icon_silver_ut",
+      "promotionalImageID": "E50232B0",
+      "referenceName": "supporter_icon_silver_ut",
+      "type": "NonConsumable"
     },
     {
-      "displayPrice" : "1000",
-      "familyShareable" : false,
-      "internalID" : "3A999B47",
-      "localizations" : [
+      "displayPrice": "1000",
+      "familyShareable": false,
+      "internalID": "3A999B47",
+      "localizations": [
         {
-          "description" : "You can use the \"Gold\" supporter icon permanently.",
-          "displayName" : "Gold Tip",
-          "locale" : "en_US"
+          "description": "You can use the \"Gold\" supporter icon permanently.",
+          "displayName": "Gold Tip",
+          "locale": "en_US"
         },
         {
-          "description" : "サポーターアイコン「ゴールド」を永続的に利用できます。",
-          "displayName" : "ゴールドチップ",
-          "locale" : "ja"
+          "description": "サポーターアイコン「ゴールド」を永続的に利用できます。",
+          "displayName": "ゴールドチップ",
+          "locale": "ja"
         },
         {
-          "description" : "",
-          "displayName" : "던전 1000엔",
-          "locale" : "ko"
+          "description": "\"골드\" 서포터 아이콘을 영구적으로 이용할 수 있습니다.",
+          "displayName": "골드 팁",
+          "locale": "ko"
         },
         {
-          "description" : "",
-          "displayName" : "小费：1000日元",
-          "locale" : "zh_Hans"
+          "description": "可以永久使用“金牌”支持者图标。",
+          "displayName": "金牌小费",
+          "locale": "zh_Hans"
         },
         {
-          "description" : "",
-          "displayName" : "Tipp: 1000 Yen",
-          "locale" : "de"
+          "description": "Sie können das Unterstützer-Symbol „Gold“ dauerhaft nutzen.",
+          "displayName": "Gold-Tipp",
+          "locale": "de"
         },
         {
-          "description" : "",
-          "displayName" : "Pourboire : 1000 yens",
-          "locale" : "fr"
+          "description": "Vous pouvez utiliser l’icône de supporter « Or » de façon permanente.",
+          "displayName": "Pourboire Or",
+          "locale": "fr"
         },
         {
-          "description" : "",
-          "displayName" : "Dica: 1000 ienes",
-          "locale" : "pt_BR"
+          "description": "Você pode usar o ícone de apoiador \"Ouro\" permanentemente.",
+          "displayName": "Gorjeta Ouro",
+          "locale": "pt_BR"
         },
         {
-          "description" : "",
-          "displayName" : "Propina: 1000 yenes",
-          "locale" : "es_MX"
+          "description": "Puedes usar el icono de seguidor «Oro» de forma permanente.",
+          "displayName": "Propina Oro",
+          "locale": "es_MX"
         }
       ],
-      "productID" : "supporter_icon_gold_ut",
-      "promotionalImageID" : "431B2251",
-      "referenceName" : "supporter_icon_gold_ut",
-      "type" : "NonConsumable"
+      "productID": "supporter_icon_gold_ut",
+      "promotionalImageID": "431B2251",
+      "referenceName": "supporter_icon_gold_ut",
+      "type": "NonConsumable"
     }
   ],
-  "settings" : {
-    "_askToBuyEnabled" : false,
-    "_billingGracePeriodEnabled" : false,
-    "_billingIssuesEnabled" : false,
-    "_disableDialogs" : false,
-    "_failTransactionsEnabled" : false,
-    "_locale" : "ja",
-    "_renewalBillingIssuesEnabled" : false,
-    "_storefront" : "JPN",
-    "_storeKitErrors" : [
-
-    ],
-    "_timeRate" : 0
+  "settings": {
+    "_askToBuyEnabled": false,
+    "_billingGracePeriodEnabled": false,
+    "_billingIssuesEnabled": false,
+    "_disableDialogs": false,
+    "_failTransactionsEnabled": false,
+    "_locale": "ja",
+    "_renewalBillingIssuesEnabled": false,
+    "_storefront": "JPN",
+    "_storeKitErrors": [],
+    "_timeRate": 0
   },
-  "subscriptionGroups" : [
-
-  ],
-  "version" : {
-    "major" : 5,
-    "minor" : 0
+  "subscriptionGroups": [],
+  "version": {
+    "major": 5,
+    "minor": 0
   }
 }
