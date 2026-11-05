@@ -78,8 +78,10 @@ final class TipManager {
         }
 
         do {
-            products = try await Product.products(for: Self.productIDs)
-                .sorted { $0.price < $1.price }
+            let loadedProducts = try await Product.products(for: Self.productIDs)
+            products = Self.productIDs.compactMap { id in
+                loadedProducts.first { $0.id == id }
+            }
             await refreshPurchasedProducts()
             errorMessage = products.isEmpty
                 ? String(localized: "Could not load support options. Please try again later.")
