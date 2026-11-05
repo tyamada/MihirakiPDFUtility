@@ -1050,6 +1050,7 @@ private struct HelpView: View {
                     Button("Done") { dismiss() }
                 }
             }
+
         }
     }
 }
@@ -1060,6 +1061,8 @@ private struct AppVersionInformationView: View {
     let info: AppVersionInfo
     let tipManager: TipManager
     let badgeManager: CommemorativeBadgeManager
+
+    @State private var selectedBadge: CommemorativeBadge?
 
     var body: some View {
         NavigationStack {
@@ -1074,21 +1077,35 @@ private struct AppVersionInformationView: View {
                 if !badgeManager.claimedBadges.isEmpty {
                     Section("Commemorative Badges") {
                         ForEach(badgeManager.claimedBadges) { badge in
-                            Label {
-                                VStack(alignment: .leading, spacing: 2) {
-                                    Text(badge.name)
-                                        .font(.body)
-                                    Text(badge.subtitle)
-                                        .font(.caption)
-                                        .foregroundStyle(.secondary)
+                            Button {
+                                selectedBadge = badge
+                            } label: {
+                                HStack(spacing: 12) {
+                                    Image(badge.assetName)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 36, height: 36)
+                                        .clipShape(.rect(cornerRadius: 8))
+
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Text(badge.name)
+                                            .font(.body)
+                                            .foregroundStyle(.primary)
+                                        Text(badge.subtitle)
+                                            .font(.caption)
+                                            .foregroundStyle(.secondary)
+                                    }
+
+                                    Spacer()
+
+                                    Image(systemName: "chevron.right")
+                                        .font(.caption.weight(.semibold))
+                                        .foregroundStyle(.tertiary)
                                 }
-                            } icon: {
-                                Image(badge.assetName)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 36, height: 36)
-                                    .clipShape(.rect(cornerRadius: 8))
+                                .contentShape(Rectangle())
                             }
+                            .buttonStyle(.plain)
+                            .accessibilityHint("Double tap to enlarge badge")
                         }
                     }
                 }
@@ -1122,6 +1139,9 @@ private struct AppVersionInformationView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }
                 }
+            }
+            .sheet(item: $selectedBadge) { badge in
+                CommemorativeBadgeDetailDialog(badge: badge)
             }
         }
     }

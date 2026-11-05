@@ -180,3 +180,61 @@ public struct CommemorativeBadgeToastView: View {
         .accessibilityHint(Text("Tap to dismiss notification"))
     }
 }
+
+
+/// Enlarged detail dialog for presenting a commemorative badge.
+public struct CommemorativeBadgeDetailDialog: View {
+    @Environment(\.dismiss) private var dismiss
+
+    public let badge: CommemorativeBadge
+
+    public init(badge: CommemorativeBadge) {
+        self.badge = badge
+    }
+
+    public var body: some View {
+        NavigationStack {
+            VStack(spacing: 24) {
+                Spacer()
+
+                Image(badge.assetName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: 240, maxHeight: 240)
+                    .clipShape(.rect(cornerRadius: 32))
+                    .shadow(color: .black.opacity(0.18), radius: 16, x: 0, y: 8)
+                    .accessibilityLabel(badge.name)
+
+                VStack(spacing: 8) {
+                    Text(badge.name)
+                        .font(.title2.weight(.bold))
+                        .multilineTextAlignment(.center)
+
+                    Text(badge.subtitle)
+                        .font(.body)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 24)
+                }
+
+                Spacer()
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding()
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Done") {
+                        dismiss()
+                    }
+                }
+            }
+#if os(iOS)
+            .presentationDetents([.medium, .large])
+            .presentationDragIndicator(.visible)
+#endif
+        }
+#if os(macOS)
+        .frame(minWidth: 360, minHeight: 420)
+#endif
+    }
+}
