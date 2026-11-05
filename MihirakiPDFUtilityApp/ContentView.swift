@@ -113,6 +113,8 @@ private enum ThumbnailAction: CaseIterable, Identifiable {
     case properties
     case rightBinding
     case rightBindingWithCover
+    case splitPages
+    case cropPages
 
     var id: Self { self }
 
@@ -132,6 +134,8 @@ private enum ThumbnailAction: CaseIterable, Identifiable {
         case .properties: "Properties"
         case .rightBinding: "Right Binding"
         case .rightBindingWithCover: "Right Binding with Cover"
+        case .splitPages: "Split Pages"
+        case .cropPages: "Crop Pages"
         }
     }
 
@@ -150,6 +154,8 @@ private enum ThumbnailAction: CaseIterable, Identifiable {
         case .properties: "doc.text.magnifyingglass"
         case .rightBinding: "book.closed"
         case .rightBindingWithCover: "book.closed.fill"
+        case .splitPages: "rectangle.split.2x1"
+        case .cropPages: "crop"
         }
     }
 }
@@ -187,6 +193,10 @@ struct ContentView: View {
     @Bindable var model: PDFEditorModel
     @State private var tipManager = TipManager()
     @State private var viewMode: MainViewMode
+#if os(iOS)
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @State private var hasInitializedViewMode = false
+#endif
     @State private var previewedPageID: PDFPageItem.ID?
     @State private var draggedPageID: PDFPageItem.ID?
 
@@ -198,6 +208,12 @@ struct ContentView: View {
     @State private var isConfirmingOpen = false
     @State private var isPresentingProperties = false
     @State private var isPresentingVersionInformation = false
+    @State private var isPresentingDiagnostics = false
+    @State private var isPresentingOptions = false
+    @AppStorage("thumbnailSize") private var thumbnailSize: ThumbnailSize = .m
+    @AppStorage("buttonDisplayType") private var buttonDisplayType: ButtonDisplayType = .iconAndText
+    @State private var isPresentingSplitDialog = false
+    @State private var isPresentingCropDialog = false
     @State private var isPresentingHelp = false
     @State private var isPresentingSupport = false
     @State private var isPresentingSamplePDFs = false
@@ -221,7 +237,7 @@ struct ContentView: View {
 #if os(macOS)
         _viewMode = State(initialValue: .thumbnails)
 #else
-        _viewMode = State(initialValue: UIDevice.current.userInterfaceIdiom == .pad ? .thumbnails : .list)
+        _viewMode = State(initialValue: .list)
 #endif
     }
 
@@ -278,8 +294,15 @@ struct ContentView: View {
                     }
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
-                .id(geometry.size)
             }
+#if os(iOS)
+            .onAppear {
+                guard !hasInitializedViewMode else { return }
+                // Choose the initial mode once; resizing must preserve the user's selection.
+                viewMode = horizontalSizeClass == .regular ? .thumbnails : .list
+                hasInitializedViewMode = true
+            }
+#endif
             .navigationTitle(model.isModified ? "\(model.displayName) *" : model.displayName)
             .toolbar {
                 ToolbarItemGroup(placement: .navigation) {
@@ -322,11 +345,18 @@ struct ContentView: View {
                             model.selectAllPages()
                         }
                         .disabled(!model.canSelectAll)
+                        .keyboardShortcut("a", modifiers: .command)
 
                         Button("Deselect All", systemImage: "circle") {
                             model.clearSelection()
                         }
                         .disabled(model.selection.isEmpty)
+
+                        Button("Invert Selection", systemImage: "arrow.left.arrow.right.circle") {
+                            model.invertSelection()
+                        }
+                        .disabled(model.pages.isEmpty)
+                        .keyboardShortcut("l", modifiers: .command)
 
                         Button("Save Selection", systemImage: "square.and.arrow.down") {
                             prepareSelectionExport()
@@ -364,9 +394,21 @@ struct ContentView: View {
                             model.rotateSelection(by: -90)
                         }
                         .disabled(!model.canEdit)
+                        .keyboardShortcut("r", modifiers: [.command, .shift])
 
                         Button("Rotate Right", systemImage: "rotate.right") {
                             model.rotateSelection(by: 90)
+                        }
+                        .disabled(!model.canEdit)
+                        .keyboardShortcut("r", modifiers: .command)
+
+                        Button("Split Pages…", systemImage: "rectangle.split.2x1") {
+                            isPresentingSplitDialog = true
+                        }
+                        .disabled(!model.canEdit)
+
+                        Button("Crop Pages…", systemImage: "crop") {
+                            isPresentingCropDialog = true
                         }
                         .disabled(!model.canEdit)
 
@@ -394,6 +436,11 @@ struct ContentView: View {
                     }
 
                     Menu("Settings", systemImage: "gearshape") {
+                        Button("Options…", systemImage: "slider.horizontal.3") {
+                            isPresentingOptions = true
+                        }
+
+                        Divider()
                         Button("Properties", systemImage: "doc.text.magnifyingglass") {
                             isPresentingProperties = true
                         }
@@ -410,6 +457,10 @@ struct ContentView: View {
                         .disabled(!model.hasViewingPassword)
 
                         Divider()
+
+                        Button("Diagnostics", systemImage: "stethoscope") {
+                            isPresentingDiagnostics = true
+                        }
 
                         Button("Version Information", systemImage: "info.circle") {
                             isPresentingVersionInformation = true
@@ -546,7 +597,11 @@ struct ContentView: View {
                 model.errorMessage = nil
             }
         } message: {
-            Text(model.errorMessage ?? "An unknown error occurred.")
+            if let errorMessage = model.errorMessage {
+                Text(errorMessage)
+            } else {
+                Text("An unknown error occurred.")
+            }
         }
         .sheet(isPresented: $isPresentingSamplePDFs, onDismiss: finishSamplePDFSelection) {
             NavigationStack {
@@ -575,6 +630,22 @@ struct ContentView: View {
                 model.updateViewerPreferences(viewerPreferences)
             }
         }
+        .sheet(isPresented: $isPresentingOptions) {
+            PDFOptionsView()
+        }
+        .sheet(isPresented: $isPresentingDiagnostics) {
+            DiagnosticsView()
+        }
+        .sheet(isPresented: $isPresentingSplitDialog) {
+            PDFSplitDialog(isPresented: $isPresentingSplitDialog) { direction in
+                model.splitSelection(direction: direction)
+            }
+        }
+        .sheet(isPresented: $isPresentingCropDialog) {
+            PDFCropDialog(isPresented: $isPresentingCropDialog) { margin in
+                model.cropSelection(margin: margin)
+            }
+        }
         .sheet(isPresented: $isPresentingVersionInformation) {
             AppVersionInformationView(info: AppVersionInfo(), tipManager: tipManager)
         }
@@ -586,12 +657,20 @@ struct ContentView: View {
         }
 #if os(macOS)
         .sheet(item: previewedPage) { item in
-            PDFPagePreview(page: item.page)
-                .frame(minWidth: 720, minHeight: 720)
+            PDFPagePreviewView(
+                pages: model.pages,
+                selectedPageID: $previewedPageID,
+                isRTL: model.documentDetails.viewerPreferences.readingDirection == .rightToLeft
+            )
+            .frame(minWidth: 720, minHeight: 720)
         }
 #else
         .fullScreenCover(item: previewedPage) { item in
-            PDFPagePreview(page: item.page)
+            PDFPagePreviewView(
+                pages: model.pages,
+                selectedPageID: $previewedPageID,
+                isRTL: model.documentDetails.viewerPreferences.readingDirection == .rightToLeft
+            )
         }
 #endif
         .onOpenURL { url in
@@ -707,10 +786,14 @@ struct ContentView: View {
         }
     }
 
+    private var gridColumns: [GridItem] {
+        [GridItem(.adaptive(minimum: thumbnailSize.gridDimensions.min, maximum: thumbnailSize.gridDimensions.max), spacing: 20)]
+    }
+
     @available(iOS 27, macOS 27, *)
     private var reorderableThumbnailGrid: some View {
         LazyVGrid(
-            columns: [GridItem(.adaptive(minimum: 140, maximum: 220), spacing: 20)],
+            columns: gridColumns,
             spacing: 24
         ) {
             ForEach(Array(model.pages.enumerated()), id: \.element.id) { index, item in
@@ -733,7 +816,7 @@ struct ContentView: View {
 
     private var legacyReorderableThumbnailGrid: some View {
         LazyVGrid(
-            columns: [GridItem(.adaptive(minimum: 140, maximum: 220), spacing: 20)],
+            columns: gridColumns,
             spacing: 24
         ) {
             ForEach(Array(model.pages.enumerated()), id: \.element.id) { index, item in
@@ -801,7 +884,15 @@ struct ContentView: View {
         Button {
             perform(action)
         } label: {
-            Label(action.title, systemImage: action.systemImage)
+            switch buttonDisplayType {
+            case .iconAndText:
+                Label(action.title, systemImage: action.systemImage)
+            case .iconOnly:
+                Image(systemName: action.systemImage)
+                    .accessibilityLabel(action.title)
+            case .textOnly:
+                Text(action.title)
+            }
         }
         .disabled(!isEnabled(action))
     }
@@ -836,6 +927,10 @@ struct ContentView: View {
             applyRightBinding(pageLayout: .twoPageLeft)
         case .rightBindingWithCover:
             applyRightBinding(pageLayout: .twoPageRight)
+        case .splitPages:
+            isPresentingSplitDialog = true
+        case .cropPages:
+            isPresentingCropDialog = true
         }
     }
 
@@ -849,7 +944,7 @@ struct ContentView: View {
             model.canUndo
         case .redo:
             model.canRedo
-        case .insertBlankPage, .rotateLeft, .rotateRight:
+        case .insertBlankPage, .rotateLeft, .rotateRight, .splitPages, .cropPages:
             model.canEdit
         case .delete:
             model.canDelete
@@ -1016,7 +1111,7 @@ private struct HelpView: View {
 
                 Section("Diagnostics") {
                     Label(
-                        "Open Version Information to run an on-device performance test.",
+                        "Open Diagnostics from Settings to run an on-device performance test.",
                         systemImage: "gauge.with.dots.needle.50percent"
                     )
                     Label(
@@ -1046,6 +1141,12 @@ private struct HelpView: View {
                         "All PDF editing features are available without a purchase.",
                         systemImage: "doc.richtext"
                     )
+                }
+
+                Section("Tutorial & Video Guides") {
+                    Link(destination: URL(string: "https://www.youtube.com/playlist?list=PLa-QGEwHSDRo")!) {
+                        Label("Tutorial Playlist (YouTube Shorts)", systemImage: "play.rectangle")
+                    }
                 }
             }
             .navigationTitle("Help")
@@ -1087,20 +1188,6 @@ private struct AppVersionInformationView: View {
                                     .clipShape(.rect(cornerRadius: 8))
                             }
                         }
-                    }
-                }
-
-                Section("Diagnostics") {
-                    NavigationLink {
-                        DiagnosticLogView()
-                    } label: {
-                        Label("View Diagnostic Logs", systemImage: "doc.text.magnifyingglass")
-                    }
-
-                    NavigationLink {
-                        PerformanceTestView()
-                    } label: {
-                        Label("Run Performance Test", systemImage: "gauge.with.dots.needle.50percent")
                     }
                 }
 
@@ -1310,45 +1397,6 @@ private struct PDFPageThumbnail: View {
     }
 }
 
-private struct PDFPagePreview: View {
-    @Environment(\.dismiss) private var dismiss
-
-    let page: PDFPage
-
-    var body: some View {
-        NavigationStack {
-            ScrollView([.horizontal, .vertical]) {
-                previewImage
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: 1200)
-                    .background(.white)
-                    .shadow(color: .black.opacity(0.2), radius: 12, y: 4)
-                    .padding(24)
-            }
-            .background(.regularMaterial)
-            .navigationTitle("PDF Preview")
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") {
-                        dismiss()
-                    }
-                }
-            }
-        }
-    }
-
-    private var previewImage: Image {
-        let bounds = page.bounds(for: .cropBox)
-        let scale = min(3, 1800 / max(bounds.width, bounds.height))
-        let size = CGSize(width: bounds.width * scale, height: bounds.height * scale)
-#if os(macOS)
-        return Image(nsImage: page.thumbnail(of: size, for: .cropBox))
-#else
-        return Image(uiImage: page.thumbnail(of: size, for: .cropBox))
-#endif
-    }
-}
 
 private struct PDFPageRow: View {
     let pageNumber: Int

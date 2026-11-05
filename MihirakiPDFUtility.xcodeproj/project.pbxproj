@@ -6,9 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		A80000000000000000000002 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -160,6 +157,7 @@
 				fil,
 				ne,
 				id,
+				it,
 			);
 			mainGroup = A40000000000000000000001;
 			preferredProjectObjectVersion = 77;

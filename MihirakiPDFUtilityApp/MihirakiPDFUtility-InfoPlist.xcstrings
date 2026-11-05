@@ -41,6 +41,12 @@
             "value" : "MihirakiPDFUtility"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "MihirakiPDFUtility"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
@@ -125,6 +131,12 @@
             "value" : "MihirakiPDFUtility"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "MihirakiPDFUtility"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
@@ -204,6 +216,12 @@
           }
         },
         "id" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Copyright © 2026 tyamada"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Copyright © 2026 tyamada"

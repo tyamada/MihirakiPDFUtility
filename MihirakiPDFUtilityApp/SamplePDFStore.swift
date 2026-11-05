@@ -63,6 +63,7 @@ final class SamplePDFStore {
             )
             try Self.validate(decodedCatalog)
             catalog = decodedCatalog
+            migrateLegacyFilesIfPossible(for: decodedCatalog.samples)
             refreshDownloadStates()
         } catch {
             errorMessage = SamplePDFStoreError.catalogUnavailable.localizedDescription
@@ -92,8 +93,8 @@ final class SamplePDFStore {
         errorMessage = nil
 
         do {
-            let destinationDirectory = documentsDirectory
-                .appending(path: "SamplePDFs", directoryHint: .isDirectory)
+            let destinationURL = localURL(for: sample)
+            let destinationDirectory = destinationURL.deletingLastPathComponent()
             try fileManager.createDirectory(
                 at: destinationDirectory,
                 withIntermediateDirectories: true
@@ -113,10 +114,9 @@ final class SamplePDFStore {
                   (200...299).contains(httpResponse.statusCode) else {
                 throw SamplePDFStoreError.invalidServerResponse
             }
-            try Self.validateDownloadURL(httpResponse.url)
+            try Self.validateResponseURL(httpResponse.url)
             try await Self.validateDownloadedFile(at: temporaryURL, sample: sample)
 
-            let destinationURL = localURL(for: sample)
             if fileManager.fileExists(atPath: destinationURL.path) {
                 try fileManager.removeItem(at: destinationURL)
             }
@@ -147,6 +147,18 @@ final class SamplePDFStore {
             if fileManager.fileExists(atPath: url.path) {
                 try fileManager.removeItem(at: url)
             }
+            // Remove verified directory if empty
+            let dirURL = url.deletingLastPathComponent()
+            if let contents = try? fileManager.contentsOfDirectory(atPath: dirURL.path), contents.isEmpty {
+                try? fileManager.removeItem(at: dirURL)
+            }
+
+            // Also remove legacy file if present
+            let legacyURL = legacyLocalURL(for: sample)
+            if fileManager.fileExists(atPath: legacyURL.path) {
+                try? fileManager.removeItem(at: legacyURL)
+            }
+
             states[sample.id] = .notDownloaded
             return true
         } catch {
@@ -158,12 +170,39 @@ final class SamplePDFStore {
 
     func localURL(for sample: SamplePDF) -> URL {
         documentsDirectory
+            .appending(path: "MihirakiSamplePdfs/verified", directoryHint: .isDirectory)
+            .appending(path: sample.sha256.lowercased(), directoryHint: .isDirectory)
+            .appending(path: sample.fileName, directoryHint: .notDirectory)
+    }
+
+    private func legacyLocalURL(for sample: SamplePDF) -> URL {
+        documentsDirectory
             .appending(path: "SamplePDFs", directoryHint: .isDirectory)
             .appending(path: sample.fileName, directoryHint: .notDirectory)
     }
 
+    private func migrateLegacyFilesIfPossible(for samples: [SamplePDF]) {
+        for sample in samples {
+            let verifiedPath = localURL(for: sample)
+            if fileManager.fileExists(atPath: verifiedPath.path) {
+                continue
+            }
+            let legacyPath = legacyLocalURL(for: sample)
+            guard fileManager.fileExists(atPath: legacyPath.path) else {
+                continue
+            }
+            // Verify size matches before migrating
+            if let values = try? legacyPath.resourceValues(forKeys: [.fileSizeKey]),
+               Int64(values.fileSize ?? 0) == sample.byteSize {
+                let dir = verifiedPath.deletingLastPathComponent()
+                try? fileManager.createDirectory(at: dir, withIntermediateDirectories: true)
+                try? fileManager.moveItem(at: legacyPath, to: verifiedPath)
+            }
+        }
+    }
+
     static func validate(_ catalog: SamplePDFCatalog) throws {
-        guard catalog.schemaVersion == 1,
+        guard catalog.schemaVersion == 2 || catalog.schemaVersion == 1,
               catalog.license.identifier == "CC-BY-4.0",
               catalog.license.url.scheme == "https",
               catalog.license.url.host == "creativecommons.org" else {
@@ -189,11 +228,19 @@ final class SamplePDFStore {
         }
     }
 
-    private static func validateDownloadURL(_ url: URL?) throws {
+    static func validateDownloadURL(_ url: URL?) throws {
         guard let url,
               url.scheme == "https",
-              url.host == "tyamada.github.io",
-              url.path.hasPrefix("/MihirakiPDFViewer/sample/") else {
+              url.host == "github.com",
+              url.path.hasPrefix("/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/") else {
+            throw SamplePDFStoreError.invalidDownloadURL
+        }
+    }
+
+    private static func validateResponseURL(_ url: URL?) throws {
+        guard let url,
+              url.scheme == "https",
+              url.host == "github.com" || url.host == "objects.githubusercontent.com" else {
             throw SamplePDFStoreError.invalidDownloadURL
         }
     }

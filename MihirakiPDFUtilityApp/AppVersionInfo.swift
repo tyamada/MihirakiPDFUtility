@@ -8,7 +8,11 @@ struct AppVersionInfo: Equatable, Sendable {
     let license: String
 
     init(bundle: Bundle = .main) {
-        self.init(infoDictionary: bundle.infoDictionary ?? [:])
+        var infoDictionary = bundle.infoDictionary ?? [:]
+        if let localizedInfoDictionary = bundle.localizedInfoDictionary {
+            infoDictionary.merge(localizedInfoDictionary) { _, localizedValue in localizedValue }
+        }
+        self.init(infoDictionary: infoDictionary)
     }
 
     init(infoDictionary: [String: Any]) {

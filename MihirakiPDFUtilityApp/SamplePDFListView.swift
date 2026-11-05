@@ -11,6 +11,7 @@ struct SamplePDFListView: View {
     @State private var licenseCandidate: SamplePDF?
     @State private var isShowingError = false
     @State private var selectedLanguageCode: String?
+    @State private var sortOrder: SamplePDFSortOrder = .latestFirst
     @State private var visibleSamples: [SamplePDF] = []
     @State private var languageCodes: [String] = []
 
@@ -20,6 +21,7 @@ struct SamplePDFListView: View {
             samples: visibleSamples,
             languageCodes: languageCodes,
             selectedLanguageCode: $selectedLanguageCode,
+            sortOrder: $sortOrder,
             locale: locale,
             state: store.state(for:),
             isOpen: isOpen(_:),
@@ -34,6 +36,9 @@ struct SamplePDFListView: View {
             configureCatalog()
         }
         .onChange(of: selectedLanguageCode) {
+            updateVisibleSamples()
+        }
+        .onChange(of: sortOrder) {
             updateVisibleSamples()
         }
         .onChange(of: store.errorMessage) { _, message in
@@ -108,11 +113,13 @@ struct SamplePDFListView: View {
             visibleSamples = []
             return
         }
-        guard let selectedLanguageCode else {
-            visibleSamples = samples
-            return
+        let filtered: [SamplePDF]
+        if let selectedLanguageCode {
+            filtered = samples.filter { $0.languageCode == selectedLanguageCode }
+        } else {
+            filtered = samples
         }
-        visibleSamples = samples.filter { $0.languageCode == selectedLanguageCode }
+        visibleSamples = sortOrder.sort(samples: filtered)
     }
 
     private func requestDownload(_ sample: SamplePDF) {
@@ -141,6 +148,7 @@ private struct SamplePDFListContent: View {
     let samples: [SamplePDF]
     let languageCodes: [String]
     @Binding var selectedLanguageCode: String?
+    @Binding var sortOrder: SamplePDFSortOrder
     let locale: Locale
     let state: (SamplePDF) -> SamplePDFDownloadState
     let isOpen: (SamplePDF) -> Bool
@@ -152,17 +160,23 @@ private struct SamplePDFListContent: View {
     var body: some View {
         if let catalog {
             List {
-                SamplePDFLanguageFilterPicker(
-                    languageCodes: languageCodes,
-                    selectedLanguageCode: $selectedLanguageCode,
-                    locale: locale
-                )
+                Section {
+                    SamplePDFLanguageFilterPicker(
+                        languageCodes: languageCodes,
+                        selectedLanguageCode: $selectedLanguageCode
+                    )
+
+                    Picker("Sort Order", selection: $sortOrder) {
+                        Text("Latest Episode First").tag(SamplePDFSortOrder.latestFirst)
+                        Text("Episode 1 First").tag(SamplePDFSortOrder.episode1First)
+                    }
+                }
 
                 Section {
                     ForEach(samples) { sample in
                         SamplePDFRow(
                             sample: sample,
-                            languageName: sample.languageDisplayName(locale: locale),
+                            languageName: sample.languageDisplayName(),
                             state: state(sample),
                             isOpen: isOpen(sample),
                             isDownloadEnabled: isDownloadEnabled,
@@ -198,17 +212,14 @@ private struct SamplePDFListContent: View {
 private struct SamplePDFLanguageFilterPicker: View {
     let languageCodes: [String]
     @Binding var selectedLanguageCode: String?
-    let locale: Locale
 
     var body: some View {
-        Section {
-            Picker("Language", selection: $selectedLanguageCode) {
-                Text("All").tag(nil as String?)
+        Picker("Language", selection: $selectedLanguageCode) {
+            Text("All").tag(nil as String?)
 
-                ForEach(languageCodes, id: \.self) { languageCode in
-                    Text(locale.localizedString(forLanguageCode: languageCode) ?? languageCode)
-                        .tag(Optional(languageCode))
-                }
+            ForEach(languageCodes, id: \.self) { languageCode in
+                Text(SamplePDFLanguages.displayName(for: languageCode))
+                    .tag(Optional(languageCode))
             }
         }
     }
@@ -229,7 +240,8 @@ private struct SamplePDFRow: View {
             Text(sample.title)
                 .font(.headline)
 
-            Text(verbatim: "\(languageName) · \(sample.formattedFileSize)")
+            let pageCountSuffix = sample.pages.map { " · \($0) pages" } ?? ""
+            Text(verbatim: "\(languageName) · \(sample.formattedFileSize)\(pageCountSuffix)")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
 
@@ -358,8 +370,8 @@ private struct SamplePDFAttributionRequirements: View {
 
 private struct SamplePDFLicenseNotice: View {
     var body: some View {
-        Text("Third-party materials, including fonts, may have separate license terms. The license does not replace permissions that may be required for privacy, publicity, moral, or other rights.")
-            .font(.footnote)
+        Text("The sample manga, \"The Try-it Club\" (ためし部), is written by Komairo Hiyori. It is distributed under the CC BY 4.0 license.")
+            .font(.caption)
             .foregroundStyle(.secondary)
     }
 }

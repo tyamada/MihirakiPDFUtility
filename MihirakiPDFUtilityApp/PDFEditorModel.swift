@@ -38,6 +38,12 @@ struct PDFMetadata: Equatable {
 @MainActor
 @Observable
 final class PDFEditorModel {
+    private let recordsDiagnostics: Bool
+
+    init(recordsDiagnostics: Bool = true) {
+        self.recordsDiagnostics = recordsDiagnostics
+    }
+
     private var lockedDocument: PDFDocument?
     private var lockedDocumentDetails: PDFDocumentDetails?
     private var pendingUnlockAction: PendingUnlockAction?
@@ -359,6 +365,50 @@ final class PDFEditorModel {
         log(.pagesInserted, category: .editing, pageCount: pages.count, selectionCount: insertedIndexes.count)
     }
 
+    func splitSelection(direction: SplitDirection = .vertical) {
+        guard let document else { return }
+        let selectedIndexes = pages.indices.filter { selection.contains(pages[$0].id) }
+        guard !selectedIndexes.isEmpty else { return }
+
+        recordUndoState()
+
+        let isRTL = documentDetails.viewerPreferences.readingDirection == .rightToLeft
+
+        // Process in reverse index order so replacements do not alter earlier indexes
+        for sourceIndex in selectedIndexes.reversed() {
+            guard let page = document.page(at: sourceIndex),
+                  let (page1, page2) = PDFPageGeometry.split(page: page, direction: direction, isRTL: isRTL) else {
+                continue
+            }
+
+            document.removePage(at: sourceIndex)
+            document.insert(page2, at: sourceIndex)
+            document.insert(page1, at: sourceIndex)
+        }
+
+        reloadPages()
+        selection.removeAll()
+        markModified()
+        log(.pagesSplit, category: .editing, pageCount: pages.count, selectionCount: selectedIndexes.count)
+    }
+
+    func cropSelection(margin: CGFloat) {
+        guard let document else { return }
+        let selectedIndexes = pages.indices.filter { selection.contains(pages[$0].id) }
+        guard !selectedIndexes.isEmpty else { return }
+
+        recordUndoState()
+
+        for index in selectedIndexes {
+            guard let page = document.page(at: index) else { continue }
+            PDFPageGeometry.applyCrop(margin: margin, to: page)
+        }
+
+        reloadPages()
+        markModified()
+        log(.pagesCropped, category: .editing, pageCount: pages.count, selectionCount: selectedIndexes.count)
+    }
+
     func deleteSelection() {
         guard canDelete, let document else { return }
         recordUndoState()
@@ -381,6 +431,11 @@ final class PDFEditorModel {
 
     func clearSelection() {
         selection.removeAll()
+    }
+
+    func invertSelection() {
+        let allIDs = Set(pages.map(\.id))
+        selection = allIDs.subtracting(selection)
     }
 
     func moveSelectionEarlier() {
@@ -741,6 +796,7 @@ final class PDFEditorModel {
         pageCount: Int? = nil,
         selectionCount: Int? = nil
     ) {
+        guard recordsDiagnostics else { return }
         Task {
             await DiagnosticLogStore.shared.record(
                 event,

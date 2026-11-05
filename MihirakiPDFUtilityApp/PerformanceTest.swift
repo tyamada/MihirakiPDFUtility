@@ -14,6 +14,7 @@ struct PerformanceTestMeasurement: Identifiable, Sendable {
     let name: String
     let duration: Duration
     let detail: String
+    var checksum: UInt64? = nil
 
     var formattedDuration: String {
         let milliseconds = duration.components.seconds * 1_000
@@ -47,7 +48,7 @@ struct PerformanceTestReport: Sendable {
         }
 
         lines.append("")
-        lines.append("Privacy: Test results remain on this device and are not sent externally.")
+        lines.append("Privacy: Test results are not sent automatically. You can choose to copy or share diagnostic reports.")
         return lines.joined(separator: "\n")
     }
 }
@@ -83,12 +84,18 @@ enum PerformanceTestRunner {
         return report
     }
 
-    private static func measureCPU() -> PerformanceTestMeasurement {
+    static func measureCPU() -> PerformanceTestMeasurement {
+        measureCPU(check: {})
+    }
+
+    static func measureCPU(check: () throws -> Void) rethrows -> PerformanceTestMeasurement {
+        try check()
         let clock = ContinuousClock()
         var checksum: UInt64 = 0
 
-        let duration = clock.measure {
+        let duration = try clock.measure {
             for value in UInt64(0)..<5_000_000 {
+                if value.isMultiple(of: 16_384) { try check() }
                 checksum = checksum &* 1_664_525 &+ value &+ 1_013_904_223
             }
         }
@@ -97,20 +104,28 @@ enum PerformanceTestRunner {
             id: "cpu",
             name: String(localized: "CPU Calculation"),
             duration: duration,
-            detail: String(localized: "5,000,000 integer operations (checksum: \(checksum))")
+            detail: String(localized: "5,000,000 integer operations (checksum: \(checksum))"),
+            checksum: checksum
         )
     }
 
-    private static func measureMemory() -> PerformanceTestMeasurement {
+    static func measureMemory() -> PerformanceTestMeasurement {
+        measureMemory(check: {})
+    }
+
+    static func measureMemory(check: () throws -> Void) rethrows -> PerformanceTestMeasurement {
+        try check()
         let clock = ContinuousClock()
         var checksum: UInt64 = 0
         let byteCount = 16 * 1_024 * 1_024
 
-        let duration = clock.measure {
+        let duration = try clock.measure {
             let data = Data(repeating: 0xA5, count: byteCount)
-            checksum = data.withUnsafeBytes { bytes in
+            try check()
+            checksum = try data.withUnsafeBytes { bytes in
                 var value: UInt64 = 0
                 for index in stride(from: 0, to: bytes.count, by: 64) {
+                    if index.isMultiple(of: 65_536) { try check() }
                     value &+= UInt64(bytes[index])
                 }
                 return value
@@ -121,7 +136,8 @@ enum PerformanceTestRunner {
             id: "memory",
             name: String(localized: "Memory Processing"),
             duration: duration,
-            detail: String(localized: "Created and scanned 16 MB of data (checksum: \(checksum))")
+            detail: String(localized: "Created and scanned 16 MB of data (checksum: \(checksum))"),
+            checksum: checksum
         )
     }
 
@@ -199,7 +215,7 @@ struct PerformanceTestView: View {
         Form {
             Section {
                 Label(
-                    "Tests run only on this device. Results are never sent externally.",
+                    "Tests run only on this device. Results are not sent automatically; you can choose to copy or share them.",
                     systemImage: "hand.raised"
                 )
                 .foregroundStyle(.secondary)

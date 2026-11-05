@@ -116,8 +116,10 @@ actor ImageImportService {
     func makePDF(
         from files: [ImageImportFile],
         in folder: URL,
+        checkpoint: @Sendable () throws -> Void = {},
         progress: @Sendable (Int) async -> Void
     ) async throws -> Data {
+        try checkpoint()
         guard !files.isEmpty else { throw ImageImportError.noImages }
         try Task.checkCancellation()
         let accessed = folder.startAccessingSecurityScopedResource()
@@ -131,6 +133,7 @@ actor ImageImportService {
         var closed = false
         defer { if !closed { context.closePDF() } }
         for (index, file) in files.enumerated() {
+            try checkpoint()
             try Task.checkCancellation()
             try autoreleasepool {
                 guard let source = CGImageSourceCreateWithURL(file.url as CFURL, nil),
@@ -161,6 +164,7 @@ actor ImageImportService {
             await progress(index + 1)
         }
         try Task.checkCancellation()
+        try checkpoint()
         context.closePDF()
         closed = true
         return data as Data
