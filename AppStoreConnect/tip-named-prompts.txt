@@ -1,0 +1,7 @@
+Tool: built-in image_gen. Final files resized to 1024 x 1024 PNG.
+
+Edit only the bottom plaque text of the reference icon: replace '100' with exactly 'Bronze' (capital B, lowercase ronze). Use bold elegant dark brown serif lettering centered and sized to fit between the two engraved dashes with comfortable padding. Preserve all other artwork exactly: girl's face expression pose clothing, hearts, bronze metal coin, ivory opaque background, composition and proportions. No numbers remain. Output 1024x1024 PNG, fully opaque, no alpha channel.
+
+Edit only the bottom plaque text of the reference icon: replace '500' with exactly 'Silver' (capital S, lowercase ilver). Use bold elegant dark charcoal serif lettering centered and sized to fit between the two engraved dashes with comfortable padding. Preserve all other artwork exactly: girl's winking face expression pose clothing, hearts, silver metal coin, ivory opaque background, composition and proportions. No numbers remain. Output 1024x1024 PNG, fully opaque, no alpha channel.
+
+Edit only the bottom plaque text of the reference icon: replace '1,000' with exactly 'Gold' (capital G, lowercase old). Use bold elegant dark brown serif lettering centered and sized to fit between the two engraved dashes with comfortable padding. Preserve all other artwork exactly: girl's happy closed-eye face expression pose clothing, hearts and sparkles, gold metal coin, ivory opaque background, composition and proportions. No numbers remain. Output 1024x1024 PNG, fully opaque, no alpha channel.

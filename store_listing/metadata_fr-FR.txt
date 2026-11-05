@@ -1,0 +1,58 @@
+【アプリ名 / App Name】 (Max 30)
+Mihiraki: PDF Utility
+
+【サブタイトル / Subtitle】 (Max 30)
+Vue double page, fusion & tri
+
+【キーワード / Keywords】 (Max 100)
+PDF,double page,fusionner,diviser,trier,manga,pivoter,recadrer,editeur,lecteur
+
+【プロモーションテキスト / Promotional Text】 (Max 170)
+Prise en charge complète de la double page et lecture droite à gauche ! Fusionnez, divisez et organisez vos PDF sur iPhone et iPad.
+
+【新機能 / What's New】 (Max 4000)
+Première version. Prend en charge l'affichage en double page, la division, la fusion et l'organisation des PDF sur iPhone et iPad.
+
+【詳細説明 / Description】 (Max 4000)
+Mihiraki PDF Utility est un outil puissant conçu pour vous aider à organiser, fusionner, diviser et modifier des fichiers PDF sans effort sur votre iPhone et iPad. Il est idéal pour le travail, les études académiques, les documents de soumission, ainsi que pour les doubles pages, les mangas et les livres numérisés.
+
+[Fonctionnalités clés]
+■ Vue double page (Mihiraki)
+Affichez deux pages côte à côte. Prend en charge la direction de lecture de droite à gauche (RTL) pour les livres japonais et les mangas.
+
+■ Division intelligente
+Divisez des doubles pages en pages individuelles. Prend en charge la division verticale (gauche/droite) et horizontale (haut/bas).
+
+■ Réorganisation intuitive
+Organisez votre PDF en faisant simplement glisser des vignettes. Fusionnez plusieurs fichiers, insérez des pages blanches et faites pivoter ou supprimez des pages en toute simplicité.
+
+■ Rognage des marges
+Supprimez les marges inutiles des documents numérisés en spécifiant un pourcentage pour chaque côté.
+
+■ Sécurité et métadonnées
+Prise en charge des PDF protégés par mot de passe. Modifiez les propriétés du document telles que le titre, l'auteur, le sujet et les mots-clés.
+
+■ Diagnostics et journaux d'audit
+Exécutez des tests de diagnostic intégrés rapides et inspectez les journaux d'audit locaux (conservation de 24 heures, respectueux de la vie privée, sans envoi automatique de journaux, partageables).
+
+■ Prêt pour le bureau (ChromeOS)
+Amélioré pour les grands écrans et les Chromebooks avec des raccourcis clavier et des menus contextuels de la souris.
+
+■ Aperçu en plein écran
+Inspectez les pages en haute résolution avec un zoom par pincement fluide et une navigation par balayage.
+
+■ Prise en charge multilingue
+Prend en charge plusieurs langues, dont le français, l'anglais, l'allemand, l'italien, le japonais, le coréen, le chinois, l'espagnol et le portugais.
+
+■ Axé sur la confidentialité
+Tout le traitement des PDF est effectué localement sur votre appareil. Vos fichiers ne sont jamais téléchargés sur des serveurs externes.
+
+■ Gratuit et soutien facultatif
+Toutes les fonctionnalités sont disponibles sans achat. Les achats intégrés facultatifs soutiennent le développement. Les PDF locaux peuvent être traités sans connexion Internet.
+
+【サポートURL】
+https://tyamada.github.io/MihirakiPDFUtility/support_fr.html
+【プライバシーポリシーURL】
+https://tyamada.github.io/MihirakiPDFUtility/privacy_fr.html
+【マーケティングURL】
+https://tyamada.github.io/MihirakiPDFUtility/index_fr.html

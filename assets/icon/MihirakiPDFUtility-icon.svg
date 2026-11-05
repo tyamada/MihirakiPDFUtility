@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">MihirakiPDFUtility</title>
+  <desc id="desc">深いティールの背景に、見開きの白いページとコーラル色の双方向矢印。</desc>
+  <defs>
+    <radialGradient id="background" cx="50%" cy="42%" r="75%">
+      <stop stop-color="#07888b"/>
+      <stop offset="1" stop-color="#007074"/>
+    </radialGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#edf2f4"/>
+      <stop offset=".2" stop-color="#fff"/>
+      <stop offset=".85" stop-color="#fff"/>
+      <stop offset="1" stop-color="#f3f5f6"/>
+    </linearGradient>
+    <linearGradient id="coral" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#ff7157"/>
+      <stop offset="1" stop-color="#ff5d43"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="175%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="15" stdDeviation="14" flood-color="#003d44" flood-opacity=".28"/>
+    </filter>
+    <filter id="foldShadow" x="-50%" y="-50%" width="210%" height="220%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#344e5b" flood-opacity=".26"/>
+    </filter>
+    <filter id="arrowShadow" x="-25%" y="-40%" width="150%" height="200%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="13" stdDeviation="12" flood-color="#243e47" flood-opacity=".30"/>
+    </filter>
+  </defs>
+  <path fill="url(#background)" d="M0 0h1024v1024H0z"/>
+  <g filter="url(#shadow)">
+    <path fill="url(#paper)" d="M513 313 689 197Q717 181 737 203L847 310Q857 321 857 342V750Q857 799 812 795L535 765Q504 762 504 724V344Q504 325 513 313Z"/>
+    <path fill="url(#paper)" d="M167 339Q167 319 179 306L282 201Q304 181 331 197L508 303Q530 316 530 346V763Q530 811 491 805L206 786Q167 783 167 742Z"/>
+  </g>
+  <g fill="#fff" filter="url(#foldShadow)">
+    <path d="M179 306 282 201Q289 194 297 192Q285 206 285 226V278Q285 310 254 310H182Q176 310 179 306Z"/>
+    <path d="m737 203 110 107h-76Q738 310 738 278V224Q738 204 727 192Q732 196 737 203Z"/>
+  </g>
+  <path fill="url(#coral)" stroke="#ed5941" stroke-width="2" stroke-linejoin="round" filter="url(#arrowShadow)" d="M240 532Q238 516 253 523L372 574Q387 581 376 591L352 608Q424 654 511 649Q615 647 693 555L668 536Q655 526 669 520L766 497Q782 492 785 509L807 606Q811 626 796 620L770 601Q670 732 521 731Q387 732 295 652L259 669Q244 677 242 661Z"/>
+</svg>

@@ -1,0 +1,58 @@
+【アプリ名 / App Name】 (Max 30)
+Mihiraki: PDF Utility
+
+【サブタイトル / Subtitle】 (Max 30)
+PDF teilen, verbinden & ordnen
+
+【キーワード / Keywords】 (Max 100)
+PDF,Doppelseite,teilen,verbinden,sortieren,Manga,drehen,zuschneiden,bearbeiten,Reader
+
+【プロモーションテキスト / Promotional Text】 (Max 170)
+Volle Unterstützung für Doppelseitenanzeige und Rechts-nach-Links-Lesen! PDFs lokal und sicher auf iPhone und iPad bearbeiten.
+
+【新機能 / What's New】 (Max 4000)
+Erste Veröffentlichung. Unterstützt Doppelseitenanzeige, Teilen, Zusammenführen und Sortieren von PDFs auf iPhone und iPad.
+
+【詳細説明 / Description】 (Max 4000)
+Mihiraki PDF Utility ist ein leistungsstarkes Tool zum Organisieren, Zusammenführen, Teilen und Bearbeiten von PDF-Dateien auf Ihrem iPhone und iPad. Es ist ideal für Arbeit, akademische Studien, Einreichungsdokumente sowie Doppelseiten, Manga und gescannte Bücher.
+
+[Hauptfunktionen]
+■ Doppelseiten-Ansicht (Mihiraki)
+Zeigen Sie zwei Seiten nebeneinander an. Volle Unterstützung für die Leserichtung von rechts nach links (RTL) für japanische Bücher und Manga.
+
+■ Intelligentes Teilen
+Teilen Sie Doppelseiten in einzelne Seiten auf. Unterstützt vertikales (links/rechts) und horizontales (oben/unten) Teilen.
+
+■ Intuitive Neuordnung
+Organisieren Sie Ihr PDF durch einfaches Ziehen von Vorschaubildern. Führen Sie mehrere Dateien zusammen, fügen Sie leere Seiten ein und drehen oder löschen Sie Seiten ganz einfach.
+
+■ Seitenrand-Zuschnitt
+Schneiden Sie unnötige Ränder von gescannten Dokumenten ab, indem Sie für jede Seite einen Prozentsatz angeben.
+
+■ Sicherheit & Metadaten
+Unterstützung für passwortgeschützte PDFs. Bearbeiten Sie Dokumenteigenschaften wie Titel, Autor, Thema und Schlüsselwörter.
+
+■ Diagnose & Audit-Protokolle
+Führen Sie In-App-Diagnosetests durch und überprüfen Sie lokale Audit-Protokolle (24-Stunden-Aufbewahrung, datenschutzgeschützt ohne externe Übertragung, teilbar).
+
+■ Desktop-bereit (ChromeOS)
+Optimiert für große Bildschirme und Chromebooks mit Tastenkombinationen und Mauskontextmenüs.
+
+■ Vollbild-Vorschau
+Betrachten Sie Seiten in hoher Auflösung mit flüssigem Pinch-to-Zoom und Wisch-Navigation.
+
+■ Mehrsprachige Unterstützung
+Unterstützt mehrere Sprachen, darunter Deutsch, Englisch, Italienisch, Japanisch, Koreanisch, Chinesisch, Französisch, Spanisch und Portugiesisch.
+
+■ Datenschutzorientiert
+Die gesamte PDF-Verarbeitung erfolgt lokal auf Ihrem Gerät. Ihre Dateien werden niemals auf externe Server hochgeladen.
+
+■ Kostenlos und freiwillige Unterstützung
+Alle Funktionen sind ohne Kauf verfügbar. Freiwillige In-App-Käufe unterstützen die Entwicklung. Lokale PDF-Dateien können ohne Internetverbindung verarbeitet werden.
+
+【サポートURL】
+https://tyamada.github.io/MihirakiPDFUtility/support_de.html
+【プライバシーポリシーURL】
+https://tyamada.github.io/MihirakiPDFUtility/privacy_de.html
+【マーケティングURL】
+https://tyamada.github.io/MihirakiPDFUtility/index_de.html

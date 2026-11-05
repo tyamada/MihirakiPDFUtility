@@ -237,10 +237,12 @@ final class SamplePDFStore {
         }
     }
 
-    private static func validateResponseURL(_ url: URL?) throws {
+    static func validateResponseURL(_ url: URL?) throws {
         guard let url,
               url.scheme == "https",
-              url.host == "github.com" || url.host == "objects.githubusercontent.com" else {
+              url.host == "github.com"
+                || url.host == "objects.githubusercontent.com"
+                || url.host == "release-assets.githubusercontent.com" else {
             throw SamplePDFStoreError.invalidDownloadURL
         }
     }

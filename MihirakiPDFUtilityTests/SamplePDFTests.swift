@@ -67,6 +67,35 @@ struct SamplePDFTests {
         }
     }
 
+    @Test("Response URL validation accepts approved hosts including release assets CDN")
+    func responseURLValidationAcceptsApprovedHosts() throws {
+        let validURLs = [
+            "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode1_2_ja.pdf",
+            "https://objects.githubusercontent.com/github-production-release-asset/test.pdf",
+            "https://release-assets.githubusercontent.com/github-production-release-asset/test.pdf"
+        ]
+
+        for urlString in validURLs {
+            let url = try #require(URL(string: urlString))
+            #expect(throws: Never.self) {
+                try SamplePDFStore.validateResponseURL(url)
+            }
+        }
+
+        let invalidURLs = [
+            "http://github.com/test.pdf",
+            "https://example.com/test.pdf",
+            "https://malicious.githubusercontent.com/test.pdf"
+        ]
+
+        for urlString in invalidURLs {
+            let url = try #require(URL(string: urlString))
+            #expect(throws: SamplePDFStoreError.self) {
+                try SamplePDFStore.validateResponseURL(url)
+            }
+        }
+    }
+
     @Test("Sample languages cover all 17 distinct regional entries")
     func sampleLanguagesCoverAllEntries() {
         #expect(SamplePDFLanguages.entries.count == 17)

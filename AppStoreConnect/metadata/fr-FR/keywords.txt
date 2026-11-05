@@ -1,0 +1,1 @@
+PDF,double page,fusionner,diviser,trier,manga,pivoter,recadrer,editeur,lecteur

@@ -1,0 +1,1 @@
+PDF,doppia pagina,unisci,dividi,riordina,manga,ruota,ritaglia,editor,lettore

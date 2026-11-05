@@ -1,0 +1,32 @@
+Mihiraki PDF Utility è un potente strumento progettato per aiutarti a leggere e organizzare file PDF senza sforzo sul tuo iPhone e iPad. È specificamente ottimizzato per doppie pagine affiancate (Mihiraki), manga e gestione di documenti professionali.
+
+【Key Features】
+■ Vista affiancata (Mihiraki)
+Visualizza due pagine una accanto all'altra. Supporto completo per la direzione di lettura da destra a sinistra (RTL) per libri giapponesi e manga.
+
+■ Divisione avanzata
+Dividi doppie pagine in singole pagine. Supporta sia la divisione verticale (Sinistra/Destra) che orizzontale (Superiore/Inferiore).
+
+■ Riordinamento intuitivo
+Organizza il tuo PDF trascinando semplicemente le miniature. Unisci più file, inserisci pagine vuote e ruota o elimina le pagine con facilità.
+
+■ Ritaglio dei margini
+Rimuovi i margini non necessari dai documenti scansionati specificando una percentuale per ciascun lato.
+
+■ Sicurezza e metadati
+Supporto per PDF protetti da password. Modifica le proprietà del documento come Titolo, Autore, Soggetto e Parole chiave.
+
+■ Diagnostica e log di audit
+Esegui test diagnostici rapidi in-app e ispeziona i log di audit locali (conservazione di 24 ore, protetti da privacy senza trasmissione esterna, condivisibili).
+
+■ Pronto per desktop (ChromeOS)
+Migliorato per grandi schermi e Chromebook con scorciatoie da tastiera e menu contestuali del mouse.
+
+■ Anteprima a schermo intero
+Ispeziona le pagine in alta risoluzione con zoom fluido e navigazione a scorrimento.
+
+■ Supporto multilingue
+Supporta 14 lingue tra cui italiano, inglese, giapponese, coreano, cinese, tedesco, francese, spagnolo, portoghese e altro.
+
+■ Focalizzato sulla privacy
+Tutta l'elaborazione dei PDF viene eseguita localmente sul tuo dispositivo. I tuoi file non vengono mai caricati su server esterni.

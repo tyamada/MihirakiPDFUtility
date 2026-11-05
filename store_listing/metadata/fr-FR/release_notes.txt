@@ -1,0 +1,1 @@
+Première version. Prend en charge l'affichage en double page, la division, la fusion et l'organisation des PDF sur iPhone et iPad.

@@ -1,0 +1,1 @@
+pdf,spread,merge,split,reorder,manga,rotate,crop,editor,reader,scanner,preview,document

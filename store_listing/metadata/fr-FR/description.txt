@@ -1,0 +1,35 @@
+Mihiraki PDF Utility est un outil puissant conçu pour vous aider à organiser, fusionner, diviser et modifier des fichiers PDF sans effort sur votre iPhone et iPad. Il est idéal pour le travail, les études académiques, les documents de soumission, ainsi que pour les doubles pages, les mangas et les livres numérisés.
+
+[Fonctionnalités clés]
+■ Vue double page (Mihiraki)
+Affichez deux pages côte à côte. Prend en charge la direction de lecture de droite à gauche (RTL) pour les livres japonais et les mangas.
+
+■ Division intelligente
+Divisez des doubles pages en pages individuelles. Prend en charge la division verticale (gauche/droite) et horizontale (haut/bas).
+
+■ Réorganisation intuitive
+Organisez votre PDF en faisant simplement glisser des vignettes. Fusionnez plusieurs fichiers, insérez des pages blanches et faites pivoter ou supprimez des pages en toute simplicité.
+
+■ Rognage des marges
+Supprimez les marges inutiles des documents numérisés en spécifiant un pourcentage pour chaque côté.
+
+■ Sécurité et métadonnées
+Prise en charge des PDF protégés par mot de passe. Modifiez les propriétés du document telles que le titre, l'auteur, le sujet et les mots-clés.
+
+■ Diagnostics et journaux d'audit
+Exécutez des tests de diagnostic intégrés rapides et inspectez les journaux d'audit locaux (conservation de 24 heures, respectueux de la vie privée, sans envoi automatique de journaux, partageables).
+
+■ Prêt pour le bureau (ChromeOS)
+Amélioré pour les grands écrans et les Chromebooks avec des raccourcis clavier et des menus contextuels de la souris.
+
+■ Aperçu en plein écran
+Inspectez les pages en haute résolution avec un zoom par pincement fluide et une navigation par balayage.
+
+■ Prise en charge multilingue
+Prend en charge plusieurs langues, dont le français, l'anglais, l'allemand, l'italien, le japonais, le coréen, le chinois, l'espagnol et le portugais.
+
+■ Axé sur la confidentialité
+Tout le traitement des PDF est effectué localement sur votre appareil. Vos fichiers ne sont jamais téléchargés sur des serveurs externes.
+
+■ Gratuit et soutien facultatif
+Toutes les fonctionnalités sont disponibles sans achat. Les achats intégrés facultatifs soutiennent le développement. Les PDF locaux peuvent être traités sans connexion Internet.

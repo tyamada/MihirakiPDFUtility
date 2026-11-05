@@ -1,0 +1,1 @@
+Erste Veröffentlichung. Unterstützt Doppelseitenanzeige, Teilen, Zusammenführen und Sortieren von PDFs auf iPhone und iPad.

@@ -1,0 +1,1 @@
+Initial release. Supports spread view, page splitting, merging, and reordering for PDFs on iPhone and iPad.

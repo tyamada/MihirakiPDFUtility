@@ -1,0 +1,1 @@
+Full support for spread view and right-to-left reading! Merge, split, reorder, and crop PDF pages locally and securely on your iPhone and iPad.

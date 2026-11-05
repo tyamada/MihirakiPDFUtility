@@ -1,7 +1,13 @@
 .DS_Store
 DerivedData/
 .build/
-AppStoreConnect/
+AppStoreConnect/*
+!AppStoreConnect/metadata/
+!AppStoreConnect/metadata/**
+!AppStoreConnect/icon/
+!AppStoreConnect/icon/**
+!AppStoreConnect/*.md
+!AppStoreConnect/*.txt
 xcuserdata/
 *.xcuserstate
 

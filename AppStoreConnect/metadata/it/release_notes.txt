@@ -1,0 +1,1 @@
+Prima versione. Supporta visualizzazione a doppia pagina, divisione, unione e riordino di PDF su iPhone e iPad.
