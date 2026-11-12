@@ -149,7 +149,9 @@ enum DiagnosticEditingCheck: String, CaseIterable, Sendable {
                 == expected.map { originalWidths[$0] }
                 && reopened.pages.map(\.page.rotation) == expectedRotations
             let reopenedPixels = try reopened.pages.map { try Self.raster($0.page) }
-            passed = savedStateMatched && structureMatched && reopenedPixels == originalPixels
+            passed = savedStateMatched && structureMatched
+                && originalPixels.allSatisfy { $0.contains(where: { $0 < 240 }) }
+                && reopenedPixels == originalPixels
                 && reopened.errorMessage == nil && !reopened.isModified && reopened.selection.isEmpty
             detail = passed
                 ? String(localized: "Saved and reopened 12 edited pages. Page order, 90-degree rotations, rendered content and saved state matched.")
@@ -165,7 +167,9 @@ enum DiagnosticEditingCheck: String, CaseIterable, Sendable {
                 && model.pages.map(\.page.rotation) == (0..<12).map { [1, 4].contains($0) ? 90 : 0 }
             model.undo()
             let restoredPixels = try model.pages.map { try Self.raster($0.page) }
-            let undoMatched = widths() == originalWidths && restoredPixels == originalPixels
+            let undoMatched = widths() == originalWidths
+                && originalPixels.allSatisfy { $0.contains(where: { $0 < 240 }) }
+                && restoredPixels == originalPixels
                 && model.pages.allSatisfy { $0.page.rotation == 0 }
                 && model.selection == Set([model.pages[1].id, model.pages[4].id])
                 && !model.isModified && !model.canUndo && model.canRedo
@@ -176,6 +180,7 @@ enum DiagnosticEditingCheck: String, CaseIterable, Sendable {
             passed = firstUndoMatched && undoMatched
                 && widths() == expected.map { originalWidths[$0] }
                 && model.pages.map(\.page.rotation) == [90, 90] + Array(repeating: 0, count: 10)
+                && editedPixels.allSatisfy { $0.contains(where: { $0 < 240 }) }
                 && redonePixels == editedPixels
                 && model.selection == Set([model.pages[0].id, model.pages[1].id])
                 && model.isModified && model.canUndo && !model.canRedo
@@ -302,7 +307,15 @@ enum DiagnosticEditingCheck: String, CaseIterable, Sendable {
     @MainActor
     static func raster(_ page: PDFPage) throws -> [UInt8] {
         enum RenderError: Error { case unavailable }
-        guard let reference = page.pageRef else { throw RenderError.unavailable }
+        // PDFKit can expose a stale pageRef after a live rotation or page copy.
+        // Serialize an independent page so both sides use the committed rotation.
+        let snapshot = PDFDocument()
+        guard let copy = page.copy() as? PDFPage else { throw RenderError.unavailable }
+        snapshot.insert(copy, at: 0)
+        guard let data = snapshot.dataRepresentation(),
+              let provider = CGDataProvider(data: data as CFData),
+              let document = CGPDFDocument(provider),
+              let reference = document.page(at: 1) else { throw RenderError.unavailable }
         var bytes = [UInt8](repeating: 255, count: 128 * 128)
         try bytes.withUnsafeMutableBytes { buffer in
             guard let context = CGContext(data: buffer.baseAddress, width: 128, height: 128,

@@ -208,10 +208,11 @@ enum PDFDocumentPropertiesReader {
 enum PDFDocumentPropertiesWriter {
     static func applying(
         _ preferences: PDFViewerPreferences,
-        to data: Data
+        to data: Data,
+        minimumVersion: PDFVersion? = nil
     ) -> Data {
         guard var pdf = String(data: data, encoding: .isoLatin1) else { return data }
-        upgradeVersionIfNeeded(in: &pdf, for: preferences.pageLayout)
+        upgradeVersionIfNeeded(in: &pdf, for: preferences.pageLayout, minimumVersion: minimumVersion)
 
         guard let startXrefRange = pdf.range(
                 of: #"startxref\s+(\d+)\s+%%EOF\s*$"#,
@@ -280,10 +281,14 @@ enum PDFDocumentPropertiesWriter {
 
     private static func upgradeVersionIfNeeded(
         in pdf: inout String,
-        for pageLayout: PDFPageLayout
+        for pageLayout: PDFPageLayout,
+        minimumVersion: PDFVersion?
     ) {
-        guard pageLayout.requiresPDFVersion15,
-              let expression = try? NSRegularExpression(pattern: #"^%PDF-(\d+)\.(\d+)"#),
+        let requiredVersion = max(
+            minimumVersion ?? PDFVersion(major: 1, minor: 0),
+            PDFVersion(major: 1, minor: pageLayout.requiresPDFVersion15 ? 5 : 0)
+        )
+        guard let expression = try? NSRegularExpression(pattern: #"^%PDF-(\d+)\.(\d+)"#),
               let match = expression.firstMatch(
                 in: pdf,
                 range: NSRange(pdf.startIndex..., in: pdf)
@@ -292,9 +297,12 @@ enum PDFDocumentPropertiesWriter {
               let minorRange = Range(match.range(at: 2), in: pdf),
               let major = Int(pdf[majorRange]),
               let minor = Int(pdf[minorRange]),
-              PDFVersion(major: major, minor: minor) < PDFVersion(major: 1, minor: 5),
+              PDFVersion(major: major, minor: minor) < requiredVersion,
               let headerRange = Range(match.range(at: 0), in: pdf) else { return }
-        pdf.replaceSubrange(headerRange, with: "%PDF-1.5")
+        // Keep existing xref byte offsets valid when updating the header.
+        let header = "%PDF-\(requiredVersion.major).\(requiredVersion.minor)"
+        guard byteCount(of: header) == byteCount(of: String(pdf[headerRange])) else { return }
+        pdf.replaceSubrange(headerRange, with: header)
     }
 
     private static func byteCount(of value: String) -> Int {

@@ -1375,22 +1375,25 @@ struct PDFEditorModelTests {
         #expect(model.isModified)
     }
 
-    @Test("Two-page layouts preserve PDF versions newer than 1.5")
+    @Test("Export preserves newer PDF versions across page layouts", arguments: ["1.6", "1.7", "2.0"])
     @MainActor
-    func twoPageLayoutPreservesNewerVersion() throws {
-        let url = try makeViewerPreferencesPDF(
-            fileName: "PDF17_TwoPageLeft.pdf",
-            direction: .leftToRight,
-            pageLayout: .twoPageLeft,
-            version: "1.7"
-        )
-        defer { try? FileManager.default.removeItem(at: url.deletingLastPathComponent()) }
+    func twoPageLayoutPreservesNewerVersion(version: String) throws {
+        for layout in [PDFPageLayout.singlePage, .twoPageLeft, .twoPageRight] {
+            let url = try makeViewerPreferencesPDF(
+                fileName: "NewerVersion.pdf",
+                direction: .leftToRight,
+                pageLayout: layout,
+                version: version
+            )
+            defer { try? FileManager.default.removeItem(at: url.deletingLastPathComponent()) }
 
-        let model = PDFEditorModel()
-        #expect(model.open(url) == .opened)
-        let exported = try model.exportDocument()
-
-        #expect(PDFDocumentPropertiesReader.read(from: exported.data).version == "PDF 1.7")
+            let model = PDFEditorModel()
+            #expect(model.open(url) == .opened)
+            let exported = try model.exportDocument()
+            let reopened = try #require(PDFDocument(data: exported.data))
+            #expect(reopened.pageCount == model.pages.count)
+            #expect(PDFDocumentPropertiesReader.read(from: exported.data).version == "PDF \(version)")
+        }
     }
 
     @MainActor

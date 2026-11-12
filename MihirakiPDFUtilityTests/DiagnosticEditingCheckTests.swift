@@ -1,4 +1,5 @@
 import Foundation
+import PDFKit
 import Testing
 @testable import MihirakiPDFUtility
 
@@ -81,12 +82,34 @@ struct DiagnosticEditingCheckTests {
         let selection = userModel.selection
         let rotations = userModel.pages.map(\.page.rotation)
         let outcome = try await check.testCase(capacity: DiagnosticStorageCapacity { _ in 4_000_000_000 }).execute(base)
-        #expect(outcome.status == .passed)
+        #expect(outcome.status == .passed, "\(check.rawValue): \(outcome.detail)")
         #expect(userModel.pages.map(\.id) == ids)
         #expect(userModel.selection == selection)
         #expect(userModel.pages.map(\.page.rotation) == rotations)
         #expect(userModel.canUndo)
         #expect(!FileManager.default.fileExists(atPath: base.appending(path: check.rawValue).path))
+    }
+
+    @Test(arguments: [90, 180, 270]) @MainActor
+    func rasterMatchesSavedRotation(degrees: Int) async throws {
+        let base = FileManager.default.temporaryDirectory.appending(path: UUID().uuidString)
+        try FileManager.default.createDirectory(at: base, withIntermediateDirectories: true)
+        defer { try? FileManager.default.removeItem(at: base) }
+        _ = try await DiagnosticPDFTest(capacity: DiagnosticStorageCapacity { _ in 4_000_000_000 }).run(in: base)
+        let model = PDFEditorModel(recordsDiagnostics: false)
+        #expect(model.open(base.appending(path: "basic-12.pdf")) == .opened)
+        let page = model.pages[1].page
+        let original = try DiagnosticEditingCheck.raster(page)
+        model.selection = [model.pages[1].id]
+        model.rotateSelection(by: degrees)
+        let rotated = try DiagnosticEditingCheck.raster(page)
+        #expect(rotated != original)
+        let saved = try #require(PDFDocument(data: model.exportDocument().data))
+        let savedPage = try #require(saved.page(at: 1))
+        #expect(savedPage.rotation == degrees)
+        #expect(try DiagnosticEditingCheck.raster(savedPage) == rotated)
+        let copy = try #require(page.copy() as? PDFPage)
+        #expect(try DiagnosticEditingCheck.raster(copy) == rotated)
     }
 
     @Test @MainActor

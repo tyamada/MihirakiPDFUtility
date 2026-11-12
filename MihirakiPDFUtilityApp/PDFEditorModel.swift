@@ -5,8 +5,17 @@ import PDFKit
 import SwiftUI
 
 struct PDFPageItem: Identifiable {
-    let id = UUID()
+    let id: UUID
     let page: PDFPage
+
+    init(page: PDFPage) {
+        self.init(page: page, id: UUID())
+    }
+
+    init(page: PDFPage, id: UUID) {
+        self.id = id
+        self.page = page
+    }
 }
 
 enum PDFOpenResult {
@@ -622,7 +631,8 @@ final class PDFEditorModel {
         }
         let dataWithProperties = PDFDocumentPropertiesWriter.applying(
             documentDetails.viewerPreferences,
-            to: data
+            to: data,
+            minimumVersion: documentDetails.pdfVersion
         )
         return PDFExportDocument(data: dataWithProperties)
     }
@@ -820,9 +830,21 @@ final class PDFEditorModel {
         let reorderedDocument = PDFDocument()
         reorderedDocument.documentAttributes = document?.documentAttributes
         for (index, item) in pages.enumerated() {
-            reorderedDocument.insert(item.page, at: index)
+            guard let copy = item.page.copy() as? PDFPage else { return }
+            reorderedDocument.insert(copy, at: index)
         }
-        document = reorderedDocument
+        // Materialize while the source document is still alive. PDFKit page
+        // copies can otherwise retain references into a released source PDF.
+        guard let data = reorderedDocument.dataRepresentation(),
+              let rebuilt = PDFDocument(data: data),
+              rebuilt.pageCount == pages.count else { return }
+        let reorderedItems = pages.enumerated().compactMap { index, item -> PDFPageItem? in
+            guard let page = rebuilt.page(at: index) else { return nil }
+            return PDFPageItem(page: page, id: item.id)
+        }
+        guard reorderedItems.count == pages.count else { return }
+        document = rebuilt
+        pages = reorderedItems
     }
 
     private func unencryptedDocumentCopy() -> PDFDocument? {
