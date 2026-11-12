@@ -99,14 +99,18 @@ struct PDFPagePreviewView: View {
                 }
             }
             .navigationTitle(pageCounterText)
+            #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
+            #endif
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button {
                         dismiss()
                     } label: {
                         Image(systemName: "xmark")
+                            #if os(iOS)
                             .foregroundColor(.white)
+                            #endif
                     }
                     .accessibilityLabel("Close")
                 }
@@ -125,9 +129,11 @@ struct PDFPagePreviewView: View {
                     }
                 }
             }
+            #if os(iOS)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarBackground(Color.black.opacity(0.8), for: .navigationBar)
             .toolbarColorScheme(.dark, for: .navigationBar)
+            #endif
         }
         .onChange(of: currentIndex) { _, newIndex in
             if pages.indices.contains(newIndex) {
