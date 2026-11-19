@@ -25,8 +25,9 @@ MihirakiPDFUtilityは、PDFページの並べ替え、回転、挿入、削除�
 - String Catalogによる14言語UI（日・英・簡・繁・韓・独・仏・西・葡・伊・越・比・尼・ネパール等）
 - サンプル漫画v2カタログ（17言語地域・全51冊）および公式YouTube Shorts動画チュートリアル連携
 - Filesアプリや共有シートからのPDF直接オープン
-- バージョン情報画面からの実機パフォーマンス・ストレージ診断ベンチマークテスト
-- 個人情報やファイル内容を含まない診断ログの端末内保持（14日自動削除）
+- 「設定 > 診断 > パフォーマンステストを実行」からCPU・メモリ・PDF操作の端末内性能テスト
+- 「設定 > 診断 > 診断ログを表示」から端末内の診断ログを閲覧・コピー。個人情報やPDF内容を除外し、14日の保持期限を起動・読み書き時に整理
+- 診断テスト報告は内容を確認して任意に共有し、自動送信しない。別の性能テスト報告には端末名が含まれる場合があるため、共有前に確認
 - ブロンズ、シルバー、ゴールドのサポーターアイコンを永久的に利用できる、任意の非消耗型アプリ内購入
 - GitHub Pages用のマーケティング、プライバシー、サポートページ
 
@@ -38,50 +39,60 @@ MihirakiPDFUtilityは、PDFページの並べ替え、回転、挿入、削除�
 
 ## サンプルPDF
 
-作者「こまいろ日和」の正式なローマ字表記は **Komairo Hiyori** です。サンプルPDFマンガは `docs/sample/`（GitHub Pagesでは `sample/`）に配置しています。第1〜3話を17言語地域、計51ファイルで提供しています。
+作者「こまいろ日和」の正式なローマ字表記は **Komairo Hiyori** です。サンプルPDFマンガは [manga-pdf-20261103-v1 Release](https://github.com/tyamada/manga-prompt-kit/releases/tag/manga-pdf-20261103-v1)で配布しています。第1〜3話を17言語地域、計51ファイルで提供しています。
 
-- [ためし部 第1話 ひと息マップ — こまいろ日和 (Japanese)](docs/sample/tameshibu_episode1_2_ja.pdf)
-- [ためし部 第2話 机、ひろがる。 — こまいろ日和 (Japanese)](docs/sample/tameshibu_episode2_2_ja.pdf)
-- [ためし部 第3話 出張、ためし部！ — こまいろ日和 (Japanese)](docs/sample/tameshibu_episode3_ja.pdf)
-- [THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP — Komairo Hiyori (English)](docs/sample/tameshibu_episode1_2_en.pdf)
-- [THE TRY-IT CLUB EPISODE 2 ROOM TO GROW — Komairo Hiyori (English)](docs/sample/tameshibu_episode2_2_en.pdf)
-- [THE TRY-IT CLUB EPISODE 3 OUT AND ABOUT — Komairo Hiyori (English)](docs/sample/tameshibu_episode3_en.pdf)
-- [해봄부 제1화 한숨 돌림 지도 — 코마이로 히요리 (Korean)](docs/sample/tameshibu_episode1_2_ko.pdf)
-- [해봄부 제2화 책상이 넓어지다 — 코마이로 히요리 (Korean)](docs/sample/tameshibu_episode2_2_ko.pdf)
-- [해봄부 제3화 해봄부, 출장! — 코마이로 히요리 (Korean)](docs/sample/tameshibu_episode3_ko.pdf)
-- [试试社 第1话 歇口气地图 — 小真彩日和 (Chinese (Simplified))](docs/sample/tameshibu_episode1_2_zh_cn.pdf)
-- [试试社 第2话 桌子变大了 — 小真彩日和 (Chinese (Simplified))](docs/sample/tameshibu_episode2_2_zh_cn.pdf)
-- [试试社 第3话 试试社，出差啦！ — 小真彩日和 (Chinese (Simplified))](docs/sample/tameshibu_episode3_zh_cn.pdf)
-- [試試社 第1話 — 小舞樓日和（中国語・繁体字）](docs/sample/tameshibu_episode1_2_zh_tw.pdf)
-- [試試社 第2話 — 小舞樓日和（中国語・繁体字）](docs/sample/tameshibu_episode2_2_zh_tw.pdf)
-- [試試社 第3話 試試社，出差啦！ — 小舞樓日和 (Chinese (Traditional))](docs/sample/tameshibu_episode3_zh_tw.pdf)
-- [DER PROBIERCLUB FOLGE 1 — Komairo Hiyori（ドイツ語）](docs/sample/tameshibu_episode1_2_de.pdf)
-- [DER PROBIERCLUB FOLGE 2 — Komairo Hiyori（ドイツ語）](docs/sample/tameshibu_episode2_2_de.pdf)
-- [Der Probierclub - Folge 3: Unterwegs — Komairo Hiyori (German)](docs/sample/tameshibu_episode3_de.pdf)
-- [LE CLUB DES ESSAIS EPISODE 1 — Komairo Hiyori（フランス語）](docs/sample/tameshibu_episode1_2_fr.pdf)
-- [LE CLUB DES ESSAIS EPISODE 2 — Komairo Hiyori（フランス語）](docs/sample/tameshibu_episode2_2_fr.pdf)
-- [Le Club des essais - Épisode 3 : Le club en sortie — Komairo Hiyori (French)](docs/sample/tameshibu_episode3_fr.pdf)
-- [EL CLUB DE LOS EXPERIMENTOS - EPISODIO 1 / MAPA DE DESCANSOS — Komairo Hiyori (Spanish)](docs/sample/tameshibu_episode1_es.pdf)
-- [EL CLUB DE LOS EXPERIMENTOS - EPISODIO 2 / LA MESA CRECE — Komairo Hiyori (Spanish)](docs/sample/tameshibu_episode2_es.pdf)
-- [EL CLUB DE LOS EXPERIMENTOS - EPISODIO 3 / DE SALIDA — Komairo Hiyori (Spanish)](docs/sample/tameshibu_episode3_es.pdf)
-- [O CLUBE DAS EXPERIÊNCIAS - EPISÓDIO 1 / MAPA DO DESCANSO — Komairo Hiyori (Portuguese)](docs/sample/tameshibu_episode1_pt.pdf)
-- [O CLUBE DAS EXPERIÊNCIAS - EPISÓDIO 2 / A MESA CRESCE — Komairo Hiyori (Portuguese)](docs/sample/tameshibu_episode2_pt.pdf)
-- [O CLUBE DAS EXPERIÊNCIAS - EPISÓDIO 3 / O CLUBE VAI À BIBLIOTECA — Komairo Hiyori (Portuguese)](docs/sample/tameshibu_episode3_pt.pdf)
-- [IL CLUB DEGLI ESPERIMENTI - EPISODIO 1 / LA MAPPA DELLE PAUSE — Komairo Hiyori (Italian)](docs/sample/tameshibu_episode1_it.pdf)
-- [IL CLUB DEGLI ESPERIMENTI - EPISODIO 2 / IL TAVOLO SI ALLARGA — Komairo Hiyori (Italian)](docs/sample/tameshibu_episode2_it.pdf)
-- [IL CLUB DEGLI ESPERIMENTI - EPISODIO 3 / IL CLUB IN TRASFERTA — Komairo Hiyori (Italian)](docs/sample/tameshibu_episode3_it.pdf)
-- [CÂU LẠC BỘ THỬ NGHIỆM - TẬP 1 / BẢN ĐỒ CHỖ NGHỈ — Komairo Hiyori (Vietnamese)](docs/sample/tameshibu_episode1_vi.pdf)
-- [CÂU LẠC BỘ THỬ NGHIỆM - TẬP 2 / CHIẾC BÀN RỘNG HƠN — Komairo Hiyori (Vietnamese)](docs/sample/tameshibu_episode2_vi.pdf)
-- [CÂU LẠC BỘ THỬ NGHIỆM - TẬP 3 / CÂU LẠC BỘ ĐI CÔNG TÁC — Komairo Hiyori (Vietnamese)](docs/sample/tameshibu_episode3_vi.pdf)
-- [CLUB NG MGA PAGSUBOK - KABANATA 1 / MAPA NG PAHINGAHAN — Komairo Hiyori (Filipino / Tagalog)](docs/sample/tameshibu_episode1_tl.pdf)
-- [CLUB NG MGA PAGSUBOK - KABANATA 2 / LUMUWANG ANG MESA — Komairo Hiyori (Filipino / Tagalog)](docs/sample/tameshibu_episode2_tl.pdf)
-- [CLUB NG MGA PAGSUBOK - KABANATA 3 / LUMABAS ANG CLUB — Komairo Hiyori (Filipino / Tagalog)](docs/sample/tameshibu_episode3_tl.pdf)
-- [प्रयोग क्लब - भाग 1 / आरामको नक्सा — Komairo Hiyori (Nepali)](docs/sample/tameshibu_episode1_ne.pdf)
-- [प्रयोग क्लब - भाग 2 / टेबुल फराकिलो भयो — Komairo Hiyori (Nepali)](docs/sample/tameshibu_episode2_ne.pdf)
-- [प्रयोग क्लब - भाग 3 / क्लबको पहिलो भ्रमण — Komairo Hiyori (Nepali)](docs/sample/tameshibu_episode3_ne.pdf)
-- [KLUB COBA-COBA - EPISODE 1 / PETA TEMPAT ISTIRAHAT — Komairo Hiyori (Indonesian)](docs/sample/tameshibu_episode1_id.pdf)
-- [KLUB COBA-COBA - EPISODE 2 / MEJANYA MAKIN LUAS — Komairo Hiyori (Indonesian)](docs/sample/tameshibu_episode2_id.pdf)
-- [KLUB COBA-COBA - EPISODE 3 / KLUB JALAN-JALAN — Komairo Hiyori (Indonesian)](docs/sample/tameshibu_episode3_id.pdf)
+- [ためし部 第1話 ひと息マップ — こまいろ日和 (Japanese)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_2_ja.pdf)
+- [ためし部 第2話 机、ひろがる。 — こまいろ日和 (Japanese)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_2_ja.pdf)
+- [ためし部 第3話 出張、ためし部！ — こまいろ日和 (Japanese)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_ja.pdf)
+- [THE TRY-IT CLUB EPISODE 1 THE BREAK-TIME MAP — Komairo Hiyori (English)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_en.pdf)
+- [THE TRY-IT CLUB EPISODE 2 ROOM TO GROW — Komairo Hiyori (English)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_en.pdf)
+- [THE TRY-IT CLUB EPISODE 3 OUT AND ABOUT — Komairo Hiyori (English)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_en.pdf)
+- [해봄부 제1화 한숨 돌림 지도 — 코마이로 히요리 (Korean)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_2_ko.pdf)
+- [해봄부 제2화 책상이 넓어지다 — 코마이로 히요리 (Korean)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_2_ko.pdf)
+- [해봄부 제3화 해봄부, 출장! — 코마이로 히요리 (Korean)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_ko.pdf)
+- [试试社 第1话 歇口气地图 — 小真彩日和 (Chinese (Simplified))](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_2_zh_cn.pdf)
+- [试试社 第2话 桌子变大了 — 小真彩日和 (Chinese (Simplified))](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_2_zh_cn.pdf)
+- [试试社 第3话 试试社，出差啦！ — 小真彩日和 (Chinese (Simplified))](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_zh_cn.pdf)
+- [試試社 第1話 — 小舞樓日和（中国語・繁体字）](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_2_zh_tw.pdf)
+- [試試社 第2話 — 小舞樓日和（中国語・繁体字）](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_2_zh_tw.pdf)
+- [試試社 第3話 試試社，出差啦！ — 小舞樓日和 (Chinese (Traditional))](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_zh_tw.pdf)
+- [DER PROBIERCLUB FOLGE 1 — Komairo Hiyori（ドイツ語）](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_de.pdf)
+- [DER PROBIERCLUB FOLGE 2 — Komairo Hiyori（ドイツ語）](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_de.pdf)
+- [Der Probierclub - Folge 3: Unterwegs — Komairo Hiyori (German)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_de.pdf)
+- [LE CLUB DES ESSAIS EPISODE 1 — Komairo Hiyori（フランス語）](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_fr.pdf)
+- [LE CLUB DES ESSAIS EPISODE 2 — Komairo Hiyori（フランス語）](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_fr.pdf)
+- [Le Club des essais - Épisode 3 : Le club en sortie — Komairo Hiyori (French)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_fr.pdf)
+- [EL CLUB DE LOS EXPERIMENTOS - EPISODIO 1 / MAPA DE DESCANSOS — Komairo Hiyori (Spanish)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_es.pdf)
+- [EL CLUB DE LOS EXPERIMENTOS - EPISODIO 2 / LA MESA CRECE — Komairo Hiyori (Spanish)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_es.pdf)
+- [EL CLUB DE LOS EXPERIMENTOS - EPISODIO 3 / DE SALIDA — Komairo Hiyori (Spanish)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_es.pdf)
+- [O CLUBE DAS EXPERIÊNCIAS - EPISÓDIO 1 / MAPA DO DESCANSO — Komairo Hiyori (Portuguese)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_pt.pdf)
+- [O CLUBE DAS EXPERIÊNCIAS - EPISÓDIO 2 / A MESA CRESCE — Komairo Hiyori (Portuguese)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_pt.pdf)
+- [O CLUBE DAS EXPERIÊNCIAS - EPISÓDIO 3 / O CLUBE VAI À BIBLIOTECA — Komairo Hiyori (Portuguese)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_pt.pdf)
+- [IL CLUB DEGLI ESPERIMENTI - EPISODIO 1 / LA MAPPA DELLE PAUSE — Komairo Hiyori (Italian)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_it.pdf)
+- [IL CLUB DEGLI ESPERIMENTI - EPISODIO 2 / IL TAVOLO SI ALLARGA — Komairo Hiyori (Italian)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_it.pdf)
+- [IL CLUB DEGLI ESPERIMENTI - EPISODIO 3 / IL CLUB IN TRASFERTA — Komairo Hiyori (Italian)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_it.pdf)
+- [CÂU LẠC BỘ THỬ NGHIỆM - TẬP 1 / BẢN ĐỒ CHỖ NGHỈ — Komairo Hiyori (Vietnamese)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_vi.pdf)
+- [CÂU LẠC BỘ THỬ NGHIỆM - TẬP 2 / CHIẾC BÀN RỘNG HƠN — Komairo Hiyori (Vietnamese)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_vi.pdf)
+- [CÂU LẠC BỘ THỬ NGHIỆM - TẬP 3 / CÂU LẠC BỘ ĐI CÔNG TÁC — Komairo Hiyori (Vietnamese)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_vi.pdf)
+- [CLUB NG MGA PAGSUBOK - KABANATA 1 / MAPA NG PAHINGAHAN — Komairo Hiyori (Filipino / Tagalog)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_tl.pdf)
+- [CLUB NG MGA PAGSUBOK - KABANATA 2 / LUMUWANG ANG MESA — Komairo Hiyori (Filipino / Tagalog)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_tl.pdf)
+- [CLUB NG MGA PAGSUBOK - KABANATA 3 / LUMABAS ANG CLUB — Komairo Hiyori (Filipino / Tagalog)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_tl.pdf)
+- [प्रयोग क्लब - भाग 1 / आरामको नक्सा — Komairo Hiyori (Nepali)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_ne.pdf)
+- [प्रयोग क्लब - भाग 2 / टेबुल फराकिलो भयो — Komairo Hiyori (Nepali)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_ne.pdf)
+- [प्रयोग क्लब - भाग 3 / क्लबको पहिलो भ्रमण — Komairo Hiyori (Nepali)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_ne.pdf)
+- [KLUB COBA-COBA - EPISODE 1 / PETA TEMPAT ISTIRAHAT — Komairo Hiyori (Indonesian)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_id.pdf)
+- [KLUB COBA-COBA - EPISODE 2 / MEJANYA MAKIN LUAS — Komairo Hiyori (Indonesian)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_id.pdf)
+- [KLUB COBA-COBA - EPISODE 3 / KLUB JALAN-JALAN — Komairo Hiyori (Indonesian)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_id.pdf)
+
+- [EL CLUB DE LOS EXPERIMENTOS - EPISODIO 1 / MAPA DE DESCANSOS [es-419] — Komairo Hiyori (es_419)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_es_419.pdf)
+- [O CLUBE DAS EXPERIÊNCIAS - EPISÓDIO 1 / MAPA DO DESCANSO [pt-PT] — Komairo Hiyori (pt_pt)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_pt_pt.pdf)
+- [試試社 第1話 歇口氣地圖 [zh-Hant-HK] — Komairo Hiyori (zh_hk)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_3_zh_hk.pdf)
+- [EL CLUB DE LOS EXPERIMENTOS - EPISODIO 2 / LA MESA CRECE [es-419] — Komairo Hiyori (es_419)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_es_419.pdf)
+- [O CLUBE DAS EXPERIÊNCIAS - EPISÓDIO 2 / A MESA CRESCE [pt-PT] — Komairo Hiyori (pt_pt)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_pt_pt.pdf)
+- [試試社 第2話 桌子變大了 [zh-Hant-HK] — Komairo Hiyori (zh_hk)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_3_zh_hk.pdf)
+- [EL CLUB DE LOS EXPERIMENTOS - EPISODIO 3 / DE SALIDA [es-419] — Komairo Hiyori (es_419)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_es_419.pdf)
+- [O CLUBE DAS EXPERIÊNCIAS - EPISÓDIO 3 / O CLUBE VAI À BIBLIOTECA [pt-PT] — Komairo Hiyori (pt_pt)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_pt_pt.pdf)
+- [第3話 / 試試社，出差啦！ [zh-Hant-HK] — Komairo Hiyori (zh_hk)](https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_2_zh_hk.pdf)
 
 サンプルPDFは[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)の下で提供されています。再利用時の表示事項と生成AI利用の説明を含む[ライセンスおよび著作権表示の詳細](docs/sample-pdf-license.html#ja)もご確認ください。
 
@@ -95,6 +106,8 @@ MihirakiPDFUtilityは、PDFページの並べ替え、回転、挿入、削除�
 - PySide6、Shiboken6、Qt、PyMuPDF、MuPDF、Pillow、PyWinRT、Pythonランタイム、PyInstaller、およびそれらの生成物は流用しません。
 - 新しい実装では、Swift、SwiftUI、PDFKitなどAppleプラットフォームの標準APIを優先します。
 - 移行対象資産の出自と完全性は `PROVENANCE.md` と `migration/ASSET_MANIFEST.sha256` に記録します。
+
+アプリは同梱カタログと固定Release URLを使用します。サンプルID・言語キー・SHA-256・端末内の保存名を維持します。フィリピン語も言語キー `fil` と第1・2話の保存名 `_fil.pdf` を保ち、新Releaseの `_tl.pdf` を取得します。Releaseの `pdf-manifest.json`・`pdf-migration.csv`・`SHA256SUMS` を同じディレクトリに取得し、`python3 scripts/verify_sample_distribution.py /path/to/evidence` で51件を照合できます。`--download-directory /path/to/pdfs` を追加すると匿名取得・サイズ・チェックサムも検証します。
 
 ## 開発環境
 
