@@ -73,7 +73,7 @@ def main():
         args.download_directory.mkdir(parents=True, exist_ok=True)
         with ThreadPoolExecutor(max_workers=3) as pool:
             for sample_id in pool.map(lambda s: download(s, args.download_directory), samples):
-                print(f'PASS: HTTPS 200, PDF, size, SHA-256: {sample_id}', flush=True)
+                print(f'PASS: PDF, size, SHA-256 (HTTPS download or verified cache): {sample_id}', flush=True)
 
 
 if __name__ == '__main__':
