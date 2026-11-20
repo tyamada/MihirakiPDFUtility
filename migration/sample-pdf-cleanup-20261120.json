@@ -1,0 +1,720 @@
+{
+  "date": "2026-11-20",
+  "repository": "tyamada/MihirakiPDFUtility",
+  "release": "manga-pdf-20261103-v1",
+  "manifest_sha256": "4ffcdc152b18fe631b7db4f749907caa1ccf5888511137784d23774abf5d7ed4",
+  "removed_count": 8,
+  "removed_bytes": 195858613,
+  "retained_count": 80,
+  "retained_bytes": 1946257925,
+  "removed": [
+    {
+      "path": "docs/sample/tameshibu_episode1_2_ja.pdf",
+      "bytes": 24217661,
+      "sha256": "b84e714206e569318e31ee6255595649decdc57563933fb6d6453d96570de85a",
+      "tracked": true,
+      "matches_latest": true,
+      "restore_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_2_ja.pdf"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode1_2_ko.pdf",
+      "bytes": 24105557,
+      "sha256": "fd2dfda658ae68d02f099f6315d255df163a5cb3251a5ba220e0086ae05c118d",
+      "tracked": true,
+      "matches_latest": true,
+      "restore_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_2_ko.pdf"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode1_2_zh_cn.pdf",
+      "bytes": 24176113,
+      "sha256": "29ae2a200730a50dc58d310de5f71e75af9c378b5c2fa21b56d431637cbf2049",
+      "tracked": true,
+      "matches_latest": true,
+      "restore_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_2_zh_cn.pdf"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_2_ja.pdf",
+      "bytes": 25039091,
+      "sha256": "758fc91d87acb3de9e1fd006f5cc4decf51a0d0c5136b736f4d598b963c0cf2d",
+      "tracked": true,
+      "matches_latest": true,
+      "restore_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_2_ja.pdf"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_2_ko.pdf",
+      "bytes": 24976048,
+      "sha256": "f21bfe8f1cf9e8e242a719ace06119cea3934e73800f4989d217a9373b41f55f",
+      "tracked": true,
+      "matches_latest": true,
+      "restore_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_2_ko.pdf"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_2_zh_cn.pdf",
+      "bytes": 25042963,
+      "sha256": "499870a2919840bb1758b85bcdfbe311a50c92fc47c4778c7966b080f875ca44",
+      "tracked": true,
+      "matches_latest": true,
+      "restore_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_2_zh_cn.pdf"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_2_zh_tw.pdf",
+      "bytes": 25062567,
+      "sha256": "5a9e3d12a0f6b287e72916e21cfac22cdb24de534e1d1c73cdcc37413fdca8ad",
+      "tracked": true,
+      "matches_latest": true,
+      "restore_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode2_2_zh_tw.pdf"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode3_ja.pdf",
+      "bytes": 23238613,
+      "sha256": "4abfe0f4a028bbac280c7629cd64c72e5df1faac8348695e0277dfc5a9154558",
+      "tracked": true,
+      "matches_latest": true,
+      "restore_url": "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode3_ja.pdf"
+    }
+  ],
+  "retained": [
+    {
+      "path": "testdata/tameshibu_episode1_2_de.pdf",
+      "bytes": 24107143,
+      "sha256": "dbe809662c2a54177591f336045a1d3d824ecdca03c25080e20503dd9ef25acd",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode1_2_en.pdf",
+      "bytes": 24108800,
+      "sha256": "253cf2ddec73886519de047f24bf7de4ab1aa6ec1b2498aaa798ee8930ea1c7b",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode1_2_fr.pdf",
+      "bytes": 24111899,
+      "sha256": "3c6a90fac7c3742ab569729fe66c990af2aeb4096567f24cfb82de483f2e86fc",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode1_2_ja.pdf",
+      "bytes": 24217661,
+      "sha256": "b84e714206e569318e31ee6255595649decdc57563933fb6d6453d96570de85a",
+      "tracked": false,
+      "matches_latest": true,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode1_2_ko.pdf",
+      "bytes": 24105557,
+      "sha256": "fd2dfda658ae68d02f099f6315d255df163a5cb3251a5ba220e0086ae05c118d",
+      "tracked": false,
+      "matches_latest": true,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode1_2_zh_cn.pdf",
+      "bytes": 24176113,
+      "sha256": "29ae2a200730a50dc58d310de5f71e75af9c378b5c2fa21b56d431637cbf2049",
+      "tracked": false,
+      "matches_latest": true,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode1_2_zh_tw.pdf",
+      "bytes": 24191145,
+      "sha256": "a88ad6bf76a8aec1935b66317a20647f8a06d6af9fb2b420769536489626090b",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode1_en.pdf",
+      "bytes": 24085104,
+      "sha256": "b826bcfc2fc3525cf3c953ff3b8eca8aaa064da279b678b0d9696aea9c0d6408",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode1_es.pdf",
+      "bytes": 24091107,
+      "sha256": "7dc33325e2ada8d06e97c2c0102b4fada741ba94e8fc5aae95f999c44923dc6d",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode1_id.pdf",
+      "bytes": 24908881,
+      "sha256": "9e01ffb79638c099858e03abca78fab57f610a1b73896114127131621e6e9877",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode1_it.pdf",
+      "bytes": 24087231,
+      "sha256": "87b7e2d8e9a80ac81de0726330a813ca6af069826ab55eecc23b426be06c2b71",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode1_ja.pdf",
+      "bytes": 24175740,
+      "sha256": "18ac4d44bf00436d91c7a9ea9c6d943a0611f370e190f6a09c34271104c89a30",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode1_ne.pdf",
+      "bytes": 24921665,
+      "sha256": "cc0367dce439e9b06625135f347d3cb3ff730f58470441ce49ecee8d992077b2",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode1_pt.pdf",
+      "bytes": 24091125,
+      "sha256": "d9fc866185d9a009b259e471a9f15fde490bc95f681ea97550aa348721f8fdbd",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode1_tl.pdf",
+      "bytes": 24950635,
+      "sha256": "7abe3dace21c1a0f2e8b2e572947686188cec211a816195ef504f6c7cb23eab8",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode1_vi.pdf",
+      "bytes": 24910077,
+      "sha256": "40539c63002a6dde680dc029da6358b676f3a5ed378b911205b62bf0c53e495b",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode2_2_de.pdf",
+      "bytes": 24972620,
+      "sha256": "91e4e4c63e4326f383c765174294c7f9a7bdb345676032b02f7177cbe0a10adb",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode2_2_en.pdf",
+      "bytes": 24975916,
+      "sha256": "7c4959f8e2a1da779a948c5da7d383426b03db4dd73876f0f52bbf0a9fd6553a",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode2_2_fr.pdf",
+      "bytes": 24975808,
+      "sha256": "371be77134686329c0812c0d2333fbff322e4c0d0f86ea8c1743808bed00a305",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode2_2_ja.pdf",
+      "bytes": 25039091,
+      "sha256": "758fc91d87acb3de9e1fd006f5cc4decf51a0d0c5136b736f4d598b963c0cf2d",
+      "tracked": false,
+      "matches_latest": true,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode2_2_ko.pdf",
+      "bytes": 24976048,
+      "sha256": "f21bfe8f1cf9e8e242a719ace06119cea3934e73800f4989d217a9373b41f55f",
+      "tracked": false,
+      "matches_latest": true,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode2_2_zh_cn.pdf",
+      "bytes": 25042963,
+      "sha256": "499870a2919840bb1758b85bcdfbe311a50c92fc47c4778c7966b080f875ca44",
+      "tracked": false,
+      "matches_latest": true,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode2_2_zh_tw.pdf",
+      "bytes": 25062567,
+      "sha256": "5a9e3d12a0f6b287e72916e21cfac22cdb24de534e1d1c73cdcc37413fdca8ad",
+      "tracked": false,
+      "matches_latest": true,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode2_en.pdf",
+      "bytes": 24952150,
+      "sha256": "1536cdbbda1c8852ee9569caee164e749216d07612fcdfffc6adb97519a54bfe",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode2_es.pdf",
+      "bytes": 24953893,
+      "sha256": "7355e7feb361c404692701a6e35208204586efdbd3281bd7c221f1ffa5c6ff95",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode2_id.pdf",
+      "bytes": 25775681,
+      "sha256": "91a11fd15d72ef4ea8eb2ca258ef677878814472c7ee26dead38b4c1a69e4080",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode2_it.pdf",
+      "bytes": 24952538,
+      "sha256": "20106648df0b6bd274115d6216c8506e57fe2cf77d26b78ed2caf20bad904a79",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode2_ja.pdf",
+      "bytes": 24995980,
+      "sha256": "65c41c096a58c2f66e5adf3af5499c7bcdf4f123d0870439db6705b7e1f8d4c7",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode2_ne.pdf",
+      "bytes": 25815602,
+      "sha256": "f9f61da9e9118eca17240ece2da1bb5f6298bac7d878b5dfde6e44fa3bdd9cb5",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode2_pt.pdf",
+      "bytes": 24954778,
+      "sha256": "5c08fd6b8cf8f9c6cdf3b079b0ee710b8617c35aa2f6a2949761d25d81cddfad",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode2_tl.pdf",
+      "bytes": 25780674,
+      "sha256": "b7b584f04542b765fedec592b79cac2fb645eaa3a1235e54bbe1eb9de019c982",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode2_vi.pdf",
+      "bytes": 25775806,
+      "sha256": "ccc328590242a91ece13773f5f3f4f2a8b7c6aaf59d1e4a6be8151c7684a36ea",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode3_de.pdf",
+      "bytes": 23196872,
+      "sha256": "2e5c48a6e798c24d5fbd74793249c3f53dc8d0edf0233e78f00044b7d3b0ac1b",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode3_en.pdf",
+      "bytes": 23200060,
+      "sha256": "760bc12a3d3dc15097f25e0dcd0d647a47b32c42435c5348c35c506045b87200",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode3_es.pdf",
+      "bytes": 23200345,
+      "sha256": "7d498584b810d0d01a9e5af52acc6773e2291e73759c14c6e1d8103fd5fbd54e",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode3_fr.pdf",
+      "bytes": 23200663,
+      "sha256": "bd78a0e532a4d91938708c2c197ef07d0f90ca6eaea6da63616bcfd0cfbc2c73",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode3_id.pdf",
+      "bytes": 23924485,
+      "sha256": "9d3ca825e51c1ef0e9abd2dfcbc4772d6aa30f3cca597ea8e5b465b008aa51c1",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode3_it.pdf",
+      "bytes": 23200680,
+      "sha256": "80f1af253fcea66e2a20d547e165a5b85901609a523732835fa8bea38073d385",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode3_ja.pdf",
+      "bytes": 23238613,
+      "sha256": "4abfe0f4a028bbac280c7629cd64c72e5df1faac8348695e0277dfc5a9154558",
+      "tracked": false,
+      "matches_latest": true,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode3_ko.pdf",
+      "bytes": 23179237,
+      "sha256": "4e0049cb3022a7bf6e8fdb249a75c16272bdb95436e682b66c7da8ca733363c5",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode3_ne.pdf",
+      "bytes": 23965795,
+      "sha256": "5fb3ada90723aa21f75b7bcbba8b74004f2dc275a31651f3b7e72ae15de20a17",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode3_pt.pdf",
+      "bytes": 23204821,
+      "sha256": "386b5c0ce02286ff0b503cfdeae490c28fe71a7f395f781eccc3e71ca01d9822",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode3_tl.pdf",
+      "bytes": 23971155,
+      "sha256": "4f965548196c7ec3a236b02b4541bb2ba622a4420fd4d74885dc4363edbf70f8",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode3_vi.pdf",
+      "bytes": 23994791,
+      "sha256": "21f3a1f95864cad7c35091eba8b1d02bd06cbb8fed093ae13bd6095b5a89da52",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode3_zh_cn.pdf",
+      "bytes": 23214503,
+      "sha256": "8d3f8682c5ea80d99cfe08661a8b8134585a7c746d2fd28b65fa75a7c89533ce",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "testdata/tameshibu_episode3_zh_tw.pdf",
+      "bytes": 23228738,
+      "sha256": "ad8d655b75e2e5373bde3c224119565985605387431495ad05e6cafee61370f4",
+      "tracked": false,
+      "matches_latest": false,
+      "reason": "untracked_protected"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode1_2_de.pdf",
+      "bytes": 24107143,
+      "sha256": "dbe809662c2a54177591f336045a1d3d824ecdca03c25080e20503dd9ef25acd",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode1_2_en.pdf",
+      "bytes": 24108800,
+      "sha256": "253cf2ddec73886519de047f24bf7de4ab1aa6ec1b2498aaa798ee8930ea1c7b",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode1_2_fr.pdf",
+      "bytes": 24111899,
+      "sha256": "3c6a90fac7c3742ab569729fe66c990af2aeb4096567f24cfb82de483f2e86fc",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode1_2_zh_tw.pdf",
+      "bytes": 24191145,
+      "sha256": "a88ad6bf76a8aec1935b66317a20647f8a06d6af9fb2b420769536489626090b",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode1_es.pdf",
+      "bytes": 24091107,
+      "sha256": "7dc33325e2ada8d06e97c2c0102b4fada741ba94e8fc5aae95f999c44923dc6d",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode1_id.pdf",
+      "bytes": 24908881,
+      "sha256": "9e01ffb79638c099858e03abca78fab57f610a1b73896114127131621e6e9877",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode1_it.pdf",
+      "bytes": 24087231,
+      "sha256": "87b7e2d8e9a80ac81de0726330a813ca6af069826ab55eecc23b426be06c2b71",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode1_ne.pdf",
+      "bytes": 24921665,
+      "sha256": "cc0367dce439e9b06625135f347d3cb3ff730f58470441ce49ecee8d992077b2",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode1_pt.pdf",
+      "bytes": 24091125,
+      "sha256": "d9fc866185d9a009b259e471a9f15fde490bc95f681ea97550aa348721f8fdbd",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode1_tl.pdf",
+      "bytes": 24950635,
+      "sha256": "7abe3dace21c1a0f2e8b2e572947686188cec211a816195ef504f6c7cb23eab8",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode1_vi.pdf",
+      "bytes": 24910077,
+      "sha256": "40539c63002a6dde680dc029da6358b676f3a5ed378b911205b62bf0c53e495b",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_2_de.pdf",
+      "bytes": 24972620,
+      "sha256": "91e4e4c63e4326f383c765174294c7f9a7bdb345676032b02f7177cbe0a10adb",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_2_en.pdf",
+      "bytes": 24975916,
+      "sha256": "7c4959f8e2a1da779a948c5da7d383426b03db4dd73876f0f52bbf0a9fd6553a",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_2_fr.pdf",
+      "bytes": 24975808,
+      "sha256": "371be77134686329c0812c0d2333fbff322e4c0d0f86ea8c1743808bed00a305",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_es.pdf",
+      "bytes": 24953893,
+      "sha256": "7355e7feb361c404692701a6e35208204586efdbd3281bd7c221f1ffa5c6ff95",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_id.pdf",
+      "bytes": 25775681,
+      "sha256": "91a11fd15d72ef4ea8eb2ca258ef677878814472c7ee26dead38b4c1a69e4080",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_it.pdf",
+      "bytes": 24952538,
+      "sha256": "20106648df0b6bd274115d6216c8506e57fe2cf77d26b78ed2caf20bad904a79",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_ne.pdf",
+      "bytes": 25815602,
+      "sha256": "f9f61da9e9118eca17240ece2da1bb5f6298bac7d878b5dfde6e44fa3bdd9cb5",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_pt.pdf",
+      "bytes": 24954778,
+      "sha256": "5c08fd6b8cf8f9c6cdf3b079b0ee710b8617c35aa2f6a2949761d25d81cddfad",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_tl.pdf",
+      "bytes": 25780674,
+      "sha256": "b7b584f04542b765fedec592b79cac2fb645eaa3a1235e54bbe1eb9de019c982",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode2_vi.pdf",
+      "bytes": 25775806,
+      "sha256": "ccc328590242a91ece13773f5f3f4f2a8b7c6aaf59d1e4a6be8151c7684a36ea",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode3_de.pdf",
+      "bytes": 23196872,
+      "sha256": "2e5c48a6e798c24d5fbd74793249c3f53dc8d0edf0233e78f00044b7d3b0ac1b",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode3_en.pdf",
+      "bytes": 23200060,
+      "sha256": "760bc12a3d3dc15097f25e0dcd0d647a47b32c42435c5348c35c506045b87200",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode3_es.pdf",
+      "bytes": 23200345,
+      "sha256": "7d498584b810d0d01a9e5af52acc6773e2291e73759c14c6e1d8103fd5fbd54e",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode3_fr.pdf",
+      "bytes": 23200663,
+      "sha256": "bd78a0e532a4d91938708c2c197ef07d0f90ca6eaea6da63616bcfd0cfbc2c73",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode3_id.pdf",
+      "bytes": 23924485,
+      "sha256": "9d3ca825e51c1ef0e9abd2dfcbc4772d6aa30f3cca597ea8e5b465b008aa51c1",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode3_it.pdf",
+      "bytes": 23200680,
+      "sha256": "80f1af253fcea66e2a20d547e165a5b85901609a523732835fa8bea38073d385",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode3_ko.pdf",
+      "bytes": 23179237,
+      "sha256": "4e0049cb3022a7bf6e8fdb249a75c16272bdb95436e682b66c7da8ca733363c5",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode3_ne.pdf",
+      "bytes": 23965795,
+      "sha256": "5fb3ada90723aa21f75b7bcbba8b74004f2dc275a31651f3b7e72ae15de20a17",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode3_pt.pdf",
+      "bytes": 23204821,
+      "sha256": "386b5c0ce02286ff0b503cfdeae490c28fe71a7f395f781eccc3e71ca01d9822",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode3_tl.pdf",
+      "bytes": 23971155,
+      "sha256": "4f965548196c7ec3a236b02b4541bb2ba622a4420fd4d74885dc4363edbf70f8",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode3_vi.pdf",
+      "bytes": 23994791,
+      "sha256": "21f3a1f95864cad7c35091eba8b1d02bd06cbb8fed093ae13bd6095b5a89da52",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode3_zh_cn.pdf",
+      "bytes": 23214503,
+      "sha256": "8d3f8682c5ea80d99cfe08661a8b8134585a7c746d2fd28b65fa75a7c89533ce",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    },
+    {
+      "path": "docs/sample/tameshibu_episode3_zh_tw.pdf",
+      "bytes": 23228738,
+      "sha256": "ad8d655b75e2e5373bde3c224119565985605387431495ad05e6cafee61370f4",
+      "tracked": true,
+      "matches_latest": false,
+      "reason": "different_from_latest_sha256_storage_not_verified"
+    }
+  ],
+  "shipping_app_dependencies": "Archives 1.0.0 (1,2),1.0.1 (3) use old Android Release; 1.0.2 (4),1.0.3 (5),1.0.4 (6) use fixed manga-prompt-kit Release. No self Pages sample/testdata references or bundled manga PDFs found. Old Releases retained.",
+  "historical_asset_manifest": "Unchanged; historical record, not a current tree assertion."
+}
