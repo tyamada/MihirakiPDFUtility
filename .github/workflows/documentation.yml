@@ -1,0 +1,19 @@
+name: Documentation checks
+on:
+  push:
+    branches: [main]
+    paths: ['README*.md', 'docs/**', 'scripts/check_repository.py', 'scripts/test_check_repository.py', '.github/workflows/documentation.yml']
+  pull_request:
+    paths: ['README*.md', 'docs/**', 'scripts/check_repository.py', 'scripts/test_check_repository.py', '.github/workflows/documentation.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  documentation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check public links and required build-file references
+        run: python3 scripts/check_repository.py
+      - name: Test offline document checks
+        run: python3 -m unittest discover -s scripts -p 'test_check_repository.py'

@@ -1,5 +1,7 @@
 # MihirakiPDFUtility
 
+公開状況・X案内の確認結果（2026-11-23）は[公開準備記録](docs/PUBLICATION_STATUS_20261123.ja.md)を参照してください。既存の保留事項は維持しています。
+
 [English](README.md) | 日本語
 
 MihirakiPDFUtilityは、PDFページの並べ替え、回転、挿入、削除などをローカル環境で行うAppleプラットフォーム向けアプリです。

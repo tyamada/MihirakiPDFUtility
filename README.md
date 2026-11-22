@@ -1,5 +1,7 @@
 # MihirakiPDFUtility
 
+See the [publication and X announcement record (Japanese)](docs/PUBLICATION_STATUS_20261123.ja.md) for the November 23, 2026 checks. Existing pending work remains pending.
+
 English | [日本語](README_ja.md)
 
 MihirakiPDFUtility is an app for Apple platforms that organizes PDF pages locally, including reordering, rotating, inserting and removing pages.
