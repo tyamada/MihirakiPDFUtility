@@ -29,4 +29,4 @@ Optional `--download-directory /external/cache --sample-id ep1_ja` performs sele
 
 ## Retained legacy files
 
-Only exact Release-matching, tracked PDFs with no shipping-app dependency may be removed after checks. Untracked PDFs, unknown/older hashes, SEASIDE_LIVING and other regression PDFs, historical `migration/ASSET_MANIFEST.sha256`, and on-device files remain untouched. Old Android Release URLs remain necessary for shipped 1.0.0/1.0.1; do not remove those Releases. The 2026-11-20 cleanup evidence is recorded separately from the immutable migration history.
+See [the current retirement policy and inventory](../docs/sample-pdf-retirement-2026-11-24.md). Obsolete Pages copies are removed without changing Release assets, machine catalogs, technical regression fixtures, migration evidence or on-device PDFs. Untracked local inputs and original working copies remain untouched. Shipped 1.0.0/1.0.1 and the current main catalog reference Android Releases; preserve those Releases. Git history is retained for recovery; this is not a history rewrite.
