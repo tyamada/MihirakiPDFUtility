@@ -1,6 +1,6 @@
 # MihirakiPDFUtility
 
-See the [publication and X announcement record (Japanese)](docs/PUBLICATION_STATUS_20261123.ja.md) for the November 23, 2026 checks. Existing pending work remains pending.
+Available on the [App Store](https://apps.apple.com/app/id6814705870) in 16 countries/regions (as of November 27, 2026; iOS 1.0.5 is currently Waiting for Review). See the [latest expansion plan & audit (Japanese)](planning/2026-11-26-next-regions-expansion-plan/00-plan-and-decision-gates-ja.md) and the earlier [November 23 publication record (Japanese)](docs/PUBLICATION_STATUS_20261123.ja.md).
 
 English | [日本語](README_ja.md)
 
@@ -34,8 +34,9 @@ This repository was created to develop a new app based on code and specification
 - Optional non-consumable In-App Purchases for permanent Bronze, Silver, and Gold supporter icons
 - Marketing, privacy and support pages for GitHub Pages
 
-## Website
+## Website & App Store
 
+- [App Store](https://apps.apple.com/app/id6814705870)
 - [Marketing page](https://tyamada.github.io/MihirakiPDFUtility/)
 - [Privacy Policy](https://tyamada.github.io/MihirakiPDFUtility/privacy.html)
 - [Support](https://tyamada.github.io/MihirakiPDFUtility/support.html)
