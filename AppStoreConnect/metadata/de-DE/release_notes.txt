@@ -1,1 +1,3 @@
-Erste Veröffentlichung. Unterstützt Doppelseitenanzeige, Teilen, Zusammenführen und Sortieren von PDFs auf iPhone und iPad.
+Verbesserte Benutzeroberflächentexte auf Deutsch, Französisch, Italienisch und Traditionellem Chinesisch sowie aktualisierte Hilfe- und Kaufwiederherstellungshinweise.
+Aktualisiertes Laden und Zwischenspeichern des Beispiel-PDF-Katalogs bei weiterhin offline verfügbaren heruntergeladenen PDFs.
+Verbesserte Lesbarkeit von Details auf kleinen Bildschirmen und bei größerer Schriftgröße sowie stabilere Beibehaltung der PDF-Version beim Export.

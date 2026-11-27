@@ -103,6 +103,7 @@ struct DiagnosticsView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }
+                        .keyboardShortcut(.cancelAction)
                         .disabled(runner.isRunning)
                 }
             }

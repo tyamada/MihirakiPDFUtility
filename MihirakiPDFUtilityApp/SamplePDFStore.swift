@@ -18,6 +18,7 @@ final class SamplePDFStore {
     private let session: URLSession
     private let catalogBundle: Bundle
     private let documentsDirectory: URL
+    private var isRefreshingCatalog = false
     private let pathMonitor: NWPathMonitor
     private let pathMonitorQueue = DispatchQueue(label: "SamplePDFStore.NetworkPath")
 
@@ -49,6 +50,7 @@ final class SamplePDFStore {
     }
 
     func loadCatalog() {
+        guard catalog == nil else { refreshDownloadStates(); return }
         do {
             guard let url = catalogBundle.url(
                 forResource: "SamplePDFCatalog",
@@ -62,12 +64,98 @@ final class SamplePDFStore {
                 from: Data(contentsOf: url)
             )
             try Self.validate(decodedCatalog)
-            catalog = decodedCatalog
-            migrateLegacyFilesIfPossible(for: decodedCatalog.samples)
+            // A malformed cached list must never prevent the bundled fallback from loading.
+            let cached = try? Data(contentsOf: catalogCacheURL)
+            let cachedCatalog = cached.flatMap { try? JSONDecoder().decode(SamplePDFCatalog.self, from: $0) }
+            let validCached = cachedCatalog.flatMap { candidate -> SamplePDFCatalog? in
+                do { try Self.validate(candidate); return candidate } catch { return nil }
+            }
+            catalog = validCached ?? decodedCatalog
+            migrateLegacyFilesIfPossible(for: catalog?.samples ?? decodedCatalog.samples)
             refreshDownloadStates()
         } catch {
             errorMessage = SamplePDFStoreError.catalogUnavailable.localizedDescription
         }
+    }
+
+    private var catalogCacheURL: URL {
+        documentsDirectory.appending(path: "MihirakiSamplePdfs/catalog-v1.json")
+    }
+
+    /// Best-effort metadata refresh. An offline/invalid response keeps the usable list.
+    @discardableResult
+    func refreshCatalog() async -> Bool {
+        guard !isRefreshingCatalog else { return false }
+        if catalog == nil { loadCatalog() }
+        guard let previous = catalog else { return false }
+        isRefreshingCatalog = true
+        defer { isRefreshingCatalog = false }
+        do {
+            var request = URLRequest(url: SamplePDFURLPolicy.manifestURL,
+                cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 20)
+            // Metadata refresh must not silently use the mobile-data download path.
+            request.allowsCellularAccess = false
+            let (bytes, response) = try await session.bytes(for: request,
+                delegate: SamplePDFRedirectDelegate(manifest: true))
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200,
+                  response.expectedContentLength <= Int64(SamplePDFURLPolicy.maximumManifestSize) else {
+                throw SamplePDFStoreError.invalidServerResponse
+            }
+            try SamplePDFURLPolicy.validateResponse(response.url, manifest: true)
+            var data = Data()
+            for try await byte in bytes {
+                guard data.count < SamplePDFURLPolicy.maximumManifestSize else {
+                    throw SamplePDFStoreError.invalidCatalog
+                }
+                data.append(byte)
+            }
+            try Task.checkCancellation()
+            try applyManifest(data, preserving: previous)
+            return true
+        } catch {
+            // Do not replace a working catalog or show a download error merely for being offline.
+            return false
+        }
+    }
+
+    func applyManifest(_ data: Data, preserving previous: SamplePDFCatalog) throws {
+        guard data.count <= SamplePDFURLPolicy.maximumManifestSize else {
+            throw SamplePDFStoreError.invalidCatalog
+        }
+        let manifest = try JSONDecoder().decode(SamplePDFManifest.self, from: data)
+        // Even if a previous remote list omitted an uninstalled sample, keep the
+        // bundled identity/name mapping when that ID reappears (notably fil -> tl).
+        var identities = previous.samples
+        if let url = catalogBundle.url(forResource: "SamplePDFCatalog", withExtension: "json"),
+           let bundledData = try? Data(contentsOf: url),
+           let bundled = try? JSONDecoder().decode(SamplePDFCatalog.self, from: bundledData) {
+            try Self.validate(bundled)
+            let previousIDs = Set(identities.map(\.id))
+            identities += bundled.samples.filter { !previousIDs.contains($0.id) }
+        }
+        let known = SamplePDFCatalog(schemaVersion: previous.schemaVersion,
+            license: previous.license, samples: identities)
+        var candidate = try manifest.catalog(preserving: known)
+        try Self.validate(candidate)
+        // Keep the exact metadata/cache path of installed or in-flight PDFs, even if
+        // the latest manifest changes or omits them. Only explicit user actions delete PDFs.
+        let retained = previous.samples.filter { sample in
+            fileManager.fileExists(atPath: localURL(for: sample).path)
+                || state(for: sample) == .downloading || state(for: sample) == .deleting
+        }
+        let retainedByID = Dictionary(uniqueKeysWithValues: retained.map { ($0.id, $0) })
+        var merged = candidate.samples.map { retainedByID[$0.id] ?? $0 }
+        let candidateIDs = Set(merged.map(\.id))
+        merged += retained.filter { !candidateIDs.contains($0.id) }
+        candidate = SamplePDFCatalog(schemaVersion: candidate.schemaVersion,
+            license: candidate.license, samples: merged)
+        try Self.validate(candidate)
+        let encoded = try JSONEncoder().encode(candidate)
+        try fileManager.createDirectory(at: catalogCacheURL.deletingLastPathComponent(),
+            withIntermediateDirectories: true)
+        try encoded.write(to: catalogCacheURL, options: .atomic)
+        catalog = candidate
+        refreshDownloadStates()
     }
 
     func refreshDownloadStates() {
@@ -88,11 +176,17 @@ final class SamplePDFStore {
 
     func download(_ sample: SamplePDF, allowsCellular: Bool) async {
         guard state(for: sample) != .downloading else { return }
+        // A metadata update never triggers re-download of an installed PDF.
+        if fileManager.fileExists(atPath: localURL(for: sample).path) {
+            states[sample.id] = .downloaded
+            return
+        }
 
         states[sample.id] = .downloading
         errorMessage = nil
 
         do {
+            try Self.validateDownloadURL(sample.downloadURL)
             let destinationURL = localURL(for: sample)
             let destinationDirectory = destinationURL.deletingLastPathComponent()
             try fileManager.createDirectory(
@@ -106,7 +200,8 @@ final class SamplePDFStore {
                 timeoutInterval: 300
             )
             request.allowsCellularAccess = allowsCellular
-            let (temporaryURL, response) = try await session.download(for: request)
+            let (temporaryURL, response) = try await session.download(for: request,
+                delegate: SamplePDFRedirectDelegate(manifest: false))
             // Failed validation must not leave a temporary download behind.
             defer { try? fileManager.removeItem(at: temporaryURL) }
 
@@ -168,6 +263,8 @@ final class SamplePDFStore {
         }
     }
 
+    // fileName is the stable on-device name, not the remote URL basename.
+    // In particular, Filipino ep1/ep2 retain _fil.pdf while the release uses _tl.pdf.
     func localURL(for sample: SamplePDF) -> URL {
         documentsDirectory
             .appending(path: "MihirakiSamplePdfs/verified", directoryHint: .isDirectory)
@@ -205,7 +302,8 @@ final class SamplePDFStore {
         guard catalog.schemaVersion == 2 || catalog.schemaVersion == 1,
               catalog.license.identifier == "CC-BY-4.0",
               catalog.license.url.scheme == "https",
-              catalog.license.url.host == "creativecommons.org" else {
+              catalog.license.url.host == "creativecommons.org",
+              !catalog.samples.isEmpty else {
             throw SamplePDFStoreError.invalidCatalog
         }
 
@@ -218,8 +316,7 @@ final class SamplePDFStore {
                   fileNames.insert(sample.fileName).inserted,
                   sample.byteSize > 0,
                   sample.byteSize <= maximumFileSize,
-                  sample.fileName == URL(fileURLWithPath: sample.fileName).lastPathComponent,
-                  sample.fileName.lowercased().hasSuffix(".pdf"),
+                  SamplePDFURLPolicy.isSafeFileName(sample.fileName),
                   sample.sha256.count == 64,
                   sample.sha256.allSatisfy(\.isHexDigit) else {
                 throw SamplePDFStoreError.invalidCatalog
@@ -229,22 +326,11 @@ final class SamplePDFStore {
     }
 
     static func validateDownloadURL(_ url: URL?) throws {
-        guard let url,
-              url.scheme == "https",
-              url.host == "github.com",
-              url.path.hasPrefix("/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/") else {
-            throw SamplePDFStoreError.invalidDownloadURL
-        }
+        try SamplePDFURLPolicy.validateDownload(url)
     }
 
     static func validateResponseURL(_ url: URL?) throws {
-        guard let url,
-              url.scheme == "https",
-              url.host == "github.com"
-                || url.host == "objects.githubusercontent.com"
-                || url.host == "release-assets.githubusercontent.com" else {
-            throw SamplePDFStoreError.invalidDownloadURL
-        }
+        try SamplePDFURLPolicy.validateResponse(url, manifest: false)
     }
 
     private static func validateDownloadedFile(at url: URL, sample: SamplePDF) async throws {

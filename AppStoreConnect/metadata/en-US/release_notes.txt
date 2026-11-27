@@ -1,1 +1,3 @@
-Initial release. Supports spread view, page splitting, merging, and reordering for PDFs on iPhone and iPad.
+Improved German, French, Italian, and Japanese interface text, including help and purchase restoration guidance.
+Improved PDF version preservation and page ordering reliability when exporting edited PDFs across iOS versions.
+Updated app display name consistency for German, French, and Italian locales.

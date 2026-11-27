@@ -112,6 +112,7 @@ struct PDFOptionsView: View {
                     Button("Done") {
                         dismiss()
                     }
+                    .keyboardShortcut(.cancelAction)
                 }
             }
         }

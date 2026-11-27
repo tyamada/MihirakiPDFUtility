@@ -86,6 +86,12 @@
             "state" : "translated",
             "value" : "%1$lld / %2$lld"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld / %2$lld"
+          }
         }
       }
     },
@@ -164,6 +170,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld ms"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld ms"
@@ -250,6 +262,12 @@
             "state" : "translated",
             "value" : "%lld%%"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld%%"
+          }
         }
       }
     },
@@ -328,6 +346,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "5,000,000次整數運算（總和檢查碼：%llu）"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "5,000,000次整數運算（總和檢查碼：%llu）"
@@ -415,6 +439,12 @@
             "state" : "machine_translated",
             "value" : "一次性消耗型購買"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "一次性消耗型購買"
+          }
         }
       }
     },
@@ -493,6 +523,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "操作"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "操作"
@@ -579,6 +615,12 @@
             "state" : "machine_translated",
             "value" : "從「編輯頁面」選單新增另一個PDF。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "從「編輯頁面」選單新增另一個PDF。"
+          }
         }
       }
     },
@@ -657,6 +699,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新增 PDF"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "新增 PDF"
@@ -743,6 +791,12 @@
             "state" : "machine_translated",
             "value" : "同意並開啟"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "同意並開啟"
+          }
         }
       }
     },
@@ -821,6 +875,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "全部"
@@ -907,6 +967,12 @@
             "state" : "machine_translated",
             "value" : "無需購買即可使用所有PDF編輯功能。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "無需購買即可使用所有PDF編輯功能。"
+          }
         }
       }
     },
@@ -985,6 +1051,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "發生未知的錯誤。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "發生未知的錯誤。"
@@ -1136,6 +1208,12 @@
             "state" : "machine_translated",
             "value" : "App名稱"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "App名稱"
+          }
         }
       }
     },
@@ -1215,8 +1293,14 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "App"
+            "state" : "translated",
+            "value" : "應用程式"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "應用程式"
           }
         }
       }
@@ -1296,6 +1380,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "應用"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "應用"
@@ -1388,6 +1478,12 @@
             "state" : "machine_translated",
             "value" : "自動"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "自動"
+          }
         }
       }
     },
@@ -1466,6 +1562,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "升冪"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "升冪"
@@ -1552,11 +1654,14 @@
             "state" : "translated",
             "value" : "作者"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "作者"
+          }
         }
       }
-    },
-    "Auto" : {
-
     },
     "Badge Claimed!" : {
       "extractionState" : "manual",
@@ -1700,7 +1805,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Before Sharing"
+            "value" : "分享前"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分享前"
           }
         }
       }
@@ -1782,7 +1893,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Blank insertion did not match the expected order, dimensions, rotation, selection or blank rendering."
+            "value" : "插入空白頁後，頁面順序、尺寸、旋轉角度、選取狀態或空白頁的繪製結果不符預期。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "插入空白頁後，頁面順序、尺寸、旋轉角度、選取狀態或空白頁的繪製結果不符預期。"
           }
         }
       }
@@ -1931,6 +2048,12 @@
             "state" : "machine_translated",
             "value" : "青銅贊助"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "青銅贊助"
+          }
         }
       }
     },
@@ -2009,6 +2132,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "青銅、白銀與黃金支持者圖示是選購的非消耗型購買項目。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "青銅、白銀與黃金支持者圖示是選購的非消耗型購買項目。"
@@ -2095,6 +2224,12 @@
             "state" : "machine_translated",
             "value" : "瀏覽範例PDF"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "瀏覽範例PDF"
+          }
         }
       }
     },
@@ -2173,6 +2308,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "組建版本"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "組建版本"
@@ -2259,6 +2400,12 @@
             "state" : "translated",
             "value" : "按鈕顯示"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按鈕顯示"
+          }
         }
       }
     },
@@ -2337,6 +2484,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "取消"
@@ -2421,7 +2574,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cancel Tests"
+            "value" : "取消測試"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消測試"
           }
         }
       }
@@ -2503,7 +2662,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cancelled"
+            "value" : "已取消"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已取消"
           }
         }
       }
@@ -2585,7 +2750,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cancelled: %lld"
+            "value" : "已取消：%lld"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已取消：%lld"
           }
         }
       }
@@ -2667,7 +2838,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Case test data could not be deleted. Final workspace cleanup will retry."
+            "value" : "無法刪除此項測試的資料。清理測試工作區時會再試一次。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法刪除此項測試的資料。清理測試工作區時會再試一次。"
           }
         }
       }
@@ -2747,6 +2924,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "目錄提供者：%@"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "目錄提供者：%@"
@@ -2833,6 +3016,12 @@
             "state" : "machine_translated",
             "value" : "CC BY 4.0授權條款"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "CC BY 4.0授權條款"
+          }
         }
       }
     },
@@ -2911,6 +3100,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "選擇PDF以排列、旋轉或移除頁面。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "選擇PDF以排列、旋轉或移除頁面。"
@@ -2997,6 +3192,12 @@
             "state" : "machine_translated",
             "value" : "請清楚註明是否進行了任何變更。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "請清楚註明是否進行了任何變更。"
+          }
         }
       }
     },
@@ -3075,6 +3276,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "關閉"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "關閉"
@@ -3295,7 +3502,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completed: %1$lld / %2$lld"
+            "value" : "已完成：%1$lld / %2$lld"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已完成：%1$lld / %2$lld"
           }
         }
       }
@@ -3375,6 +3588,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "確認密碼"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "確認密碼"
@@ -3467,6 +3686,12 @@
             "state" : "machine_translated",
             "value" : "正在轉換影像：%1$lld / %2$lld"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "正在轉換影像：%1$lld / %2$lld"
+          }
         }
       }
     },
@@ -3545,6 +3770,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "已複製"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "已複製"
@@ -3631,6 +3862,12 @@
             "state" : "machine_translated",
             "value" : "複製記錄"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "複製記錄"
+          }
         }
       }
     },
@@ -3711,7 +3948,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Copy Report"
+            "value" : "複製報告"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "複製報告"
           }
         }
       }
@@ -3791,6 +4034,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "複製結果"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "複製結果"
@@ -3877,6 +4126,12 @@
             "state" : "machine_translated",
             "value" : "著作權"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "著作權"
+          }
         }
       }
     },
@@ -3955,6 +4210,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "無法載入支持選項。請稍後再試。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "無法載入支持選項。請稍後再試。"
@@ -4041,6 +4302,12 @@
             "state" : "machine_translated",
             "value" : "無法驗證購買項目。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "無法驗證購買項目。"
+          }
         }
       }
     },
@@ -4119,6 +4386,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "CPU運算"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "CPU運算"
@@ -4205,6 +4478,12 @@
             "state" : "machine_translated",
             "value" : "已建立並掃描16 MB的資料（總和檢查碼：%llu）"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "已建立並掃描16 MB的資料（總和檢查碼：%llu）"
+          }
         }
       }
     },
@@ -4283,6 +4562,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "建立日期"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "建立日期"
@@ -4369,6 +4654,12 @@
             "state" : "machine_translated",
             "value" : "請標示作品名稱及作者Komairo Hiyori。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "請標示作品名稱及作者Komairo Hiyori。"
+          }
         }
       }
     },
@@ -4447,6 +4738,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "均勻裁切所選頁面的四周邊距。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "均勻裁切所選頁面的四周邊距。"
@@ -4533,6 +4830,12 @@
             "state" : "translated",
             "value" : "裁剪邊距"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "裁剪邊距"
+          }
         }
       }
     },
@@ -4611,6 +4914,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "裁剪邊距…"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "裁剪邊距…"
@@ -4698,6 +5007,12 @@
             "state" : "translated",
             "value" : "裁切..."
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "裁切..."
+          }
         }
       }
     },
@@ -4706,7 +5021,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Passen Sie die Miniaturbildgröße (S, M, L) und den Schaltflächenstil in Einstellungen > Optionen an."
+            "value" : "Passe die Miniaturbildgröße (S, M, L) und den Schaltflächenstil in Einstellungen > Optionen an."
           }
         },
         "es" : {
@@ -4776,6 +5091,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在「設定」>「選項」中自訂縮圖尺寸（S、M、L）與按鈕顯示樣式。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "在「設定」>「選項」中自訂縮圖尺寸（S、M、L）與按鈕顯示樣式。"
@@ -4927,6 +5248,12 @@
             "state" : "translated",
             "value" : "刪除"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刪除"
+          }
         }
       }
     },
@@ -5005,6 +5332,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "要從此裝置刪除「%@」嗎？"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "要從此裝置刪除「%@」嗎？"
@@ -5091,6 +5424,12 @@
             "state" : "machine_translated",
             "value" : "要刪除範例PDF嗎？"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "要刪除範例PDF嗎？"
+          }
         }
       }
     },
@@ -5171,7 +5510,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Delete Saved Report"
+            "value" : "刪除已儲存的報告"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刪除已儲存的報告"
           }
         }
       }
@@ -5253,7 +5598,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Deleted two selected pages, preserved the remaining ten in order and selected the nearest page. Deleting all pages was prevented."
+            "value" : "已刪除選取的 2 頁。其餘 10 頁維持原有順序，並已選取最接近的頁面。測試也確認無法一次刪除所有頁面。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已刪除選取的 2 頁。其餘 10 頁維持原有順序，並已選取最接近的頁面。測試也確認無法一次刪除所有頁面。"
           }
         }
       }
@@ -5333,6 +5684,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "刪除中⋯"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "刪除中⋯"
@@ -5417,7 +5774,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Deletion did not match the expected remaining pages, selection or all-page deletion protection."
+            "value" : "刪除後保留的頁面、選取狀態或防止刪除所有頁面的機制不符預期。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刪除後保留的頁面、選取狀態或防止刪除所有頁面的機制不符預期。"
           }
         }
       }
@@ -5497,6 +5860,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "降冪"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "降冪"
@@ -5583,6 +5952,12 @@
             "state" : "machine_translated",
             "value" : "取消全選"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "取消全選"
+          }
         }
       }
     },
@@ -5661,6 +6036,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "詳細資訊"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "詳細資訊"
@@ -5747,6 +6128,12 @@
             "state" : "machine_translated",
             "value" : "裝置"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "裝置"
+          }
         }
       }
     },
@@ -5827,7 +6214,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Diagnostic Bug Report"
+            "value" : "診斷問題報告"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "診斷問題報告"
           }
         }
       }
@@ -5907,6 +6300,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "使用App時，診斷事件會顯示在這裡。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "使用App時，診斷事件會顯示在這裡。"
@@ -5993,6 +6392,12 @@
             "state" : "machine_translated",
             "value" : "診斷記錄"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "診斷記錄"
+          }
         }
       }
     },
@@ -6073,7 +6478,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Diagnostic results could not be saved or restored. Results from this session remain available while the app is open."
+            "value" : "無法儲存或回復診斷結果。在關閉此應用程式前，仍可查看本次診斷結果。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法儲存或回復診斷結果。在關閉此應用程式前，仍可查看本次診斷結果。"
           }
         }
       }
@@ -6153,6 +6564,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "診斷"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "診斷"
@@ -6237,7 +6654,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Diagnostics stopped because of memory pressure. Remaining tests were skipped. Try again after closing other apps."
+            "value" : "記憶體壓力過高，診斷已停止，其餘測試已略過。請關閉其他應用程式後再試一次。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "記憶體壓力過高，診斷已停止，其餘測試已略過。請關閉其他應用程式後再試一次。"
           }
         }
       }
@@ -6319,7 +6742,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Diagnostics stopped because of the device thermal state. Remaining tests were skipped. Let the device cool before trying again."
+            "value" : "裝置溫度過高，診斷已停止，其餘測試已略過。請等裝置降溫後再試一次。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "裝置溫度過高，診斷已停止，其餘測試已略過。請等裝置降溫後再試一次。"
           }
         }
       }
@@ -6401,7 +6830,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Diagnostics stopped because the case exceeded its time limit. Remaining tests were skipped."
+            "value" : "單項測試超過時限，診斷已停止，其餘測試已略過。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "單項測試超過時限，診斷已停止，其餘測試已略過。"
           }
         }
       }
@@ -6481,6 +6916,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "方向"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "方向"
@@ -6567,6 +7008,12 @@
             "state" : "machine_translated",
             "value" : "不得暗示作者支持你或你的使用方式。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "不得暗示作者支持你或你的使用方式。"
+          }
         }
       }
     },
@@ -6645,6 +7092,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "文件"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "文件"
@@ -6731,6 +7184,12 @@
             "state" : "machine_translated",
             "value" : "文件屬性"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "文件屬性"
+          }
         }
       }
     },
@@ -6811,7 +7270,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Document properties or pages did not survive saving and reopening."
+            "value" : "儲存並重新開啟後，文件屬性或頁面未能保留。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "儲存並重新開啟後，文件屬性或頁面未能保留。"
           }
         }
       }
@@ -6895,6 +7360,12 @@
             "state" : "machine_translated",
             "value" : "文件"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "文件"
+          }
         }
       }
     },
@@ -6973,6 +7444,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "完成"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "完成"
@@ -7130,6 +7607,12 @@
             "state" : "translated",
             "value" : "點兩下以選取。點兩次或使用動作以預覽。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點兩下以選取。點兩次或使用動作以預覽。"
+          }
         }
       }
     },
@@ -7218,6 +7701,12 @@
             "state" : "translated",
             "value" : "點兩下以縮放。左右滑動以切換頁面。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點兩下以縮放。左右滑動以切換頁面。"
+          }
         }
       }
     },
@@ -7297,6 +7786,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "連續輕點兩下兩次，即可開啟全螢幕預覽。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "連續輕點兩下兩次，即可開啟全螢幕預覽。"
@@ -7383,6 +7878,12 @@
             "state" : "translated",
             "value" : "下載"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下載"
+          }
         }
       }
     },
@@ -7461,6 +7962,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "要使用行動數據下載嗎？"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "要使用行動數據下載嗎？"
@@ -7547,6 +8054,12 @@
             "state" : "machine_translated",
             "value" : "已下載"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "已下載"
+          }
         }
       }
     },
@@ -7625,6 +8138,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下載中…"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "下載中…"
@@ -7711,6 +8230,12 @@
             "state" : "machine_translated",
             "value" : "複製"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "複製"
+          }
         }
       }
     },
@@ -7791,7 +8316,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Duplicated two pages after their originals. All 14 pages, copied rotations, selected duplicates and rendered content matched."
+            "value" : "已將 2 頁的副本分別插入原頁面之後。全部 14 頁的順序、副本的旋轉角度、選取狀態與繪製內容均符合預期。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已將 2 頁的副本分別插入原頁面之後。全部 14 頁的順序、副本的旋轉角度、選取狀態與繪製內容均符合預期。"
           }
         }
       }
@@ -7873,7 +8404,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Duplication did not match the expected page order, rotation, selection or rendered content."
+            "value" : "複製後的頁面順序、旋轉角度、選取狀態或繪製內容不符預期。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "複製後的頁面順序、旋轉角度、選取狀態或繪製內容不符預期。"
           }
         }
       }
@@ -7953,6 +8490,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "每個支持者圖示只需購買一次，即可永久使用。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "每個支持者圖示只需購買一次，即可永久使用。"
@@ -8039,6 +8582,12 @@
             "state" : "machine_translated",
             "value" : "編輯頁面"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "編輯頁面"
+          }
         }
       }
     },
@@ -8119,7 +8668,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elapsed: %lld s"
+            "value" : "耗時：%lld s"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "耗時：%lld s"
           }
         }
       }
@@ -8203,6 +8758,12 @@
             "state" : "machine_translated",
             "value" : "輸入兩次新的檢視密碼。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "輸入兩次新的檢視密碼。"
+          }
         }
       }
     },
@@ -8281,6 +8842,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "輸入開啟此PDF所需的密碼。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "輸入開啟此PDF所需的密碼。"
@@ -8461,6 +9028,12 @@
             "state" : "machine_translated",
             "value" : "對頁顯示"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "對頁顯示"
+          }
         }
       }
     },
@@ -8539,6 +9112,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "對頁顯示，啟用捲動"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "對頁顯示，啟用捲動"
@@ -8625,6 +9204,12 @@
             "state" : "machine_translated",
             "value" : "對頁顯示，顯示封面"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "對頁顯示，顯示封面"
+          }
         }
       }
     },
@@ -8703,6 +9288,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "對頁顯示，顯示封面，啟用捲動"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "對頁顯示，顯示封面，啟用捲動"
@@ -8787,7 +9378,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Failed"
+            "value" : "失敗"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "失敗"
           }
         }
       }
@@ -8869,7 +9466,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Failed: %lld"
+            "value" : "失敗：%lld"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "失敗：%lld"
           }
         }
       }
@@ -8949,6 +9552,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "檔案名稱"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "檔案名稱"
@@ -9033,7 +9642,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Format"
+            "value" : "格式"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "格式"
           }
         }
       }
@@ -9115,7 +9730,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Generated eight 1024 × 1024 grayscale images on this device. Rendered every page before and after saving and verified 16 brightness samples per page."
+            "value" : "已在此裝置上產生 8 張 1024 × 1024 的灰階影像。儲存前後均繪製了所有頁面，並檢查了每頁 16 個取樣點的亮度。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已在此裝置上產生 8 張 1024 × 1024 的灰階影像。儲存前後均繪製了所有頁面，並檢查了每頁 16 個取樣點的亮度。"
           }
         }
       }
@@ -9197,7 +9818,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Generated Image Folder Conversion"
+            "value" : "轉換含測試影像的資料夾"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "轉換含測試影像的資料夾"
           }
         }
       }
@@ -9279,7 +9906,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Generated three TIFF images and converted them with the image import service. Verified natural ascending and descending order, EXIF-rotated page dimensions, and rendered brightness after saving and reopening both PDFs."
+            "value" : "已產生 3 張 TIFF 影像，並透過影像匯入功能進行轉換。儲存並重新開啟兩份 PDF 後，已確認自然遞增與遞減排序、依 EXIF 資訊旋轉後的頁面尺寸，以及繪製後的亮度。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已產生 3 張 TIFF 影像，並透過影像匯入功能進行轉換。儲存並重新開啟兩份 PDF 後，已確認自然遞增與遞減排序、依 EXIF 資訊旋轉後的頁面尺寸，以及繪製後的亮度。"
           }
         }
       }
@@ -9385,7 +10018,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Generated, loaded, and exported %lld pages (%@)"
+            "value" : "已產生、載入並輸出 %lld 頁（%@）"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已產生、載入並輸出 %lld 頁（%@）"
           }
         }
       }
@@ -9467,7 +10106,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Generated, saved and reopened a 12-page PDF. Page count and page sizes matched."
+            "value" : "已產生、儲存並重新開啟一份 12 頁的 PDF。頁數及頁面尺寸均符合預期。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已產生、儲存並重新開啟一份 12 頁的 PDF。頁數及頁面尺寸均符合預期。"
           }
         }
       }
@@ -9616,6 +10261,12 @@
             "state" : "machine_translated",
             "value" : "黃金贊助"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "黃金贊助"
+          }
         }
       }
     },
@@ -9694,6 +10345,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "說明"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "說明"
@@ -9780,6 +10437,12 @@
             "state" : "translated",
             "value" : "圖示與文字"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "圖示與文字"
+          }
         }
       }
     },
@@ -9858,6 +10521,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "僅圖示"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "僅圖示"
@@ -9942,7 +10611,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Image conversion test skipped or stopped because sufficient available storage could not be confirmed."
+            "value" : "無法確認有足夠的可用儲存空間，影像轉換測試已略過或停止。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法確認有足夠的可用儲存空間，影像轉換測試已略過或停止。"
           }
         }
       }
@@ -10022,6 +10697,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "此檔案夾內的影像將依下方順序轉換成PDF頁面。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "此檔案夾內的影像將依下方順序轉換成PDF頁面。"
@@ -10130,7 +10811,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Images: %lld"
+            "value" : "影像數量：%lld"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "影像數量：%lld"
           }
         }
       }
@@ -10210,6 +10897,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "輸入為PDF"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "輸入為PDF"
@@ -10296,6 +10989,12 @@
             "state" : "machine_translated",
             "value" : "輸入影像"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "輸入影像"
+          }
         }
       }
     },
@@ -10374,6 +11073,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "請註明原始來源並附上授權條款的連結。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "請註明原始來源並附上授權條款的連結。"
@@ -10460,6 +11165,12 @@
             "state" : "machine_translated",
             "value" : "在後方插入空白頁"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "在後方插入空白頁"
+          }
         }
       }
     },
@@ -10538,6 +11249,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "在前方插入空白頁"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "在前方插入空白頁"
@@ -10624,6 +11341,12 @@
             "state" : "machine_translated",
             "value" : "插入PDF"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "插入PDF"
+          }
         }
       }
     },
@@ -10702,6 +11425,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "在後方插入相同大小的空白頁"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "在後方插入相同大小的空白頁"
@@ -10787,7 +11516,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Insert Same-Size Blank Page Before"
+            "value" : "在前方插入相同尺寸的空白頁"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在前方插入相同尺寸的空白頁"
           }
         }
       }
@@ -10869,7 +11604,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Inserted blank pages before and after two selected pages in separate documents. All 14 pages, dimensions, rotations, selection and blank rendering matched."
+            "value" : "已分別在不同文件中，於選取的 2 頁前方和後方插入空白頁。全部 14 頁的順序、尺寸、旋轉角度、選取狀態與空白頁的繪製結果均符合預期。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已分別在不同文件中，於選取的 2 頁前方和後方插入空白頁。全部 14 頁的順序、尺寸、旋轉角度、選取狀態與空白頁的繪製結果均符合預期。"
           }
         }
       }
@@ -10949,6 +11690,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "反向選取"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "反向選取"
@@ -11035,6 +11782,12 @@
             "state" : "translated",
             "value" : "反向選取以快速切換所選頁面。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "反向選取以快速切換所選頁面。"
+          }
         }
       }
     },
@@ -11115,7 +11868,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Isolated Diagnostic Log Store"
+            "value" : "獨立診斷記錄儲存區"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "獨立診斷記錄儲存區"
           }
         }
       }
@@ -11195,6 +11954,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JSON"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "JSON"
@@ -11281,6 +12046,12 @@
             "state" : "machine_translated",
             "value" : "關鍵字，以逗號分隔"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "關鍵字，以逗號分隔"
+          }
         }
       }
     },
@@ -11359,6 +12130,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "語言"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "語言"
@@ -11445,6 +12222,12 @@
             "state" : "translated",
             "value" : "大 (L)"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大 (L)"
+          }
         }
       }
     },
@@ -11524,6 +12307,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "大額支持"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "大額支持"
@@ -11704,6 +12493,12 @@
             "state" : "translated",
             "value" : "垂直分割 (左右)"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "垂直分割 (左右)"
+          }
         }
       }
     },
@@ -11782,6 +12577,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "從左至右"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "從左至右"
@@ -11868,6 +12669,12 @@
             "state" : "machine_translated",
             "value" : "授權條款"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "授權條款"
+          }
         }
       }
     },
@@ -11946,6 +12753,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "列表"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "列表"
@@ -12030,7 +12843,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Log store test skipped or stopped because sufficient available storage could not be confirmed."
+            "value" : "無法確認有足夠的可用儲存空間，記錄儲存測試已略過或停止。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法確認有足夠的可用儲存空間，記錄儲存測試已略過或停止。"
           }
         }
       }
@@ -12110,6 +12929,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "記錄"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "記錄"
@@ -12196,6 +13021,12 @@
             "state" : "machine_translated",
             "value" : "記錄不包含檔案名稱、檔案內容、文件中繼資料或密碼。超過14天的記錄會自動刪除。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "記錄不包含檔案名稱、檔案內容、文件中繼資料或密碼。超過14天的記錄會自動刪除。"
+          }
         }
       }
     },
@@ -12234,7 +13065,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Logs stay on this device, exclude personal information and PDF contents, and are deleted after 14 days."
+            "value" : "I log rimangono su questo dispositivo, non includono dati personali né contenuti PDF e vengono eliminati dopo 14 giorni."
           }
         },
         "ja" : {
@@ -12278,6 +13109,12 @@
             "state" : "machine_translated",
             "value" : "記錄只保留在此裝置上，不包含個人資料或PDF內容，並會在14天後刪除。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "記錄只保留在此裝置上，不包含個人資料或PDF內容，並會在14天後刪除。"
+          }
         }
       }
     },
@@ -12286,7 +13123,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Logs stay on this device. This app has no feature that sends logs externally."
+            "value" : "Protokolle bleiben auf diesem Gerät. Diese App verfügt über keine Funktion zum externen Senden von Protokollen."
           }
         },
         "es" : {
@@ -12304,7 +13141,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Logs stay on this device. This app has no feature that sends logs externally."
+            "value" : "Les journaux restent sur cet appareil. Cette app ne dispose d’aucune fonction d’envoi externe des journaux."
           }
         },
         "id" : {
@@ -12316,7 +13153,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Logs stay on this device. This app has no feature that sends logs externally."
+            "value" : "I log rimangono su questo dispositivo. Questa app non dispone di alcuna funzione per inviare i log all'esterno."
           }
         },
         "ja" : {
@@ -12358,7 +13195,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Logs stay on this device. This app has no feature that sends logs externally."
+            "value" : "記錄只保留在此裝置上。此應用程式沒有對外傳送記錄的功能。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "記錄只保留在此裝置上。此應用程式沒有對外傳送記錄的功能。"
           }
         }
       }
@@ -12438,6 +13281,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac"
@@ -12523,7 +13372,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Match Screen Orientation"
+            "value" : "配合螢幕方向"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "配合螢幕方向"
           }
         }
       }
@@ -12533,7 +13388,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Measures a fixed set of integer calculations."
+            "value" : "Misst eine feste Reihe von Ganzzahlberechnungen."
           }
         },
         "es" : {
@@ -12551,7 +13406,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Measures a fixed set of integer calculations."
+            "value" : "Mesure un ensemble fixe de calculs entiers."
           }
         },
         "id" : {
@@ -12563,7 +13418,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Measures a fixed set of integer calculations."
+            "value" : "Misura un insieme fisso di calcoli interi."
           }
         },
         "ja" : {
@@ -12605,7 +13460,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Measures a fixed set of integer calculations."
+            "value" : "測量執行一組固定整數運算所需的時間。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "測量執行一組固定整數運算所需的時間。"
           }
         }
       }
@@ -12615,7 +13476,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Measures creation and scanning of a 16 MB data buffer."
+            "value" : "Misst das Erstellen und Durchsuchen eines 16-MB-Datenpuffers."
           }
         },
         "es" : {
@@ -12633,7 +13494,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Measures creation and scanning of a 16 MB data buffer."
+            "value" : "Mesure la création et l’analyse d’une mémoire tampon de 16 Mo."
           }
         },
         "id" : {
@@ -12645,7 +13506,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Measures creation and scanning of a 16 MB data buffer."
+            "value" : "Misura la creazione e la scansione di un buffer di dati da 16 MB."
           }
         },
         "ja" : {
@@ -12687,7 +13548,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Measures creation and scanning of a 16 MB data buffer."
+            "value" : "測量建立及掃描 16 MB 資料緩衝區所需的時間。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "測量建立及掃描 16 MB 資料緩衝區所需的時間。"
           }
         }
       }
@@ -12697,7 +13564,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Measures generation, loading, and export of a 100-page PDF."
+            "value" : "Misst das Erstellen, Laden und Exportieren einer 100-seitigen PDF-Datei."
           }
         },
         "es" : {
@@ -12715,7 +13582,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Measures generation, loading, and export of a 100-page PDF."
+            "value" : "Mesure la génération, le chargement et l’exportation d’un PDF de 100 pages."
           }
         },
         "id" : {
@@ -12727,7 +13594,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Measures generation, loading, and export of a 100-page PDF."
+            "value" : "Misura la generazione, il caricamento e l'esportazione di un PDF di 100 pagine."
           }
         },
         "ja" : {
@@ -12769,7 +13636,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Measures generation, loading, and export of a 100-page PDF."
+            "value" : "測量產生、載入及輸出 100 頁 PDF 所需的時間。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "測量產生、載入及輸出 100 頁 PDF 所需的時間。"
           }
         }
       }
@@ -12849,6 +13722,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "中 (M)"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "中 (M)"
@@ -12936,6 +13815,12 @@
             "state" : "machine_translated",
             "value" : "中額支持"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "中額支持"
+          }
         }
       }
     },
@@ -12944,7 +13829,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Memory Processing"
+            "value" : "Speicherverarbeitung"
           }
         },
         "es" : {
@@ -12962,7 +13847,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Memory Processing"
+            "value" : "Traitement mémoire"
           }
         },
         "id" : {
@@ -12974,7 +13859,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Memory Processing"
+            "value" : "Elaborazione memoria"
           }
         },
         "ja" : {
@@ -13016,7 +13901,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Memory Processing"
+            "value" : "記憶體處理"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "記憶體處理"
           }
         }
       }
@@ -13026,7 +13917,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Modification Date"
+            "value" : "Änderungsdatum"
           }
         },
         "es" : {
@@ -13044,7 +13935,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Modification Date"
+            "value" : "Date de modification"
           }
         },
         "id" : {
@@ -13056,7 +13947,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Modification Date"
+            "value" : "Data di modifica"
           }
         },
         "ja" : {
@@ -13098,7 +13989,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Modification Date"
+            "value" : "修改日期"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "修改日期"
           }
         }
       }
@@ -13138,7 +14035,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Move Earlier"
+            "value" : "Sposta prima"
           }
         },
         "ja" : {
@@ -13182,6 +14079,12 @@
             "state" : "machine_translated",
             "value" : "向前移"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "向前移"
+          }
         }
       }
     },
@@ -13220,7 +14123,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Move Later"
+            "value" : "Sposta dopo"
           }
         },
         "ja" : {
@@ -13260,6 +14163,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "向後移"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "向後移"
@@ -13345,7 +14254,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Move Selected Pages to Beginning"
+            "value" : "將所選頁面移到開頭"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "將所選頁面移到開頭"
           }
         }
       }
@@ -13428,7 +14343,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Move Selected Pages to End"
+            "value" : "將所選頁面移到結尾"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "將所選頁面移到結尾"
           }
         }
       }
@@ -13468,7 +14389,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Move to Beginning"
+            "value" : "Sposta all'inizio"
           }
         },
         "ja" : {
@@ -13512,6 +14433,12 @@
             "state" : "machine_translated",
             "value" : "移到開頭"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "移到開頭"
+          }
         }
       }
     },
@@ -13550,7 +14477,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Move to End"
+            "value" : "Sposta alla fine"
           }
         },
         "ja" : {
@@ -13590,6 +14517,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "移到結尾"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "移到結尾"
@@ -13676,6 +14609,12 @@
             "state" : "translated",
             "value" : "名稱"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "名稱"
+          }
         }
       }
     },
@@ -13714,7 +14653,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "New Password"
+            "value" : "Nuova password"
           }
         },
         "ja" : {
@@ -13754,6 +14693,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "新密碼"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "新密碼"
@@ -13840,6 +14785,12 @@
             "state" : "translated",
             "value" : "下一頁"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下一頁"
+          }
         }
       }
     },
@@ -13920,7 +14871,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No completed result was saved before the diagnostic run was interrupted."
+            "value" : "上次診斷中斷前，沒有已完成的結果可供查看。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上次診斷中斷前，沒有已完成的結果可供查看。"
           }
         }
       }
@@ -13930,7 +14887,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No Images"
+            "value" : "Keine Bilder"
           }
         },
         "es" : {
@@ -13948,7 +14905,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No Images"
+            "value" : "Aucune image"
           }
         },
         "id" : {
@@ -13960,7 +14917,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No Images"
+            "value" : "Nessuna immagine"
           }
         },
         "ja" : {
@@ -14002,7 +14959,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No Images"
+            "value" : "沒有影像"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "沒有影像"
           }
         }
       }
@@ -14084,7 +15047,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No Logs"
+            "value" : "沒有記錄"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "沒有記錄"
           }
         }
       }
@@ -14166,7 +15135,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No Page Selected"
+            "value" : "尚未選取頁面"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "尚未選取頁面"
           }
         }
       }
@@ -14206,7 +15181,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No Pages Selected"
+            "value" : "Nessuna pagina selezionata"
           }
         },
         "ja" : {
@@ -14250,6 +15225,12 @@
             "state" : "machine_translated",
             "value" : "未選取頁面"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "未選取頁面"
+          }
         }
       }
     },
@@ -14288,7 +15269,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No PDF Open"
+            "value" : "Nessun PDF aperto"
           }
         },
         "ja" : {
@@ -14332,6 +15313,12 @@
             "state" : "machine_translated",
             "value" : "未開啟PDF"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "未開啟PDF"
+          }
         }
       }
     },
@@ -14370,7 +15357,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No purchases were found to restore."
+            "value" : "Nessun acquisto trovato da ripristinare."
           }
         },
         "ja" : {
@@ -14414,6 +15401,12 @@
             "state" : "machine_translated",
             "value" : "找不到可回復的購買項目。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "找不到可回復的購買項目。"
+          }
         }
       }
     },
@@ -14422,7 +15415,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No supported images were found in this folder."
+            "value" : "In diesem Ordner wurden keine unterstützten Bilder gefunden."
           }
         },
         "es" : {
@@ -14440,7 +15433,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No supported images were found in this folder."
+            "value" : "Aucune image prise en charge n’a été trouvée dans ce dossier."
           }
         },
         "id" : {
@@ -14452,7 +15445,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No supported images were found in this folder."
+            "value" : "Nessuna immagine supportata trovata in questa cartella."
           }
         },
         "ja" : {
@@ -14494,7 +15487,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No supported images were found in this folder."
+            "value" : "此檔案夾內沒有支援的影像檔案。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此檔案夾內沒有支援的影像檔案。"
           }
         }
       }
@@ -14505,7 +15504,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No Supporter Icons Purchased"
+            "value" : "Keine Supporter-Icons gekauft"
           }
         },
         "es" : {
@@ -14523,7 +15522,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No Supporter Icons Purchased"
+            "value" : "Aucune icône de soutien achetée"
           }
         },
         "id" : {
@@ -14541,7 +15540,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No Supporter Icons Purchased"
+            "value" : "購入済みのサポーターアイコンはありません"
           }
         },
         "ko" : {
@@ -14577,7 +15576,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No Supporter Icons Purchased"
+            "value" : "尚未購買支持者圖示"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "尚未購買支持者圖示"
           }
         }
       }
@@ -14659,7 +15664,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Not Run"
+            "value" : "未執行"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未執行"
           }
         }
       }
@@ -14741,7 +15752,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Not run because the test run was cancelled."
+            "value" : "測試已取消，因此未執行此項測試。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "測試已取消，因此未執行此項測試。"
           }
         }
       }
@@ -14823,7 +15840,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Not Run: %lld"
+            "value" : "未執行：%lld"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未執行：%lld"
           }
         }
       }
@@ -14909,6 +15932,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未選取"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "未選取"
@@ -15060,6 +16089,12 @@
             "state" : "machine_translated",
             "value" : "好"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "好"
+          }
         }
       }
     },
@@ -15138,6 +16173,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "單欄"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "單欄"
@@ -15224,6 +16265,12 @@
             "state" : "translated",
             "value" : "開啟"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開啟"
+          }
         }
       }
     },
@@ -15302,6 +16349,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開啟PDF"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "開啟PDF"
@@ -15388,6 +16441,12 @@
             "state" : "machine_translated",
             "value" : "開啟PDF以檢視其頁面。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開啟PDF以檢視其頁面。"
+          }
         }
       }
     },
@@ -15396,7 +16455,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Open Diagnostics from Settings to run an on-device performance test."
+            "value" : "Öffne „Diagnose“ in den Einstellungen, um einen Leistungstest auf dem Gerät auszuführen."
           }
         },
         "es" : {
@@ -15414,7 +16473,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Open Diagnostics from Settings to run an on-device performance test."
+            "value" : "Ouvrez « Diagnostic » dans les paramètres pour exécuter un test de performances sur l’appareil."
           }
         },
         "id" : {
@@ -15426,13 +16485,13 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Open Diagnostics from Settings to run an on-device performance test."
+            "value" : "Apri Diagnostica dalle Impostazioni per eseguire un test delle prestazioni sul dispositivo."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Open Diagnostics from Settings to run an on-device performance test."
+            "value" : "設定から診断を開き、デバイス上でパフォーマンステストを実行できます。"
           }
         },
         "ko" : {
@@ -15468,7 +16527,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Open Diagnostics from Settings to run an on-device performance test."
+            "value" : "從「設定」開啟「診斷」，即可在此裝置上執行效能測試。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "從「設定」開啟「診斷」，即可在此裝置上執行效能測試。"
           }
         }
       }
@@ -15551,7 +16616,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Open Folder"
+            "value" : "開啟檔案夾"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開啟檔案夾"
           }
         }
       }
@@ -15561,7 +16632,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Open Image Folder"
+            "value" : "Bilderordner öffnen"
           }
         },
         "es" : {
@@ -15579,7 +16650,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Open Image Folder"
+            "value" : "Ouvrir un dossier d’images"
           }
         },
         "id" : {
@@ -15591,7 +16662,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Open Image Folder"
+            "value" : "Apri cartella immagini"
           }
         },
         "ja" : {
@@ -15633,7 +16704,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Open Image Folder"
+            "value" : "開啟影像檔案夾"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開啟影像檔案夾"
           }
         }
       }
@@ -15716,7 +16793,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Open Password-Protected PDF"
+            "value" : "開啟受密碼保護的 PDF"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開啟受密碼保護的 PDF"
           }
         }
       }
@@ -15796,6 +16879,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開啟PDF"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "開啟PDF"
@@ -15881,7 +16970,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Open PDF to Edit"
+            "value" : "開啟 PDF 以編輯"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開啟 PDF 以編輯"
           }
         }
       }
@@ -15965,6 +17060,12 @@
             "state" : "machine_translated",
             "value" : "開啟原始來源"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開啟原始來源"
+          }
         }
       }
     },
@@ -16004,7 +17105,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Open Version Information to run an on-device performance test."
+            "value" : "Apri Informazioni sulla versione per eseguire un test delle prestazioni sul dispositivo."
           }
         },
         "ja" : {
@@ -16044,6 +17145,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開啟「版本資訊」，即可在裝置上執行效能測試。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "開啟「版本資訊」，即可在裝置上執行效能測試。"
@@ -16130,6 +17237,12 @@
             "state" : "machine_translated",
             "value" : "不儲存並開啟"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "不儲存並開啟"
+          }
         }
       }
     },
@@ -16208,6 +17321,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開啟範例時會先顯示CC BY 4.0授權資訊。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "開啟範例時會先顯示CC BY 4.0授權資訊。"
@@ -16293,7 +17412,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Optional One-Time Support"
+            "value" : "自願單次支持"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自願單次支持"
           }
         }
       }
@@ -16373,6 +17498,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選項"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "選項"
@@ -16459,6 +17590,12 @@
             "state" : "translated",
             "value" : "選項…"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選項…"
+          }
         }
       }
     },
@@ -16539,7 +17676,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Order"
+            "value" : "排序"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "排序"
           }
         }
       }
@@ -16619,6 +17762,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OS"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "OS"
@@ -16705,6 +17854,12 @@
             "state" : "machine_translated",
             "value" : "概要"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "概要"
+          }
         }
       }
     },
@@ -16783,6 +17938,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "第%lld頁"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "第%lld頁"
@@ -16875,6 +18036,12 @@
             "state" : "translated",
             "value" : "第 %lld / %lld 頁"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "第 %lld / %lld 頁"
+          }
         }
       }
     },
@@ -16963,6 +18130,12 @@
             "state" : "translated",
             "value" : "第 %1$lld 頁，共 %2$lld 頁"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "第 %1$lld 頁，共 %2$lld 頁"
+          }
         }
       }
     },
@@ -17044,7 +18217,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Page Count"
+            "value" : "頁數"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "頁數"
           }
         }
       }
@@ -17124,6 +18303,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "頁面顯示"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "頁面顯示"
@@ -17210,6 +18395,12 @@
             "state" : "translated",
             "value" : "頁面佈局"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "頁面佈局"
+          }
         }
       }
     },
@@ -17290,7 +18481,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Page movement did not match the expected order, page count or selection."
+            "value" : "移動後的頁面順序、頁數或選取狀態不符預期。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "移動後的頁面順序、頁數或選取狀態不符預期。"
           }
         }
       }
@@ -17375,6 +18572,12 @@
             "state" : "translated",
             "value" : "頁面預覽"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "頁面預覽"
+          }
         }
       }
     },
@@ -17453,6 +18656,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "頁面"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "頁面"
@@ -17543,7 +18752,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pages: %1$lld. Input: %2$lld bytes; output: %3$lld bytes. Generation: %4$@ ms; opening and validation: %5$@ ms; writing: %6$@ ms; reopening and validation: %7$@ ms. Page counts and sizes matched. Times are reference measurements, not pass/fail thresholds."
+            "value" : "頁數：%1$lld。輸入：%2$lld 位元組，輸出：%3$lld 位元組。產生：%4$@ ms，開啟與驗證：%5$@ ms，寫入：%6$@ ms，重新開啟與驗證：%7$@ ms。頁數及頁面尺寸均符合預期。各項耗時僅供參考，通過與否不以時間為準。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "頁數：%1$lld。輸入：%2$lld 位元組，輸出：%3$lld 位元組。產生：%4$@ ms，開啟與驗證：%5$@ ms，寫入：%6$@ ms，重新開啟與驗證：%7$@ ms。頁數及頁面尺寸均符合預期。各項耗時僅供參考，通過與否不以時間為準。"
           }
         }
       }
@@ -17623,6 +18838,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通過"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "通過"
@@ -17709,6 +18930,12 @@
             "state" : "translated",
             "value" : "通過：%lld"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通過：%lld"
+          }
         }
       }
     },
@@ -17787,6 +19014,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "密碼"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "密碼"
@@ -17872,7 +19105,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Password Protected"
+            "value" : "受密碼保護"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "受密碼保護"
           }
         }
       }
@@ -17955,7 +19194,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Password Protection"
+            "value" : "密碼保護"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "密碼保護"
           }
         }
       }
@@ -18035,6 +19280,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "需要密碼"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "需要密碼"
@@ -18119,7 +19370,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Blank Page Insertion"
+            "value" : "PDF 空白頁插入"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF 空白頁插入"
           }
         }
       }
@@ -18202,7 +19459,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Document"
+            "value" : "PDF 文件"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF 文件"
           }
         }
       }
@@ -18284,7 +19547,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Document Properties"
+            "value" : "PDF 文件屬性"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF 文件屬性"
           }
         }
       }
@@ -18366,7 +19635,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Edited Save and Reopen"
+            "value" : "儲存並重新開啟已編輯的 PDF"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "儲存並重新開啟已編輯的 PDF"
           }
         }
       }
@@ -18448,7 +19723,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Generation and Reopening"
+            "value" : "產生並重新開啟 PDF"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "產生並重新開啟 PDF"
           }
         }
       }
@@ -18530,7 +19811,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Image Load Test"
+            "value" : "PDF 影像載入測試"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF 影像載入測試"
           }
         }
       }
@@ -18613,7 +19900,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Information"
+            "value" : "PDF 資訊"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF 資訊"
           }
         }
       }
@@ -18695,7 +19988,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Load Test: %lld Pages"
+            "value" : "PDF 載入測試：%lld 頁"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF 載入測試：%lld 頁"
           }
         }
       }
@@ -18777,7 +20076,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Page Deletion"
+            "value" : "PDF 頁面刪除"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF 頁面刪除"
           }
         }
       }
@@ -18859,7 +20164,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Page Duplication"
+            "value" : "PDF 頁面複製"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF 頁面複製"
           }
         }
       }
@@ -18941,7 +20252,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Page Movement"
+            "value" : "PDF 頁面移動"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF 頁面移動"
           }
         }
       }
@@ -19023,7 +20340,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Page Rotation"
+            "value" : "PDF 頁面旋轉"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF 頁面旋轉"
           }
         }
       }
@@ -19105,7 +20428,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Password Protection"
+            "value" : "PDF 密碼保護"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF 密碼保護"
           }
         }
       }
@@ -19187,7 +20516,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF password protection, unlocking, page content or protection removal did not match expectations."
+            "value" : "PDF 的密碼保護、解鎖、頁面內容或解除保護的結果不符預期。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF 的密碼保護、解鎖、頁面內容或解除保護的結果不符預期。"
           }
         }
       }
@@ -19228,7 +20563,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Preview"
+            "value" : "Anteprima PDF"
           }
         },
         "ja" : {
@@ -19268,6 +20603,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "PDF預覽"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "PDF預覽"
@@ -19352,7 +20693,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Randomized Editing"
+            "value" : "PDF 隨機編輯"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF 隨機編輯"
           }
         }
       }
@@ -19434,7 +20781,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF test skipped because available storage could not be determined."
+            "value" : "無法確認可用儲存空間，已略過 PDF 測試。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法確認可用儲存空間，已略過 PDF 測試。"
           }
         }
       }
@@ -19516,7 +20869,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF test skipped because there is not enough available storage."
+            "value" : "可用儲存空間不足，已略過 PDF 測試。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可用儲存空間不足，已略過 PDF 測試。"
           }
         }
       }
@@ -19598,7 +20957,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF test stopped because available storage changed during the test."
+            "value" : "測試期間可用儲存空間有變動，PDF 測試已停止。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "測試期間可用儲存空間有變動，PDF 測試已停止。"
           }
         }
       }
@@ -19680,7 +21045,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Undo and Redo"
+            "value" : "PDF 還原與重做"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF 還原與重做"
           }
         }
       }
@@ -19764,6 +21135,12 @@
             "state" : "translated",
             "value" : "PDF 版本"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF 版本"
+          }
         }
       }
     },
@@ -19772,7 +21149,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Workflow"
+            "value" : "PDF-Arbeitsablauf"
           }
         },
         "es" : {
@@ -19790,7 +21167,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Workflow"
+            "value" : "Flux PDF"
           }
         },
         "id" : {
@@ -19802,7 +21179,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Workflow"
+            "value" : "Flusso di lavoro PDF"
           }
         },
         "ja" : {
@@ -19844,7 +21221,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PDF Workflow"
+            "value" : "PDF 工作流程"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF 工作流程"
           }
         }
       }
@@ -19928,6 +21311,12 @@
             "state" : "translated",
             "value" : "擱置中"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "擱置中"
+          }
         }
       }
     },
@@ -19936,7 +21325,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Performance Test"
+            "value" : "Leistungstest"
           }
         },
         "es" : {
@@ -19954,7 +21343,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Performance Test"
+            "value" : "Test de performances"
           }
         },
         "id" : {
@@ -19966,7 +21355,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Performance Test"
+            "value" : "Test delle prestazioni"
           }
         },
         "ja" : {
@@ -20008,7 +21397,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Performance Test"
+            "value" : "效能測試"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "效能測試"
           }
         }
       }
@@ -20091,7 +21486,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Permanently unlock the Bronze supporter icon."
+            "value" : "永久解鎖銅牌支持者圖示。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "永久解鎖銅牌支持者圖示。"
           }
         }
       }
@@ -20174,7 +21575,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Permanently unlock the Gold supporter icon."
+            "value" : "永久解鎖金牌支持者圖示。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "永久解鎖金牌支持者圖示。"
           }
         }
       }
@@ -20257,7 +21664,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Permanently unlock the Silver supporter icon."
+            "value" : "永久解鎖銀牌支持者圖示。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "永久解鎖銀牌支持者圖示。"
           }
         }
       }
@@ -20337,6 +21750,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開合捏合或連點兩下可在1倍至5倍之間縮放。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "開合捏合或連點兩下可在1倍至5倍之間縮放。"
@@ -20429,6 +21848,12 @@
             "state" : "translated",
             "value" : "預覽"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "預覽"
+          }
         }
       }
     },
@@ -20507,6 +21932,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "預覽與檢視"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "預覽與檢視"
@@ -20593,6 +22024,12 @@
             "state" : "translated",
             "value" : "上一頁"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上一頁"
+          }
         }
       }
     },
@@ -20671,6 +22108,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "屬性"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "屬性"
@@ -20755,7 +22198,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Protected PDF rejected an incorrect password and opened with the test password. All 12 pages matched; removing protection produced an unlocked PDF."
+            "value" : "受保護的 PDF 拒絕了錯誤密碼，並可用測試密碼開啟。全部 12 頁均符合預期。解除保護後，產生了無需密碼即可開啟的 PDF。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "受保護的 PDF 拒絕了錯誤密碼，並可用測試密碼開啟。全部 12 頁均符合預期。解除保護後，產生了無需密碼即可開啟的 PDF。"
           }
         }
       }
@@ -20835,6 +22284,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "購買待處理"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "購買待處理"
@@ -20921,6 +22376,12 @@
             "state" : "machine_translated",
             "value" : "已購買"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "已購買"
+          }
         }
       }
     },
@@ -20999,6 +22460,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "無法回復購買項目。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "無法回復購買項目。"
@@ -21089,7 +22556,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Random editing mismatch at step %1$lld, seed %2$@."
+            "value" : "隨機編輯在第 %1$lld 步的結果不符預期，隨機種子為 %2$@。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隨機編輯在第 %1$lld 步的結果不符預期，隨機種子為 %2$@。"
           }
         }
       }
@@ -21177,7 +22650,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Random editing mismatch at step %1$lld, seed %2$llu."
+            "value" : "隨機編輯在第 %1$lld 步的結果不符預期，隨機種子為 %2$llu。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隨機編輯在第 %1$lld 步的結果不符預期，隨機種子為 %2$llu。"
           }
         }
       }
@@ -21187,7 +22666,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Read the full %@ license"
+            "value" : "Vollständige %@-Lizenz lesen"
           }
         },
         "es" : {
@@ -21205,7 +22684,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Read the full %@ license"
+            "value" : "Lire la licence %@ complète"
           }
         },
         "id" : {
@@ -21217,7 +22696,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Read the full %@ license"
+            "value" : "Leggi la licenza %@ completa"
           }
         },
         "ja" : {
@@ -21259,7 +22738,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Read the full %@ license"
+            "value" : "閱讀 %@ 授權條款全文"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "閱讀 %@ 授權條款全文"
           }
         }
       }
@@ -21342,7 +22827,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reading Direction"
+            "value" : "閱讀方向"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "閱讀方向"
           }
         }
       }
@@ -21352,7 +22843,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reading Folder…"
+            "value" : "Ordner wird gelesen…"
           }
         },
         "es" : {
@@ -21370,7 +22861,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reading Folder…"
+            "value" : "Lecture du dossier…"
           }
         },
         "id" : {
@@ -21382,7 +22873,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reading Folder…"
+            "value" : "Lettura cartella…"
           }
         },
         "ja" : {
@@ -21424,7 +22915,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reading Folder…"
+            "value" : "正在讀取檔案夾…"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在讀取檔案夾…"
           }
         }
       }
@@ -21504,6 +23001,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重做"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "重做"
@@ -21588,7 +23091,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Refresh"
+            "value" : "重新整理"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新整理"
           }
         }
       }
@@ -21737,6 +23246,12 @@
             "state" : "machine_translated",
             "value" : "移除密碼"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "移除密碼"
+          }
         }
       }
     },
@@ -21818,7 +23333,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Remove Password Protection"
+            "value" : "解除密碼保護"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "解除密碼保護"
           }
         }
       }
@@ -21898,6 +23419,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "報告預覽"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "報告預覽"
@@ -21984,6 +23511,12 @@
             "state" : "translated",
             "value" : "重設縮放"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重設縮放"
+          }
         }
       }
     },
@@ -22062,6 +23595,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "回復購買項目"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "回復購買項目"
@@ -22148,6 +23687,12 @@
             "state" : "machine_translated",
             "value" : "正在回復購買項目⋯"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "正在回復購買項目⋯"
+          }
         }
       }
     },
@@ -22228,7 +23773,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Results"
+            "value" : "結果"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "結果"
           }
         }
       }
@@ -22308,6 +23859,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "反向選取"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "反向選取"
@@ -22394,6 +23951,12 @@
             "state" : "translated",
             "value" : "檢視並分享報告"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "檢視並分享報告"
+          }
         }
       }
     },
@@ -22472,6 +24035,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "右翻頁（右裝訂）"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "右翻頁（右裝訂）"
@@ -22558,6 +24127,12 @@
             "state" : "translated",
             "value" : "右側裝訂（含封面）"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "右側裝訂（含封面）"
+          }
         }
       }
     },
@@ -22636,6 +24211,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "從右至左"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "從右至左"
@@ -22722,6 +24303,12 @@
             "state" : "translated",
             "value" : "向左旋轉"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "向左旋轉"
+          }
         }
       }
     },
@@ -22800,6 +24387,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "向右旋轉"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "向右旋轉"
@@ -22884,7 +24477,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rotation did not match the expected angles, page order or selection."
+            "value" : "旋轉後的角度、頁面順序或選取狀態不符預期。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "旋轉後的角度、頁面順序或選取狀態不符預期。"
           }
         }
       }
@@ -22964,6 +24563,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "執行"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "執行"
@@ -23050,6 +24655,12 @@
             "state" : "translated",
             "value" : "執行所有測試"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "執行所有測試"
+          }
         }
       }
     },
@@ -23058,7 +24669,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Run Performance Test"
+            "value" : "Leistungstest ausführen"
           }
         },
         "es" : {
@@ -23076,7 +24687,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Run Performance Test"
+            "value" : "Exécuter le test de performances"
           }
         },
         "id" : {
@@ -23088,7 +24699,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Run Performance Test"
+            "value" : "Esegui test delle prestazioni"
           }
         },
         "ja" : {
@@ -23130,7 +24741,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Run Performance Test"
+            "value" : "執行效能測試"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "執行效能測試"
           }
         }
       }
@@ -23210,6 +24827,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "執行測試"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "執行測試"
@@ -23296,6 +24919,12 @@
             "state" : "translated",
             "value" : "正在執行測試…"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在執行測試…"
+          }
         }
       }
     },
@@ -23374,6 +25003,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "範例 PDF"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "範例 PDF"
@@ -23460,6 +25095,12 @@
             "state" : "translated",
             "value" : "儲存"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "儲存"
+          }
         }
       }
     },
@@ -23538,6 +25179,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "儲存並開啟"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "儲存並開啟"
@@ -23623,7 +25270,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Save PDF"
+            "value" : "儲存 PDF"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "儲存 PDF"
           }
         }
       }
@@ -23706,7 +25359,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Save PDF to"
+            "value" : "選擇 PDF 儲存位置"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選擇 PDF 儲存位置"
           }
         }
       }
@@ -23786,6 +25445,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "儲存所選頁面"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "儲存所選頁面"
@@ -23872,6 +25537,12 @@
             "state" : "machine_translated",
             "value" : "開啟另一個PDF前要儲存更改嗎？"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開啟另一個PDF前要儲存更改嗎？"
+          }
         }
       }
     },
@@ -23952,7 +25623,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Saved and reopened 12 edited pages. Page order, 90-degree rotations, rendered content and saved state matched."
+            "value" : "已儲存並重新開啟 12 頁編輯過的頁面。頁面順序、90 度旋轉、繪製內容及儲存狀態均符合預期。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已儲存並重新開啟 12 頁編輯過的頁面。頁面順序、90 度旋轉、繪製內容及儲存狀態均符合預期。"
           }
         }
       }
@@ -24034,7 +25711,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Saved and reopened title, author, subject, keywords, right-to-left reading and two-column layout. All 12 pages were preserved."
+            "value" : "已確認儲存並重新開啟後，標題、作者、主旨、關鍵字、從右至左的閱讀方向及雙欄版面均保留。全部 12 頁也完整保留。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已確認儲存並重新開啟後，標題、作者、主旨、關鍵字、從右至左的閱讀方向及雙欄版面均保留。全部 12 頁也完整保留。"
           }
         }
       }
@@ -24116,7 +25799,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Saved editing results did not match the expected page order, rotations, rendered content or saved state."
+            "value" : "已儲存的編輯結果中，頁面順序、旋轉角度、繪製內容或儲存狀態不符預期。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已儲存的編輯結果中，頁面順序、旋轉角度、繪製內容或儲存狀態不符預期。"
           }
         }
       }
@@ -24196,6 +25885,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "捲動方向"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "捲動方向"
@@ -24286,7 +25981,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Seed: %1$@. Verified %2$lld rotation, movement, duplication and deletion operations against an independent page-state model. Saved and reopened %3$lld pages. Maximum: %4$lld pages."
+            "value" : "隨機種子：%1$@。以獨立的頁面狀態模型比對驗證了 %2$lld 次旋轉、移動、複製與刪除操作。已儲存並重新開啟 %3$lld 頁，測試期間最多有 %4$lld 頁。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隨機種子：%1$@。以獨立的頁面狀態模型比對驗證了 %2$lld 次旋轉、移動、複製與刪除操作。已儲存並重新開啟 %3$lld 頁，測試期間最多有 %4$lld 頁。"
           }
         }
       }
@@ -24374,7 +26075,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Seed: %1$llu. Verified %2$lld rotation, movement, duplication and deletion operations against an independent page-state model. Saved and reopened %3$lld pages. Maximum: %4$lld pages."
+            "value" : "隨機種子：%1$llu。以獨立的頁面狀態模型比對驗證了 %2$lld 次旋轉、移動、複製與刪除操作。已儲存並重新開啟 %3$lld 頁，測試期間最多有 %4$lld 頁。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隨機種子：%1$llu。以獨立的頁面狀態模型比對驗證了 %2$lld 次旋轉、移動、複製與刪除操作。已儲存並重新開啟 %3$lld 頁，測試期間最多有 %4$lld 頁。"
           }
         }
       }
@@ -24454,6 +26161,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "從文件中選取要預覽的頁面。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "從文件中選取要預覽的頁面。"
@@ -24540,6 +26253,12 @@
             "state" : "translated",
             "value" : "全選"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全選"
+          }
         }
       }
     },
@@ -24618,6 +26337,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "請選取至少一頁以儲存。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "請選取至少一頁以儲存。"
@@ -24704,6 +26429,12 @@
             "state" : "machine_translated",
             "value" : "請在側邊欄中選取一或多個頁面以預覽。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "請在側邊欄中選取一或多個頁面以預覽。"
+          }
         }
       }
     },
@@ -24742,7 +26473,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Select pages to move, rotate, duplicate, or delete them."
+            "value" : "Seleziona le pagine per spostarle, ruotarle, duplicarle o eliminarle."
           }
         },
         "ja" : {
@@ -24782,6 +26513,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "選取要移動、旋轉、複製或刪除的頁面。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "選取要移動、旋轉、複製或刪除的頁面。"
@@ -24874,6 +26611,12 @@
             "state" : "translated",
             "value" : "已選取"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已選取"
+          }
         }
       }
     },
@@ -24952,6 +26695,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "所選PDF頁面的預覽"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "所選PDF頁面的預覽"
@@ -25038,6 +26787,12 @@
             "state" : "translated",
             "value" : "設置"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設置"
+          }
         }
       }
     },
@@ -25076,7 +26831,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Set or remove the PDF viewing password."
+            "value" : "Imposta o rimuovi la password di visualizzazione del PDF."
           }
         },
         "ja" : {
@@ -25116,6 +26871,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "設定或移除PDF檢視密碼。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "設定或移除PDF檢視密碼。"
@@ -25202,6 +26963,12 @@
             "state" : "machine_translated",
             "value" : "設定密碼"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "設定密碼"
+          }
         }
       }
     },
@@ -25280,6 +27047,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "設定檢視密碼"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "設定檢視密碼"
@@ -25366,6 +27139,12 @@
             "state" : "translated",
             "value" : "設定"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定"
+          }
         }
       }
     },
@@ -25444,6 +27223,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分享診斷報告"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "分享診斷報告"
@@ -25530,6 +27315,12 @@
             "state" : "translated",
             "value" : "分享 JSON 報告"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分享 JSON 報告"
+          }
         }
       }
     },
@@ -25608,6 +27399,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分享文字報告"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "分享文字報告"
@@ -25692,7 +27489,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Share this optional bug report only to investigate or respond to an app problem. Nothing is sent automatically."
+            "value" : "請僅在調查或處理應用程式問題時，視需要分享這份問題報告。應用程式不會自動傳送任何資料。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請僅在調查或處理應用程式問題時，視需要分享這份問題報告。應用程式不會自動傳送任何資料。"
           }
         }
       }
@@ -25772,6 +27575,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示封面"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "顯示封面"
@@ -25923,6 +27732,12 @@
             "state" : "machine_translated",
             "value" : "白銀贊助"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "白銀贊助"
+          }
         }
       }
     },
@@ -26001,6 +27816,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "單頁"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "單頁"
@@ -26087,6 +27908,12 @@
             "state" : "translated",
             "value" : "單頁顯示"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "單頁顯示"
+          }
         }
       }
     },
@@ -26165,6 +27992,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "單頁顯示，啟用捲動"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "單頁顯示，啟用捲動"
@@ -26251,6 +28084,12 @@
             "state" : "translated",
             "value" : "尺寸"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "尺寸"
+          }
         }
       }
     },
@@ -26329,6 +28168,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已略過"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "已略過"
@@ -26415,6 +28260,12 @@
             "state" : "translated",
             "value" : "已略過：%lld"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已略過：%lld"
+          }
         }
       }
     },
@@ -26493,6 +28344,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小 (S)"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "小 (S)"
@@ -26580,6 +28437,12 @@
             "state" : "machine_translated",
             "value" : "小額支持"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "小額支持"
+          }
         }
       }
     },
@@ -26662,6 +28525,12 @@
             "state" : "translated",
             "value" : "排序方式"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "排序方式"
+          }
         }
       }
     },
@@ -26740,6 +28609,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "排序方式"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "排序方式"
@@ -26832,6 +28707,12 @@
             "state" : "translated",
             "value" : "分割方向"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分割方向"
+          }
         }
       }
     },
@@ -26910,6 +28791,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選擇分割方向。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "選擇分割方向。"
@@ -26996,6 +28883,12 @@
             "state" : "translated",
             "value" : "左右分割（垂直裁切）"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "左右分割（垂直裁切）"
+          }
         }
       }
     },
@@ -27074,6 +28967,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "頁面分割"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "頁面分割"
@@ -27160,6 +29059,12 @@
             "state" : "translated",
             "value" : "頁面分割…"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "頁面分割…"
+          }
         }
       }
     },
@@ -27242,6 +29147,12 @@
             "state" : "translated",
             "value" : "將雙頁跨頁分割為獨立的單頁。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "將雙頁跨頁分割為獨立的單頁。"
+          }
         }
       }
     },
@@ -27320,6 +29231,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上下分割（水平裁切）"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "上下分割（水平裁切）"
@@ -27407,6 +29324,12 @@
             "state" : "translated",
             "value" : "分割..."
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分割..."
+          }
         }
       }
     },
@@ -27485,6 +29408,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "跨頁檢視"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "跨頁檢視"
@@ -27571,6 +29500,12 @@
             "state" : "translated",
             "value" : "正在停止測試並刪除暫存檔案…"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在停止測試並刪除暫存檔案…"
+          }
         }
       }
     },
@@ -27653,6 +29588,12 @@
             "state" : "translated",
             "value" : "樣式"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "樣式"
+          }
         }
       }
     },
@@ -27731,6 +29672,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "主旨"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "主旨"
@@ -27818,6 +29765,12 @@
             "state" : "translated",
             "value" : "支持"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支持"
+          }
         }
       }
     },
@@ -27897,6 +29850,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "支持開發者"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "支持開發者"
@@ -27983,6 +29942,12 @@
             "state" : "machine_translated",
             "value" : "支持者圖示"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "支持者圖示"
+          }
         }
       }
     },
@@ -28061,6 +30026,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "支持者圖示為選購的一次性購買項目。無需購買即可繼續使用所有PDF編輯功能。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "支持者圖示為選購的一次性購買項目。無需購買即可繼續使用所有PDF編輯功能。"
@@ -28147,6 +30118,12 @@
             "state" : "translated",
             "value" : "左右滑動以瀏覽頁面。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "左右滑動以瀏覽頁面。"
+          }
         }
       }
     },
@@ -28229,6 +30206,12 @@
             "state" : "translated",
             "value" : "在格線版面與跨頁版面之間切換。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在格線版面與跨頁版面之間切換。"
+          }
         }
       }
     },
@@ -28307,6 +30290,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點選頁面以開啟全螢幕預覽。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "點選頁面以開啟全螢幕預覽。"
@@ -28456,7 +30445,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Test Data Cleanup"
+            "value" : "清理測試資料"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "清理測試資料"
           }
         }
       }
@@ -28538,7 +30533,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Test data could not be deleted. Cleanup will be retried next time."
+            "value" : "無法刪除測試資料。下次會再嘗試清理。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法刪除測試資料。下次會再嘗試清理。"
           }
         }
       }
@@ -28618,6 +30619,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "測試日期"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "測試日期"
@@ -28704,6 +30711,12 @@
             "state" : "machine_translated",
             "value" : "測試環境"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "測試環境"
+          }
         }
       }
     },
@@ -28782,6 +30795,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "測試進度"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "測試進度"
@@ -28866,7 +30885,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Test skipped because the device thermal state is critical. Let the device cool before running diagnostics again."
+            "value" : "裝置溫度已達臨界程度，已略過測試。請等裝置降溫後再執行診斷。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "裝置溫度已達臨界程度，已略過測試。請等裝置降溫後再執行診斷。"
           }
         }
       }
@@ -28948,7 +30973,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Test skipped because the device thermal state is serious. Let the device cool before running diagnostics again."
+            "value" : "裝置溫度已達嚴重過熱程度，已略過測試。請等裝置降溫後再執行診斷。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "裝置溫度已達嚴重過熱程度，已略過測試。請等裝置降溫後再執行診斷。"
           }
         }
       }
@@ -29030,7 +31061,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Test skipped because the device thermal state is unknown."
+            "value" : "無法判定裝置溫度狀態，已略過測試。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法判定裝置溫度狀態，已略過測試。"
           }
         }
       }
@@ -29112,7 +31149,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Test Workspace"
+            "value" : "測試工作區"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "測試工作區"
           }
         }
       }
@@ -29196,6 +31239,12 @@
             "state" : "machine_translated",
             "value" : "測試"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "測試"
+          }
         }
       }
     },
@@ -29205,7 +31254,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tests run only on this device. Results are never sent externally."
+            "value" : "Tests werden nur auf diesem Gerät ausgeführt. Ergebnisse werden niemals nach außen gesendet."
           }
         },
         "es" : {
@@ -29223,7 +31272,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tests run only on this device. Results are never sent externally."
+            "value" : "Les tests s’exécutent uniquement sur cet appareil. Les résultats ne sont jamais envoyés à l’extérieur."
           }
         },
         "id" : {
@@ -29235,7 +31284,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tests run only on this device. Results are never sent externally."
+            "value" : "I test vengono eseguiti solo su questo dispositivo. I risultati non vengono mai inviati all'esterno."
           }
         },
         "ja" : {
@@ -29277,7 +31326,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tests run only on this device. Results are never sent externally."
+            "value" : "測試只在此裝置上執行。結果不會對外傳送。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "測試只在此裝置上執行。結果不會對外傳送。"
           }
         }
       }
@@ -29359,7 +31414,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tests run only on this device. Results are not sent automatically; you can choose to copy or share them."
+            "value" : "測試只在此裝置上執行。結果不會自動傳送，你可以自行選擇複製或分享。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "測試只在此裝置上執行。結果不會自動傳送，你可以自行選擇複製或分享。"
           }
         }
       }
@@ -29439,6 +31500,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "僅文字"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "僅文字"
@@ -29526,6 +31593,12 @@
             "state" : "machine_translated",
             "value" : "感謝你的支持！"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "感謝你的支持！"
+          }
         }
       }
     },
@@ -29605,6 +31678,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "感謝你的支持。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "感謝你的支持。"
@@ -29691,6 +31770,12 @@
             "state" : "machine_translated",
             "value" : "感謝你！"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "感謝你！"
+          }
         }
       }
     },
@@ -29771,7 +31856,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The calculated checksum did not match the expected value."
+            "value" : "計算出的總和檢查碼與預期值不符。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "計算出的總和檢查碼與預期值不符。"
           }
         }
       }
@@ -29781,7 +31872,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The downloaded file is not a valid PDF."
+            "value" : "Die heruntergeladene Datei ist keine gültige PDF-Datei."
           }
         },
         "es" : {
@@ -29799,7 +31890,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The downloaded file is not a valid PDF."
+            "value" : "Le fichier téléchargé n’est pas un PDF valide."
           }
         },
         "id" : {
@@ -29811,7 +31902,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The downloaded file is not a valid PDF."
+            "value" : "Il file scaricato non è un PDF valido."
           }
         },
         "ja" : {
@@ -29853,7 +31944,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The downloaded file is not a valid PDF."
+            "value" : "下載的檔案不是有效的 PDF。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下載的檔案不是有效的 PDF。"
           }
         }
       }
@@ -29863,7 +31960,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The downloaded file size is invalid."
+            "value" : "Die Größe der heruntergeladenen Datei ist ungültig."
           }
         },
         "es" : {
@@ -29881,7 +31978,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The downloaded file size is invalid."
+            "value" : "La taille du fichier téléchargé n’est pas valide."
           }
         },
         "id" : {
@@ -29893,7 +31990,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The downloaded file size is invalid."
+            "value" : "La dimensione del file scaricato non è valida."
           }
         },
         "ja" : {
@@ -29935,7 +32032,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The downloaded file size is invalid."
+            "value" : "下載的檔案大小無效。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下載的檔案大小無效。"
           }
         }
       }
@@ -29945,7 +32048,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The downloaded PDF failed its integrity check."
+            "value" : "Die Integritätsprüfung der heruntergeladenen PDF-Datei ist fehlgeschlagen."
           }
         },
         "es" : {
@@ -29963,7 +32066,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The downloaded PDF failed its integrity check."
+            "value" : "La vérification d’intégrité du PDF téléchargé a échoué."
           }
         },
         "id" : {
@@ -29975,7 +32078,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The downloaded PDF failed its integrity check."
+            "value" : "Il controllo di integrità del PDF scaricato non è riuscito."
           }
         },
         "ja" : {
@@ -30017,7 +32120,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The downloaded PDF failed its integrity check."
+            "value" : "下載的 PDF 未通過完整性檢查。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下載的 PDF 未通過完整性檢查。"
           }
         }
       }
@@ -30099,7 +32208,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The generated editing fixture could not be opened."
+            "value" : "無法開啟產生的編輯測試文件。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法開啟產生的編輯測試文件。"
           }
         }
       }
@@ -30181,7 +32296,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The generated editing fixture had unexpected page sizes."
+            "value" : "產生的編輯測試文件的頁面尺寸不符預期。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "產生的編輯測試文件的頁面尺寸不符預期。"
           }
         }
       }
@@ -30261,6 +32382,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "密碼不能為空白。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "密碼不能為空白。"
@@ -30347,6 +32474,12 @@
             "state" : "machine_translated",
             "value" : "密碼不正確。請再試一次。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "密碼不正確。請再試一次。"
+          }
         }
       }
     },
@@ -30425,6 +32558,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "密碼不相符。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "密碼不相符。"
@@ -30511,6 +32650,12 @@
             "state" : "machine_translated",
             "value" : "必須先解除PDF鎖定，才能加入其中的頁面。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "必須先解除PDF鎖定，才能加入其中的頁面。"
+          }
         }
       }
     },
@@ -30591,7 +32736,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The previous diagnostic run was interrupted. Saved results are shown below; unfinished tests were not resumed."
+            "value" : "上次診斷已中斷。下方顯示已儲存的結果。未完成的測試未繼續執行。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上次診斷已中斷。下方顯示已儲存的結果。未完成的測試未繼續執行。"
           }
         }
       }
@@ -30671,6 +32822,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "無法完成購買。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "無法完成購買。"
@@ -30757,6 +32914,12 @@
             "state" : "machine_translated",
             "value" : "購買正在等候核准。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "購買正在等候核准。"
+          }
         }
       }
     },
@@ -30837,7 +33000,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The report could not be prepared for sharing."
+            "value" : "無法準備要分享的報告。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法準備要分享的報告。"
           }
         }
       }
@@ -30919,7 +33088,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The sample manga, \"The Try-it Club\" (ためし部), is written by Komairo Hiyori. It is distributed under the CC BY 4.0 license."
+            "value" : "範例漫畫《The Try-it Club》（ためし部）由 Komairo Hiyori 創作，依據 CC BY 4.0 授權條款散布。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "範例漫畫《The Try-it Club》（ためし部）由 Komairo Hiyori 創作，依據 CC BY 4.0 授權條款散布。"
           }
         }
       }
@@ -30929,7 +33104,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The sample PDF could not be deleted."
+            "value" : "Die Beispiel-PDF konnte nicht gelöscht werden."
           }
         },
         "es" : {
@@ -30947,7 +33122,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The sample PDF could not be deleted."
+            "value" : "Impossible de supprimer le PDF d’exemple."
           }
         },
         "id" : {
@@ -30959,7 +33134,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The sample PDF could not be deleted."
+            "value" : "Impossibile eliminare il PDF di esempio."
           }
         },
         "ja" : {
@@ -31001,7 +33176,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The sample PDF could not be deleted."
+            "value" : "無法刪除範例 PDF。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法刪除範例 PDF。"
           }
         }
       }
@@ -31011,7 +33192,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The sample PDF could not be downloaded from the server."
+            "value" : "Die Beispiel-PDF konnte nicht vom Server heruntergeladen werden."
           }
         },
         "es" : {
@@ -31029,7 +33210,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The sample PDF could not be downloaded from the server."
+            "value" : "Impossible de télécharger le PDF d’exemple depuis le serveur."
           }
         },
         "id" : {
@@ -31041,7 +33222,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The sample PDF could not be downloaded from the server."
+            "value" : "Impossibile scaricare il PDF di esempio dal server."
           }
         },
         "ja" : {
@@ -31083,7 +33264,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The sample PDF could not be downloaded from the server."
+            "value" : "無法從伺服器下載範例 PDF。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法從伺服器下載範例 PDF。"
           }
         }
       }
@@ -31167,6 +33354,12 @@
             "state" : "translated",
             "value" : "無法下載範例 PDF。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法下載範例 PDF。"
+          }
         }
       }
     },
@@ -31175,7 +33368,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The sample PDF download URL is invalid."
+            "value" : "Die Download-URL der Beispiel-PDF ist ungültig."
           }
         },
         "es" : {
@@ -31193,7 +33386,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The sample PDF download URL is invalid."
+            "value" : "L’URL de téléchargement du PDF d’exemple n’est pas valide."
           }
         },
         "id" : {
@@ -31205,7 +33398,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The sample PDF download URL is invalid."
+            "value" : "L'URL di download del PDF di esempio non è valido."
           }
         },
         "ja" : {
@@ -31247,7 +33440,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The sample PDF download URL is invalid."
+            "value" : "範例 PDF 的下載 URL 無效。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "範例 PDF 的下載 URL 無效。"
           }
         }
       }
@@ -31257,7 +33456,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The sample PDF list could not be loaded."
+            "value" : "Die Liste der Beispiel-PDFs konnte nicht geladen werden."
           }
         },
         "es" : {
@@ -31275,7 +33474,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The sample PDF list could not be loaded."
+            "value" : "Impossible de charger la liste des PDF d’exemple."
           }
         },
         "id" : {
@@ -31287,7 +33486,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The sample PDF list could not be loaded."
+            "value" : "Impossibile caricare l'elenco dei PDF di esempio."
           }
         },
         "ja" : {
@@ -31329,7 +33528,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The sample PDF list could not be loaded."
+            "value" : "無法載入範例 PDF 清單。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法載入範例 PDF 清單。"
           }
         }
       }
@@ -31409,6 +33614,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "所選檔案不是有效的PDF文件。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "所選檔案不是有效的PDF文件。"
@@ -31495,6 +33706,12 @@
             "state" : "machine_translated",
             "value" : "所選PDF不包含任何頁面。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "所選PDF不包含任何頁面。"
+          }
         }
       }
     },
@@ -31573,6 +33790,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法完成測試。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "無法完成測試。"
@@ -31659,6 +33882,12 @@
             "state" : "translated",
             "value" : "測試已取消。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "測試已取消。"
+          }
         }
       }
     },
@@ -31739,7 +33968,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The test workspace could not be prepared."
+            "value" : "無法準備測試工作區。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法準備測試工作區。"
           }
         }
       }
@@ -31823,6 +34058,12 @@
             "state" : "machine_translated",
             "value" : "沒有可儲存的PDF文件。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "沒有可儲存的PDF文件。"
+          }
         }
       }
     },
@@ -31832,7 +34073,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Third-party materials, including fonts, may have separate license terms. The license does not replace permissions that may be required for privacy, publicity, moral, or other rights."
+            "value" : "Materialien von Drittanbietern, einschließlich Schriftarten, können eigenen Lizenzbedingungen unterliegen. Diese Lizenz ersetzt keine Genehmigungen, die für Datenschutz-, Persönlichkeits-, Urheberpersönlichkeits- oder andere Rechte erforderlich sein können."
           }
         },
         "es" : {
@@ -31850,7 +34091,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Third-party materials, including fonts, may have separate license terms. The license does not replace permissions that may be required for privacy, publicity, moral, or other rights."
+            "value" : "Les éléments tiers, y compris les polices, peuvent être soumis à des conditions de licence distinctes. La licence ne remplace pas les autorisations pouvant être requises au titre de la vie privée, du droit à l’image, du droit moral ou d’autres droits."
           }
         },
         "id" : {
@@ -31862,7 +34103,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Third-party materials, including fonts, may have separate license terms. The license does not replace permissions that may be required for privacy, publicity, moral, or other rights."
+            "value" : "I materiali di terze parti, inclusi i font, possono essere soggetti a termini di licenza separati. La licenza non sostituisce le autorizzazioni eventualmente richieste per diritti di privacy, immagine, morali o di altro tipo."
           }
         },
         "ja" : {
@@ -31904,7 +34145,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Third-party materials, including fonts, may have separate license terms. The license does not replace permissions that may be required for privacy, publicity, moral, or other rights."
+            "value" : "字型等第三方素材可能適用個別的授權條款。涉及隱私權、公開形象權、著作人格權或其他權利時，仍須另行取得必要許可。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "字型等第三方素材可能適用個別的授權條款。涉及隱私權、公開形象權、著作人格權或其他權利時，仍須另行取得必要許可。"
           }
         }
       }
@@ -31984,6 +34231,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此 PDF 大小為 %@。下載將使用行動數據。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "此 PDF 大小為 %@。下載將使用行動數據。"
@@ -32068,7 +34321,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This report includes test results and may include storage-related skip reasons. Review the complete report below before choosing a recipient."
+            "value" : "這份報告包含測試結果，也可能列出因儲存空間問題而略過測試的原因。請先查看下方的完整報告，再選擇收件人。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "這份報告包含測試結果，也可能列出因儲存空間問題而略過測試的原因。請先查看下方的完整報告，再選擇收件人。"
           }
         }
       }
@@ -32078,7 +34337,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This sample is provided under the Creative Commons Attribution 4.0 International license (CC BY 4.0). You may share and adapt it, including for commercial purposes."
+            "value" : "Dieses Beispiel wird unter der Lizenz Creative Commons Namensnennung 4.0 International (CC BY 4.0) bereitgestellt. Du darfst es teilen und bearbeiten, auch für kommerzielle Zwecke."
           }
         },
         "es" : {
@@ -32096,7 +34355,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This sample is provided under the Creative Commons Attribution 4.0 International license (CC BY 4.0). You may share and adapt it, including for commercial purposes."
+            "value" : "Cet exemple est fourni sous la licence Creative Commons Attribution 4.0 International (CC BY 4.0). Vous pouvez le partager et l’adapter, y compris à des fins commerciales."
           }
         },
         "id" : {
@@ -32108,7 +34367,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This sample is provided under the Creative Commons Attribution 4.0 International license (CC BY 4.0). You may share and adapt it, including for commercial purposes."
+            "value" : "Questo esempio è fornito con licenza Creative Commons Attribuzione 4.0 Internazionale (CC BY 4.0). Puoi condividerlo e adattarlo, anche per scopi commerciali."
           }
         },
         "ja" : {
@@ -32150,7 +34409,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This sample is provided under the Creative Commons Attribution 4.0 International license (CC BY 4.0). You may share and adapt it, including for commercial purposes."
+            "value" : "此範例依據創用 CC 姓名標示 4.0 國際授權條款（CC BY 4.0）提供。你可以分享及改作此範例，包括用於商業用途。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此範例依據創用 CC 姓名標示 4.0 國際授權條款（CC BY 4.0）提供。你可以分享及改作此範例，包括用於商業用途。"
           }
         }
       }
@@ -32232,7 +34497,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This test suite includes CPU, memory, page editing and PDF load checks up to 1,100 pages. Available storage determines which sizes run. Temporary PDFs are deleted after testing."
+            "value" : "這組測試涵蓋 CPU、記憶體、頁面編輯，以及最多 1,100 頁的 PDF 載入檢查。應用程式會依可用儲存空間選擇要測試的檔案大小，並在測試後刪除暫存 PDF。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "這組測試涵蓋 CPU、記憶體、頁面編輯，以及最多 1,100 頁的 PDF 載入檢查。應用程式會依可用儲存空間選擇要測試的檔案大小，並在測試後刪除暫存 PDF。"
           }
         }
       }
@@ -32312,6 +34583,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "縮圖尺寸"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "縮圖尺寸"
@@ -32398,6 +34675,12 @@
             "state" : "machine_translated",
             "value" : "縮圖"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "縮圖"
+          }
         }
       }
     },
@@ -32476,6 +34759,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "標題"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "標題"
@@ -32568,6 +34857,12 @@
             "state" : "translated",
             "value" : "切換選取"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切換選取"
+          }
         }
       }
     },
@@ -32646,6 +34941,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水平分割 (上下)"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "水平分割 (上下)"
@@ -32732,6 +35033,12 @@
             "state" : "translated",
             "value" : "裁切頁邊"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "裁切頁邊"
+          }
         }
       }
     },
@@ -32810,6 +35117,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "再試一次"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "再試一次"
@@ -32896,6 +35209,12 @@
             "state" : "translated",
             "value" : "教學與影片指南"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "教學與影片指南"
+          }
         }
       }
     },
@@ -32974,6 +35293,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "教學播放清單（YouTube Shorts）"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "教學播放清單（YouTube Shorts）"
@@ -33060,6 +35385,12 @@
             "state" : "machine_translated",
             "value" : "雙欄，左側"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "雙欄，左側"
+          }
         }
       }
     },
@@ -33138,6 +35469,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "雙欄，右側"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "雙欄，右側"
@@ -33224,6 +35561,12 @@
             "state" : "machine_translated",
             "value" : "雙頁，左側"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "雙頁，左側"
+          }
         }
       }
     },
@@ -33302,6 +35645,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "雙頁，右側"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "雙頁，右側"
@@ -33386,7 +35735,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Two selected pages moved to the beginning and then the end. All 12 pages retained their relative order and selection."
+            "value" : "已將選取的 2 頁移到開頭，再移到結尾。全部 12 頁均保留預期的相對順序與選取狀態。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已將選取的 2 頁移到開頭，再移到結尾。全部 12 頁均保留預期的相對順序與選取狀態。"
           }
         }
       }
@@ -33468,7 +35823,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Two selected pages rotated to 270 degrees; ten unselected pages remained at 0 degrees. Page order and selection matched."
+            "value" : "選取的 2 頁已旋轉至 270 度，未選取的 10 頁維持 0 度。頁面順序與選取狀態均符合預期。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選取的 2 頁已旋轉至 270 度，未選取的 10 頁維持 0 度。頁面順序與選取狀態均符合預期。"
           }
         }
       }
@@ -33548,6 +35909,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "無法完成操作"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "無法完成操作"
@@ -33634,6 +36001,12 @@
             "state" : "translated",
             "value" : "無法從這些影像建立 PDF。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法從這些影像建立 PDF。"
+          }
         }
       }
     },
@@ -33712,6 +36085,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "無法載入支持選項"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "無法載入支持選項"
@@ -33798,6 +36177,12 @@
             "state" : "translated",
             "value" : "無法讀取影像：%@"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法讀取影像：%@"
+          }
         }
       }
     },
@@ -33878,7 +36263,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Undid and redid rotation and movement. Page order, rotations, rendered content, selection and history state matched."
+            "value" : "已還原並重做旋轉與移動操作。頁面順序、旋轉角度、繪製內容、選取狀態及編輯記錄狀態均符合預期。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已還原並重做旋轉與移動操作。頁面順序、旋轉角度、繪製內容、選取狀態及編輯記錄狀態均符合預期。"
           }
         }
       }
@@ -33958,6 +36349,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "還原"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "還原"
@@ -34042,7 +36439,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Undo or redo did not restore the expected document, selection or history state."
+            "value" : "還原或重做後的文件、選取狀態或編輯記錄狀態不符預期。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "還原或重做後的文件、選取狀態或編輯記錄狀態不符預期。"
           }
         }
       }
@@ -34122,6 +36525,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "指定每邊裁剪的百分比。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "指定每邊裁剪的百分比。"
@@ -34208,6 +36617,12 @@
             "state" : "translated",
             "value" : "未知"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未知"
+          }
         }
       }
     },
@@ -34286,6 +36701,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "未儲存的更改"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "未儲存的更改"
@@ -34372,6 +36793,12 @@
             "state" : "machine_translated",
             "value" : "未命名"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "未命名"
+          }
         }
       }
     },
@@ -34450,6 +36877,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "使用「文件」開啟PDF。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "使用「文件」開啟PDF。"
@@ -34536,6 +36969,12 @@
             "state" : "machine_translated",
             "value" : "若要回復先前購買的圖示，請在「支持者圖示」畫面使用「回復購買項目」。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "若要回復先前購買的圖示，請在「支持者圖示」畫面使用「回復購買項目」。"
+          }
         }
       }
     },
@@ -34614,6 +37053,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "使用「儲存」輸出編輯後的PDF。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "使用「儲存」輸出編輯後的PDF。"
@@ -34698,7 +37143,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "User documents, passwords, file paths and personal device names are not included."
+            "value" : "報告不包含使用者的文件、密碼、檔案路徑或個人裝置名稱。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "報告不包含使用者的文件、密碼、檔案路徑或個人裝置名稱。"
           }
         }
       }
@@ -34780,7 +37231,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Verified log persistence, the 14-day retention boundary, allowed record fields, and interrupted versus clean session recovery in an isolated temporary store."
+            "value" : "已在獨立的暫存區確認診斷記錄可持續保留、14 天的保留期限、允許的記錄欄位，以及工作階段中斷與正常結束後的回復情況。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已在獨立的暫存區確認診斷記錄可持續保留、14 天的保留期限、允許的記錄欄位，以及工作階段中斷與正常結束後的回復情況。"
           }
         }
       }
@@ -34860,6 +37317,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版本"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "版本"
@@ -34946,6 +37409,12 @@
             "state" : "machine_translated",
             "value" : "版本資訊"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "版本資訊"
+          }
         }
       }
     },
@@ -35024,6 +37493,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "檢視"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "檢視"
@@ -35110,6 +37585,12 @@
             "state" : "machine_translated",
             "value" : "回報問題時，請檢視並拷貝診斷記錄。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "回報問題時，請檢視並拷貝診斷記錄。"
+          }
         }
       }
     },
@@ -35188,6 +37669,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "檢視診斷記錄"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "檢視診斷記錄"
@@ -35274,6 +37761,12 @@
             "state" : "machine_translated",
             "value" : "檢視屬性並更改PDF中繼資料。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "檢視屬性並更改PDF中繼資料。"
+          }
         }
       }
     },
@@ -35282,7 +37775,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "When reusing this work"
+            "value" : "Bei Wiederverwendung dieses Werks"
           }
         },
         "es" : {
@@ -35300,7 +37793,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "When reusing this work"
+            "value" : "En cas de réutilisation de cette œuvre"
           }
         },
         "id" : {
@@ -35312,7 +37805,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "When reusing this work"
+            "value" : "Quando riutilizzi quest'opera"
           }
         },
         "ja" : {
@@ -35354,7 +37847,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "When reusing this work"
+            "value" : "重新使用此作品時"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新使用此作品時"
           }
         }
       }
@@ -35435,6 +37934,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "已回復購買項目。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "已回復購買項目。"
@@ -35522,6 +38027,12 @@
             "state" : "machine_translated",
             "value" : "你的支持有助於持續更新App。無需購買即可使用所有功能。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "你的支持有助於持續更新App。無需購買即可使用所有功能。"
+          }
         }
       }
     },
@@ -35604,6 +38115,12 @@
             "state" : "machine_translated",
             "value" : "你的支持者圖示現在已可使用。"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "你的支持者圖示現在已可使用。"
+          }
         }
       }
     },
@@ -35682,6 +38199,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "已回復你的支持者圖示。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "已回復你的支持者圖示。"
@@ -35773,6 +38296,152 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "縮放 %.1f倍"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "縮放 %.1f倍"
+          }
+        }
+      }
+    },
+    "Privacy Policy" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datenschutzerklärung"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Policy"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Política de privacidad"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Patakaran sa Privacy"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Politique de confidentialité"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kebijakan Privasi"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informativa sulla privacy"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プライバシーポリシー"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "개인정보 처리방침"
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "गोपनीयता नीति"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Política de Privacidade"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chính sách quyền riêng tư"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隐私政策"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隱私權政策"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隱私權政策"
+          }
+        }
+      }
+    },
+    "%lld pages" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld pages"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 頁"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 頁"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lldページ"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld Seiten"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld pages"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld pagine"
           }
         }
       }

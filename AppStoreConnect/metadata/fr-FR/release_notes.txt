@@ -1,1 +1,3 @@
-Première version. Prend en charge l'affichage en double page, la division, la fusion et l'organisation des PDF sur iPhone et iPad.
+Amélioration des textes d’interface en français, allemand, italien et chinois traditionnel, ainsi que de l’aide et des explications de restauration des achats.
+Mise à jour du chargement et de la mise en cache du catalogue d’exemples PDF, tout en conservant les PDF téléchargés disponibles hors ligne.
+Meilleure lisibilité des détails sur petits écrans et avec de grandes tailles de texte, et conservation fiabilisée de la version PDF lors de l’exportation.

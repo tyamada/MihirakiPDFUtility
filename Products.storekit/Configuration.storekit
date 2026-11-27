@@ -39,7 +39,7 @@
         },
         {
           "description": "Sie können das Unterstützer-Symbol „Bronze“ dauerhaft nutzen.",
-          "displayName": "Bronze-Tipp",
+          "displayName": "Bronze-Unterstützung",
           "locale": "de"
         },
         {
@@ -56,6 +56,11 @@
           "description": "Puedes usar el icono de seguidor «Bronce» de forma permanente.",
           "displayName": "Propina Bronce",
           "locale": "es_MX"
+        },
+        {
+          "description": "Puoi utilizzare l'icona sostenitore \"Bronzo\" in modo permanente.",
+          "displayName": "Supporto Bronzo",
+          "locale": "it"
         }
       ],
       "productID": "supporter_icon_bronze_ut",
@@ -90,7 +95,7 @@
         },
         {
           "description": "Sie können das Unterstützer-Symbol „Silber“ dauerhaft nutzen.",
-          "displayName": "Silber-Tipp",
+          "displayName": "Silber-Unterstützung",
           "locale": "de"
         },
         {
@@ -107,6 +112,11 @@
           "description": "Puedes usar el icono de seguidor «Plata» de forma permanente.",
           "displayName": "Propina Plata",
           "locale": "es_MX"
+        },
+        {
+          "description": "Puoi utilizzare l'icona sostenitore \"Argento\" in modo permanente.",
+          "displayName": "Supporto Argento",
+          "locale": "it"
         }
       ],
       "productID": "supporter_icon_silver_ut",
@@ -141,7 +151,7 @@
         },
         {
           "description": "Sie können das Unterstützer-Symbol „Gold“ dauerhaft nutzen.",
-          "displayName": "Gold-Tipp",
+          "displayName": "Gold-Unterstützung",
           "locale": "de"
         },
         {
@@ -158,6 +168,11 @@
           "description": "Puedes usar el icono de seguidor «Oro» de forma permanente.",
           "displayName": "Propina Oro",
           "locale": "es_MX"
+        },
+        {
+          "description": "Puoi utilizzare l'icona sostenitore \"Oro\" in modo permanente.",
+          "displayName": "Supporto Oro",
+          "locale": "it"
         }
       ],
       "productID": "supporter_icon_gold_ut",

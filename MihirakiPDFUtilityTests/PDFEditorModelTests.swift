@@ -59,6 +59,99 @@ struct PDFEditorModelTests {
         #expect(info.copyright == "-")
     }
 
+    @Test("Privacy policy URL resolves correctly per language and falls back to default")
+    func privacyPolicyURLs() {
+        // Japanese
+        #expect(
+            AppVersionInfo.privacyPolicyURL(preferredLanguages: ["ja-JP"]) ==
+            URL(string: "https://tyamada.github.io/MihirakiPDFUtility/privacy_ja.html")!
+        )
+        #expect(
+            AppVersionInfo.privacyPolicyURL(preferredLanguages: ["ja"]) ==
+            URL(string: "https://tyamada.github.io/MihirakiPDFUtility/privacy_ja.html")!
+        )
+
+        // Simplified Chinese
+        #expect(
+            AppVersionInfo.privacyPolicyURL(preferredLanguages: ["zh-Hans"]) ==
+            URL(string: "https://tyamada.github.io/MihirakiPDFUtility/privacy_zh_hans.html")!
+        )
+        #expect(
+            AppVersionInfo.privacyPolicyURL(preferredLanguages: ["zh-Hans-CN"]) ==
+            URL(string: "https://tyamada.github.io/MihirakiPDFUtility/privacy_zh_hans.html")!
+        )
+        #expect(
+            AppVersionInfo.privacyPolicyURL(preferredLanguages: ["zh-CN"]) ==
+            URL(string: "https://tyamada.github.io/MihirakiPDFUtility/privacy_zh_hans.html")!
+        )
+        #expect(
+            AppVersionInfo.privacyPolicyURL(preferredLanguages: ["zh-SG"]) ==
+            URL(string: "https://tyamada.github.io/MihirakiPDFUtility/privacy_zh_hans.html")!
+        )
+        #expect(
+            AppVersionInfo.privacyPolicyURL(preferredLanguages: ["zh"]) ==
+            URL(string: "https://tyamada.github.io/MihirakiPDFUtility/privacy_zh_hans.html")!
+        )
+
+        // Traditional Chinese
+        #expect(
+            AppVersionInfo.privacyPolicyURL(preferredLanguages: ["zh-Hant"]) ==
+            URL(string: "https://tyamada.github.io/MihirakiPDFUtility/privacy_zh_hant.html")!
+        )
+        #expect(
+            AppVersionInfo.privacyPolicyURL(preferredLanguages: ["zh-Hant-TW"]) ==
+            URL(string: "https://tyamada.github.io/MihirakiPDFUtility/privacy_zh_hant.html")!
+        )
+        #expect(
+            AppVersionInfo.privacyPolicyURL(preferredLanguages: ["zh-TW"]) ==
+            URL(string: "https://tyamada.github.io/MihirakiPDFUtility/privacy_zh_hant.html")!
+        )
+        #expect(
+            AppVersionInfo.privacyPolicyURL(preferredLanguages: ["zh-HK"]) ==
+            URL(string: "https://tyamada.github.io/MihirakiPDFUtility/privacy_zh_hant.html")!
+        )
+        #expect(
+            AppVersionInfo.privacyPolicyURL(preferredLanguages: ["zh-MO"]) ==
+            URL(string: "https://tyamada.github.io/MihirakiPDFUtility/privacy_zh_hant.html")!
+        )
+
+        // Other verified languages
+        #expect(
+            AppVersionInfo.privacyPolicyURL(preferredLanguages: ["de-DE"]) ==
+            URL(string: "https://tyamada.github.io/MihirakiPDFUtility/privacy_de.html")!
+        )
+        #expect(
+            AppVersionInfo.privacyPolicyURL(preferredLanguages: ["fr-FR"]) ==
+            URL(string: "https://tyamada.github.io/MihirakiPDFUtility/privacy_fr.html")!
+        )
+
+        // English (default)
+        #expect(
+            AppVersionInfo.privacyPolicyURL(preferredLanguages: ["en-US"]) ==
+            URL(string: "https://tyamada.github.io/MihirakiPDFUtility/privacy.html")!
+        )
+
+        // Dedicated Italian page
+        #expect(
+            AppVersionInfo.privacyPolicyURL(preferredLanguages: ["it-IT"]) ==
+            URL(string: "https://tyamada.github.io/MihirakiPDFUtility/privacy_it.html")!
+        )
+        #expect(
+            AppVersionInfo.privacyPolicyURL(preferredLanguages: ["it"]) ==
+            URL(string: "https://tyamada.github.io/MihirakiPDFUtility/privacy_it.html")!
+        )
+
+        // Fallback for languages without dedicated pages
+        #expect(
+            AppVersionInfo.privacyPolicyURL(preferredLanguages: ["nl-NL"]) ==
+            URL(string: "https://tyamada.github.io/MihirakiPDFUtility/privacy.html")!
+        )
+
+        // Instance property resolves without crash
+        let info = AppVersionInfo()
+        #expect(!info.privacyPolicyURL.absoluteString.isEmpty)
+    }
+
     @Test("Editing without an open document is safely rejected")
     @MainActor
     func operationsWithoutDocument() throws {

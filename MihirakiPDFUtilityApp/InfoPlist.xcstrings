@@ -7,14 +7,14 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDFUtility"
+            "state" : "translated",
+            "value" : "Mihiraki: PDF Utility"
           }
         },
         "en" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "MihirakiPDFUtility"
+            "state" : "translated",
+            "value" : "Mihiraki: PDF Utility"
           }
         },
         "es" : {
@@ -31,8 +31,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDFUtility"
+            "state" : "translated",
+            "value" : "Mihiraki: PDF Utility"
           }
         },
         "id" : {
@@ -43,8 +43,8 @@
         },
         "it" : {
           "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "MihirakiPDFUtility"
+            "state" : "translated",
+            "value" : "Mihiraki: PDF Utility"
           }
         },
         "ja" : {
@@ -84,6 +84,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "MihirakiPDFUtility"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "MihirakiPDFUtility"
@@ -178,6 +184,12 @@
             "state" : "machine_translated",
             "value" : "MihirakiPDFUtility"
           }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "MihirakiPDFUtility"
+          }
         }
       }
     },
@@ -188,85 +200,91 @@
         "de" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Copyright © 2026 tyamada"
+            "value" : "© 2026 Takuma Yamada"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Copyright © 2026 tyamada"
+            "value" : "© 2026 Takuma Yamada"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Copyright © 2026 tyamada"
+            "value" : "© 2026 Takuma Yamada"
           }
         },
         "fil" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Copyright © 2026 tyamada"
+            "value" : "© 2026 Takuma Yamada"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Copyright © 2026 tyamada"
+            "value" : "© 2026 Takuma Yamada"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Copyright © 2026 tyamada"
+            "value" : "© 2026 Takuma Yamada"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Copyright © 2026 tyamada"
+            "value" : "© 2026 Takuma Yamada"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Copyright © 2026 tyamada"
+            "value" : "© 2026 Takuma Yamada"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Copyright © 2026 tyamada"
+            "value" : "© 2026 Takuma Yamada"
           }
         },
         "ne" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Copyright © 2026 tyamada"
+            "value" : "© 2026 Takuma Yamada"
           }
         },
         "pt" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Copyright © 2026 tyamada"
+            "value" : "© 2026 Takuma Yamada"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Copyright © 2026 tyamada"
+            "value" : "© 2026 Takuma Yamada"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Copyright © 2026 tyamada"
+            "value" : "© 2026 Takuma Yamada"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "machine_translated",
-            "value" : "Copyright © 2026 tyamada"
+            "value" : "© 2026 Takuma Yamada"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "© 2026 Takuma Yamada"
           }
         }
       }

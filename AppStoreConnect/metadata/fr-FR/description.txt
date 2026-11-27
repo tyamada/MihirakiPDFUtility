@@ -1,35 +1,41 @@
-Mihiraki PDF Utility est un outil puissant conçu pour vous aider à organiser, fusionner, diviser et modifier des fichiers PDF sans effort sur votre iPhone et iPad. Il est idéal pour le travail, les études académiques, les documents de soumission, ainsi que pour les doubles pages, les mangas et les livres numérisés.
+« Mihiraki: PDF Utility » est un outil polyvalent pour organiser, modifier et lire vos pages PDF sur iPhone et iPad. Idéal pour les études, le travail et la lecture de mangas ou livres numérisés.
 
-[Fonctionnalités clés]
-■ Vue double page (Mihiraki)
-Affichez deux pages côte à côte. Prend en charge la direction de lecture de droite à gauche (RTL) pour les livres japonais et les mangas.
+[Fonctionnalités principales]
+■ Affichage en double page (Mihiraki)
+Affichez deux pages côte à côte avec prise en charge complète du sens de lecture droite à gauche (RTL), idéal pour les mangas.
 
-■ Division intelligente
-Divisez des doubles pages en pages individuelles. Prend en charge la division verticale (gauche/droite) et horizontale (haut/bas).
+■ Division avancée de pages
+Divisez une double page scannée en deux pages distinctes (division verticale gauche/droite ou horizontale haut/bas).
 
-■ Réorganisation intuitive
-Organisez votre PDF en faisant simplement glisser des vignettes. Fusionnez plusieurs fichiers, insérez des pages blanches et faites pivoter ou supprimez des pages en toute simplicité.
+■ Réorganisation et fusion flexibles
+Réorganisez les pages par glisser-déposer. Fusionnez plusieurs fichiers PDF, insérez des pages blanches, faites pivoter ou supprimez des pages.
 
 ■ Rognage des marges
-Supprimez les marges inutiles des documents numérisés en spécifiant un pourcentage pour chaque côté.
+Supprimez les marges et bordures indésirables issues de la numérisation sur les pages sélectionnées.
+
+■ Import de dossiers d'images et création PDF
+Importez directement un dossier d'images (photos ou scans), ajustez l'ordre et générez un nouveau document PDF.
+
+■ Fichiers PDF d'exemple officiels
+Téléchargez des exemples de mangas officiels dans l'application pour tester immédiatement la vue double page et les outils d'édition.
 
 ■ Sécurité et métadonnées
-Prise en charge des PDF protégés par mot de passe. Modifiez les propriétés du document telles que le titre, l'auteur, le sujet et les mots-clés.
+Ouvrez et exportez des PDF protégés par mot de passe. Modifiez le titre, l'auteur et les propriétés du document.
 
-■ Diagnostics et journaux d'audit
-Exécutez des tests de diagnostic intégrés rapides et inspectez les journaux d'audit locaux (conservation de 24 heures, respectueux de la vie privée, sans envoi automatique de journaux, partageables).
+■ Diagnostics locaux et journaux d'audit
+Exécutez des tests de performance et consultez les journaux de diagnostic conservés localement pendant 14 jours. En cas de problème, vous pouvez vérifier le contenu du rapport avant de choisir de le partager manuellement (aucun envoi automatique, aucune donnée personnelle ou contenu PDF).
 
-■ Prêt pour le bureau (ChromeOS)
-Amélioré pour les grands écrans et les Chromebooks avec des raccourcis clavier et des menus contextuels de la souris.
+■ Optimisé pour le grand écran de l'iPad
+Prend en charge les raccourcis clavier, le trackpad et le multitâche avec Split View et Slide Over pour profiter pleinement du grand écran de l'iPad.
 
-■ Aperçu en plein écran
-Inspectez les pages en haute résolution avec un zoom par pincement fluide et une navigation par balayage.
+■ Aperçu plein écran haute résolution
+Examinez les détails avec un rendu net, le zoom par pincement et le zoom par double toucher.
 
 ■ Prise en charge multilingue
-Prend en charge plusieurs langues, dont le français, l'anglais, l'allemand, l'italien, le japonais, le coréen, le chinois, l'espagnol et le portugais.
+Disponible en 14 langues dont le français, l'anglais, le japonais, le coréen, le chinois, l'allemand, l'espagnol et l'italien.
 
-■ Axé sur la confidentialité
-Tout le traitement des PDF est effectué localement sur votre appareil. Vos fichiers ne sont jamais téléchargés sur des serveurs externes.
+■ Traitement 100 % local et sécurisé
+Tous les traitements s'effectuent exclusivement sur votre appareil. Vos documents ne sont jamais envoyés vers des serveurs externes.
 
-■ Gratuit et soutien facultatif
-Toutes les fonctionnalités sont disponibles sans achat. Les achats intégrés facultatifs soutiennent le développement. Les PDF locaux peuvent être traités sans connexion Internet.
+■ Icônes de soutien facultatives
+Toutes les fonctionnalités d'édition et de lecture sont entièrement gratuites. Des pourboires facultatifs permettent de débloquer de façon permanente des icônes exclusives (Bronze, Argent, Or).

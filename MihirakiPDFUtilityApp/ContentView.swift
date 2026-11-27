@@ -117,6 +117,7 @@ struct ContentView: View {
     @State private var importedImagePDF: ImportedImagePDF?
     @State private var password = ""
     @State private var passwordMessage: LocalizedStringResource = "Enter the password required to open this PDF."
+    @State private var isPasswordError = false
     @State private var newPassword = ""
     @State private var confirmedPassword = ""
     @State private var newPasswordMessage: LocalizedStringResource = "Enter the new viewing password twice."
@@ -217,7 +218,24 @@ struct ContentView: View {
                     }
                     .pickerStyle(.menu)
 
+                    Menu("View", systemImage: "eye") {
+                        Button("Spread View", systemImage: "rectangle.split.2x1") {
+                            toggleSpreadView()
+                        }
+                        .disabled(model.document == nil)
+
+                        Button(PDFReadingDirection.rightToLeft.localizedName, systemImage: "arrow.left.arrow.right") {
+                            toggleReadingDirection()
+                        }
+                        .disabled(model.document == nil)
+                    }
+
                     Menu("Edit Pages", systemImage: "ellipsis.circle") {
+                        Button("Undo", systemImage: "arrow.uturn.backward") { model.undo() }
+                            .disabled(!model.canUndo)
+                        Button("Redo", systemImage: "arrow.uturn.forward") { model.redo() }
+                            .disabled(!model.canRedo)
+                        Divider()
                         Button("Add PDF", systemImage: "doc.badge.plus") {
                             isAppending = true
                         }
@@ -229,7 +247,6 @@ struct ContentView: View {
                             model.selectAllPages()
                         }
                         .disabled(!model.canSelectAll)
-                        .keyboardShortcut("a", modifiers: .command)
 
                         Button("Deselect All", systemImage: "circle") {
                             model.clearSelection()
@@ -240,7 +257,6 @@ struct ContentView: View {
                             model.invertSelection()
                         }
                         .disabled(model.pages.isEmpty)
-                        .keyboardShortcut("l", modifiers: .command)
 
                         Button("Save Selection", systemImage: "square.and.arrow.down") {
                             prepareSelectionExport()
@@ -278,13 +294,11 @@ struct ContentView: View {
                             model.rotateSelection(by: -90)
                         }
                         .disabled(!model.canEdit)
-                        .keyboardShortcut("r", modifiers: [.command, .shift])
 
                         Button("Rotate Right", systemImage: "rotate.right") {
                             model.rotateSelection(by: 90)
                         }
                         .disabled(!model.canEdit)
-                        .keyboardShortcut("r", modifiers: .command)
 
                         Button("Split Pages…", systemImage: "rectangle.split.2x1") {
                             isPresentingSplitDialog = true
@@ -361,6 +375,10 @@ struct ContentView: View {
                 }
             }
         }
+        // Disable only the underlying workspace, leaving presented editors and
+        // system pickers free to handle Select All, Delete and Undo themselves.
+        .background { workspaceKeyboardCommands }
+        .disabled(isWorkspacePresentedOver)
         .fileImporter(isPresented: $isImporting, allowedContentTypes: [.pdf]) { result in
             handleOpenImport(result)
         }
@@ -383,6 +401,7 @@ struct ContentView: View {
                 if case .passwordRequired = model.append(url) {
                     password = ""
                     passwordMessage = "Enter the password required to open this PDF."
+                    isPasswordError = false
                     isRequestingPassword = true
                 }
             } else if case let .failure(error) = result {
@@ -436,25 +455,20 @@ struct ContentView: View {
         } message: {
             Text("Save your changes before opening another PDF?")
         }
-        .alert("Password Required", isPresented: $isRequestingPassword) {
-            SecureField("Password", text: $password)
-            Button("Open") {
-                if model.unlockPendingDocument(with: password) {
-                    password = ""
-                    passwordMessage = "Enter the password required to open this PDF."
-                } else {
-                    password = ""
-                    passwordMessage = "The password is incorrect. Try again."
-                    isRequestingPassword = true
-                }
-            }
-            Button("Cancel", role: .cancel) {
-                password = ""
-                passwordMessage = "Enter the password required to open this PDF."
-                model.cancelPendingUnlock()
-            }
-        } message: {
-            Text(passwordMessage)
+        .sheet(
+            isPresented: $isRequestingPassword,
+            onDismiss: cancelPasswordRequest
+        ) {
+            PasswordPromptSheet(
+                isPresented: $isRequestingPassword,
+                password: $password,
+                message: $passwordMessage,
+                isError: $isPasswordError,
+                onUnlock: { pwd in
+                    model.unlockPendingDocument(with: pwd)
+                },
+                onCancel: cancelPasswordRequest
+            )
         }
         .alert("Set Viewing Password", isPresented: $isSettingPassword) {
             SecureField("New Password", text: $newPassword)
@@ -498,6 +512,7 @@ struct ContentView: View {
                         Button("Close") {
                             isPresentingSamplePDFs = false
                         }
+                        .keyboardShortcut(.cancelAction)
                     }
                 }
             }
@@ -582,6 +597,79 @@ struct ContentView: View {
                 badgeManager.checkAndClaimEligibleBadges()
             }
         }
+    }
+
+    // Menu content is created lazily on macOS. Keep key equivalents mounted
+    // from the first frame, with the same actions and availability as the UI.
+    private var workspaceKeyboardCommands: some View {
+        VStack {
+            Group {
+                Button("Open PDF") { isImporting = true }
+                    .keyboardShortcut("o", modifiers: .command)
+                Button("Save") { prepareExport() }
+                    .disabled(model.document == nil)
+                    .keyboardShortcut("s", modifiers: .command)
+                Button("Save Selection") { prepareSelectionExport() }
+                    .disabled(!model.canEdit)
+                    .keyboardShortcut("e", modifiers: .command)
+                Button("Select All") { model.selectAllPages() }
+                    .disabled(!model.canSelectAll)
+                    .keyboardShortcut("a", modifiers: .command)
+                Button("Deselect All") { model.clearSelection() }
+                    .disabled(model.selection.isEmpty)
+                    .keyboardShortcut("l", modifiers: .command)
+                Button("Invert Selection") { model.invertSelection() }
+                    .disabled(model.pages.isEmpty)
+                    .keyboardShortcut("l", modifiers: [.command, .shift])
+            }
+            Group {
+                Button("Spread View") { toggleSpreadView() }
+                    .disabled(model.document == nil)
+                    .keyboardShortcut("t", modifiers: .command)
+                Button(PDFReadingDirection.rightToLeft.localizedName) { toggleReadingDirection() }
+                    .disabled(model.document == nil)
+                    .keyboardShortcut("r", modifiers: .command)
+                Button("Undo") { model.undo() }
+                    .disabled(!model.canUndo)
+                    .keyboardShortcut("z", modifiers: .command)
+                Button("Redo") { model.redo() }
+                    .disabled(!model.canRedo)
+                    .keyboardShortcut("z", modifiers: [.command, .shift])
+                Button("Delete") { model.deleteSelection() }
+                    .disabled(!model.canDelete)
+                    .keyboardShortcut(.delete, modifiers: [])
+                Button("Rotate Right") { model.rotateSelection(by: 90) }
+                    .disabled(!model.canEdit)
+                    .keyboardShortcut("r", modifiers: [.command, .option])
+                Button("Rotate Left") { model.rotateSelection(by: -90) }
+                    .disabled(!model.canEdit)
+                    .keyboardShortcut("r", modifiers: [.command, .option, .shift])
+            }
+        }
+        .frame(width: 0, height: 0)
+        .opacity(0)
+        .allowsHitTesting(false)
+        .accessibilityHidden(true)
+    }
+
+    private func toggleSpreadView() {
+        viewMode = viewMode == .spread ? .auto : .spread
+    }
+
+    private func toggleReadingDirection() {
+        var preferences = model.documentDetails.viewerPreferences
+        preferences.setReadingDirection(preferences.readingDirection == .rightToLeft ? .leftToRight : .rightToLeft)
+        model.updateViewerPreferences(preferences)
+    }
+
+    private var isWorkspacePresentedOver: Bool {
+        isImporting || isImportingFromEmptyState || isAppending || isExporting ||
+        isExportingSelection || isConfirmingOpen || isPresentingProperties ||
+        isPresentingVersionInformation || isPresentingDiagnostics || isPresentingOptions ||
+        isPresentingSplitDialog || isPresentingCropDialog || isPresentingHelp ||
+        isPresentingSupport || isPresentingSamplePDFs || isSettingPassword ||
+        isRequestingPassword || isImportingImageFolder || imageFolder != nil ||
+        previewedPageID != nil || model.errorMessage != nil
     }
 
     private var pageList: some View {
@@ -986,8 +1074,16 @@ struct ContentView: View {
         if case .passwordRequired = model.open(url) {
             password = ""
             passwordMessage = "Enter the password required to open this PDF."
+            isPasswordError = false
             isRequestingPassword = true
         }
+    }
+
+    private func cancelPasswordRequest() {
+        password = ""
+        passwordMessage = "Enter the password required to open this PDF."
+        isPasswordError = false
+        model.cancelPendingUnlock()
     }
 
     private func clearNewPasswordFields() {
@@ -1004,8 +1100,85 @@ struct ContentView: View {
     }
 }
 
+private struct PasswordPromptSheet: View {
+    @Binding var isPresented: Bool
+    @Binding var password: String
+    @Binding var message: LocalizedStringResource
+    @Binding var isError: Bool
+    let onUnlock: (String) -> Bool
+    let onCancel: () -> Void
+
+    @FocusState private var isFieldFocused: Bool
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section {
+                    SecureField("Password", text: $password)
+#if os(iOS)
+                        .textInputAutocapitalization(.never)
+#endif
+                        .autocorrectionDisabled()
+                        .focused($isFieldFocused)
+                        .submitLabel(.go)
+                        .onSubmit(submit)
+                } footer: {
+                    Text(message)
+                        .foregroundStyle(isError ? .red : .secondary)
+                }
+            }
+            .navigationTitle("Password Required")
+#if os(iOS)
+            .navigationBarTitleDisplayMode(.inline)
+#endif
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") {
+                        isPresented = false
+                        onCancel()
+                    }
+                    .keyboardShortcut(.cancelAction)
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Open") {
+                        submit()
+                    }
+                }
+            }
+        }
+        .presentationDetents([.height(220), .medium])
+        .presentationDragIndicator(.visible)
+        .interactiveDismissDisabled()
+        .onAppear {
+            isFieldFocused = true
+        }
+    }
+
+    private func submit() {
+        if onUnlock(password) {
+            isError = false
+            password = ""
+            message = "Enter the password required to open this PDF."
+            isPresented = false
+        } else {
+            isError = true
+            password = ""
+            message = "The password is incorrect. Try again."
+            isFieldFocused = true
+        }
+    }
+}
+
 private struct HelpView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.locale) private var locale
+
+    private var tutorialPlaylistURL: URL {
+        let playlistID = locale.language.languageCode?.identifier == "ja"
+            ? "PLWJd7FMnZT7w"
+            : "PLcvqu67uMWDw"
+        return URL(string: "https://www.youtube.com/playlist?list=\(playlistID)")!
+    }
 
     var body: some View {
         NavigationStack {
@@ -1074,7 +1247,7 @@ private struct HelpView: View {
                 }
 
                 Section("Tutorial & Video Guides") {
-                    Link(destination: URL(string: "https://www.youtube.com/playlist?list=PLa-QGEwHSDRo")!) {
+                    Link(destination: tutorialPlaylistURL) {
                         Label("Tutorial Playlist (YouTube Shorts)", systemImage: "play.rectangle")
                     }
                 }
@@ -1083,6 +1256,7 @@ private struct HelpView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }
+                        .keyboardShortcut(.cancelAction)
                 }
             }
 
@@ -1161,6 +1335,12 @@ private struct AppVersionInformationView: View {
                     }
                 }
 
+                Section {
+                    Link(destination: info.privacyPolicyURL) {
+                        Label("Privacy Policy", systemImage: "hand.raised")
+                    }
+                }
+
                 Section("License") {
                     Text(info.license)
                         .textSelection(.enabled)
@@ -1173,6 +1353,7 @@ private struct AppVersionInformationView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }
+                        .keyboardShortcut(.cancelAction)
                 }
             }
             .sheet(item: $selectedBadge) { badge in
@@ -1252,6 +1433,7 @@ private struct PDFPropertiesView: View {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") { dismiss() }
+                        .keyboardShortcut(.cancelAction)
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Apply") {

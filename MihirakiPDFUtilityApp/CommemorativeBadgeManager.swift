@@ -9,6 +9,7 @@ public struct CommemorativeBadge: Identifiable, Sendable, Equatable, Hashable {
     public let subtitle: LocalizedStringResource
     public let assetName: String
     public let availableFrom: Date
+    /// Exclusive end of the claiming window. Already claimed badges do not expire.
     public let availableUntil: Date?
 
     public init(
@@ -38,7 +39,7 @@ public struct CommemorativeBadge: Identifiable, Sendable, Equatable, Hashable {
     /// Determines if this badge is eligible for automatic claiming at the specified date.
     public func isAvailable(at date: Date = Date()) -> Bool {
         if date < availableFrom { return false }
-        if let availableUntil, date > availableUntil { return false }
+        if let availableUntil, date >= availableUntil { return false }
         return true
     }
 }
@@ -60,6 +61,10 @@ public enum CommemorativeBadgeCatalog {
         return calendar.date(from: components) ?? Date(timeIntervalSince1970: 1793458800)
     }()
 
+    /// Claimable through 2027-12-31 JST; 2028-01-01 00:00:00 JST is excluded.
+    /// This fixed instant is independent of the device's selected time zone.
+    private static let koyomiEndDate = Date(timeIntervalSince1970: 1_830_265_200)
+
     /// Official Release Commemorative Koyomi Badge
     public static let releaseKoyomi = CommemorativeBadge(
         id: "commemorative_badge_koyomi",
@@ -67,7 +72,7 @@ public enum CommemorativeBadgeCatalog {
         subtitle: "Official Tameshibu Koyomi Badge celebrating the release",
         assetName: "BadgeKoyomi",
         availableFrom: koyomiStartDate,
-        availableUntil: nil
+        availableUntil: koyomiEndDate
     )
 
     /// All badges available in the app.
@@ -194,33 +199,38 @@ public struct CommemorativeBadgeDetailDialog: View {
 
     public var body: some View {
         NavigationStack {
-            VStack(spacing: 24) {
-                Spacer()
+            GeometryReader { geometry in
+                // Smaller sheets reserve room for text; scrolling also accommodates
+                // long translations and larger accessibility text sizes.
+                let imageSide = min(240, max(96, geometry.size.height * 0.35))
+                ScrollView {
+                    VStack(spacing: 20) {
+                        Image(badge.assetName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: imageSide, height: imageSide)
+                            .clipShape(.rect(cornerRadius: 24))
+                            .shadow(color: .black.opacity(0.18), radius: 16, x: 0, y: 8)
+                            .accessibilityLabel(badge.name)
 
-                Image(badge.assetName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: 240, maxHeight: 240)
-                    .clipShape(.rect(cornerRadius: 32))
-                    .shadow(color: .black.opacity(0.18), radius: 16, x: 0, y: 8)
-                    .accessibilityLabel(badge.name)
+                        VStack(spacing: 8) {
+                            Text(badge.name)
+                                .font(.title2.weight(.bold))
+                                .multilineTextAlignment(.center)
+                                .fixedSize(horizontal: false, vertical: true)
 
-                VStack(spacing: 8) {
-                    Text(badge.name)
-                        .font(.title2.weight(.bold))
-                        .multilineTextAlignment(.center)
-
-                    Text(badge.subtitle)
-                        .font(.body)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 24)
+                            Text(badge.subtitle)
+                                .font(.body)
+                                .foregroundStyle(.secondary)
+                                .multilineTextAlignment(.center)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                        .frame(maxWidth: .infinity)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding()
                 }
-
-                Spacer()
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding()
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") {
@@ -230,6 +240,7 @@ public struct CommemorativeBadgeDetailDialog: View {
             }
 #if os(iOS)
             .presentationDetents([.medium, .large])
+            .presentationContentInteraction(.scrolls)
             .presentationDragIndicator(.visible)
 #endif
         }

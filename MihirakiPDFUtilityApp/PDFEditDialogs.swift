@@ -28,6 +28,7 @@ struct PDFSplitDialog: View {
                     Button("Cancel") {
                         isPresented = false
                     }
+                    .keyboardShortcut(.cancelAction)
                 }
 
                 ToolbarItem(placement: .confirmationAction) {
@@ -83,6 +84,7 @@ struct PDFCropDialog: View {
                     Button("Cancel") {
                         isPresented = false
                     }
+                    .keyboardShortcut(.cancelAction)
                 }
 
                 ToolbarItem(placement: .confirmationAction) {

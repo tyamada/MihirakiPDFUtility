@@ -106,6 +106,7 @@ struct ImageImportView: View {
                         conversionTask?.cancel()
                         dismiss()
                     }
+                    .keyboardShortcut(.cancelAction)
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Import as PDF") {

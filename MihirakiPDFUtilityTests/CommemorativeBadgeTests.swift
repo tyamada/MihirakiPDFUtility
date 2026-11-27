@@ -17,7 +17,7 @@ struct CommemorativeBadgeTests {
         let badge = CommemorativeBadgeCatalog.releaseKoyomi
         #expect(badge.id == "commemorative_badge_koyomi")
         #expect(badge.assetName == "BadgeKoyomi")
-        #expect(badge.availableUntil == nil)
+        #expect(badge.availableUntil == Date(timeIntervalSince1970: 1_830_265_200))
 
         let catalogBadge = CommemorativeBadgeCatalog.badge(withID: "commemorative_badge_koyomi")
         #expect(catalogBadge == badge)
@@ -37,7 +37,7 @@ struct CommemorativeBadgeTests {
         #expect(!badge.isAvailable(at: beforeStart))
         #expect(badge.isAvailable(at: atStart))
         #expect(badge.isAvailable(at: afterStart))
-        #expect(badge.isAvailable(at: futureDate))
+        #expect(!badge.isAvailable(at: futureDate))
     }
 
     @Test("Auto-claims eligible badge on launch and persists to storage")
@@ -88,7 +88,7 @@ struct CommemorativeBadgeTests {
         #expect(manager.newlyClaimedBadge == nil)
     }
 
-    @Test("Future badges with end dates respect availability window")
+    @Test("Badges use an inclusive start and exclusive end")
     func futureBadgesWithEndDates() {
         let startDate = Date(timeIntervalSince1970: 1000)
         let endDate = Date(timeIntervalSince1970: 2000)
@@ -105,7 +105,56 @@ struct CommemorativeBadgeTests {
         #expect(!customBadge.isAvailable(at: Date(timeIntervalSince1970: 500)))
         #expect(customBadge.isAvailable(at: Date(timeIntervalSince1970: 1000)))
         #expect(customBadge.isAvailable(at: Date(timeIntervalSince1970: 1500)))
-        #expect(customBadge.isAvailable(at: Date(timeIntervalSince1970: 2000)))
+        #expect(!customBadge.isAvailable(at: Date(timeIntervalSince1970: 2000)))
         #expect(!customBadge.isAvailable(at: Date(timeIntervalSince1970: 2001)))
     }
+
+    @Test("Koyomi includes the whole last JST day but excludes the cutoff instant")
+    func koyomiDeadlineBoundary() throws {
+        let formatter = ISO8601DateFormatter()
+        let start = try #require(formatter.date(from: "2026-11-01T00:00:00+09:00"))
+        let cutoff = try #require(formatter.date(from: "2028-01-01T00:00:00+09:00"))
+        #expect(cutoff == formatter.date(from: "2027-12-31T15:00:00Z"))
+        let badge = CommemorativeBadgeCatalog.releaseKoyomi
+        #expect(badge.availableFrom == start)
+        #expect(badge.availableUntil == cutoff)
+        #expect(!badge.isAvailable(at: start.addingTimeInterval(-0.001)))
+        #expect(badge.isAvailable(at: start))
+        #expect(badge.isAvailable(at: cutoff.addingTimeInterval(-0.001)))
+        #expect(!badge.isAvailable(at: cutoff))
+        #expect(!badge.isAvailable(at: cutoff.addingTimeInterval(0.001)))
+        for date in [cutoff, cutoff.addingTimeInterval(86400)] {
+            let manager = CommemorativeBadgeManager(userDefaults: makeTemporaryUserDefaults())
+            #expect(manager.checkAndClaimEligibleBadges(now: date).isEmpty)
+            #expect(manager.claimedBadges.isEmpty)
+            #expect(manager.newlyClaimedBadge == nil)
+        }
+        let lastMoment = CommemorativeBadgeManager(userDefaults: makeTemporaryUserDefaults())
+        #expect(lastMoment.checkAndClaimEligibleBadges(now: cutoff.addingTimeInterval(-0.001)).count == 1)
+        #expect(lastMoment.newlyClaimedBadge?.id == badge.id)
+    }
+
+    @Test("Saved Koyomi badge survives the deadline, reload and rechecks without a new toast")
+    func savedBadgeNeverExpires() {
+        let defaults = makeTemporaryUserDefaults()
+        let badge = CommemorativeBadgeCatalog.releaseKoyomi
+        let manager = CommemorativeBadgeManager(userDefaults: defaults)
+        #expect(manager.checkAndClaimEligibleBadges(now: badge.availableFrom).count == 1)
+        manager.dismissNewlyClaimedToast()
+        let reloaded = CommemorativeBadgeManager(userDefaults: defaults)
+        let after = Date(timeIntervalSince1970: 2_000_000_000)
+        #expect(reloaded.checkAndClaimEligibleBadges(now: after).isEmpty)
+        #expect(reloaded.isClaimed(badge))
+        #expect(reloaded.claimedBadges.map(\.id) == [badge.id])
+        #expect(reloaded.newlyClaimedBadge == nil)
+        #expect(defaults.stringArray(forKey: "commemorative_claimed_badge_ids") == [badge.id])
+
+        // Existing installations keep the same persisted ID, without account migration.
+        let existingDefaults = makeTemporaryUserDefaults()
+        existingDefaults.set([badge.id], forKey: "commemorative_claimed_badge_ids")
+        let existingUser = CommemorativeBadgeManager(userDefaults: existingDefaults)
+        #expect(existingUser.checkAndClaimEligibleBadges(now: after).isEmpty)
+        #expect(existingUser.claimedBadges == [badge])
+    }
+
 }

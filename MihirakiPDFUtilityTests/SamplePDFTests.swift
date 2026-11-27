@@ -31,7 +31,7 @@ struct SamplePDFTests {
         for sample in catalog.samples {
             #expect(sample.downloadURL.scheme == "https")
             #expect(sample.downloadURL.host == "github.com")
-            #expect(sample.downloadURL.path.hasPrefix("/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/"))
+            #expect(sample.downloadURL.path.hasPrefix("/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/"))
             #expect(sample.byteSize <= SamplePDFStore.maximumFileSize)
             let digestLength = sample.sha256.count
             let isHexDigest = sample.sha256.allSatisfy(\.isHexDigit)
@@ -70,7 +70,7 @@ struct SamplePDFTests {
     @Test("Response URL validation accepts approved hosts including release assets CDN")
     func responseURLValidationAcceptsApprovedHosts() throws {
         let validURLs = [
-            "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/tameshibu_episode1_2_ja.pdf",
+            "https://github.com/tyamada/manga-prompt-kit/releases/download/manga-pdf-20261103-v1/tameshibu_episode1_2_ja.pdf",
             "https://objects.githubusercontent.com/github-production-release-asset/test.pdf",
             "https://release-assets.githubusercontent.com/github-production-release-asset/test.pdf"
         ]
@@ -147,6 +147,69 @@ struct SamplePDFTests {
         let sortedEpisode1 = SamplePDFSortOrder.episode1First.sort(samples: catalog.samples)
         #expect(sortedEpisode1.first?.episode == 1)
         #expect(sortedEpisode1.last?.episode == 3)
+    }
+
+    @Test("Every episode contains each regional language exactly once")
+    func completeRegionalMatrix() throws {
+        let samples = try loadCatalog().samples
+        let languages = Set(SamplePDFLanguages.entries.map(\.code))
+        #expect(Set(samples.map(\.downloadURL)).count == 51)
+        for episode in 1...3 {
+            let entries = samples.filter { $0.episode == episode }
+            #expect(entries.count == 17)
+            #expect(Set(entries.map(\.languageCode)) == languages)
+            #expect(entries.allSatisfy { $0.pages == 8 })
+        }
+    }
+
+    @Test("Filipino download renames preserve IDs and existing cache paths")
+    func filipinoCacheNamesRemainStable() throws {
+        let samples = try loadCatalog().samples.filter { $0.languageCode == "fil" }
+        let root = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: root) }
+        let store = SamplePDFStore(documentsDirectory: root)
+        for sample in samples {
+            #expect(sample.id == "ep\(sample.episode)_fil")
+            let stem = "tameshibu_episode\(sample.episode)"
+            let localName = sample.episode < 3 ? "\(stem)_3_fil.pdf" : "\(stem)_2_tl.pdf"
+            #expect(sample.fileName == localName)
+            #expect(sample.downloadURL.lastPathComponent.hasSuffix("_tl.pdf"))
+            #expect(store.localURL(for: sample) == root
+                .appendingPathComponent("MihirakiSamplePdfs/verified")
+                .appendingPathComponent(sample.sha256)
+                .appendingPathComponent(localName))
+        }
+    }
+
+    @Test("Existing verified downloads remain available offline without rewriting files")
+    func existingDownloadsSurviveCatalogMigration() throws {
+        let catalog = try loadCatalog()
+        let root = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: root) }
+        let store = SamplePDFStore(documentsDirectory: root)
+        // Cache detection must not depend on the new remote URL or network availability.
+        for sample in catalog.samples {
+            let url = store.localURL(for: sample)
+            try FileManager.default.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
+            try Data(sample.id.utf8).write(to: url)
+        }
+        store.loadCatalog()
+        for sample in catalog.samples {
+            #expect(store.state(for: sample) == .downloaded)
+            #expect(try Data(contentsOf: store.localURL(for: sample)) == Data(sample.id.utf8))
+        }
+    }
+
+    @Test("Old release and floating latest URLs are rejected for new requests")
+    func rejectsObsoleteAndFloatingDownloadURLs() throws {
+        for value in [
+            "https://github.com/tyamada/MihirakiPDFUtility_Android/releases/download/sample-manga-v2/sample.pdf",
+            "https://github.com/tyamada/manga-prompt-kit/releases/latest/download/sample.pdf"
+        ] {
+            #expect(throws: SamplePDFStoreError.self) {
+                try SamplePDFStore.validateDownloadURL(URL(string: value))
+            }
+        }
     }
 
     private func loadCatalog() throws -> SamplePDFCatalog {

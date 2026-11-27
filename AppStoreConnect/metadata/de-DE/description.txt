@@ -1,35 +1,41 @@
-Mihiraki PDF Utility ist ein leistungsstarkes Tool zum Organisieren, Zusammenführen, Teilen und Bearbeiten von PDF-Dateien auf Ihrem iPhone und iPad. Es ist ideal für Arbeit, akademische Studien, Einreichungsdokumente sowie Doppelseiten, Manga und gescannte Bücher.
+„Mihiraki: PDF Utility“ ist ein vielseitiges Werkzeug zum Organisieren, Bearbeiten und Lesen von PDF-Seiten auf iPhone und iPad. Ideal für Beruf, Studium sowie für gescannte Bücher und Mangas.
 
 [Hauptfunktionen]
-■ Doppelseiten-Ansicht (Mihiraki)
-Zeigen Sie zwei Seiten nebeneinander an. Volle Unterstützung für die Leserichtung von rechts nach links (RTL) für japanische Bücher und Manga.
+■ Doppelseitenanzeige (Mihiraki)
+Zwei Seiten nebeneinander anzeigen – mit voller Unterstützung für Rechts-nach-Links-Leserichtung (RTL), perfekt für Mangas.
 
-■ Intelligentes Teilen
-Teilen Sie Doppelseiten in einzelne Seiten auf. Unterstützt vertikales (links/rechts) und horizontales (oben/unten) Teilen.
+■ Erweitertes Teilen von Seiten
+Teilen Sie Doppelseiten-PDFs sauber in zwei Einzelseiten (vertikal links/rechts oder horizontal oben/unten).
 
-■ Intuitive Neuordnung
-Organisieren Sie Ihr PDF durch einfaches Ziehen von Vorschaubildern. Führen Sie mehrere Dateien zusammen, fügen Sie leere Seiten ein und drehen oder löschen Sie Seiten ganz einfach.
+■ Flexible Seitenverwaltung & Zusammenführen
+Seiten einfach per Drag & Drop neu anordnen. Mehrere PDFs zusammenführen, Leerseiten einfügen, Seiten drehen oder löschen.
 
-■ Seitenrand-Zuschnitt
-Schneiden Sie unnötige Ränder von gescannten Dokumenten ab, indem Sie für jede Seite einen Prozentsatz angeben.
+■ Ränder zuschneiden
+Schneiden Sie überflüssige Scan-Ränder über ausgewählte Seiten hinweg gleichmäßig ab.
+
+■ Bilderordner importieren & als PDF speichern
+Importieren Sie Bildordner (Fotos oder Scans), sortieren Sie die Reihenfolge und erstellen Sie ein neues PDF-Dokument.
+
+■ Offizielle Beispiel-PDFs
+Laden Sie offizielle Beispiel-Mangas direkt in der App herunter, um Doppelseitenanzeige und Bearbeitungsfunktionen sofort auszuprobieren.
 
 ■ Sicherheit & Metadaten
-Unterstützung für passwortgeschützte PDFs. Bearbeiten Sie Dokumenteigenschaften wie Titel, Autor, Thema und Schlüsselwörter.
+Passwortgeschützte PDFs öffnen und speichern. Dokumenteigenschaften wie Titel, Autor und Schlüsselwörter bearbeiten.
 
-■ Diagnose & Audit-Protokolle
-Führen Sie In-App-Diagnosetests durch und überprüfen Sie lokale Audit-Protokolle (24-Stunden-Aufbewahrung, datenschutzgeschützt ohne externe Übertragung, teilbar).
+■ Diagnoseprotokolle auf dem Gerät
+Führen Sie Leistungstests durch und prüfen Sie Diagnoseprotokolle, die 14 Tage lang lokal auf Ihrem Gerät gespeichert werden. Bei Problemen können Sie den Diagnosebericht einsehen und manuell teilen (keine automatische Übertragung, keine persönlichen Daten oder PDF-Inhalte).
 
-■ Desktop-bereit (ChromeOS)
-Optimiert für große Bildschirme und Chromebooks mit Tastenkombinationen und Mauskontextmenüs.
+■ Optimiert für iPad-Displays
+Unterstützt Tastaturkurzbefehle, Trackpad-Gesten sowie Multitasking über Split View und Slide Over, um den großen Bildschirm des iPad optimal zu nutzen.
 
-■ Vollbild-Vorschau
-Betrachten Sie Seiten in hoher Auflösung mit flüssigem Pinch-to-Zoom und Wisch-Navigation.
+■ Vollbild-Vorschau mit Zoom
+Prüfen Sie Details mit hochauflösendem Rendering, Pinch-to-Zoom und Doppeltipp-Zoom.
 
 ■ Mehrsprachige Unterstützung
-Unterstützt mehrere Sprachen, darunter Deutsch, Englisch, Italienisch, Japanisch, Koreanisch, Chinesisch, Französisch, Spanisch und Portugiesisch.
+Verfügbar in 14 Sprachen, darunter Deutsch, Englisch, Japanisch, Koreanisch, Chinesisch, Französisch, Spanisch und Italienisch.
 
-■ Datenschutzorientiert
-Die gesamte PDF-Verarbeitung erfolgt lokal auf Ihrem Gerät. Ihre Dateien werden niemals auf externe Server hochgeladen.
+■ 100% lokale Verarbeitung
+Alle Bearbeitungen erfolgen vollständig auf Ihrem Gerät. Ihre Dateien werden niemals auf externe Server hochgeladen.
 
-■ Kostenlos und freiwillige Unterstützung
-Alle Funktionen sind ohne Kauf verfügbar. Freiwillige In-App-Käufe unterstützen die Entwicklung. Lokale PDF-Dateien können ohne Internetverbindung verarbeitet werden.
+■ Optionale Unterstützer-Symbole
+Alle PDF-Bearbeitungsfunktionen sind dauerhaft kostenlos. Optionale einmalige Unterstützer-Trinkgelder schalten Bronze-, Silber- und Gold-App-Symbole frei.

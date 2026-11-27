@@ -1,32 +1,41 @@
-Mihiraki PDF Utility is a powerful tool designed to help you organize, merge, split, and edit PDF files effortlessly on your iPhone and iPad. It is ideal for work, academic studies, submission documents, as well as double-page spreads, manga, and scanned books.
+“Mihiraki PDF Utility” is a versatile tool designed to organize, edit, and read PDF pages on your iPhone and iPad. Ideal for study, work documents, and reading digitized books and manga.
 
-【Key Features】
+[Key Features]
 ■ Spread (Mihiraki) View
-View two pages side-by-side. Fully supports Right-to-Left (RTL) reading direction for Japanese books and manga.
+View two pages side by side with full support for Right-to-Left (RTL) reading order, perfect for manga and books.
 
-■ Advanced Splitting
-Split double-page spreads into individual pages. Supports both Vertical (Left/Right) and Horizontal (Top/Bottom) splitting directions.
+■ Advanced Page Splitting
+Split two-page spreads into separate individual pages. Supports both vertical (left/right) and horizontal (top/bottom) split.
 
-■ Intuitive Reordering
-Organize your PDF by simply dragging thumbnails. Merge multiple files, insert blank pages, and rotate or delete pages with ease.
+■ Flexible Page Reordering & Merging
+Rearrange pages intuitively with drag-and-drop. Easily combine multiple PDF files, insert blank pages, and rotate or delete pages.
 
 ■ Margin Cropping
-Cut off unnecessary margins from scanned documents by specifying a percentage for each side.
+Trim unwanted scanner margins and borders across selected pages with customizable margins.
+
+■ Image Folder Import & PDF Creation
+Import image folders (scans or photos) directly into the app, adjust page order, and generate a brand-new PDF document.
+
+■ Official Sample PDFs
+Download official sample manga and documents directly within the app to try spread viewing and editing features right away.
 
 ■ Security & Metadata
-Support for password-protected PDFs. Edit document properties like Title, Author, Subject, and Keywords.
+Open and export password-protected PDFs. Edit document properties including title, author, subject, and keywords.
 
-■ Diagnostics & Audit Logs
-Run quick in-app diagnostic tests and inspect local audit logs (24-hour retention, privacy-protected with no external transmission, shareable).
+■ On-Device Diagnostics & Audit Logs
+Run performance tests and view local diagnostic logs automatically retained on your device for 14 days. If an issue occurs, you can review the diagnostic test report before choosing whether to share it manually. Nothing is sent automatically, and personal data or PDF contents are never included.
 
-■ Large Screen Ready (iPad & Mac)
-Enhanced for large screens with keyboard shortcuts, trackpad support, and multi-window multitasking on iPad and Mac.
+■ Designed for iPad & Large Displays
+Supports hardware keyboard shortcuts, trackpad navigation, and multitasking features like Split View and Slide Over to take full advantage of iPad’s larger screen.
 
-■ Full-screen Preview
-Inspect pages in high resolution with smooth pinch-to-zoom and swipe navigation.
+■ Full-Screen Preview & Zoom
+Inspect fine details with high-resolution rendering, pinch-to-zoom (1x–5x), and double-tap zoom.
 
-■ Multi-Language Support
-Supports 14 languages including English, Italian, Japanese, Korean, Chinese, German, French, Spanish, Portuguese, and more.
+■ Multilingual Support
+Available in 14 languages, including English, Japanese, Korean, Simplified and Traditional Chinese, German, French, Spanish, Italian, and more.
 
-■ Privacy Focused
-All PDF processing is done locally on your device. Your files are never uploaded to any external servers.
+■ 100% On-Device Processing
+All PDF processing takes place entirely on your device. Your documents are never uploaded to any external server.
+
+■ Optional Supporter Icons
+All PDF editing and viewing features are completely free. Optional one-time supporter tips are available to unlock special Bronze, Silver, and Gold app icons if you wish to support development.

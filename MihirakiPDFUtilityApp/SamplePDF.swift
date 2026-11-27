@@ -1,12 +1,12 @@
 import Foundation
 
-struct SamplePDFCatalog: Decodable, Equatable, Sendable {
+struct SamplePDFCatalog: Codable, Equatable, Sendable {
     let schemaVersion: Int
     let license: SamplePDFLicense
     let samples: [SamplePDF]
 }
 
-struct SamplePDFLicense: Decodable, Equatable, Sendable {
+struct SamplePDFLicense: Codable, Equatable, Sendable {
     let identifier: String
     let name: String
     let creator: String
@@ -114,7 +114,7 @@ enum SamplePDFSortOrder: String, CaseIterable, Identifiable {
     }
 }
 
-struct SamplePDF: Decodable, Identifiable, Equatable, Sendable {
+struct SamplePDF: Codable, Identifiable, Equatable, Sendable {
     let id: String
     let title: String
     let languageCode: String

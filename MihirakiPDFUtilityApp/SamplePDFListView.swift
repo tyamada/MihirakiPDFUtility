@@ -40,6 +40,8 @@ struct SamplePDFListView: View {
         .task {
             store.loadCatalog()
             configureCatalog()
+            await store.refreshCatalog()
+            configureCatalog()
         }
         .onChange(of: selectedLanguageCode) {
             updateVisibleSamples()
@@ -108,10 +110,12 @@ struct SamplePDFListView: View {
     private func configureCatalog() {
         guard let catalog = store.catalog else { return }
         languageCodes = SamplePDFLanguageFilter.availableLanguageCodes(in: catalog.samples)
-        selectedLanguageCode = SamplePDFLanguageFilter.initialLanguageCode(
-            preferredLanguages: Locale.preferredLanguages,
-            availableLanguageCodes: languageCodes
-        )
+        if selectedLanguageCode == nil || !languageCodes.contains(selectedLanguageCode ?? "") {
+            selectedLanguageCode = SamplePDFLanguageFilter.initialLanguageCode(
+                preferredLanguages: Locale.preferredLanguages,
+                availableLanguageCodes: languageCodes
+            )
+        }
         updateVisibleSamples()
     }
 
@@ -248,7 +252,9 @@ private struct SamplePDFRow: View {
             Text(sample.title)
                 .font(.headline)
 
-            let pageCountSuffix = sample.pages.map { " · \($0) pages" } ?? ""
+            let pageCountSuffix = sample.pages.map {
+                " · " + String.localizedStringWithFormat(String(localized: "%lld pages"), Int64($0))
+            } ?? ""
             Text(verbatim: "\(languageName) · \(sample.formattedFileSize)\(pageCountSuffix)")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
