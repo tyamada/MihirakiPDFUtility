@@ -1,6 +1,6 @@
 # MihirakiPDFUtility
 
-公開状況・X案内の確認結果（2026-11-23）は[公開準備記録](docs/PUBLICATION_STATUS_20261123.ja.md)を参照してください。既存の保留事項は維持しています。
+現在、16の国・地域で [App Store](https://apps.apple.com/app/id6814705870) にて配信中です（2026年11月27日時点・iOS `1.0.5` は審査待ち）。最新の配信計画・調査記録は[次期配信地域計画](planning/2026-11-26-next-regions-expansion-plan/00-plan-and-decision-gates-ja.md)、2026-11-23時点の公開記録は[公開準備記録](docs/PUBLICATION_STATUS_20261123.ja.md)を参照してください。
 
 [English](README.md) | 日本語
 
@@ -33,8 +33,9 @@ MihirakiPDFUtilityは、PDFページの並べ替え、回転、挿入、削除�
 - ブロンズ、シルバー、ゴールドのサポーターアイコンを永久的に利用できる、任意の非消耗型アプリ内購入
 - GitHub Pages用のマーケティング、プライバシー、サポートページ
 
-## ウェブサイト
+## App Store・ウェブサイト
 
+- [App Store](https://apps.apple.com/app/id6814705870)
 - [マーケティングページ](https://tyamada.github.io/MihirakiPDFUtility/index_ja.html)
 - [プライバシーポリシー](https://tyamada.github.io/MihirakiPDFUtility/privacy_ja.html)
 - [サポート](https://tyamada.github.io/MihirakiPDFUtility/support_ja.html)
